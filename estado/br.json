@@ -14,7 +14,7 @@
    "titulos_chat": [
     "dourada"
    ],
-   "views": 20,
+   "views": 36,
    "n_clipes": 1,
    "score": 617.9720770839917,
    "teste": true,
@@ -39,7 +39,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T20:55:51+00:00"
+   "numeros_em": "2026-11-12T22:16:10+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -159,7 +159,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 1"
    ],
-   "views": 56,
+   "views": 216,
    "n_clipes": 1,
    "score": 761.9720770839917,
    "jogo": "Grand Theft Auto V",
@@ -198,10 +198,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_4957.jpg",
    "thumb_asset": 740569626,
    "atualizado_em": "2026-11-12T21:53:53+00:00",
-   "likes": 2,
+   "likes": 11,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T20:55:51+00:00",
+   "numeros_em": "2026-11-12T22:16:10+00:00",
    "usado_em": [
     "dia"
    ]
@@ -220,7 +220,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 2"
    ],
-   "views": 0,
+   "views": 3,
    "n_clipes": 1,
    "score": 496.9720770839918,
    "jogo": "Grand Theft Auto V",
@@ -259,10 +259,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_6557.jpg",
    "thumb_asset": 740576718,
    "atualizado_em": "2026-11-12T21:53:53+00:00",
-   "likes": 0,
+   "likes": 1,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-12T20:55:51+00:00",
+   "numeros_em": "2026-11-12T22:16:10+00:00",
    "usado_em": [
     "dia"
    ]
@@ -335,7 +335,7 @@
    "titulos_chat": [
     "MAL POSSO ESPERAR PARA ACORDAR E ASSISTIR AO TRAILER DO ACLAMADO GTA 6 WOWWWWWW NAO VEJO A HORA ESTOU ARREPIADO"
    ],
-   "views": 1531,
+   "views": 0,
    "n_clipes": 1,
    "score": 1144.4804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -376,7 +376,11 @@
    "atualizado_em": "2026-11-12T21:53:53+00:00",
    "usado_em": [
     "dia"
-   ]
+   ],
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-12T22:16:10+00:00"
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -398,12 +402,49 @@
    "evento": "Trailer 1 do GTA 6",
    "nome": "Alanzoka",
    "jogo": "Just Chatting",
-   "status": "novo",
+   "status": "postado",
    "criado_em": "2026-11-12T20:43:35+00:00",
    "usado_em": [
     "dia"
    ],
-   "atualizado_em": "2026-11-12T21:53:53+00:00"
+   "atualizado_em": "2026-11-12T22:21:28+00:00",
+   "tipo": "short",
+   "titulo": "...Alanzoka reagindo ao trailer do GTA 6...",
+   "gancho": "TRAILER",
+   "descricao": "...Alanzoka reagindo ao trailer do GTA 6...\nAlanzoka reagindo ao trailer do GTA 6 no live. Veja a reação do streamer.\n\n🎮 Live original: https://twitch.tv/alanzoka\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "alanzoka",
+    "gta 6",
+    "corte gta 6",
+    "reação gta 6",
+    "cortes gta 6",
+    "alanzoka reagindo",
+    "alanzoka gta 6",
+    "alanzoka trailer gta 6",
+    "alanzoka gta",
+    "gta 6 live",
+    "alanzoka gta 6 live",
+    "alanzoka live",
+    "live",
+    "gta rp",
+    "cortes"
+   ],
+   "youtube_id": "LicQcKFPtEo",
+   "publicar_em": "2026-11-13T14:00:00Z",
+   "postado_em": "2026-11-12T22:21:28+00:00",
+   "feito_em": "2026-11-12T22:21:28+00:00",
+   "corte": [
+    8.0,
+    42.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "duracao": 34.5,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG.mp4",
+   "video_asset": 741309148,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG.jpg",
+   "thumb_asset": 741309255
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -502,7 +543,12 @@
    "thumb_asset": 741229688,
    "youtube_id": "A5JOxLuP_Vc",
    "publicar_em": "2026-11-13T22:30:00Z",
-   "postado_em": "2026-11-12T21:54:08+00:00"
+   "postado_em": "2026-11-12T21:54:08+00:00",
+   "views": 0,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-12T22:16:10+00:00"
   }
  },
  "clipes_vistos": [
