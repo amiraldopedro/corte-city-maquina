@@ -79,7 +79,7 @@ canais:
     descobrir:
       jogos: ["Grand Theft Auto V", "Grand Theft Auto VI"]
       idioma: pt
-      min_views: 300
+      min_views: 150
     playlists:
       shorts: "Melhores Momentos de GTA 6"
       compilado: "Melhores Momentos de GTA 6"
