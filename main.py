@@ -182,8 +182,10 @@ def produzir(cfg: Config):
                 try:
                     feitos += produzir_um(cfg, canal, est, m, yt)
                 except Exception as e:
-                    est.atualizar(m["id"], status="erro", erro=str(e)[:300])
-                    log(f"    ❌ erro: {str(e)[:300]}")
+                    falhas = m.get("falhas", 0) + 1
+                    est.atualizar(m["id"], status="erro" if falhas >= 2 else "novo", falhas=falhas, erro=str(e)[:300],
+                                  score=m.get("score", 0) * 0.5)
+                    log(f"    ❌ erro ({falhas}ª vez): {str(e)[:300]}")
                 finally:
                     est.salvar()
         except Exception:
