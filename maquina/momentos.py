@@ -20,13 +20,24 @@ def _score(views: int, n: int) -> float:
     return views * (1 + 0.6 * (n - 1)) + 150 * math.log1p(n)
 
 
+def _vale(c: dict, jogos_ok: dict, jogos_palavra: dict, palavras: list[str]) -> bool:
+    """Jogo liberado (GTA) entra direto; conversa/react só entra se o título do clipe falar de GTA."""
+    if not jogos_ok and not jogos_palavra:
+        return True  # modo teste: qualquer jogo
+    if c.get("game_id") in jogos_ok:
+        return True
+    titulo = (c.get("title") or "").lower()
+    return c.get("game_id") in jogos_palavra and any(p in titulo for p in palavras)
+
+
 def agrupar(clipes: list[dict], jogos_ok: dict[str, str], streamer: str, canal: str,
-            minimo_clipes: int, minimo_views: int) -> list[dict]:
+            minimo_clipes: int, minimo_views: int, jogos_palavra: dict | None = None,
+            palavras: list[str] | None = None) -> list[dict]:
     com_vod: dict[str, list[dict]] = {}
     sem_vod: list[dict] = []
 
     for c in clipes:
-        if jogos_ok and c.get("game_id") not in jogos_ok:
+        if not _vale(c, jogos_ok, jogos_palavra or {}, palavras or []):
             continue
         if c.get("video_id") and c.get("vod_offset") is not None:
             com_vod.setdefault(c["video_id"], []).append(c)

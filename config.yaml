@@ -8,8 +8,14 @@ jogos:
   - "Grand Theft Auto VI"
   - "Grand Theft Auto V"     # tire esta linha quando o GTA 6 dominar as lives
 
-# Quantas horas para trás procurar clipes a cada rodada
-janela_busca_horas: 24
+# Aquecimento até o lançamento (19/11): clipes de conversa/react só entram
+# se o título do clipe falar de GTA. Depois do lançamento pode apagar este bloco.
+jogos_com_palavra:
+  jogos: ["Just Chatting", "IRL"]
+  palavras: ["gta", "rockstar", "trailer", "vice city", "leonida", "lucia", "jason", "pré-carregamento", "pre load", "preload"]
+
+# Quantas horas para trás procurar clipes a cada rodada (72 no aquecimento, 24 depois do lançamento)
+janela_busca_horas: 72
 
 # Um "momento" só vira vídeo se tiver pelo menos isto:
 momento_minimo:

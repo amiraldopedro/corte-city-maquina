@@ -46,6 +46,8 @@ class Canal:
 @dataclass
 class Config:
     jogos: list[str]
+    jogos_com_palavra: list[str]
+    palavras: list[str]
     janela_busca_horas: int
     minimo_clipes: int
     minimo_views: int
@@ -106,6 +108,8 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
     mm, du, ia = bruto.get("momento_minimo", {}), bruto.get("duracao", {}), bruto.get("ia", {})
     return Config(
         jogos=list(bruto.get("jogos", ["Grand Theft Auto VI"])),
+        jogos_com_palavra=list((bruto.get("jogos_com_palavra") or {}).get("jogos", [])),
+        palavras=[p.lower() for p in (bruto.get("jogos_com_palavra") or {}).get("palavras", [])],
         janela_busca_horas=int(bruto.get("janela_busca_horas", 24)),
         minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
         duracao_min=int(du.get("minimo", 15)), duracao_max=int(du.get("maximo", 58)),

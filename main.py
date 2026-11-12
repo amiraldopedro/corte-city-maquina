@@ -45,6 +45,7 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
     streamers = cfg.streamers_do(canal)
     usuarios = tw.usuarios([s.login for s in streamers])
     jogos = {} if TESTE else tw.ids_jogos(cfg.jogos)
+    jogos_palavra = {} if TESTE or not cfg.jogos_com_palavra else tw.ids_jogos(cfg.jogos_com_palavra)
     novos = 0
     for s in streamers:
         u = usuarios.get(s.login)
@@ -52,7 +53,8 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
             log(f"  {s.login}: não existe na Twitch (confira o login no config.yaml)")
             continue
         clipes = [c for c in tw.clipes(u["id"], cfg.janela_busca_horas) if not est.clipe_visto(c["id"])]
-        momentos = agrupar(clipes, jogos, s.login, canal.id, cfg.minimo_clipes, cfg.minimo_views)
+        momentos = agrupar(clipes, jogos, s.login, canal.id, cfg.minimo_clipes, cfg.minimo_views,
+                           jogos_palavra, cfg.palavras)
         for m in momentos:
             if TESTE:
                 m["teste"] = True
