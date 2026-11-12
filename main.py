@@ -130,6 +130,10 @@ def fazer_cacada(cfg: Config):
     for canal in cfg.canais_ativos():
         log(f"== {canal.nome}: caçando clipes")
         est = Estado(canal.id)
+        if TESTE:
+            for x in est.momentos.values():
+                if x.get("teste") and x["status"] in ("erro", "descartado") and not x.get("youtube_id"):
+                    x["status"] = "novo"
         try:
             log(f"  {cacar(cfg, canal, est, tw)} momentos novos na fila")
         finally:

@@ -13,10 +13,19 @@ def _modelo(nome: str):
                         download_root=os.getenv("WHISPER_CACHE") or None)
 
 
+def _audio(arquivo: Path):
+    """Áudio em 16 kHz mono via ffmpeg (evita depender da versão do PyAV, que quebra o faster-whisper)."""
+    import subprocess
+    import numpy as np
+    r = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(arquivo), "-vn", "-ac", "1", "-ar", "16000",
+                        "-f", "s16le", "-"], capture_output=True, timeout=600, check=True)
+    return np.frombuffer(r.stdout, dtype=np.int16).astype(np.float32) / 32768.0
+
+
 def transcrever(arquivo: Path, idioma: str, modelo: str = "small") -> list[dict]:
     """Retorna lista de palavras: [{"p": "texto", "i": inicio, "f": fim}, ...]"""
     segmentos, _ = _modelo(modelo).transcribe(
-        str(arquivo), language=idioma, word_timestamps=True,
+        _audio(arquivo), language=idioma, word_timestamps=True,
         vad_filter=True, beam_size=5,
     )
     palavras = []
