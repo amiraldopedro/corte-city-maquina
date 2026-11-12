@@ -135,6 +135,8 @@ def postados_hoje(est: Estado, canal: Canal) -> int:
     n = 0
     for m in est.momentos.values():
         quando = m.get("feito_em") or m.get("postado_em")
+        if m.get("teste"):
+            continue  # vídeo de teste não conta na meta
         if m.get("tipo", "short") == "short" and m["status"] in ("pronto", "postado") and quando:
             if datetime.fromisoformat(quando).astimezone(tz).date() == hoje:
                 n += 1
