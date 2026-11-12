@@ -69,12 +69,13 @@ class Twitch:
         dados = self._get("streams", [("user_id", u) for u in ids_usuarios][:100])
         return {s["user_id"]: s for s in dados.get("data", [])}
 
-    def clipes(self, broadcaster_id: str, horas: int, maximo: int = 300) -> list[dict]:
-        """Clipes criados nas últimas `horas`, os mais vistos primeiro (ordem da própria API)."""
+    def clipes(self, broadcaster_id: str = "", horas: int = 24, maximo: int = 300, game_id: str = "") -> list[dict]:
+        """Clipes criados nas últimas `horas`, os mais vistos primeiro (ordem da própria API).
+        Com game_id: os clipes mais vistos daquele jogo, de qualquer streamer."""
         fim = datetime.now(timezone.utc)
         inicio = fim - timedelta(hours=horas)
         params = {
-            "broadcaster_id": broadcaster_id,
+            **({"game_id": game_id} if game_id else {"broadcaster_id": broadcaster_id}),
             "started_at": inicio.isoformat().replace("+00:00", "Z"),
             "ended_at": fim.isoformat().replace("+00:00", "Z"),
             "first": 100,

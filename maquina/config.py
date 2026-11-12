@@ -37,6 +37,8 @@ class Canal:
     hashtags: list[str]
     playlists: dict
     streamers: list[Streamer] = field(default_factory=list)
+    postar: str = "manual"
+    descobrir: dict = field(default_factory=dict)
 
     @property
     def refresh_token(self) -> str:
@@ -77,12 +79,12 @@ class Config:
     def streamers_do(self, canal: Canal) -> list[Streamer]:
         return [s for s in canal.streamers if s.login not in self.bloqueados]
 
-    def nome_streamer(self, login: str) -> str:
+    def nome_streamer(self, login: str, padrao: str = "") -> str:
         for c in self.canais:
             for s in c.streamers:
                 if s.login == login:
                     return s.nome
-        return login
+        return padrao or login
 
 
 def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
@@ -97,6 +99,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
             horarios=list(c.get("horarios", ["12:00", "18:00", "21:00"])),
             horario_compilado=c.get("horario_compilado", "19:30"),
             hashtags=list(c.get("hashtags", [])), playlists=dict(c.get("playlists", {})),
+            postar=c.get("postar", "manual"), descobrir=dict(c.get("descobrir") or {}),
         )
         for s in c.get("streamers", []):
             canal.streamers.append(Streamer(login=s["login"].lower(), nome=s.get("nome", s["login"]), canal_id=canal.id))

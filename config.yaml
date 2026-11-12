@@ -31,7 +31,7 @@ duracao:
   maximo: 58
 
 # Quantos Shorts produzir por rodada, em cada canal (a máquina roda a cada 3 horas)
-max_por_rodada: 1
+max_por_rodada: 3
 
 # IA gratuita (Ollama roda dentro do GitHub Actions). Se falhar, a máquina usa regras simples.
 ia:
@@ -59,6 +59,13 @@ canais:
     horarios: ["12:00", "18:00", "21:00"]
     horario_compilado: "19:30"
     hashtags: ["#gta6", "#gtavi", "#shorts"]
+    # postar: "manual" = a máquina deixa pronto e você posta | "automatico" = a máquina envia agendado nos horários
+    postar: automatico
+    # Além da lista abaixo, procura os clipes mais vistos desses jogos de QUALQUER streamer que fale o idioma do canal
+    descobrir:
+      jogos: ["Grand Theft Auto V", "Grand Theft Auto VI"]
+      idioma: pt
+      min_views: 300
     playlists:
       shorts: "Melhores Momentos de GTA 6"
       compilado: "Melhores Momentos de GTA 6"
@@ -84,6 +91,11 @@ canais:
     horarios: ["13:00", "17:00", "20:00"]
     horario_compilado: "19:00"
     hashtags: ["#gta6", "#gtavi", "#shorts"]
+    postar: automatico
+    descobrir:
+      jogos: ["Grand Theft Auto V", "Grand Theft Auto VI"]
+      idioma: en
+      min_views: 1000
     playlists:
       shorts: "Best GTA 6 Moments"
       compilado: "Best GTA 6 Moments"

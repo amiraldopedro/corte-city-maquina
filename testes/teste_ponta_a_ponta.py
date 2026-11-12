@@ -21,7 +21,14 @@ class TwitchFalsa:
     def ids_jogos(self, nomes):
         ids = {"Grand Theft Auto V": "32982", "Grand Theft Auto VI": "999", "Just Chatting": "509658", "IRL": "509672"}
         return {ids[n]: n for n in nomes if n in ids}
-    def clipes(self, uid, horas):
+    def clipes(self, broadcaster_id="", horas=24, maximo=300, game_id=""):
+        if game_id == "32982":   # descoberta por jogo: 2 clipes BR de um streamer fora da lista, 1 gringo (fora)
+            return [{"id": "g1", "game_id": "32982", "title": "fuga insana no RP", "video_id": "VOD9", "vod_offset": 500,
+                     "duration": 25, "view_count": 2000, "url": "https://clips/g1", "language": "pt", "broadcaster_name": "Cellbit"},
+                    {"id": "g2", "game_id": "32982", "title": "en clip", "video_id": "VOD8", "vod_offset": 50,
+                     "duration": 25, "view_count": 9000, "url": "https://clips/g2", "language": "en", "broadcaster_name": "Gringo"}]
+        if game_id: return []
+        uid = broadcaster_id
         if uid != "u_cerol": return []
         c = lambda i, g, t, off, v: {"id": f"c{i}", "game_id": g, "title": t, "video_id": "VOD1", "vod_offset": off,
                                      "duration": 20, "view_count": v, "url": f"https://clips/{i}"}
@@ -55,15 +62,16 @@ cfg = carregar()
 main.fazer_cacada(cfg)
 est = Estado("br"); ms = list(est.momentos.values())
 print("momentos:", [(m["id"], m["n_clipes"], m["titulos_chat"]) for m in ms])
-assert len(ms) == 2, "esperava 2 momentos (moto juntada + react)"
+assert len(ms) == 3, "esperava 3 momentos (moto juntada + react + descoberta Cellbit)"
+assert any(m.get("descoberto") and m["streamer"] == "cellbit" for m in ms), "descoberta por jogo falhou"
 main.fazer_cacada(carregar())                       # rodar de novo não pode duplicar
-assert len(Estado("br").momentos) == 2, "duplicou momento na segunda caçada"
+assert len(Estado("br").momentos) == 3, "duplicou momento na segunda caçada"
 print("fila:", main.tem_trabalho(carregar()))
 main.produzir(carregar())
-est = Estado("br"); post = [m for m in est.momentos.values() if m["status"] == "pronto"]
-print("entregues:", enviados); print("prontos:", [(m["titulo"], m["layout"], m["video_url"], m["descricao"][:40]) for m in post])
+est = Estado("br"); post = [m for m in est.momentos.values() if m["status"] in ("pronto", "postado")]
+print("entregues/enviados:", enviados); print("feitos:", [(m["status"], m["titulo"], m.get("youtube_id"), m.get("publicar_em"), m["video_url"]) for m in post])
 assert len(post) == 1 and list(Path("estado/thumbs").glob("*.jpg")), "não ficou pronto"
-assert "GTA RP" in post[0]["titulo"] or "fuga" in post[0]["titulo"], post[0]["titulo"]
 assert post[0]["jogo"] == "Grand Theft Auto V"
+assert post[0]["status"] == "postado" and post[0]["publicar_em"] and post[0]["video_url"], "automático deveria agendar e guardar reserva"
 assert main.postados_hoje(est, cfg.canal("br")) == 1
 print("OK: ponta a ponta funcionando")
