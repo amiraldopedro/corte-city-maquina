@@ -197,11 +197,14 @@
    "video_asset": 740569521,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_4957.jpg",
    "thumb_asset": 740569626,
-   "atualizado_em": "2026-11-12T18:17:46+00:00",
+   "atualizado_em": "2026-11-12T21:53:53+00:00",
    "likes": 2,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T20:55:51+00:00"
+   "numeros_em": "2026-11-12T20:55:51+00:00",
+   "usado_em": [
+    "dia"
+   ]
   },
   "2924173618_6557": {
    "id": "2924173618_6557",
@@ -255,11 +258,14 @@
    "video_asset": 740576643,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_6557.jpg",
    "thumb_asset": 740576718,
-   "atualizado_em": "2026-11-12T18:20:01+00:00",
+   "atualizado_em": "2026-11-12T21:53:53+00:00",
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-12T20:55:51+00:00"
+   "numeros_em": "2026-11-12T20:55:51+00:00",
+   "usado_em": [
+    "dia"
+   ]
   },
   "clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq": {
    "id": "clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq",
@@ -282,7 +288,11 @@
    "nome": "Paulinho O Loko",
    "jogo": "Just Chatting",
    "status": "novo",
-   "criado_em": "2026-11-12T20:43:35+00:00"
+   "criado_em": "2026-11-12T20:43:35+00:00",
+   "usado_em": [
+    "dia"
+   ],
+   "atualizado_em": "2026-11-12T21:53:53+00:00"
   },
   "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK": {
    "id": "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK",
@@ -305,7 +315,11 @@
    "nome": "Paulinho O Loko",
    "jogo": "Just Chatting",
    "status": "novo",
-   "criado_em": "2026-11-12T20:43:35+00:00"
+   "criado_em": "2026-11-12T20:43:35+00:00",
+   "usado_em": [
+    "dia"
+   ],
+   "atualizado_em": "2026-11-12T21:53:53+00:00"
   },
   "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0": {
    "id": "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0",
@@ -359,7 +373,10 @@
    "video_asset": 741065518,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0.jpg",
    "thumb_asset": 741065589,
-   "atualizado_em": "2026-11-12T21:00:01+00:00"
+   "atualizado_em": "2026-11-12T21:53:53+00:00",
+   "usado_em": [
+    "dia"
+   ]
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -382,7 +399,11 @@
    "nome": "Alanzoka",
    "jogo": "Just Chatting",
    "status": "novo",
-   "criado_em": "2026-11-12T20:43:35+00:00"
+   "criado_em": "2026-11-12T20:43:35+00:00",
+   "usado_em": [
+    "dia"
+   ],
+   "atualizado_em": "2026-11-12T21:53:53+00:00"
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -405,7 +426,11 @@
    "nome": "Alanzoka",
    "jogo": "Just Chatting",
    "status": "novo",
-   "criado_em": "2026-11-12T20:43:35+00:00"
+   "criado_em": "2026-11-12T20:43:35+00:00",
+   "usado_em": [
+    "dia"
+   ],
+   "atualizado_em": "2026-11-12T21:53:53+00:00"
   },
   "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4": {
    "id": "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
@@ -428,7 +453,56 @@
    "nome": "Alanzoka",
    "jogo": "Just Chatting",
    "status": "novo",
-   "criado_em": "2026-11-12T20:43:51+00:00"
+   "criado_em": "2026-11-12T20:43:51+00:00",
+   "usado_em": [
+    "dia"
+   ],
+   "atualizado_em": "2026-11-12T21:53:53+00:00"
+  },
+  "dia_20261112": {
+   "id": "dia_20261112",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "dia",
+   "status": "postado",
+   "titulo": "GTA RP: os momentos mais engraçados de 12/11 (Paulinho O Loko, Alanzoka, mount)",
+   "descricao": "GTA RP: os momentos mais engraçados de 12/11 (Paulinho O Loko, Alanzoka, mount)\nOs momentos mais engraçados e insanos das lives de GTA RP: Paulinho O Loko, Alanzoka, mount.\n\n⏱️ Capítulos\n00:00 Alanzoka — reagindo ao bug do GTA 6 live\n00:26 mount — Mount está se irritando no GTA RP... até isso acontecer\n01:08 mount — Mount dá ordem para helicóptero na GTA RP... e não morre!\n01:43 Alanzoka — Trailer 1 do GTA 6\n02:25 Alanzoka — Trailer 1 do GTA 6\n02:55 Paulinho O Loko — Trailer 1 do GTA 6\n03:25 Alanzoka — novo adiamento do GTA 6\n04:07 Paulinho O Loko — Trailer 1 do GTA 6\n\n🎮 Live original:\n• Alanzoka: https://twitch.tv/alanzoka\n• mount: https://twitch.tv/mount\n• Paulinho O Loko: https://twitch.tv/paulinholokobr\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #gta6 #cortes",
+   "tags": [
+    "paulinho o loko",
+    "alanzoka",
+    "mount",
+    "gta rp",
+    "gta rp brasil",
+    "cortes gta rp",
+    "momentos engraçados gta",
+    "gta 6",
+    "melhores momentos gta rp"
+   ],
+   "playlist": "Melhores Momentos de GTA 6",
+   "feito_em": "2026-11-12T21:54:08+00:00",
+   "criado_em": "2026-11-12T21:54:08+00:00",
+   "itens": [
+    "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0",
+    "2924173618_4957",
+    "2924173618_6557",
+    "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
+    "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
+    "clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq",
+    "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
+    "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK"
+   ],
+   "streamers": [
+    "alanzoka",
+    "mount",
+    "paulinholokobr"
+   ],
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/dia_20261112.mp4",
+   "video_asset": 741229544,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/dia_20261112.jpg",
+   "thumb_asset": 741229688,
+   "youtube_id": "A5JOxLuP_Vc",
+   "publicar_em": "2026-11-13T22:30:00Z",
+   "postado_em": "2026-11-12T21:54:08+00:00"
   }
  },
  "clipes_vistos": [
