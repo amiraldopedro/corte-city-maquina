@@ -1,0 +1,57 @@
+name: Painel - ação
+
+# Disparado pelos botões do painel visual.
+on:
+  workflow_dispatch:
+    inputs:
+      acao: { description: "publicar, descartar, priorizar, bloquear, desbloquear, apagar, adicionar, remover, numeros", required: true }
+      id: { description: "ID do vídeo/momento", required: false, default: "" }
+      canal: { description: "br ou en", required: false, default: "br" }
+      login: { description: "Login do streamer na Twitch", required: false, default: "" }
+      nome: { description: "Nome do streamer (para adicionar)", required: false, default: "" }
+      quando: { description: "Agendar para (AAAA-MM-DDTHH:MM, horário do canal). Vazio = publicar agora", required: false, default: "" }
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maquina
+  cancel-in-progress: false
+
+jobs:
+  acao:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+      TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
+      YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q -r requirements-leve.txt
+      - name: Executar
+        env:
+          ACAO: ${{ inputs.acao }}
+          ID: ${{ inputs.id }}
+          CANAL: ${{ inputs.canal }}
+          LOGIN: ${{ inputs.login }}
+          NOME: ${{ inputs.nome }}
+          QUANDO: ${{ inputs.quando }}
+        run: |
+          if [ "$ACAO" = "numeros" ]; then python main.py numeros; exit 0; fi
+          python main.py painel "$ACAO" --id "$ID" --canal "$CANAL" --login "$LOGIN" --nome "$NOME" --quando "$QUANDO"
+      - name: Salvar
+        if: always()
+        env:
+          ACAO: ${{ inputs.acao }}
+        run: |
+          git config user.name "maquina-de-cortes"
+          git config user.email "maquina@users.noreply.github.com"
+          git add estado/ config.yaml
+          git commit -qm "Painel: $ACAO [skip ci]" || exit 0
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

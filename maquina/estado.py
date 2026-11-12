@@ -51,7 +51,7 @@ class Estado:
 
     def por_status(self, status: str) -> list[dict]:
         lista = [m for m in self.momentos.values() if m["status"] == status]
-        return sorted(lista, key=lambda m: -m.get("score", 0))
+        return sorted(lista, key=lambda m: (not m.get("prioridade"), -m.get("score", 0)))
 
     def do_streamer(self, login: str) -> list[dict]:
         return [m for m in self.momentos.values() if m["streamer"] == login]

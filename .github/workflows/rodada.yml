@@ -37,6 +37,7 @@ jobs:
           pip install -q -r requirements-leve.txt
           if [ -z "$TWITCH_CLIENT_ID" ]; then echo "Chaves da Twitch ainda não configuradas — pulando."; exit 0; fi
           python main.py cacar
+          python main.py numeros
 
       - name: Tem Short para fazer agora?
         id: fila

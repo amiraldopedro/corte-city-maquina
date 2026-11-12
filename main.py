@@ -6,6 +6,8 @@
   python main.py compilado dia|top10     monta e posta o vídeo longo
   python main.py bloquear LOGIN          nunca mais corta esse streamer
   python main.py apagar LOGIN            apaga do YouTube todos os vídeos desse streamer
+  python main.py numeros                 atualiza views/likes dos vídeos postados
+  python main.py painel ACAO --id/--login/--nome/--canal/--quando   botões do painel visual
   python main.py teste                   confere chaves e conexões
   python main.py simular VIDEO.mp4       edita um vídeo local (sem Twitch/YouTube), para testar
 """
@@ -95,6 +97,8 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
     capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), final.with_suffix(".jpg"), d["gancho"],
                              canal.cor_destaque, info["webcam"])
+    from maquina.painel import guardar_thumb
+    guardar_thumb(capa, m["id"])
 
     titulo = d["titulo"]
     publicar_em = None
@@ -108,7 +112,8 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     yt.por_na_playlist(vid, canal.playlists.get("shorts", ""))
     est.atualizar(m["id"], status="postado", tipo="short", youtube_id=vid, titulo=titulo, gancho=d["gancho"],
                   corte=[d["inicio"], d["fim"]], publicar_em=publicar_em, postado_em=agora(),
-                  layout=info["layout"], cerebro=d["fonte"])
+                  layout=info["layout"], cerebro=d["fonte"], nome=nome,
+                  duracao=round(d["fim"] - d["inicio"], 1), prioridade=False)
     quando = f"agendado para {publicar_em}" if publicar_em else "PRIVADO (aguardando sua revisão)"
     log(f"    ✅ https://youtu.be/{vid} — {quando}")
     return True
@@ -210,6 +215,9 @@ def fazer_compilado(cfg: Config, tipo: str):
         capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), saida.with_suffix(".jpg"),
                                  melhor.get("gancho") or cerebro.GANCHOS[canal.idioma][0], canal.cor_destaque,
                                  editar.achar_webcam(bruto, 0, editar.info_video(bruto)[2]), etiqueta)
+        from maquina.painel import guardar_thumb
+        cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}"
+        guardar_thumb(capa, cid)
         creditos = "\n".join(f"• {n}: https://twitch.tv/{l}" for l, n in nomes.items()
                              if any(m["streamer"] == l for m in usados))
         descricao = f"{titulo}\n\n{LIVE[canal.idioma]}:\n{creditos}\n\n{AVISO[canal.idioma]}\n\n#gta6 #gtavi"
@@ -222,7 +230,6 @@ def fazer_compilado(cfg: Config, tipo: str):
         vid = yt.enviar(saida, titulo, descricao, ["gta 6", "gta vi", "gta 6 best moments", *ordem_nomes[:5]],
                         canal.idioma, publicar_em, capa)
         yt.por_na_playlist(vid, canal.playlists.get("top10" if tipo == "top10" else "compilado", ""))
-        cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}"
         est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo, "status": "postado",
                              "youtube_id": vid, "titulo": titulo, "itens": [m["id"] for m in usados],
                              "streamers": sorted({m["streamer"] for m in usados}),
@@ -233,17 +240,8 @@ def fazer_compilado(cfg: Config, tipo: str):
 
 # ====================================================================== controle
 def bloquear(login: str):
-    login = login.lower().strip()
-    caminho = RAIZ / "config.yaml"
-    texto = caminho.read_text(encoding="utf-8")
-    atual = re.search(r"^bloqueados:\s*\[(.*?)\]\s*$", texto, re.M)
-    lista = [x.strip().strip("\"'") for x in atual.group(1).split(",") if x.strip()] if atual else []
-    if login not in lista:
-        lista.append(login)
-    nova = "bloqueados: [" + ", ".join(lista) + "]"
-    texto = re.sub(r"^bloqueados:.*$", nova, texto, flags=re.M) if atual else texto + "\n" + nova + "\n"
-    caminho.write_text(texto, encoding="utf-8")
-    log(f"{login} bloqueado. Lista: {lista}")
+    from maquina import painel
+    painel.bloquear(login)
 
 
 def apagar(cfg: Config, login: str):
@@ -314,12 +312,41 @@ def simular(cfg: Config, video: str, canal_id: str = "br"):
     log(f"pronto: {final} | layout {info['layout']} | {d}")
 
 
+def acao_painel(cfg: Config, a):
+    """Botões do painel visual. a.alvo = nome da ação."""
+    from maquina import painel
+    acao = a.alvo
+    if acao == "publicar":
+        painel.publicar(cfg, a.id, a.quando)
+    elif acao == "descartar":
+        painel.descartar(cfg, a.id)
+    elif acao == "priorizar":
+        painel.priorizar(cfg, a.id)
+    elif acao == "bloquear":
+        painel.bloquear(a.login)
+    elif acao == "desbloquear":
+        painel.desbloquear(a.login)
+    elif acao == "apagar":
+        painel.bloquear(a.login)
+        apagar(carregar(), a.login)
+    elif acao == "adicionar":
+        painel.adicionar_streamer(a.canal, a.login, a.nome)
+    elif acao == "remover":
+        painel.remover_streamer(a.canal, a.login)
+    else:
+        raise SystemExit(f"ação desconhecida: {acao}")
+
+
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "fila", "produzir", "compilado", "bloquear", "apagar", "teste", "simular"])
+    p.add_argument("comando", choices=["cacar", "fila", "produzir", "numeros", "painel", "compilado", "bloquear", "apagar", "teste", "simular"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
+    p.add_argument("--id", default="")
+    p.add_argument("--login", default="")
+    p.add_argument("--nome", default="")
+    p.add_argument("--quando", default="")
     a = p.parse_args()
     cfg = carregar()
     if a.comando == "cacar":
@@ -328,6 +355,12 @@ def main():
         print("sim" if tem_trabalho(cfg) else "nao")
     elif a.comando == "produzir":
         produzir(cfg)
+    elif a.comando == "numeros":
+        from maquina import painel
+        painel.atualizar_numeros(cfg)
+        painel.limpar_thumbs()
+    elif a.comando == "painel":
+        acao_painel(cfg, a)
     elif a.comando == "compilado":
         fazer_compilado(cfg, a.alvo or "dia")
     elif a.comando == "bloquear":
