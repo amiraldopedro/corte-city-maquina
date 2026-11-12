@@ -14,7 +14,7 @@
    "titulos_chat": [
     "dourada"
    ],
-   "views": 17,
+   "views": 26,
    "n_clipes": 1,
    "score": 617.9720770839917,
    "teste": true,
@@ -39,7 +39,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T18:12:39+00:00"
+   "numeros_em": "2026-11-12T20:45:39+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -159,7 +159,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 1"
    ],
-   "views": 658,
+   "views": 47,
    "n_clipes": 1,
    "score": 761.9720770839917,
    "jogo": "Grand Theft Auto V",
@@ -182,7 +182,7 @@
     "shorts"
    ],
    "youtube_id": "uvnVE2Mlsb0",
-   "publicar_em": "2026-11-12T21:00:00Z",
+   "publicar_em": null,
    "postado_em": "2026-11-12T18:17:46+00:00",
    "feito_em": "2026-11-12T18:17:46+00:00",
    "corte": [
@@ -197,7 +197,11 @@
    "video_asset": 740569521,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_4957.jpg",
    "thumb_asset": 740569626,
-   "atualizado_em": "2026-11-12T18:17:46+00:00"
+   "atualizado_em": "2026-11-12T18:17:46+00:00",
+   "likes": 2,
+   "comentarios": 0,
+   "privacidade": "public",
+   "numeros_em": "2026-11-12T20:45:39+00:00"
   },
   "2924173618_6557": {
    "id": "2924173618_6557",
@@ -213,7 +217,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 2"
    ],
-   "views": 393,
+   "views": 3,
    "n_clipes": 1,
    "score": 496.9720770839918,
    "jogo": "Grand Theft Auto V",
@@ -251,7 +255,11 @@
    "video_asset": 740576643,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_6557.jpg",
    "thumb_asset": 740576718,
-   "atualizado_em": "2026-11-12T18:20:01+00:00"
+   "atualizado_em": "2026-11-12T18:20:01+00:00",
+   "likes": 1,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-12T20:45:39+00:00"
   },
   "clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq": {
    "id": "clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq",
