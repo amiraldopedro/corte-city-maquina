@@ -287,7 +287,7 @@ const CANAIS = {br: {nome: "Corte City", p1: "CORTE", p2: "CITY", yt: "@cortecit
                 en: {nome: "Clip City", p1: "CLIP", p2: "CITY", yt: "@theclipcit", fuso: "America/New_York"}};
 const CORES = ["#C8FF2E", "#2EE6FF", "#FF3B4E", "#FFB547", "#B794FF", "#5CF2A8", "#FF7AC6"];
 const S = {canal: guardar("cc_canal") || "br", dados: {br: {momentos: {}}, en: {momentos: {}}}, cfg: null,
-           demo: false, aba: "shorts", busca: "", pendentes: {}, thumbs: {}, carregadoEm: null, erro: null};
+           demo: false, aba: "revisar", busca: "", pendentes: {}, thumbs: {}, carregadoEm: null, erro: null};
 
 /* ---------- utilidades ---------- */
 function guardar(k, v) { try { if (v === undefined) return localStorage.getItem(k); if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { return null; } }
@@ -369,15 +369,15 @@ const bloqueados = () => (S.cfg?.bloqueados || []).map(x => String(x).toLowerCas
 function visibilidade(m) {
   if (S.pendentes[m.id]) return {cls: "pendente", txt: S.pendentes[m.id]};
   if (m.status === "removido" || m.status === "descartado") return {cls: "removido", txt: "Removido"};
-  if (m.privacidade === "public") return {cls: "publico", txt: "Público"};
-  if (m.publicar_em && new Date(m.publicar_em) > new Date()) return {cls: "agendado", txt: "Agendado · " + quando(m.publicar_em)};
-  if (m.privacidade === "public" || (m.publicar_em && new Date(m.publicar_em) <= new Date())) return {cls: "publico", txt: "Público"};
-  return {cls: "privado", txt: "Privado · revisar"};
+  if (m.status === "pronto") return {cls: "privado", txt: "Pronto pra postar"};
+  if (m.privacidade === "private") return {cls: "agendado", txt: "Postado · privado/agendado"};
+  return {cls: "publico", txt: "Postado"};
 }
-const postados = tipo => todos().filter(m => m.status === "postado" || (m.status === "removido" && m.youtube_id))
+const dataDe = m => m.postado_em || m.feito_em;
+const postados = tipo => todos().filter(m => ["pronto", "postado"].includes(m.status) || (m.status === "removido" && m.youtube_id))
   .filter(m => tipo === "short" ? (m.tipo || "short") === "short" : (m.tipo === "dia" || m.tipo === "top10"))
-  .sort((a, b) => (b.postado_em || "").localeCompare(a.postado_em || ""));
-const aRevisar = () => postados("short").concat(postados("comp")).filter(m => m.status === "postado" && visibilidade(m).cls === "privado");
+  .sort((a, b) => (dataDe(b) || "").localeCompare(dataDe(a) || ""));
+const aRevisar = () => postados("short").concat(postados("comp")).filter(m => m.status === "pronto").sort((a, b) => (dataDe(a) || "").localeCompare(dataDe(b) || ""));
 const fila = () => todos().filter(m => m.status === "novo").sort((a, b) => (!!b.prioridade - !!a.prioridade) || (b.score - a.score));
 const nomeDe = login => (cfgCanal().streamers || []).find(s => s.login === login)?.nome || login;
 const filtra = lista => !S.busca ? lista : lista.filter(m => [m.titulo, m.nome, nomeDe(m.streamer), m.streamer, ...(m.titulos_chat || [])].join(" ").toLowerCase().includes(S.busca));
@@ -412,9 +412,9 @@ function cabeca(titulo, sub, direita = "") {
 
 /* PAINEL */
 function telaPainel() {
-  const shorts = postados("short"), ultimo = shorts[0];
+  const shorts = postados("short"), ultimo = aRevisar()[0] || shorts[0];
   const mes = Date.now() - 28 * 864e5;
-  const recentes = postados("short").concat(postados("comp")).filter(m => new Date(m.postado_em) > mes);
+  const recentes = postados("short").concat(postados("comp")).filter(m => m.status === "postado" && new Date(dataDe(m)) > mes);
   const views28 = recentes.reduce((s, m) => s + (m.views || 0), 0);
   const likes28 = recentes.reduce((s, m) => s + (m.likes || 0), 0);
   // views por dia de postagem (14 dias)
@@ -428,18 +428,18 @@ function telaPainel() {
   return cabeca("Painel do canal", `${CANAIS[S.canal].yt} · ${modoTxt()}`) + `
   <div class="grade">
     <section class="cartao ultimo">
-      <h2>Último Short</h2>
+      <h2>${ultimo && ultimo.status === "pronto" ? "Próximo pra postar" : "Último Short"}</h2>
       ${ultimo ? `
-        <a href="${ytLink(ultimo)}" target="_blank" rel="noopener" aria-label="Abrir no YouTube"><span class="thumb sem" data-thumb="${ultimo.id}">${inicial(nomeDe(ultimo.streamer))}</span></a>
+        <span class="thumb sem" data-thumb="${ultimo.id}">${inicial(nomeDe(ultimo.streamer))}</span>
         <h3>${esc(ultimo.titulo)}</h3>
-        <p class="meta">${esc(nomeDe(ultimo.streamer))} · ${quando(ultimo.postado_em)}</p>
+        <p class="meta">${esc(nomeDe(ultimo.streamer))} · ${quando(dataDe(ultimo))}</p>
         <div style="margin-top:12px">
           <div class="linha-num"><span>Visualizações</span><b>${fmt(ultimo.views || 0)}</b></div>
           <div class="linha-num"><span>Curtidas</span><b>${fmt(ultimo.likes || 0)}</b></div>
           <div class="linha-num"><span>Situação</span><span class="chip ${visibilidade(ultimo).cls}"><i></i>${visibilidade(ultimo).txt}</span></div>
         </div>
         <div class="acoes" style="justify-content:flex-start;margin-top:14px">
-          ${visibilidade(ultimo).cls === "privado" ? `<button class="btn btn-ac btn-sm" data-acao="publicar" data-id="${ultimo.id}">Publicar</button>` : ""}
+          ${ultimo.status === "pronto" ? botoesPostar(ultimo, true) : ""}
           <a class="btn btn-borda btn-sm" href="#conteudo">Ver todos os vídeos</a>
         </div>` : vazio("Nenhum Short ainda", "Assim que a máquina postar o primeiro, ele aparece aqui.")}
     </section>
@@ -449,10 +449,10 @@ function telaPainel() {
         <div class="num destaque"><b>${fmt(views28)}</b><span>views em 28 dias</span></div>
         <div class="num"><b>${fmt(likes28)}</b><span>curtidas em 28 dias</span></div>
         <div class="num"><b>${shorts.length}</b><span>Shorts feitos</span></div>
-        <div class="num"><b>${aRevisar().length}</b><span>esperando você</span></div>
+        <div class="num"><b>${aRevisar().length}</b><span>prontos pra postar</span></div>
       </div>
       <div class="grafico">
-        <p class="meta">Views dos vídeos, pelo dia em que foram postados</p>
+        <p class="meta">Views dos vídeos postados (cole o link em “Já postei” para contar)</p>
         <div class="barras">${porDia.map((v, i) => `<div style="height:${Math.round(v / max * 100)}%" class="${i === 13 ? "hoje" : ""}" data-v="${fmt(v)} views · ${dias[i].toLocaleDateString("pt-BR", {day: "2-digit", month: "2-digit"})}"></div>`).join("")}</div>
         <div class="eixo"><span>${dias[0].toLocaleDateString("pt-BR", {day: "2-digit", month: "2-digit"})}</span><span>hoje</span></div>
       </div>
@@ -468,34 +468,32 @@ function telaPainel() {
 
 /* CONTEÚDO */
 function telaConteudo() {
-  const listas = {shorts: postados("short"), comp: postados("comp"), revisar: aRevisar()};
+  const listas = {revisar: aRevisar(), shorts: postados("short"), comp: postados("comp")};
   const lista = filtra(listas[S.aba]);
   const aba = (id, nome) => `<button role="tab" aria-selected="${S.aba === id}" data-aba="${id}">${nome}<span class="cont">${listas[id].length}</span></button>`;
-  return cabeca("Conteúdo do canal", "Tudo que a máquina já enviou. Passe o mouse num vídeo para ver as ações.") + `
-  <div class="abas" role="tablist">${aba("shorts", "Shorts")}${aba("comp", "Compilados")}${aba("revisar", "Esperando revisão")}</div>
+  return cabeca("Conteúdo do canal", "Baixe o vídeo, copie título e descrição, poste pelo app do YouTube e aperte “Já postei”.") + `
+  <div class="abas" role="tablist">${aba("revisar", "Prontos pra postar")}${aba("shorts", "Shorts")}${aba("comp", "Compilados")}</div>
   ${lista.length ? `<table class="tabela"><thead><tr><th>Vídeo</th><th>Visibilidade</th><th class="esconde-mob">Data</th><th class="num-col">Views</th><th class="num-col esconde-mob">Curtidas</th></tr></thead><tbody>
     ${lista.map(linhaVideo).join("")}</tbody></table>` :
-    vazio(S.busca ? "Nada encontrado" : S.aba === "revisar" ? "Tudo revisado" : "Nenhum vídeo aqui ainda",
-          S.busca ? "Tente outro nome ou palavra." : S.aba === "revisar" ? "Quando a máquina enviar um vídeo novo, ele aparece aqui para você aprovar." : "Os vídeos aparecem aqui assim que a máquina postar.")}`;
+    vazio(S.busca ? "Nada encontrado" : S.aba === "revisar" ? "Nada pra postar agora" : "Nenhum vídeo aqui ainda",
+          S.busca ? "Tente outro nome ou palavra." : S.aba === "revisar" ? "Quando a máquina terminar um vídeo, ele aparece aqui pronto pra você postar." : "Os vídeos aparecem aqui assim que a máquina fizer.")}`;
 }
 function linhaVideo(m) {
   const v = visibilidade(m), nome = m.tipo === "short" || !m.tipo ? nomeDe(m.streamer) : (m.streamers || []).map(nomeDe).slice(0, 3).join(", ");
   const dur = m.duracao ? `0:${String(Math.round(m.duracao)).padStart(2, "0")}` : m.tipo === "top10" ? "TOP 10" : m.tipo === "dia" ? "LONGO" : "";
   return `<tr>
     <td><div class="vid">
-      <a class="dur" href="${ytLink(m)}" target="_blank" rel="noopener" aria-label="Abrir no YouTube"><span class="thumb sem" data-thumb="${m.id}">${inicial(nome)}</span>${dur ? `<span>${dur}</span>` : ""}</a>
+      <a class="dur" href="${m.status === "pronto" ? esc(m.video_url || "#") : ytLink(m)}" target="_blank" rel="noopener" aria-label="${m.status === "pronto" ? "Baixar vídeo" : "Abrir no YouTube"}"><span class="thumb sem" data-thumb="${m.id}">${inicial(nome)}</span>${dur ? `<span>${dur}</span>` : ""}</a>
       <div class="vid-txt"><strong>${esc(m.titulo || "Sem título")}</strong><small>${esc(nome)}</small>
         ${m.aviso ? `<p class="aviso-linha">${esc(m.aviso)}</p>` : ""}
-        <div class="vid-acoes">
-          ${v.cls === "privado" ? `<button class="icone-btn" title="Publicar agora" aria-label="Publicar agora" data-acao="publicar" data-id="${m.id}">${ic.publicar}</button>
-          <button class="icone-btn" title="Agendar" aria-label="Agendar" data-acao="agendar" data-id="${m.id}">${ic.relogio}</button>` : ""}
-          <a class="icone-btn" title="Abrir no YouTube Studio" aria-label="Abrir no YouTube Studio" href="https://studio.youtube.com/video/${m.youtube_id}/edit" target="_blank" rel="noopener">${ic.lapis}</a>
-          <a class="icone-btn" title="Ver no YouTube" aria-label="Ver no YouTube" href="${ytLink(m)}" target="_blank" rel="noopener">${ic.olho}</a>
-          ${m.status === "postado" ? `<button class="icone-btn perigo" title="Apagar do YouTube" aria-label="Apagar do YouTube" data-acao="descartar" data-id="${m.id}">${ic.lixo}</button>` : ""}
-        </div>
+        ${m.status === "pronto" ? `<div class="acoes" style="justify-content:flex-start;margin-top:8px">${botoesPostar(m)}</div>` : `<div class="vid-acoes">
+          ${m.youtube_id ? `<a class="icone-btn" title="Abrir no YouTube Studio" aria-label="Abrir no YouTube Studio" href="https://studio.youtube.com/video/${m.youtube_id}/edit" target="_blank" rel="noopener">${ic.lapis}</a>
+          <a class="icone-btn" title="Ver no YouTube" aria-label="Ver no YouTube" href="${ytLink(m)}" target="_blank" rel="noopener">${ic.olho}</a>` : `<button class="btn btn-borda btn-sm" data-acao="postei" data-id="${m.id}">Colar link do YouTube</button>`}
+          ${m.status === "postado" && m.youtube_id ? `<button class="icone-btn perigo" title="Apagar do YouTube" aria-label="Apagar do YouTube" data-acao="descartar" data-id="${m.id}">${ic.lixo}</button>` : ""}
+        </div>`}
       </div></div></td>
     <td><span class="chip ${v.cls}"><i></i>${v.txt}</span></td>
-    <td class="esconde-mob">${quando(m.postado_em)}</td>
+    <td class="esconde-mob">${quando(dataDe(m))}</td>
     <td class="num-col">${fmt(m.views || 0)}</td>
     <td class="num-col esconde-mob">${fmt(m.likes || 0)}</td></tr>`;
 }
@@ -574,7 +572,7 @@ function telaAjustes() {
     <section class="cartao">
       <h2>Como o ${CANAIS[S.canal].nome} está rodando</h2>
       <div class="linha-num"><span>Situação</span><b>${c.ativo === false ? "Desligado" : "Ligado"}</b></div>
-      <div class="linha-num"><span>Modo</span><b>${modoTxt()}</b></div>
+      <div class="linha-num"><span>Como funciona</span><b>${modoTxt()}</b></div>
       <div class="linha-num"><span>Horários dos Shorts</span><b>${(c.horarios || []).join(", ") || "—"}</b></div>
       <div class="linha-num"><span>Compilado do dia</span><b>${c.horario_compilado || "—"}</b></div>
       <p class="meta" style="margin-top:12px">Para mudar horários, modo ou ligar o canal, edite o <a href="https://github.com/${REPO}/edit/main/config.yaml" target="_blank" rel="noopener">config.yaml</a>.</p>
@@ -583,6 +581,7 @@ function telaAjustes() {
       <h2>Atalhos</h2>
       <div class="acoes" style="justify-content:flex-start">
         <button class="btn btn-borda btn-sm" data-acao="numeros">Atualizar views agora</button>
+        <a class="btn btn-borda btn-sm" href="https://github.com/${REPO}/releases/tag/prontos" target="_blank" rel="noopener">Todos os arquivos prontos</a>
         <a class="btn btn-borda btn-sm" href="https://github.com/${REPO}/actions" target="_blank" rel="noopener">Ver a máquina trabalhando</a>
         <a class="btn btn-borda btn-sm" href="https://studio.youtube.com" target="_blank" rel="noopener">Abrir YouTube Studio</a>
       </div>
@@ -590,7 +589,21 @@ function telaAjustes() {
   </div>`;
 }
 
-const modoTxt = () => (cfgCanal().modo || "revisao") === "automatico" ? "posta sozinho nos horários" : "você revisa antes de publicar";
+function botoesPostar(m, curto) {
+  return `<a class="btn btn-ac btn-sm" href="${esc(m.video_url || "#")}" target="_blank" rel="noopener">Baixar vídeo</a>
+    <button class="btn btn-borda btn-sm" data-copiar="titulo" data-id="${m.id}">Copiar título</button>
+    <button class="btn btn-borda btn-sm" data-copiar="descricao" data-id="${m.id}">Copiar descrição</button>
+    ${curto ? "" : `<a class="btn btn-borda btn-sm" href="${esc(m.thumb_url || "#")}" target="_blank" rel="noopener">Baixar thumb</a>`}
+    <button class="btn btn-borda btn-sm" data-acao="postei" data-id="${m.id}">Já postei</button>
+    ${curto ? "" : `<button class="btn btn-borda btn-sm" data-acao="descartar-pronto" data-id="${m.id}">Descartar</button>`}`;
+}
+async function copiar(texto) {
+  try { await navigator.clipboard.writeText(texto); return true; } catch (e) {
+    const t = document.createElement("textarea"); t.value = texto; document.body.appendChild(t); t.select();
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e2) {} t.remove(); return ok;
+  }
+}
+const modoTxt = () => "a máquina faz, você posta";
 const ytLink = m => m.youtube_id ? `https://youtu.be/${m.youtube_id}` : "#";
 function vazio(t, s) { return `<div class="vazio"><b>${t}</b>${s}</div>`; }
 const ic = {
@@ -629,10 +642,10 @@ document.addEventListener("click", e => {
   const {acao, id, login, nome, n} = b.dataset, m = todos().find(x => x.id === id), canal = S.canal;
   if (acao === "rodar") return pedir("Pedido enviado. A máquina começa em instantes e o Short aparece em uns 15 minutos.", "rodada.yml", {});
   if (acao === "numeros") return pedir("Atualizando as views. Leva cerca de 1 minuto.", "painel.yml", {acao: "numeros"});
-  if (acao === "publicar") return dialogo(`<form><h2 id="dlgTitulo">Publicar agora?</h2><p>“${esc(m.titulo)}” fica público no ${CANAIS[canal].nome} em cerca de 1 minuto.</p>${botoesDlg("Publicar")}</form>`,
-    () => pedir("Publicando. Em cerca de 1 minuto o vídeo fica público.", "painel.yml", {acao: "publicar", id}, id, "Publicando…"));
-  if (acao === "agendar") return dialogo(`<form><h2 id="dlgTitulo">Agendar publicação</h2><p>Horário de ${canal === "br" ? "Brasília" : "Nova York"}.</p><div class="campo"><label for="dlgQuando">Publicar em</label><input id="dlgQuando" type="datetime-local" required value="${agoraLocal()}"></div>${botoesDlg("Agendar")}</form>`,
-    d => pedir("Agendando. Confira o horário na lista em cerca de 1 minuto.", "painel.yml", {acao: "publicar", id, quando: d.querySelector("#dlgQuando").value}, id, "Agendando…"));
+  if (acao === "postei") return dialogo(`<form><h2 id="dlgTitulo">Já postou?</h2><p>Cole o link do vídeo no YouTube pra o painel mostrar as views. Se não tiver o link agora, pode deixar em branco.</p><div class="campo"><label for="dlgLink">Link do vídeo (opcional)</label><input id="dlgLink" placeholder="https://youtube.com/shorts/…" autocomplete="off"></div>${botoesDlg("Marcar como postado")}</form>`,
+    d => pedir("Marcado como postado.", "painel.yml", {acao: "postei", id, quando: d.querySelector("#dlgLink").value.trim()}, id, "Marcando…"));
+  if (acao === "descartar-pronto") return dialogo(`<form><h2 id="dlgTitulo">Descartar este vídeo?</h2><p>“${esc(m.titulo)}” sai da lista e o arquivo é apagado.</p>${botoesDlg("Descartar", true)}</form>`,
+    () => pedir("Vídeo descartado.", "painel.yml", {acao: "descartar", id}, id, "Descartando…"));
   if (acao === "descartar") return dialogo(`<form><h2 id="dlgTitulo">Apagar do YouTube?</h2><p>“${esc(m.titulo)}” será apagado do canal. Não dá para desfazer.</p>${botoesDlg("Apagar vídeo", true)}</form>`,
     () => pedir("Apagando o vídeo do YouTube.", "painel.yml", {acao: "descartar", id}, id, "Apagando…"));
   if (acao === "descartar-fila") return pedir("Momento descartado. Ele sai da fila em cerca de 1 minuto.", "painel.yml", {acao: "descartar", id}, null);
@@ -658,7 +671,12 @@ document.addEventListener("submit", e => {
     e.target.reset();
   }
 });
-document.addEventListener("click", e => {
+document.addEventListener("click", async e => {
+  const c = e.target.closest("[data-copiar]");
+  if (c) { const m = todos().find(x => x.id === c.dataset.id); const campo = c.dataset.copiar;
+    const texto = campo === "titulo" ? m.titulo : (m.descricao || "") + (m.tags ? "\n\n" + m.tags.join(", ") : "");
+    toast(await copiar(texto) ? (campo === "titulo" ? "Título copiado." : "Descrição copiada.") : "Não deu pra copiar. Segure e copie o texto.");
+  }
   if (e.target.id === "btnSair") { guardar("cc_token", null); toast("Desconectado."); carregar(); }
   if (e.target.closest("[data-aba]")) { S.aba = e.target.closest("[data-aba]").dataset.aba; desenhar(); }
   if (e.target.closest(".trocar button")) { S.canal = e.target.closest(".trocar button").dataset.canal; guardar("cc_canal", S.canal); desenhar(); }
@@ -691,10 +709,11 @@ function montarDemo() {
     ["Jon Vlogs viu o mapa do GTA 6 pela primeira vez", "jonvlogs", 31, 58100, 4100, "public", null, "GIGANTE"],
     ["LuquEt4 e o jacaré mais perigoso de Vice City", "luquet4", 50, 129000, 11800, "public", null, "CORRE"],
     ["Coringa descobriu o segredo do posto de gasolina", "loud_coringa", 74, 77300, 6400, "public", null, "SEGREDO"],
-  ].map((x, i) => ({id: "d" + i, tipo: "short", status: "postado", titulo: x[0], streamer: x[1], postado_em: h(x[2]), views: x[3], likes: x[4],
-                    privacidade: x[5], publicar_em: x[6], gancho: x[7], youtube_id: "", duracao: 28 + i * 4}));
+  ].map((x, i) => ({id: "d" + i, tipo: "short", status: i < 2 ? "pronto" : "postado", titulo: x[0], streamer: x[1], feito_em: h(x[2]), postado_em: i < 2 ? null : h(x[2]), views: i < 2 ? 0 : x[3], likes: i < 2 ? 0 : x[4],
+                    privacidade: "public", gancho: x[7], youtube_id: i < 2 ? "" : "x", duracao: 28 + i * 4, video_url: "#", thumb_url: "#",
+                    descricao: x[0] + "\n\n🎮 Live original: https://twitch.tv/" + x[1], tags: ["gta 6", "gta vi"]}));
   br.push({id: "top10_d", tipo: "top10", status: "postado", titulo: "TOP 10 momentos mais insanos de GTA 6 da semana (Cerol, Coringa, Paulinho)", streamer: "*", streamers: ["cerol", "loud_coringa", "paulinholokobr"], postado_em: h(40), views: 31200, likes: 2900, privacidade: "public", gancho: "TOP 10", youtube_id: ""});
-  br.push({id: "dia_d", tipo: "dia", status: "postado", titulo: "Os melhores momentos de GTA 6 do dia 11/11 (Alanzoka, LuquEt4)", streamer: "*", streamers: ["alanzoka", "luquet4"], postado_em: h(20), views: 9800, likes: 870, privacidade: "private", gancho: "MELHORES", youtube_id: ""});
+  br.push({id: "dia_d", tipo: "dia", status: "pronto", video_url: "#", thumb_url: "#", descricao: "Compilado", titulo: "Os melhores momentos de GTA 6 do dia 11/11 (Alanzoka, LuquEt4)", streamer: "*", streamers: ["alanzoka", "luquet4"], postado_em: h(20), views: 9800, likes: 870, privacidade: "private", gancho: "MELHORES", youtube_id: ""});
   const f = [
     ["paulinholokobr", 9, 4120, ["ELE PULOU DO PRÉDIO KKKKK", "paulinho voando", "não acredito nisso"], true],
     ["loud_coringa", 6, 2890, ["coringa vs policia", "a fuga mais burra"], false],

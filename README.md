@@ -6,7 +6,9 @@ Robô 100% gratuito que roda sozinho no GitHub Actions:
 2. Junta clipes do mesmo instante num **momento** e dá nota (muita gente clipando = momento bom).
 3. **Baixa o trecho real da live** (VOD), **transcreve** a fala (faster-whisper) e a **IA gratuita** (Ollama, modelo `qwen2.5:3b`) escolhe o corte, o título e a palavra da thumb.
 4. **Edita o Short** 1080x1920: webcam em cima e jogo embaixo (ou fundo desfocado quando não acha a webcam), legenda palavra por palavra, marca d'água do canal.
-5. Faz a **thumb** automática e **posta** no YouTube, já na playlist certa.
+5. Faz a **thumb** automática e deixa tudo **pronto para você postar**: vídeo e thumb para baixar (GitHub → Releases → "Vídeos prontos"), com título, descrição e tags escritos.
+
+> Por que a máquina não posta sozinha? Vídeo enviado pela API de um projeto do Google sem auditoria fica **trancado no privado** (zero views, sem monetização, sem recurso). Vídeo que você posta pelo app/site do YouTube sai normal. Se um dia o projeto passar na auditoria do YouTube, dá para voltar a postar automático.
 6. Todo dia monta o **Melhores do Dia** (vídeo longo) e, no domingo, o **Top 10 da Semana**.
 
 Se o Ollama falhar, a máquina usa regras simples e continua funcionando.
@@ -19,12 +21,13 @@ Se o Ollama falhar, a máquina usa regras simples e continua funcionando.
 | Melhores do Dia | todo dia ~17:40 (Brasília) |
 | Top 10 da Semana | domingo ~10:20 (Brasília) |
 
-## Modo revisão x automático
+## Como postar
 
-No `config.yaml`, cada canal tem `modo:`
-- `revisao` → o vídeo sobe **privado**. Você assiste no YouTube Studio e publica/agenda se gostar. **(Fase 1)**
-- `automatico` → o vídeo sobe já **agendado** nos horários do canal.
+1. Abra o painel (`painel/index.html`) → **Conteúdo → Prontos pra postar**.
+2. **Baixar vídeo**, **Copiar título**, **Copiar descrição** → poste pelo app do YouTube (no horário sugerido do canal).
+3. Aperte **Já postei** e cole o link (opcional) para o painel mostrar as views.
 
+Se você deixar 9 vídeos sem postar, a máquina pausa até você postar (para não gastar minutos à toa).
 O Clip City começa com `ativo: false`. Para ligar, troque para `true`.
 
 ## Botões (aba **Actions** do GitHub)

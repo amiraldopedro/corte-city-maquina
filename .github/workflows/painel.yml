@@ -4,12 +4,12 @@ name: Painel - ação
 on:
   workflow_dispatch:
     inputs:
-      acao: { description: "publicar, descartar, priorizar, bloquear, desbloquear, apagar, adicionar, remover, numeros", required: true }
+      acao: { description: "postei, descartar, priorizar, bloquear, desbloquear, apagar, adicionar, remover, numeros", required: true }
       id: { description: "ID do vídeo/momento", required: false, default: "" }
       canal: { description: "br ou en", required: false, default: "br" }
       login: { description: "Login do streamer na Twitch", required: false, default: "" }
       nome: { description: "Nome do streamer (para adicionar)", required: false, default: "" }
-      quando: { description: "Agendar para (AAAA-MM-DDTHH:MM, horário do canal). Vazio = publicar agora", required: false, default: "" }
+      quando: { description: "Link do vídeo no YouTube (para 'postei')", required: false, default: "" }
 
 permissions:
   contents: write
@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
+      GITHUB_TOKEN: ${{ github.token }}
       TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
       TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}

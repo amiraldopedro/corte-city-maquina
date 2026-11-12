@@ -33,6 +33,7 @@ jobs:
           pip install -q -r requirements.txt
       - name: Montar e postar
         env:
+          GITHUB_TOKEN: ${{ github.token }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}

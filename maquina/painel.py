@@ -4,7 +4,6 @@ from __future__ import annotations
 import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 from .config import PASTA_ESTADO, RAIZ, Config
 from .estado import Estado, agora
@@ -151,34 +150,30 @@ def _achar(cfg: Config, mid: str):
     raise SystemExit(f"momento {mid} não encontrado")
 
 
-def publicar(cfg: Config, mid: str, quando: str = ""):
-    """Publica agora ou agenda (quando = 'AAAA-MM-DDTHH:MM' no horário do canal)."""
-    from .youtube import YouTube
+def marcar_postado(cfg: Config, mid: str, link: str = ""):
+    """Você postou o vídeo no YouTube: ele sai de "prontos". O link (opcional) deixa o painel mostrar as views."""
     canal, est, m = _achar(cfg, mid)
-    yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
-    status = {"privacyStatus": "public", "selfDeclaredMadeForKids": False}
-    if quando:
-        local = datetime.fromisoformat(quando).replace(tzinfo=ZoneInfo(canal.fuso))
-        status = {"privacyStatus": "private", "publishAt": local.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                  "selfDeclaredMadeForKids": False}
-    try:
-        yt.yt.videos().update(part="status", body={"id": m["youtube_id"], "status": status}).execute()
-    except Exception as e:
-        est.atualizar(mid, aviso=f"O YouTube não deixou publicar pela API: publique no Studio. ({str(e)[:120]})")
-        est.salvar()
-        raise
-    est.atualizar(mid, privacidade=status["privacyStatus"], publicar_em=status.get("publishAt"), aprovado_em=agora(),
-                  aviso=None)
+    yid = None
+    if link:
+        r = re.search(r"(?:youtu\.be/|v=|shorts/|/video/)([A-Za-z0-9_-]{11})", link) or re.fullmatch(r"([A-Za-z0-9_-]{11})", link.strip())
+        yid = r.group(1) if r else None
+    est.atualizar(mid, status="postado", postado_em=agora(), **({"youtube_id": yid} if yid else {}))
     est.salvar()
-    print(f"{mid}: {'agendado' if quando else 'publicado'}")
+    from .entrega import apagar_arquivo
+    apagar_arquivo(m.get("video_asset"))  # o vídeo já está no YouTube: libera espaço
+    print(f"{mid}: marcado como postado{' (' + yid + ')' if yid else ''}")
 
 
 def descartar(cfg: Config, mid: str):
     """Momento na fila: sai da fila. Vídeo já enviado: é apagado do YouTube."""
     canal, est, m = _achar(cfg, mid)
-    if m.get("youtube_id") and m["status"] == "postado":
+    if m.get("youtube_id") and m["status"] == "postado" and canal.refresh_token:
         from .youtube import YouTube
         YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token).apagar(m["youtube_id"])
+    if m["status"] == "pronto":
+        from .entrega import apagar_arquivo
+        apagar_arquivo(m.get("video_asset"))
+        apagar_arquivo(m.get("thumb_asset"))
     est.atualizar(mid, status="descartado", motivo="descartado no painel")
     est.salvar()
     print(f"{mid}: descartado")

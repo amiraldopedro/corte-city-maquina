@@ -11,7 +11,7 @@ for f in Path("estado").glob("*.json"): f.unlink()
 VIDEO = Path(sys.argv[1]).resolve()
 
 import main
-from maquina import twitch, youtube, baixar, transcrever
+from maquina import twitch, youtube, baixar, transcrever, entrega
 from maquina.config import carregar
 from maquina.estado import Estado
 
@@ -36,6 +36,10 @@ class YouTubeFalso:
     def por_na_playlist(self, vid, nome): pass
 
 twitch.Twitch = TwitchFalsa
+def entregar_falso(video, capa, mid):
+    assert Path(video).exists() and Path(capa).exists(); enviados.append(mid)
+    return {"video_url": f"https://dl/{mid}.mp4", "video_asset": 1, "thumb_url": f"https://dl/{mid}.jpg", "thumb_asset": 2}
+entrega.entregar = entregar_falso
 youtube.YouTube = YouTubeFalso
 def baixar_falso(m):
     destino = Path("trabalho/brutos") / f"{m['id']}.mp4"; destino.parent.mkdir(parents=True, exist_ok=True)
@@ -54,8 +58,8 @@ main.fazer_cacada(carregar())                       # rodar de novo não pode du
 assert len(Estado("br").momentos) == 2, "duplicou momento na segunda caçada"
 print("fila:", main.tem_trabalho(carregar()))
 main.produzir(carregar())
-est = Estado("br"); post = [m for m in est.momentos.values() if m["status"] == "postado"]
-print("enviados:", enviados); print("postados:", [(m["titulo"], m["layout"], m["cerebro"]) for m in post])
-assert len(post) == 1 and Path("estado/thumbs").glob("*.jpg"), "não postou"
+est = Estado("br"); post = [m for m in est.momentos.values() if m["status"] == "pronto"]
+print("entregues:", enviados); print("prontos:", [(m["titulo"], m["layout"], m["video_url"], m["descricao"][:40]) for m in post])
+assert len(post) == 1 and list(Path("estado/thumbs").glob("*.jpg")), "não ficou pronto"
 assert main.postados_hoje(est, cfg.canal("br")) == 1
 print("OK: ponta a ponta funcionando")

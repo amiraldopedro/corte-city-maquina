@@ -2,7 +2,7 @@
 
   python main.py cacar                   consulta a Twitch e enche a fila de momentos
   python main.py fila                    responde "sim" se há Short para produzir agora
-  python main.py produzir                monta os Shorts da fila e posta
+  python main.py produzir                monta os Shorts da fila e deixa prontos para você postar
   python main.py compilado dia|top10     monta e posta o vídeo longo
   python main.py bloquear LOGIN          nunca mais corta esse streamer
   python main.py apagar LOGIN            apaga do YouTube todos os vídeos desse streamer
@@ -66,15 +66,24 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
 
 
 # ====================================================================== produzir
+MAX_ESPERANDO = 9  # se você não postar, a máquina para de fazer vídeo novo (e economiza minutos do GitHub)
+
+
 def postados_hoje(est: Estado, canal: Canal) -> int:
+    """Shorts que a máquina deixou prontos hoje (meta diária = número de horários do canal)."""
     tz = ZoneInfo(canal.fuso)
     hoje = datetime.now(tz).date()
     n = 0
     for m in est.momentos.values():
-        if m["status"] == "postado" and m.get("tipo", "short") == "short" and m.get("postado_em"):
-            if datetime.fromisoformat(m["postado_em"]).astimezone(tz).date() == hoje:
+        quando = m.get("feito_em") or m.get("postado_em")
+        if m.get("tipo", "short") == "short" and m["status"] in ("pronto", "postado") and quando:
+            if datetime.fromisoformat(quando).astimezone(tz).date() == hoje:
                 n += 1
     return n
+
+
+def esperando(est: Estado) -> int:
+    return sum(1 for m in est.momentos.values() if m["status"] == "pronto")
 
 
 def descricao_short(canal: Canal, titulo: str, login: str) -> str:
@@ -107,21 +116,16 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     guardar_thumb(capa, m["id"])
 
     titulo = ("[TESTE] " if m.get("teste") else "") + d["titulo"]
-    publicar_em = None
-    if canal.modo == "automatico" and not m.get("teste"):
-        from maquina.youtube import proximo_horario
-        ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
-        publicar_em = proximo_horario(canal.horarios, canal.fuso, ocupados)
     tags = ["gta 6", "gta vi", "gta 6 clips", nome.lower(), f"{nome.lower()} gta 6"]
-    vid = yt.enviar(final, titulo, descricao_short(canal, titulo, m["streamer"]), tags, canal.idioma,
-                    publicar_em, capa)
-    yt.por_na_playlist(vid, canal.playlists.get("shorts", ""))
-    est.atualizar(m["id"], status="postado", tipo="short", youtube_id=vid, titulo=titulo, gancho=d["gancho"],
-                  corte=[d["inicio"], d["fim"]], publicar_em=publicar_em, postado_em=agora(),
+    from maquina.entrega import entregar
+    arquivos = entregar(final, capa, m["id"])
+    est.atualizar(m["id"], status="pronto", tipo="short", titulo=titulo, gancho=d["gancho"],
+                  descricao=descricao_short(canal, titulo, m["streamer"]), tags=tags,
+                  playlist=canal.playlists.get("shorts", ""), corte=[d["inicio"], d["fim"]], feito_em=agora(),
                   layout=info["layout"], cerebro=d["fonte"], nome=nome,
-                  duracao=round(d["fim"] - d["inicio"], 1), prioridade=False)
-    quando = f"agendado para {publicar_em}" if publicar_em else "PRIVADO (aguardando sua revisão)"
-    log(f"    ✅ https://youtu.be/{vid} — {quando}")
+                  duracao=round(d["fim"] - d["inicio"], 1), prioridade=False, **arquivos)
+    log(f"    ✅ pronto para postar: {titulo}")
+    log(f"       baixar: {arquivos['video_url']}")
     return True
 
 
@@ -151,14 +155,13 @@ def tem_trabalho(cfg: Config) -> bool:
         est = Estado(canal.id)
         fila = [m for m in est.por_status("novo") if m["streamer"] not in cfg.bloqueados
                 and TESTE == bool(m.get("teste"))]
-        if fila and (TESTE or postados_hoje(est, canal) < len(canal.horarios)):
+        if fila and (TESTE or (postados_hoje(est, canal) < len(canal.horarios) and esperando(est) < MAX_ESPERANDO)):
             return True
     return False
 
 
 def produzir(cfg: Config):
-    """Etapa pesada: baixa, transcreve, edita e posta (até a meta diária de cada canal)."""
-    from maquina.youtube import YouTube
+    """Etapa pesada: baixa, transcreve, edita e deixa pronto para postar (até a meta diária de cada canal)."""
     falhou = False
     for canal in cfg.canais_ativos():
         log(f"== {canal.nome} ({canal.modo})")
@@ -168,7 +171,10 @@ def produzir(cfg: Config):
             if limite <= 0:
                 log("  meta de Shorts de hoje já cumprida")
                 continue
-            yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+            if not TESTE and esperando(est) >= MAX_ESPERANDO:
+                log(f"  já tem {esperando(est)} vídeos prontos esperando você postar — não vou fazer mais agora")
+                continue
+            yt = None
             feitos = tentativas = 0
             for m in est.por_status("novo"):
                 if TESTE != bool(m.get("teste")):
@@ -205,13 +211,12 @@ def fazer_compilado(cfg: Config, tipo: str):
     from maquina import cerebro, compilado, editar, thumb
     from maquina.baixar import baixar_momento
     from maquina.transcrever import texto_com_tempos, transcrever
-    from maquina.youtube import YouTube, proximo_horario
     for canal in cfg.canais_ativos():
         est = Estado(canal.id)
         dias = 7 if tipo == "top10" else 1
         desde = (datetime.now(timezone.utc) - timedelta(days=dias)).isoformat(timespec="seconds")
         candidatos = [m for m in est.momentos.values()
-                      if m.get("criado_em", "") >= desde and m["status"] in ("novo", "postado")
+                      if m.get("criado_em", "") >= desde and m["status"] in ("novo", "pronto", "postado") and not m.get("teste")
                       and m.get("tipo", "short") == "short" and m["streamer"] not in cfg.bloqueados]
         candidatos.sort(key=lambda m: -m.get("score", 0))
         qtd = 10 if tipo == "top10" else 12
@@ -242,21 +247,18 @@ def fazer_compilado(cfg: Config, tipo: str):
         creditos = "\n".join(f"• {n}: https://twitch.tv/{l}" for l, n in nomes.items()
                              if any(m["streamer"] == l for m in usados))
         descricao = f"{titulo}\n\n{LIVE[canal.idioma]}:\n{creditos}\n\n{AVISO[canal.idioma]}\n\n#gta6 #gtavi"
-        publicar_em = None
-        if canal.modo == "automatico":
-            tz = ZoneInfo(canal.fuso)
-            ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
-            publicar_em = proximo_horario([canal.horario_compilado], canal.fuso, ocupados)
-        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
-        vid = yt.enviar(saida, titulo, descricao, ["gta 6", "gta vi", "gta 6 best moments", *ordem_nomes[:5]],
-                        canal.idioma, publicar_em, capa)
-        yt.por_na_playlist(vid, canal.playlists.get("top10" if tipo == "top10" else "compilado", ""))
-        est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo, "status": "postado",
-                             "youtube_id": vid, "titulo": titulo, "itens": [m["id"] for m in usados],
-                             "streamers": sorted({m["streamer"] for m in usados}),
-                             "publicar_em": publicar_em, "postado_em": agora(), "criado_em": agora()}
+        from maquina.entrega import entregar
+        arquivos = entregar(saida, capa, cid)
+        est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo, "status": "pronto",
+                             "titulo": titulo, "descricao": descricao,
+                             "tags": ["gta 6", "gta vi", "gta 6 best moments", *ordem_nomes[:5]],
+                             "playlist": canal.playlists.get("top10" if tipo == "top10" else "compilado", ""),
+                             "itens": [m["id"] for m in usados], "streamers": sorted({m["streamer"] for m in usados}),
+                             "feito_em": agora(), "criado_em": agora(), **arquivos}
         est.salvar()
-        log(f"  ✅ https://youtu.be/{vid}")
+        log(f"  ✅ compilado pronto para postar: {titulo}")
+        log(f"     baixar: {arquivos['video_url']}")
+
 
 
 # ====================================================================== controle
@@ -337,8 +339,8 @@ def acao_painel(cfg: Config, a):
     """Botões do painel visual. a.alvo = nome da ação."""
     from maquina import painel
     acao = a.alvo
-    if acao == "publicar":
-        painel.publicar(cfg, a.id, a.quando)
+    if acao == "postei":
+        painel.marcar_postado(cfg, a.id, a.quando)   # a.quando = link do vídeo no YouTube (opcional)
     elif acao == "descartar":
         painel.descartar(cfg, a.id)
     elif acao == "priorizar":
