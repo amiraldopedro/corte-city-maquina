@@ -1,4 +1,88 @@
 {
- "momentos": {},
- "clipes_vistos": []
+ "momentos": {
+  "2926170198_983": {
+   "id": "2926170198_983",
+   "streamer": "paulinholokobr",
+   "canal": "br",
+   "video_id": "2926170198",
+   "inicio": 983.0,
+   "fim": 1037.0,
+   "clipe_url": "https://www.twitch.tv/paulinholokobr/clip/PleasantTransparentLaptopResidentSleeper-YBJdi9z4r0EKgCRJ",
+   "clipe_ids": [
+    "PleasantTransparentLaptopResidentSleeper-YBJdi9z4r0EKgCRJ"
+   ],
+   "titulos_chat": [
+    "dourada"
+   ],
+   "views": 514,
+   "n_clipes": 1,
+   "score": 617.9720770839917,
+   "teste": true,
+   "status": "novo",
+   "criado_em": "2026-11-12T15:34:32+00:00"
+  },
+  "2926018706_619": {
+   "id": "2926018706_619",
+   "streamer": "alanzoka",
+   "canal": "br",
+   "video_id": "2926018706",
+   "inicio": 619.0,
+   "fim": 690.6,
+   "clipe_url": "https://www.twitch.tv/alanzoka/clip/GoldenAwkwardHabaneroTBTacoLeft-PtFVVPwTv4qM0Afm",
+   "clipe_ids": [
+    "GoldenAwkwardHabaneroTBTacoLeft-PtFVVPwTv4qM0Afm"
+   ],
+   "titulos_chat": [
+    "11do11 no Kabum"
+   ],
+   "views": 720,
+   "n_clipes": 1,
+   "score": 823.9720770839917,
+   "teste": true,
+   "status": "erro",
+   "criado_em": "2026-11-12T15:34:33+00:00",
+   "erro": "open() got an unexpected keyword argument 'metadata_errors'",
+   "atualizado_em": "2026-11-12T15:45:19+00:00"
+  },
+  "2926018706_5522": {
+   "id": "2926018706_5522",
+   "streamer": "alanzoka",
+   "canal": "br",
+   "video_id": "2926018706",
+   "inicio": 5522.65,
+   "fim": 5617.65,
+   "clipe_url": "https://www.twitch.tv/alanzoka/clip/TsundereSpoopyTroutTF2John-1ACPD6zIu9SSVsN1",
+   "clipe_ids": [
+    "TsundereSpoopyTroutTF2John-1ACPD6zIu9SSVsN1",
+    "AttractiveLitigiousRedpandaSpicyBoy-KUz6vtPMeq2tIvwa",
+    "NurturingPeppyPonyStrawBeary-5Qhb9YUF6jfuqKsj",
+    "StormyHonestApeDatSheffy-7As3hLaiubGxM0Cu",
+    "SmellyHelpfulSamosaSpicyBoy-Fw9HAmzxpUX4RaKv"
+   ],
+   "titulos_chat": [
+    "Isso é Mario msm 0.o",
+    "o cara ficou até exausto",
+    "alan?",
+    "alan??",
+    "ATE CANSOU"
+   ],
+   "views": 508,
+   "n_clipes": 5,
+   "score": 1995.9639203842082,
+   "teste": true,
+   "status": "erro",
+   "criado_em": "2026-11-12T15:34:33+00:00",
+   "erro": "open() got an unexpected keyword argument 'metadata_errors'",
+   "atualizado_em": "2026-11-12T15:42:32+00:00"
+  }
+ },
+ "clipes_vistos": [
+  "AttractiveLitigiousRedpandaSpicyBoy-KUz6vtPMeq2tIvwa",
+  "GoldenAwkwardHabaneroTBTacoLeft-PtFVVPwTv4qM0Afm",
+  "NurturingPeppyPonyStrawBeary-5Qhb9YUF6jfuqKsj",
+  "PleasantTransparentLaptopResidentSleeper-YBJdi9z4r0EKgCRJ",
+  "SmellyHelpfulSamosaSpicyBoy-Fw9HAmzxpUX4RaKv",
+  "StormyHonestApeDatSheffy-7As3hLaiubGxM0Cu",
+  "TsundereSpoopyTroutTF2John-1ACPD6zIu9SSVsN1"
+ ]
 }
