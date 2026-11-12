@@ -60,7 +60,7 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
                 m["teste"] = True
             if est.inserir(m):
                 novos += 1
-                est.marcar_clipes(m["clipe_ids"])
+            est.marcar_clipes(m["clipe_ids"])
         log(f"  {s.nome}: {len(clipes)} clipes novos, {len(momentos)} momentos")
     return novos
 
@@ -132,10 +132,13 @@ def fazer_cacada(cfg: Config):
     for canal in cfg.canais_ativos():
         log(f"== {canal.nome}: caçando clipes")
         est = Estado(canal.id)
-        if TESTE:
-            for x in est.momentos.values():
-                if x.get("teste") and x["status"] in ("erro", "descartado") and not x.get("youtube_id"):
-                    x["status"] = "novo"
+        for x in est.momentos.values():
+            if not x.get("teste") or x.get("youtube_id"):
+                continue
+            if TESTE and x["status"] in ("erro", "descartado"):
+                x["status"] = "novo"       # teste de novo depois de uma correção
+            elif not TESTE and x["status"] == "novo":
+                x["status"] = "descartado"  # momento de teste nunca vira vídeo de verdade
         try:
             log(f"  {cacar(cfg, canal, est, tw)} momentos novos na fila")
         finally:
@@ -146,7 +149,8 @@ def tem_trabalho(cfg: Config) -> bool:
     """Existe algum canal com momento na fila e meta do dia ainda aberta?"""
     for canal in cfg.canais_ativos():
         est = Estado(canal.id)
-        fila = [m for m in est.por_status("novo") if m["streamer"] not in cfg.bloqueados]
+        fila = [m for m in est.por_status("novo") if m["streamer"] not in cfg.bloqueados
+                and TESTE == bool(m.get("teste"))]
         if fila and (TESTE or postados_hoje(est, canal) < len(canal.horarios)):
             return True
     return False
@@ -167,7 +171,7 @@ def produzir(cfg: Config):
             yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
             feitos = tentativas = 0
             for m in est.por_status("novo"):
-                if TESTE and not m.get("teste"):
+                if TESTE != bool(m.get("teste")):
                     continue
                 if feitos >= (1 if TESTE else min(limite, cfg.max_por_rodada)) or tentativas >= 4:
                     break
@@ -354,7 +358,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "fila", "produzir", "numeros", "painel", "compilado", "bloquear", "apagar", "teste", "simular"])
+    p.add_argument("comando", choices=["cacar", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -376,6 +380,9 @@ def main():
         painel.limpar_thumbs()
     elif a.comando == "painel":
         acao_painel(cfg, a)
+    elif a.comando == "sincronizar":
+        from maquina.sincronizar import sincronizar
+        sincronizar(a.alvo or "Memória da máquina")
     elif a.comando == "compilado":
         fazer_compilado(cfg, a.alvo or "dia")
     elif a.comando == "bloquear":

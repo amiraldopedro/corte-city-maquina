@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: maquina
+  group: painel
   cancel-in-progress: false
 
 jobs:
@@ -50,8 +50,4 @@ jobs:
         env:
           ACAO: ${{ inputs.acao }}
         run: |
-          git config user.name "maquina-de-cortes"
-          git config user.email "maquina@users.noreply.github.com"
-          git add estado/ config.yaml
-          git commit -qm "Painel: $ACAO [skip ci]" || exit 0
-          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+          python main.py sincronizar "Painel: $ACAO"

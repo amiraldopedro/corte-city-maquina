@@ -49,12 +49,8 @@ jobs:
           esac
       - name: Salvar
         if: always()
-        run: |
-          git config user.name "maquina-de-cortes"
-          git config user.email "maquina@users.noreply.github.com"
-          git add estado/ config.yaml
-          git commit -qm "Controle: $ACAO $LOGIN [skip ci]" || exit 0
-          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
         env:
           ACAO: ${{ inputs.acao }}
           LOGIN: ${{ inputs.login }}
+        run: |
+          python main.py sincronizar "Controle: $ACAO $LOGIN"

@@ -40,8 +40,25 @@ class Estado:
         return self.dados["momentos"]
 
     def inserir(self, m: dict) -> bool:
+        """Insere um momento novo. Se ele cai no mesmo trecho da mesma live de um momento que já existe,
+        junta os clipes no existente (ou ignora, se aquele trecho já virou vídeo/foi descartado),
+        para nunca fazer dois Shorts da mesma cena."""
         if m["id"] in self.momentos:
             return False
+        if m.get("video_id"):
+            for x in self.momentos.values():
+                if x.get("video_id") == m["video_id"] and m["inicio"] < x["fim"] and x["inicio"] < m["fim"]:
+                    if x["status"] == "novo" and not x.get("teste"):
+                        from .momentos import JANELA_MAX, _score
+                        x["clipe_ids"] = sorted(set(x["clipe_ids"]) | set(m["clipe_ids"]))
+                        x["views"] = x.get("views", 0) + m.get("views", 0)
+                        x["n_clipes"] = len(x["clipe_ids"])
+                        x["titulos_chat"] = (x.get("titulos_chat", []) + m.get("titulos_chat", []))[:8]
+                        x["inicio"] = min(x["inicio"], m["inicio"])
+                        x["fim"] = min(max(x["fim"], m["fim"]), x["inicio"] + JANELA_MAX)
+                        x["score"] = _score(x["views"], x["n_clipes"])
+                        x["atualizado_em"] = agora()
+                    return False
         m = {**m, "status": "novo", "criado_em": agora()}
         self.momentos[m["id"]] = m
         return True

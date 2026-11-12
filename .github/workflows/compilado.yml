@@ -46,8 +46,4 @@ jobs:
       - name: Salvar memória da máquina
         if: always()
         run: |
-          git config user.name "maquina-de-cortes"
-          git config user.email "maquina@users.noreply.github.com"
-          git add estado/ config.yaml
-          git commit -qm "Compilado: estado atualizado [skip ci]" || exit 0
-          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+          python main.py sincronizar "Compilado: estado atualizado"
