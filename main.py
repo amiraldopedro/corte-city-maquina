@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import os
 import re
+import subprocess
 import sys
 import traceback
 from datetime import datetime, timedelta, timezone
@@ -366,7 +367,7 @@ def _capitulos(usados: list[dict], nomes: dict, idioma: str) -> str:
     for m in usados:
         t = int(m.get("_cap", 0))
         nome = nomes.get(m["streamer"], m.get("nome") or m["streamer"])
-        assunto = (m.get("titulo") or "").replace(nome, "").strip(" :-–|") or (m.get("evento") or "")
+        assunto = re.sub(re.escape(nome), "", m.get("titulo") or "", flags=re.I).strip(" :-–|.") or (m.get("evento") or "")
         linhas.append(f"{t // 60:02d}:{t % 60:02d} {nome}" + (f" — {assunto[:60]}" if assunto else ""))
     return ("⏱️ Capítulos\n" if idioma == "pt" else "⏱️ Chapters\n") + "\n".join(linhas)
 
@@ -425,7 +426,8 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         if tipo != "top10":
             usados = usados[:qtd]
         ordem_nomes = list(dict.fromkeys(nomes.get(m["streamer"], m["streamer"]) for m in reversed(usados)))
-        titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data, evento)
+        reacts = sum(1 for m in usados if m.get("evento")) * 2 > len(usados)
+        titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data, evento, reacts)
 
         melhor = usados[-1] if tipo == "top10" else usados[0]
         bruto = Path(compilado.PASTA_BRUTOS / f"{melhor['id']}.mp4")
@@ -469,8 +471,8 @@ def fazer_corte_longo(cfg: Config):
                             key=lambda m: -m.get("score", 0))
         log(f"== {canal.nome}: corte longo ({len(candidatos)} candidatos)")
         for m in candidatos[:3]:
-            ini = max(0.0, m["inicio"] - 150)
-            fim = min(ini + 9 * 60, m["fim"] + 210)
+            ini = max(0.0, m["inicio"] - 120)
+            fim = min(ini + 6 * 60, m["fim"] + 150)   # até 6 min: cabe na cota grátis do GitHub
             destino = compilado.PASTA_BRUTOS / f"longo_{m['id']}.mp4"
             try:
                 bruto = baixar_trecho(m["video_id"], ini, fim, None, destino)
@@ -486,7 +488,12 @@ def fazer_corte_longo(cfg: Config):
             if not voz:
                 continue
             nome = cfg.nome_streamer(m["streamer"], m.get("nome", ""))
-            palavras = transcrever(voz, canal.idioma, cfg.whisper)
+            # para o título basta o miolo (3 min em volta do momento): economiza minutos do GitHub
+            miolo = voz.with_name(voz.stem + ".miolo.mp4")
+            centro = max(0.0, m["inicio"] - ini - 60)
+            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{centro:.1f}", "-t", "180", "-i", str(voz),
+                            "-vn", "-c:a", "aac", str(miolo)], check=False)
+            palavras = transcrever(miolo if miolo.exists() else voz, canal.idioma, cfg.whisper)
             t = cerebro.textos_longo(nome, m, texto_com_tempos(palavras, 8.0), canal.idioma,
                                      cfg.ia_endereco, cfg.ia_modelo, (fim - ini) / 60)
             saida = PASTA_PRONTOS / f"longo_{canal.id}_{m['id']}.mp4"

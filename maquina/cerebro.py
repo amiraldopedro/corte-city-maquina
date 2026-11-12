@@ -89,9 +89,22 @@ def _perguntar_ollama(endereco: str, modelo: str, prompt: str) -> dict:
     return json.loads(r.json()["response"])
 
 
+SIGLAS = {"gta", "rp", "vi", "iv", "v", "gta6", "irl", "pc", "ps5", "npc", "fps"}
+ESTRANHAS = re.compile(r"\b(venir|pero|muy|cuando|ahora|también|aquí|hay|qué)\b", re.I)  # espanhol que a IA solta
+
+
 def _limpar_titulo(t: str) -> str:
     t = re.sub(r"#\w+", "", t or "").strip().strip('"').strip()
+    letras = [c for c in t if c.isalpha()]
+    if letras and sum(c.isupper() for c in letras) > 0.6 * len(letras):  # título gritando: vira normal
+        palavras = t.lower().split()
+        t = " ".join(w.upper() if re.sub(r"\W", "", w) in SIGLAS else w for w in palavras)
+        t = t[:1].upper() + t[1:]
     return t[:90]
+
+
+def titulo_ok(t: str, nome: str) -> bool:
+    return len(t) >= 20 and nome.split()[0].lower() in t.lower() and not ESTRANHAS.search(t)
 
 
 REACT = {"pt": ["{nome} reagindo ao {evento}", "A reação do {nome} ao {evento} 😱", "{nome} viu o {evento} e não acreditou"],
@@ -140,6 +153,8 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
             fim = inicio + dmax
         titulo = _limpar_titulo(r.get("titulo", ""))
         gancho = str(r.get("gancho", "")).upper().strip()[:16] or random.choice(GANCHOS[idioma])
+        if ESTRANHAS.search(titulo):
+            titulo = ""
         if len(titulo) < 12 or nome.split()[0].lower() not in titulo.lower():
             titulo = _limpar_titulo(f"{nome}: {titulo}") if len(titulo) >= 12 else \
                 random.choice(MODELOS_TITULO[idioma]).format(nome=nome, jogo=apelido(momento.get("jogo", "")))
@@ -157,12 +172,16 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
         return d
 
 
-def titulo_compilado(idioma: str, tipo: str, nomes: list[str], data: str, evento: str = "") -> str:
+def titulo_compilado(idioma: str, tipo: str, nomes: list[str], data: str, evento: str = "",
+                     reacts: bool = False) -> str:
     """Palavra buscada na frente (GTA RP / GTA 6), nomes dos streamers no fim (pessoas buscam por eles)."""
     destaque = ", ".join(nomes[:3])
     if tipo == "serie":
         return (f"{evento}: a reação dos streamers ({destaque})" if idioma == "pt"
                 else f"{evento}: streamers react ({destaque})")[:95]
+    if reacts and tipo == "dia":
+        return (f"GTA 6: a reação dos streamers aos trailers e adiamentos ({destaque})" if idioma == "pt"
+                else f"GTA 6: streamers react to the trailers and delays ({destaque})")[:95]
     if idioma == "pt":
         if tipo == "top10":
             return f"GTA RP: TOP 10 momentos mais insanos da semana ({destaque})"[:95]
@@ -204,8 +223,8 @@ def textos_longo(nome: str, momento: dict, transcricao: str, idioma: str, endere
             titulos="; ".join(t for t in momento.get("titulos_chat", [])[:6] if t) or "(sem título)",
             transcricao=transcricao[:5000]))
         titulo = _limpar_titulo(r.get("titulo", ""))
-        if len(titulo) >= 20 and nome.split()[0].lower() in titulo.lower():
-            padrao["titulo"] = titulo
+        if titulo_ok(titulo, nome):
+            padrao["titulo"] = re.sub(re.escape(nome.split()[0]), nome.split()[0], titulo, count=1, flags=re.I)
         padrao["descricao"] = re.sub(r"#\w+", "", str(r.get("descricao", ""))).strip()[:600]
         padrao["tags"] = [str(t).strip().lower()[:40] for t in (r.get("tags") or []) if str(t).strip()][:12]
         padrao["gancho"] = str(r.get("gancho", "")).upper().strip()[:16] or padrao["gancho"]
