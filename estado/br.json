@@ -14,7 +14,7 @@
    "titulos_chat": [
     "dourada"
    ],
-   "views": 36,
+   "views": 20,
    "n_clipes": 1,
    "score": 617.9720770839917,
    "teste": true,
@@ -39,7 +39,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T22:16:10+00:00"
+   "numeros_em": "2026-11-12T20:55:51+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -159,7 +159,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 1"
    ],
-   "views": 216,
+   "views": 56,
    "n_clipes": 1,
    "score": 761.9720770839917,
    "jogo": "Grand Theft Auto V",
@@ -197,13 +197,14 @@
    "video_asset": 740569521,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_4957.jpg",
    "thumb_asset": 740569626,
-   "atualizado_em": "2026-11-12T21:53:53+00:00",
-   "likes": 11,
+   "atualizado_em": "2026-11-12T22:22:09+00:00",
+   "likes": 2,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T22:16:10+00:00",
+   "numeros_em": "2026-11-12T20:55:51+00:00",
    "usado_em": [
-    "dia"
+    "dia",
+    "longo"
    ]
   },
   "2924173618_6557": {
@@ -220,7 +221,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 2"
    ],
-   "views": 3,
+   "views": 0,
    "n_clipes": 1,
    "score": 496.9720770839918,
    "jogo": "Grand Theft Auto V",
@@ -259,10 +260,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_6557.jpg",
    "thumb_asset": 740576718,
    "atualizado_em": "2026-11-12T21:53:53+00:00",
-   "likes": 1,
+   "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-12T22:16:10+00:00",
+   "numeros_em": "2026-11-12T20:55:51+00:00",
    "usado_em": [
     "dia"
    ]
@@ -335,7 +336,7 @@
    "titulos_chat": [
     "MAL POSSO ESPERAR PARA ACORDAR E ASSISTIR AO TRAILER DO ACLAMADO GTA 6 WOWWWWWW NAO VEJO A HORA ESTOU ARREPIADO"
    ],
-   "views": 0,
+   "views": 1531,
    "n_clipes": 1,
    "score": 1144.4804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -376,11 +377,7 @@
    "atualizado_em": "2026-11-12T21:53:53+00:00",
    "usado_em": [
     "dia"
-   ],
-   "likes": 0,
-   "comentarios": 0,
-   "privacidade": "private",
-   "numeros_em": "2026-11-12T22:16:10+00:00"
+   ]
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -543,12 +540,47 @@
    "thumb_asset": 741229688,
    "youtube_id": "A5JOxLuP_Vc",
    "publicar_em": "2026-11-13T22:30:00Z",
-   "postado_em": "2026-11-12T21:54:08+00:00",
-   "views": 0,
-   "likes": 0,
-   "comentarios": 0,
-   "privacidade": "private",
-   "numeros_em": "2026-11-12T22:16:10+00:00"
+   "postado_em": "2026-11-12T21:54:08+00:00"
+  },
+  "longo_2924173618_4957": {
+   "id": "longo_2924173618_4957",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "longo",
+   "status": "postado",
+   "titulo": "MOUNT GTA RP: O QUE HÁ A VENIR?",
+   "descricao": "MOUNT GTA RP: O QUE HÁ A VENIR?\nChegamos ao ponto de não retorno. MOUNT explora uma hipótese perigosa sobre o próximo trailer do GTA 6. Vamos descobrir juntos!\n\n🎮 Live original: https://twitch.tv/mount\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
+   "tags": [
+    "gta rp",
+    "mundo aberto gta rp",
+    "gta rp cidade alta",
+    "gta rp complexo",
+    "gta 6 trailer",
+    "reagindo trailer gta 6",
+    "gta rp brasil",
+    "mount gta rp",
+    "reagindo gta 6",
+    "gta rp fuga da polícia",
+    "mount",
+    "cortes gta rp",
+    "gta 6"
+   ],
+   "playlist": "Melhores Momentos de GTA 6",
+   "feito_em": "2026-11-12T22:22:26+00:00",
+   "criado_em": "2026-11-12T22:22:26+00:00",
+   "itens": [
+    "2924173618_4957"
+   ],
+   "streamers": [
+    "mount"
+   ],
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_2924173618_4957.mp4",
+   "video_asset": 741312231,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_2924173618_4957.jpg",
+   "thumb_asset": 741312606,
+   "youtube_id": "JhcsOuSfMXI",
+   "publicar_em": "2026-11-13T18:00:00Z",
+   "postado_em": "2026-11-12T22:22:26+00:00"
   }
  },
  "clipes_vistos": [
