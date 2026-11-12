@@ -8,9 +8,14 @@ on:
   workflow_dispatch:
     inputs:
       teste:
-        description: "Modo teste: aceita clipe de qualquer jogo e faz 1 Short [TESTE] privado"
+        description: "Modo teste: aceita clipe de qualquer jogo e faz 1 Short [TESTE]"
         type: boolean
         default: false
+      quantos:
+        description: "Quantos Shorts fazer nesta rodada (máximo = meta do dia)"
+        type: choice
+        options: ["1", "2", "3"]
+        default: "1"
 
 permissions:
   contents: write
@@ -22,7 +27,7 @@ concurrency:
 jobs:
   rodada:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 100
     env:
       GITHUB_TOKEN: ${{ github.token }}
       TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
@@ -34,6 +39,7 @@ jobs:
       WHISPER_CACHE: ${{ github.workspace }}/.cache/whisper
       OLLAMA_MODELS: /home/runner/.ollama/models
       MODO_TESTE: ${{ inputs.teste && '1' || '0' }}
+      QUANTOS: ${{ inputs.quantos || '1' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

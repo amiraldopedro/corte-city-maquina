@@ -98,6 +98,8 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     nome = cfg.nome_streamer(m["streamer"])
     log(f"  produzindo {m['id']} ({nome}, {m['n_clipes']} clipes, {m['views']} views)")
     bruto = baixar_momento(m)
+    if bruto.with_suffix(".clipe").exists():  # usou o clipe do público: a janela é o clipe inteiro
+        m = {**m, "inicio": 0.0, "fim": editar.info_video(bruto)[2], "video_id": None}
     palavras = transcrever(bruto, canal.idioma, cfg.whisper)
     d = cerebro.decidir(m, palavras, texto_com_tempos(palavras), nome, canal.idioma,
                         cfg.duracao_min, cfg.duracao_max, cfg.ia_endereco, cfg.ia_modelo)
@@ -109,6 +111,9 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
 
     final = PASTA_PRONTOS / f"{m['id']}.mp4"
     info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque)
+    from maquina.baixar import MUDO_DB, volume_maximo
+    if volume_maximo(final) <= MUDO_DB:
+        raise RuntimeError("o vídeo final ficou sem som — não vou entregar")
     pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
     capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), final.with_suffix(".jpg"), d["gancho"],
                              canal.cor_destaque, info["webcam"])
@@ -116,10 +121,11 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     guardar_thumb(capa, m["id"])
 
     titulo = ("[TESTE] " if m.get("teste") else "") + d["titulo"]
-    tags = ["gta 6", "gta vi", "gta 6 clips", nome.lower(), f"{nome.lower()} gta 6"]
+    jogo = cerebro.apelido(m.get("jogo", "")).lower()
+    tags = ["gta", "gta 6", "gta rp", nome.lower(), f"{nome.lower()} {jogo}", jogo, "cortes", "shorts"]
     from maquina.entrega import entregar
     arquivos = entregar(final, capa, m["id"])
-    est.atualizar(m["id"], status="pronto", tipo="short", titulo=titulo, gancho=d["gancho"],
+    est.atualizar(m["id"], status="pronto", tipo="short", jogo=m.get("jogo", ""), titulo=titulo, gancho=d["gancho"],
                   descricao=descricao_short(canal, titulo, m["streamer"]), tags=tags,
                   playlist=canal.playlists.get("shorts", ""), corte=[d["inicio"], d["fim"]], feito_em=agora(),
                   layout=info["layout"], cerebro=d["fonte"], nome=nome,
@@ -179,7 +185,8 @@ def produzir(cfg: Config):
             for m in est.por_status("novo"):
                 if TESTE != bool(m.get("teste")):
                     continue
-                if feitos >= (1 if TESTE else min(limite, cfg.max_por_rodada)) or tentativas >= 4:
+                quantos = int(os.getenv("QUANTOS") or cfg.max_por_rodada)
+                if feitos >= (1 if TESTE else min(limite, quantos)) or tentativas >= quantos + 3:
                     break
                 if m["streamer"] in cfg.bloqueados:
                     est.atualizar(m["id"], status="descartado", motivo="streamer bloqueado")

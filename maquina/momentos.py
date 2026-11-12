@@ -39,6 +39,7 @@ def agrupar(clipes: list[dict], jogos_ok: dict[str, str], streamer: str, canal: 
     for c in clipes:
         if not _vale(c, jogos_ok, jogos_palavra or {}, palavras or []):
             continue
+        c["_jogo"] = (jogos_ok or {}).get(c.get("game_id")) or (jogos_palavra or {}).get(c.get("game_id")) or ""
         if c.get("video_id") and c.get("vod_offset") is not None:
             com_vod.setdefault(c["video_id"], []).append(c)
         else:
@@ -94,4 +95,5 @@ def _fechar(grupo: list[dict], video_id: str, streamer: str, canal: str) -> dict
         "titulos_chat": [c.get("title", "") for c in titulos[:8]],
         "views": views, "n_clipes": len(grupo),
         "score": _score(views, len(grupo)),
+        "jogo": titulos[0].get("_jogo", ""),
     }

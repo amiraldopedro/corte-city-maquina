@@ -114,7 +114,7 @@
    "views": 180,
    "n_clipes": 2,
    "score": 452.79184330021644,
-   "status": "pronto",
+   "status": "descartado",
    "criado_em": "2026-11-12T15:51:31+00:00",
    "tipo": "short",
    "titulo": "Alanzoka perdeu a cabeça no GTA 6",
@@ -142,7 +142,8 @@
    "video_asset": 740217533,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2858027110_3819.jpg",
    "thumb_asset": 740217686,
-   "atualizado_em": "2026-11-12T16:34:20+00:00"
+   "atualizado_em": "2026-11-12T17:45:00+00:00",
+   "motivo": "saiu sem som (trecho silenciado pela Twitch)"
   }
  },
  "clipes_vistos": [

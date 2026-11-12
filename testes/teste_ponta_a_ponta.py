@@ -18,7 +18,9 @@ from maquina.estado import Estado
 class TwitchFalsa:
     def __init__(self, *a): pass
     def usuarios(self, logins): return {l: {"id": "u_" + l} for l in logins}
-    def ids_jogos(self, nomes): return {{"Grand Theft Auto V": "32982", "Grand Theft Auto VI": "999", "Just Chatting": "509658", "IRL": "509672"}[n]: n for n in nomes}
+    def ids_jogos(self, nomes):
+        ids = {"Grand Theft Auto V": "32982", "Grand Theft Auto VI": "999", "Just Chatting": "509658", "IRL": "509672"}
+        return {ids[n]: n for n in nomes if n in ids}
     def clipes(self, uid, horas):
         if uid != "u_cerol": return []
         c = lambda i, g, t, off, v: {"id": f"c{i}", "game_id": g, "title": t, "video_id": "VOD1", "vod_offset": off,
@@ -61,5 +63,7 @@ main.produzir(carregar())
 est = Estado("br"); post = [m for m in est.momentos.values() if m["status"] == "pronto"]
 print("entregues:", enviados); print("prontos:", [(m["titulo"], m["layout"], m["video_url"], m["descricao"][:40]) for m in post])
 assert len(post) == 1 and list(Path("estado/thumbs").glob("*.jpg")), "não ficou pronto"
+assert "GTA RP" in post[0]["titulo"] or "fuga" in post[0]["titulo"], post[0]["titulo"]
+assert post[0]["jogo"] == "Grand Theft Auto V"
 assert main.postados_hoje(est, cfg.canal("br")) == 1
 print("OK: ponta a ponta funcionando")

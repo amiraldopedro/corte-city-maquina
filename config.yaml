@@ -6,7 +6,10 @@
 # Jogos aceitos (nome exato da categoria na Twitch). Clipes de outros jogos são ignorados.
 jogos:
   - "Grand Theft Auto VI"
-  - "Grand Theft Auto V"     # tire esta linha quando o GTA 6 dominar as lives
+  - "Grand Theft Auto V"     # GTA RP. Tire as linhas abaixo quando o GTA 6 dominar as lives
+  - "Grand Theft Auto: San Andreas"
+  - "Grand Theft Auto IV"
+  - "Red Dead Redemption 2"
 
 # Aquecimento até o lançamento (19/11): clipes de conversa/react só entram
 # se o título do clipe falar de GTA. Depois do lançamento pode apagar este bloco.
@@ -19,8 +22,8 @@ janela_busca_horas: 72
 
 # Um "momento" só vira vídeo se tiver pelo menos isto:
 momento_minimo:
-  clipes: 2            # clipes diferentes no mesmo trecho da live
-  views: 150           # soma de views desses clipes
+  clipes: 2            # clipes diferentes no mesmo trecho da live (ou 1 clipe com 3x as views abaixo)
+  views: 100           # soma de views desses clipes
 
 # Duração do Short final (segundos)
 duracao:
