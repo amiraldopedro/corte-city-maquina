@@ -63,6 +63,35 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
             est.marcar_clipes(m["clipe_ids"])
         log(f"  {s.nome}: {len(clipes)} clipes novos, {len(momentos)} momentos")
     novos += descobrir(cfg, canal, est, tw, {s.login for s in streamers})
+    novos += cacar_kick(cfg, canal, est)
+    return novos
+
+
+def cacar_kick(cfg: Config, canal: Canal, est: Estado) -> int:
+    """Streamers que fazem live na Kick (precisa da chave KICK_API_KEY)."""
+    from maquina import kick
+    lista = [s for s in canal.kick if s.login not in cfg.bloqueados]
+    if TESTE or not lista:
+        return 0
+    if not kick.ligado():
+        log("  Kick: desligada (falta a chave KICK_API_KEY nos Secrets)")
+        return 0
+    palavras = list(cfg.palavras) + ["gta", "rp", "cidade alta", "complexo"]
+    novos = 0
+    for s in lista:
+        try:
+            clipes = [c for c in kick.clipes(s.login, cfg.janela_busca_horas) if not est.clipe_visto(c["id"])]
+        except Exception as e:
+            log(f"  Kick {s.login}: {e}")
+            continue
+        bons = [c for c in clipes if kick.vale(c, cfg.jogos, palavras)]
+        ms = kick.momentos(bons, s.login, canal.id, cfg.minimo_views)
+        for m in ms:
+            m["nome"] = s.nome
+            if est.inserir(m):
+                novos += 1
+            est.marcar_clipes(m["clipe_ids"])
+        log(f"  Kick {s.nome}: {len(clipes)} clipes novos, {len(ms)} momentos")
     return novos
 
 
@@ -116,8 +145,12 @@ def esperando(est: Estado) -> int:
     return sum(1 for m in est.momentos.values() if m["status"] == "pronto")
 
 
-def descricao_short(canal: Canal, titulo: str, login: str) -> str:
-    return (f"{titulo}\n\n{LIVE[canal.idioma]}: https://twitch.tv/{login}\n\n{AVISO[canal.idioma]}\n\n"
+def link_live(login: str, plataforma: str = "") -> str:
+    return f"https://kick.com/{login}" if plataforma == "kick" else f"https://twitch.tv/{login}"
+
+
+def descricao_short(canal: Canal, titulo: str, login: str, plataforma: str = "") -> str:
+    return (f"{titulo}\n\n{LIVE[canal.idioma]}: {link_live(login, plataforma)}\n\n{AVISO[canal.idioma]}\n\n"
             + " ".join(canal.hashtags))
 
 
@@ -159,7 +192,7 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         from maquina.youtube import proximo_horario
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
         publicar_em = proximo_horario(canal.horarios, canal.fuso, ocupados)
-        descricao = descricao_short(canal, titulo, m["streamer"])
+        descricao = descricao_short(canal, titulo, m["streamer"], m.get("plataforma", ""))
         vid = yt.enviar(final, titulo, descricao, tags, canal.idioma, publicar_em, capa)
         yt.por_na_playlist(vid, canal.playlists.get("shorts", ""))
         est.atualizar(m["id"], status="postado", tipo="short", jogo=m.get("jogo", ""), titulo=titulo,
@@ -170,7 +203,7 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         log(f"    ✅ enviado e agendado para {publicar_em}: https://youtu.be/{vid}")
         return True
     est.atualizar(m["id"], status="pronto", tipo="short", jogo=m.get("jogo", ""), titulo=titulo, gancho=d["gancho"],
-                  descricao=descricao_short(canal, titulo, m["streamer"]), tags=tags,
+                  descricao=descricao_short(canal, titulo, m["streamer"], m.get("plataforma", "")), tags=tags,
                   playlist=canal.playlists.get("shorts", ""), corte=[d["inicio"], d["fim"]], feito_em=agora(),
                   layout=info["layout"], cerebro=d["fonte"], nome=nome,
                   duracao=round(d["fim"] - d["inicio"], 1), prioridade=False, **arquivos)
@@ -333,7 +366,7 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
             continue
         if tipo == "top10":
             escolhidos = list(reversed(escolhidos))  # contagem regressiva: #10 ... #1
-        nomes = {s.login: s.nome for s in canal.streamers}
+        nomes = {s.login: s.nome for s in canal.streamers + canal.kick}
         data = datetime.now(ZoneInfo(canal.fuso)).strftime("%d/%m" if canal.idioma == "pt" else "%b %d")
         saida = PASTA_PRONTOS / f"{tipo}_{canal.id}_{datetime.now().strftime('%Y%m%d')}.mp4"
         usados = compilado.montar(escolhidos, nomes, tipo, canal.cor_destaque, RAIZ / canal.marca, saida)
@@ -350,8 +383,9 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         from maquina.painel import guardar_thumb
         cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}" + (f"_{re.sub(r'[^a-z0-9]', '', evento.lower())[:20]}" if evento else "")
         guardar_thumb(capa, cid)
-        creditos = "\n".join(f"• {n}: https://twitch.tv/{l}" for l, n in nomes.items()
-                             if any(m["streamer"] == l for m in usados))
+        plat = {m["streamer"]: m.get("plataforma", "") for m in usados}
+        creditos = "\n".join(f"• {n}: {link_live(l, plat.get(l, ''))}" for l, n in nomes.items()
+                             if l in plat)
         descricao = f"{titulo}\n\n{LIVE[canal.idioma]}:\n{creditos}\n\n{AVISO[canal.idioma]}\n\n#gta6 #gtavi"
         from maquina.entrega import entregar
         arquivos = entregar(saida, capa, cid)

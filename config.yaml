@@ -93,6 +93,10 @@ canais:
       - { login: alanzoka,       nome: "Alanzoka" }
       - { login: jonvlogs,       nome: "Jon Vlogs" }
       - { login: nobru,          nome: "Nobru" }
+    # Quem faz live na Kick (login = nome na URL: kick.com/LOGIN).
+    # Só funciona com a chave KICK_API_KEY nos Secrets do GitHub; sem ela, é ignorado.
+    kick:
+      - { login: coringa,        nome: "Coringa" }
 
   - id: en
     nome: "Clip City"

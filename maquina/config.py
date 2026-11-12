@@ -39,6 +39,7 @@ class Canal:
     streamers: list[Streamer] = field(default_factory=list)
     postar: str = "manual"
     descobrir: dict = field(default_factory=dict)
+    kick: list[Streamer] = field(default_factory=list)
 
     @property
     def refresh_token(self) -> str:
@@ -81,7 +82,7 @@ class Config:
 
     def nome_streamer(self, login: str, padrao: str = "") -> str:
         for c in self.canais:
-            for s in c.streamers:
+            for s in c.streamers + c.kick:
                 if s.login == login:
                     return s.nome
         return padrao or login
@@ -103,6 +104,8 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
         )
         for s in c.get("streamers", []):
             canal.streamers.append(Streamer(login=s["login"].lower(), nome=s.get("nome", s["login"]), canal_id=canal.id))
+        for s in c.get("kick", []) or []:
+            canal.kick.append(Streamer(login=s["login"].lower(), nome=s.get("nome", s["login"]), canal_id=canal.id))
         canais.append(canal)
 
     for p in (PASTA_BRUTOS, PASTA_PRONTOS, PASTA_ESTADO):
