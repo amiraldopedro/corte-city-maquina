@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "17 */4 * * *"
   workflow_dispatch:
+    inputs:
+      teste:
+        description: "Modo teste: aceita clipe de qualquer jogo e faz 1 Short [TESTE] privado"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -27,6 +32,7 @@ jobs:
       YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
       WHISPER_CACHE: ${{ github.workspace }}/.cache/whisper
       OLLAMA_MODELS: /home/runner/.ollama/models
+      MODO_TESTE: ${{ inputs.teste && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

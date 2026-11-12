@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import re
 import sys
 import traceback
@@ -32,6 +33,7 @@ AVISO = {
            "original creators. If something is yours and you want it removed, tell us in the comments."),
 }
 LIVE = {"pt": "🎮 Live original", "en": "🎮 Original stream"}
+TESTE = os.getenv("MODO_TESTE") == "1"  # aceita clipe de qualquer jogo e marca o vídeo como [TESTE]
 
 
 def log(msg: str):
@@ -42,7 +44,7 @@ def log(msg: str):
 def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
     streamers = cfg.streamers_do(canal)
     usuarios = tw.usuarios([s.login for s in streamers])
-    jogos = tw.ids_jogos(cfg.jogos)
+    jogos = {} if TESTE else tw.ids_jogos(cfg.jogos)
     novos = 0
     for s in streamers:
         u = usuarios.get(s.login)
@@ -52,6 +54,8 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
         clipes = [c for c in tw.clipes(u["id"], cfg.janela_busca_horas) if not est.clipe_visto(c["id"])]
         momentos = agrupar(clipes, jogos, s.login, canal.id, cfg.minimo_clipes, cfg.minimo_views)
         for m in momentos:
+            if TESTE:
+                m["teste"] = True
             if est.inserir(m):
                 novos += 1
                 est.marcar_clipes(m["clipe_ids"])
@@ -100,9 +104,9 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     from maquina.painel import guardar_thumb
     guardar_thumb(capa, m["id"])
 
-    titulo = d["titulo"]
+    titulo = ("[TESTE] " if m.get("teste") else "") + d["titulo"]
     publicar_em = None
-    if canal.modo == "automatico":
+    if canal.modo == "automatico" and not m.get("teste"):
         from maquina.youtube import proximo_horario
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
         publicar_em = proximo_horario(canal.horarios, canal.fuso, ocupados)
@@ -137,7 +141,7 @@ def tem_trabalho(cfg: Config) -> bool:
     for canal in cfg.canais_ativos():
         est = Estado(canal.id)
         fila = [m for m in est.por_status("novo") if m["streamer"] not in cfg.bloqueados]
-        if fila and postados_hoje(est, canal) < len(canal.horarios):
+        if fila and (TESTE or postados_hoje(est, canal) < len(canal.horarios)):
             return True
     return False
 
@@ -150,14 +154,16 @@ def produzir(cfg: Config):
         log(f"== {canal.nome} ({canal.modo})")
         est = Estado(canal.id)
         try:
-            limite = len(canal.horarios) - postados_hoje(est, canal)
+            limite = 1 if TESTE else len(canal.horarios) - postados_hoje(est, canal)
             if limite <= 0:
                 log("  meta de Shorts de hoje já cumprida")
                 continue
             yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
             feitos = tentativas = 0
             for m in est.por_status("novo"):
-                if feitos >= min(limite, cfg.max_por_rodada) or tentativas >= 4:
+                if TESTE and not m.get("teste"):
+                    continue
+                if feitos >= (1 if TESTE else min(limite, cfg.max_por_rodada)) or tentativas >= 4:
                     break
                 if m["streamer"] in cfg.bloqueados:
                     est.atualizar(m["id"], status="descartado", motivo="streamer bloqueado")
@@ -174,6 +180,9 @@ def produzir(cfg: Config):
             falhou = True
             traceback.print_exc()
         finally:
+            for x in est.momentos.values():  # momentos de teste que sobraram não ficam na fila de verdade
+                if x.get("teste") and x["status"] == "novo":
+                    x["status"] = "descartado"
             est.salvar()
     if falhou:
         sys.exit(1)

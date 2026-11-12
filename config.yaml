@@ -56,7 +56,7 @@ canais:
       top10: "Top 10 da Semana"
     streamers:
       # login = nome na URL da Twitch (twitch.tv/LOGIN)
-      - { login: loud_coringa,   nome: "Coringa" }
+      - { login: coringa,        nome: "Coringa" }
       - { login: paulinholokobr, nome: "Paulinho O Loko" }
       - { login: luquet4,        nome: "LuquEt4" }
       - { login: cerol,          nome: "Cerol" }
