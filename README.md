@@ -64,6 +64,11 @@ Depois rode **Controle → testar conexões**. Ele mostra o nome do canal conect
 
 > Projetos do Google Cloud que ainda não passaram pela auditoria do YouTube só conseguem subir vídeos **privados**. Para a Fase 1 isso não atrapalha (você publica na mão). Para o modo automático, peça a auditoria em *YouTube API Services – Audit and Quota Extension*.
 
+## Painel visual (Corte City Studio)
+
+O arquivo `painel/index.html` é o painel no estilo YouTube Studio: números do canal, vídeos enviados (publicar, agendar, apagar), fila de momentos (fazer primeiro, descartar) e streamers (adicionar, bloquear, apagar vídeos).
+Abra o arquivo no Chrome e, em **Configurações**, cole um token do GitHub (fine-grained, só deste repositório, com *Contents: Read-only* e *Actions: Read and write*). Os botões disparam o workflow **Painel - ação**.
+
 ## Mudar coisas sem mexer em código
 
 Tudo fica no `config.yaml`: streamers de cada canal, horários, quantos Shorts por dia, duração, modelo da IA, modo revisão/automático.
