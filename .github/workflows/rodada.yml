@@ -14,8 +14,8 @@ on:
       quantos:
         description: "Quantos Shorts fazer nesta rodada (máximo = meta do dia)"
         type: choice
-        options: ["1", "2", "3"]
-        default: "1"
+        options: ["3", "2", "1"]
+        default: "3"
 
 permissions:
   contents: write
