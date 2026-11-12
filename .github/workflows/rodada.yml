@@ -1,0 +1,82 @@
+name: Rodada (caçar + Shorts)
+
+# A cada 4 horas: consulta a Twitch, guarda os momentos novos e, se a meta do dia
+# ainda não foi cumprida, monta e posta um Short por canal ativo.
+on:
+  schedule:
+    - cron: "17 */4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maquina
+  cancel-in-progress: false
+
+jobs:
+  rodada:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+      TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
+      YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+      WHISPER_CACHE: ${{ github.workspace }}/.cache/whisper
+      OLLAMA_MODELS: /home/runner/.ollama/models
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      - name: Caçar clipes na Twitch
+        run: |
+          pip install -q -r requirements-leve.txt
+          python main.py cacar
+
+      - name: Tem Short para fazer agora?
+        id: fila
+        run: echo "tem=$(python main.py fila)" >> "$GITHUB_OUTPUT"
+
+      - name: Instalar ferramentas de vídeo
+        if: steps.fila.outputs.tem == 'sim'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q -r requirements.txt
+
+      - name: Guardar modelos baixados (IA e transcrição)
+        if: steps.fila.outputs.tem == 'sim'
+        uses: actions/cache@v4
+        with:
+          path: |
+            /home/runner/.ollama/models
+            .cache/whisper
+          key: modelos-${{ hashFiles('config.yaml') }}
+          restore-keys: modelos-
+
+      - name: Ligar a IA gratuita (Ollama)
+        if: steps.fila.outputs.tem == 'sim'
+        continue-on-error: true   # se falhar, a máquina usa o plano B com regras
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl stop ollama 2>/dev/null || true
+          nohup ollama serve > /tmp/ollama.log 2>&1 &
+          sleep 5
+          MODELO=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['ia']['modelo'])")
+          ollama pull "$MODELO"
+
+      - name: Produzir e postar
+        if: steps.fila.outputs.tem == 'sim'
+        run: python main.py produzir
+
+      - name: Salvar memória da máquina
+        if: always()
+        run: |
+          git config user.name "maquina-de-cortes"
+          git config user.email "maquina@users.noreply.github.com"
+          git add estado/ config.yaml
+          git commit -qm "Rodada: estado atualizado [skip ci]" || exit 0
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

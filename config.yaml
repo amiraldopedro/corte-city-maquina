@@ -1,0 +1,92 @@
+# ============================================================
+#  MÁQUINA DE CORTES GTA 6 — configuração
+#  Tudo que você quiser mudar no dia a dia fica aqui.
+# ============================================================
+
+# Jogos aceitos (nome exato da categoria na Twitch). Clipes de outros jogos são ignorados.
+jogos:
+  - "Grand Theft Auto VI"
+  - "Grand Theft Auto V"     # tire esta linha quando o GTA 6 dominar as lives
+
+# Quantas horas para trás procurar clipes a cada rodada
+janela_busca_horas: 24
+
+# Um "momento" só vira vídeo se tiver pelo menos isto:
+momento_minimo:
+  clipes: 2            # clipes diferentes no mesmo trecho da live
+  views: 150           # soma de views desses clipes
+
+# Duração do Short final (segundos)
+duracao:
+  minimo: 15
+  maximo: 58
+
+# Quantos Shorts produzir por rodada, em cada canal (a máquina roda a cada 3 horas)
+max_por_rodada: 1
+
+# IA gratuita (Ollama roda dentro do GitHub Actions). Se falhar, a máquina usa regras simples.
+ia:
+  modelo: "qwen2.5:3b"
+  endereco: "http://127.0.0.1:11434"
+
+# Transcrição (faster-whisper): tiny, base, small. "small" = melhor qualidade, mais lento
+whisper: "small"
+
+# ------------------------------------------------------------
+#  CANAIS
+#  modo: "revisao"    -> sobe como PRIVADO, você assiste e publica no YouTube Studio
+#        "automatico" -> sobe AGENDADO nos horários abaixo
+#  ativo: false       -> a máquina ignora o canal
+# ------------------------------------------------------------
+canais:
+  - id: br
+    nome: "Corte City"
+    ativo: true
+    modo: revisao
+    idioma: pt
+    marca: assets/marca/marca_pt.png
+    cor_destaque: "#C8FF2E"
+    fuso: "America/Sao_Paulo"
+    horarios: ["12:00", "18:00", "21:00"]
+    horario_compilado: "19:30"
+    hashtags: ["#gta6", "#gtavi", "#shorts"]
+    playlists:
+      shorts: "Melhores Momentos de GTA 6"
+      compilado: "Melhores Momentos de GTA 6"
+      top10: "Top 10 da Semana"
+    streamers:
+      # login = nome na URL da Twitch (twitch.tv/LOGIN)
+      - { login: loud_coringa,   nome: "Coringa" }
+      - { login: paulinholokobr, nome: "Paulinho O Loko" }
+      - { login: luquet4,        nome: "LuquEt4" }
+      - { login: cerol,          nome: "Cerol" }
+      - { login: alanzoka,       nome: "Alanzoka" }
+      - { login: jonvlogs,       nome: "Jon Vlogs" }
+      - { login: nobru,          nome: "Nobru" }
+
+  - id: en
+    nome: "Clip City"
+    ativo: false               # Fase 2: troque para true quando o Corte City estiver redondo
+    modo: revisao
+    idioma: en
+    marca: assets/marca/marca_en.png
+    cor_destaque: "#2EE6FF"
+    fuso: "America/New_York"
+    horarios: ["13:00", "17:00", "20:00"]
+    horario_compilado: "19:00"
+    hashtags: ["#gta6", "#gtavi", "#shorts"]
+    playlists:
+      shorts: "Best GTA 6 Moments"
+      compilado: "Best GTA 6 Moments"
+      top10: "Top 10 of the Week"
+    streamers:
+      - { login: kaicenat,     nome: "Kai Cenat" }
+      - { login: xqc,          nome: "xQc" }
+      - { login: jasontheween, nome: "JasonTheWeen" }
+      - { login: caseoh_,      nome: "CaseOh" }
+      - { login: jynxzi,       nome: "Jynxzi" }
+      - { login: summit1g,     nome: "summit1g" }
+
+# Streamers bloqueados (reclamaram ou pediram remoção). Nunca mais são cortados.
+# Para bloquear, use o botão "Controle" no GitHub Actions (ele edita esta lista sozinho).
+bloqueados: []

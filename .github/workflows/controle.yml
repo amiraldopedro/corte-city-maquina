@@ -1,0 +1,60 @@
+name: Controle (bloquear, apagar, testar)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acao:
+        description: "O que fazer"
+        type: choice
+        options:
+          - testar conexões
+          - bloquear streamer
+          - bloquear e apagar os vídeos dele
+      login:
+        description: "Login do streamer na Twitch (só para bloquear/apagar)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maquina
+  cancel-in-progress: false
+
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+      TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
+      YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q PyYAML requests google-api-python-client google-auth
+      - name: Executar
+        env:
+          ACAO: ${{ inputs.acao }}
+          LOGIN: ${{ inputs.login }}
+        run: |
+          case "$ACAO" in
+            "testar conexões") python main.py teste ;;
+            "bloquear streamer") python main.py bloquear "$LOGIN" ;;
+            "bloquear e apagar os vídeos dele") python main.py bloquear "$LOGIN" && python main.py apagar "$LOGIN" ;;
+          esac
+      - name: Salvar
+        if: always()
+        run: |
+          git config user.name "maquina-de-cortes"
+          git config user.email "maquina@users.noreply.github.com"
+          git add estado/ config.yaml
+          git commit -qm "Controle: $ACAO $LOGIN [skip ci]" || exit 0
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+        env:
+          ACAO: ${{ inputs.acao }}
+          LOGIN: ${{ inputs.login }}

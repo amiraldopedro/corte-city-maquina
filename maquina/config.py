@@ -1,0 +1,121 @@
+"""Carrega config.yaml + segredos (variáveis de ambiente / Secrets do GitHub)."""
+from __future__ import annotations
+
+import os
+from dataclasses import dataclass, field
+from pathlib import Path
+
+import yaml
+
+RAIZ = Path(__file__).resolve().parent.parent
+PASTA_TRABALHO = Path(os.getenv("PASTA_TRABALHO", RAIZ / "trabalho"))
+PASTA_BRUTOS = PASTA_TRABALHO / "brutos"
+PASTA_PRONTOS = PASTA_TRABALHO / "prontos"
+PASTA_ESTADO = RAIZ / "estado"
+FONTES = RAIZ / "assets" / "fonts"
+
+
+@dataclass
+class Streamer:
+    login: str
+    nome: str
+    canal_id: str = ""
+
+
+@dataclass
+class Canal:
+    id: str
+    nome: str
+    ativo: bool
+    modo: str
+    idioma: str
+    marca: str
+    cor_destaque: str
+    fuso: str
+    horarios: list[str]
+    horario_compilado: str
+    hashtags: list[str]
+    playlists: dict
+    streamers: list[Streamer] = field(default_factory=list)
+
+    @property
+    def refresh_token(self) -> str:
+        return os.getenv(f"YT_REFRESH_TOKEN_{self.id.upper()}", "")
+
+
+@dataclass
+class Config:
+    jogos: list[str]
+    janela_busca_horas: int
+    minimo_clipes: int
+    minimo_views: int
+    duracao_min: int
+    duracao_max: int
+    max_por_rodada: int
+    ia_modelo: str
+    ia_endereco: str
+    whisper: str
+    canais: list[Canal]
+    bloqueados: set[str]
+
+    twitch_client_id: str = ""
+    twitch_client_secret: str = ""
+    yt_client_id: str = ""
+    yt_client_secret: str = ""
+
+    def canais_ativos(self) -> list[Canal]:
+        return [c for c in self.canais if c.ativo]
+
+    def canal(self, canal_id: str) -> Canal:
+        for c in self.canais:
+            if c.id == canal_id:
+                return c
+        raise KeyError(f"Canal '{canal_id}' não existe no config.yaml")
+
+    def streamers_do(self, canal: Canal) -> list[Streamer]:
+        return [s for s in canal.streamers if s.login not in self.bloqueados]
+
+    def nome_streamer(self, login: str) -> str:
+        for c in self.canais:
+            for s in c.streamers:
+                if s.login == login:
+                    return s.nome
+        return login
+
+
+def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
+    bruto = yaml.safe_load(Path(caminho).read_text(encoding="utf-8")) or {}
+    canais = []
+    for c in bruto.get("canais", []):
+        canal = Canal(
+            id=c["id"], nome=c.get("nome", c["id"]), ativo=bool(c.get("ativo", True)),
+            modo=c.get("modo", "revisao"), idioma=c.get("idioma", "pt"),
+            marca=c.get("marca", ""), cor_destaque=c.get("cor_destaque", "#C8FF2E"),
+            fuso=c.get("fuso", "America/Sao_Paulo"),
+            horarios=list(c.get("horarios", ["12:00", "18:00", "21:00"])),
+            horario_compilado=c.get("horario_compilado", "19:30"),
+            hashtags=list(c.get("hashtags", [])), playlists=dict(c.get("playlists", {})),
+        )
+        for s in c.get("streamers", []):
+            canal.streamers.append(Streamer(login=s["login"].lower(), nome=s.get("nome", s["login"]), canal_id=canal.id))
+        canais.append(canal)
+
+    for p in (PASTA_BRUTOS, PASTA_PRONTOS, PASTA_ESTADO):
+        p.mkdir(parents=True, exist_ok=True)
+
+    mm, du, ia = bruto.get("momento_minimo", {}), bruto.get("duracao", {}), bruto.get("ia", {})
+    return Config(
+        jogos=list(bruto.get("jogos", ["Grand Theft Auto VI"])),
+        janela_busca_horas=int(bruto.get("janela_busca_horas", 24)),
+        minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
+        duracao_min=int(du.get("minimo", 15)), duracao_max=int(du.get("maximo", 58)),
+        max_por_rodada=int(bruto.get("max_por_rodada", 1)),
+        ia_modelo=ia.get("modelo", "qwen2.5:3b"), ia_endereco=ia.get("endereco", "http://127.0.0.1:11434"),
+        whisper=str(bruto.get("whisper", "small")),
+        canais=canais,
+        bloqueados={b.lower() for b in (bruto.get("bloqueados") or [])},
+        twitch_client_id=os.getenv("TWITCH_CLIENT_ID", ""),
+        twitch_client_secret=os.getenv("TWITCH_CLIENT_SECRET", ""),
+        yt_client_id=os.getenv("YT_CLIENT_ID", ""),
+        yt_client_secret=os.getenv("YT_CLIENT_SECRET", ""),
+    )
