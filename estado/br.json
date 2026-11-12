@@ -18,8 +18,24 @@
    "n_clipes": 1,
    "score": 617.9720770839917,
    "teste": true,
-   "status": "novo",
-   "criado_em": "2026-11-12T15:34:32+00:00"
+   "status": "postado",
+   "criado_em": "2026-11-12T15:34:32+00:00",
+   "tipo": "short",
+   "youtube_id": "tiTcjseEyUU",
+   "titulo": "[TESTE] Paulinho O Loko: ... Noturno, o antigo vilão dos X-Men, volta para GTA 6...",
+   "gancho": "VILÃO",
+   "corte": [
+    8.0,
+    49.5
+   ],
+   "publicar_em": null,
+   "postado_em": "2026-11-12T15:59:22+00:00",
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nome": "Paulinho O Loko",
+   "duracao": 41.5,
+   "prioridade": false,
+   "atualizado_em": "2026-11-12T15:59:22+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -74,15 +90,39 @@
    "criado_em": "2026-11-12T15:34:33+00:00",
    "erro": "open() got an unexpected keyword argument 'metadata_errors'",
    "atualizado_em": "2026-11-12T15:42:32+00:00"
+  },
+  "2858027110_3819": {
+   "id": "2858027110_3819",
+   "streamer": "alanzoka",
+   "canal": "br",
+   "video_id": "2858027110",
+   "inicio": 3819.0,
+   "fim": 3884.6,
+   "clipe_url": "https://www.twitch.tv/alanzoka/clip/UgliestSpineySkunkStoneLightning-0zagkvrrtS3Cej76",
+   "clipe_ids": [
+    "UgliestSpineySkunkStoneLightning-0zagkvrrtS3Cej76",
+    "KathishFrailAlpacaDAESuppy-AcvQZ01XjYCRbrDO"
+   ],
+   "titulos_chat": [
+    "b",
+    "g"
+   ],
+   "views": 180,
+   "n_clipes": 2,
+   "score": 452.79184330021644,
+   "status": "novo",
+   "criado_em": "2026-11-12T15:51:31+00:00"
   }
  },
  "clipes_vistos": [
   "AttractiveLitigiousRedpandaSpicyBoy-KUz6vtPMeq2tIvwa",
   "GoldenAwkwardHabaneroTBTacoLeft-PtFVVPwTv4qM0Afm",
+  "KathishFrailAlpacaDAESuppy-AcvQZ01XjYCRbrDO",
   "NurturingPeppyPonyStrawBeary-5Qhb9YUF6jfuqKsj",
   "PleasantTransparentLaptopResidentSleeper-YBJdi9z4r0EKgCRJ",
   "SmellyHelpfulSamosaSpicyBoy-Fw9HAmzxpUX4RaKv",
   "StormyHonestApeDatSheffy-7As3hLaiubGxM0Cu",
-  "TsundereSpoopyTroutTF2John-1ACPD6zIu9SSVsN1"
+  "TsundereSpoopyTroutTF2John-1ACPD6zIu9SSVsN1",
+  "UgliestSpineySkunkStoneLightning-0zagkvrrtS3Cej76"
  ]
 }
