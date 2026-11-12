@@ -41,25 +41,45 @@ def _segmento(bruto: Path, destino: Path, nome: str, numero: int | None, cor: st
            "-ac", "2", str(destino)])
 
 
+def _duracao(arquivo: Path) -> float:
+    import subprocess
+    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(arquivo)],
+                       capture_output=True, text=True)
+    try:
+        return float(r.stdout.strip())
+    except ValueError:
+        return 0.0
+
+
 def montar(momentos: list[dict], nomes: dict[str, str], tipo: str, cor: str, marca: Path | None,
-           saida: Path) -> list[dict]:
-    """momentos já ordenados na ordem em que devem aparecer. Retorna os que entraram."""
+           saida: Path, minimo: int = 3) -> list[dict]:
+    """momentos já ordenados na ordem em que devem aparecer. Retorna os que entraram,
+    cada um com `_cap` = segundo em que começa no vídeo (para os capítulos da descrição).
+
+    Vídeo longo NUNCA vai com a música original: a voz é isolada em cada trecho e,
+    se não der para isolar, o trecho fica de fora."""
+    from .voz import tentar_isolar
     pasta = PASTA_PRONTOS / f"comp_{saida.stem}"
     pasta.mkdir(parents=True, exist_ok=True)
     partes, usados = [], []
     total = len(momentos)
+    relogio = 0.0
     for i, m in enumerate(momentos):
         try:
             bruto = baixar_trecho(m.get("video_id"), m["inicio"], m["fim"], m.get("clipe_url"),
                                   PASTA_BRUTOS / f"{m['id']}.mp4")
+            voz = tentar_isolar(bruto)
+            if not voz:
+                raise RuntimeError("sem voz isolada (não entra com música)")
             parte = pasta / f"{i:02d}.mp4"
             numero = (total - i) if tipo == "top10" else None
-            _segmento(bruto, parte, nomes.get(m["streamer"], m["streamer"]), numero, cor, marca)
+            _segmento(voz, parte, nomes.get(m["streamer"], m.get("nome") or m["streamer"]), numero, cor, marca)
             partes.append(parte)
-            usados.append(m)
+            usados.append({**m, "_cap": relogio})
+            relogio += _duracao(parte)
         except Exception as e:
             print(f"  compilado: pulei {m['id']} ({str(e)[:150]})")
-    if len(partes) < 3:
+    if len(partes) < minimo:
         raise RuntimeError("poucos momentos para montar o compilado")
     lista = pasta / "lista.txt"
     lista.write_text("".join(f"file '{p.resolve()}'\n" for p in partes))

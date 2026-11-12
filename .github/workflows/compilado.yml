@@ -9,7 +9,7 @@ on:
       tipo:
         description: "Qual vídeo longo"
         type: choice
-        options: [dia, top10, serie]
+        options: [dia, longo, top10, serie]
         default: dia
       evento:
         description: "Para tipo serie: nome do evento (ex.: Trailer 2 do GTA 6)"
@@ -26,7 +26,7 @@ concurrency:
 jobs:
   compilado:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,6 +35,30 @@ jobs:
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
           pip install -q -r requirements.txt
+          pip install -q --index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          pip install -q demucs
+
+      - name: Guardar modelos baixados (IA, transcrição e separador de voz)
+        uses: actions/cache@v4
+        with:
+          path: |
+            /home/runner/.ollama/models
+            .cache/whisper
+            .cache/torch
+          key: modelos-longo-${{ hashFiles('config.yaml') }}
+          restore-keys: |
+            modelos-longo-
+            modelos-
+
+      - name: Ligar a IA gratuita (Ollama)
+        continue-on-error: true
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl stop ollama 2>/dev/null || true
+          nohup ollama serve > /tmp/ollama.log 2>&1 &
+          sleep 5
+          MODELO=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['ia']['modelo'])")
+          ollama pull "$MODELO"
       - name: Montar e postar
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -42,12 +66,17 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
           YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+          WHISPER_CACHE: ${{ github.workspace }}/.cache/whisper
+          TORCH_HOME: ${{ github.workspace }}/.cache/torch
+          OLLAMA_MODELS: /home/runner/.ollama/models
         run: |
           TIPO="${{ inputs.tipo }}"
           if [ -z "$TIPO" ]; then
-            if [ "${{ github.event.schedule }}" = "23 13 * * 0" ]; then TIPO=top10; else TIPO=dia; fi
+            if [ "${{ github.event.schedule }}" = "23 13 * * 0" ]; then TIPO=top10; else TIPO="dia longo"; fi
           fi
-          python main.py compilado "$TIPO" --evento "${{ inputs.evento }}"
+          for T in $TIPO; do
+            python main.py compilado "$T" --evento "${{ inputs.evento }}" || echo "::warning::$T falhou"
+          done
       - name: Salvar memória da máquina
         if: always()
         run: |

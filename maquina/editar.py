@@ -103,7 +103,7 @@ def _cor_ass(hexa: str) -> str:
 
 
 def gerar_legenda(palavras: list[dict], inicio: float, fim: float, destino: Path,
-                  y_centro: int, cor: str, por_bloco: int = 3):
+                  y_centro: int, cor: str, por_bloco: int = 3, chamada: str = "", y_chamada: int = 0):
     """Legenda estilo Shorts: blocos de até 3 palavras, a palavra falada acende na cor do canal."""
     ps = [w for w in palavras if w["f"] > inicio and w["i"] < fim]
     linhas = [
@@ -113,9 +113,14 @@ def gerar_legenda(palavras: list[dict], inicio: float, fim: float, destino: Path
         "Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, "
         "MarginR, MarginV, Encoding",
         "Style: L,Anton,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,7,3,5,60,60,0,1",
+        "Style: C,Anton,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,3,14,0,5,70,70,0,1",
         "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     destaque = _cor_ass(cor)
+    if chamada:  # faixa de chamada nos primeiros segundos (prende quem está rolando o feed)
+        t = chamada.upper().replace("{", "").replace("}", "")
+        linhas.append(f"Dialogue: 1,{_ass_tempo(0)},{_ass_tempo(2.8)},C,,0,0,0,,"
+                      f"{{\\pos({W // 2},{y_chamada})\\fad(0,250)}}{t}")
     for i in range(0, len(ps), por_bloco):
         bloco = ps[i:i + por_bloco]
         for j, w in enumerate(bloco):
@@ -137,7 +142,9 @@ def _escapar(caminho: Path) -> str:
 
 
 def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], destino: Path,
-                 marca: Path | None, cor: str) -> dict:
+                 marca: Path | None, cor: str, chamada: str = "", pico: float | None = None,
+                 audio: Path | None = None) -> dict:
+    """`pico`: segundo (no arquivo) da reação, ganha um zoom rápido. `audio`: arquivo com a voz isolada."""
     webcam = achar_webcam(bruto, inicio, fim)
     legenda = destino.with_suffix(".ass")
     largura, altura, _ = info_video(bruto)
@@ -152,6 +159,7 @@ def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], d
             f"[topo][jogo]vstack[v0]"
         )
         y_legenda, y_marca = TOPO_H + 230, TOPO_H + 30
+        y_chamada = TOPO_H
     else:
         alt_fg = int(W * altura / largura) // 2 * 2
         filtro = (
@@ -162,19 +170,35 @@ def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], d
             f"[fundo][frente]overlay=0:(H-h)/2[v0]"
         )
         y_legenda, y_marca = (H + alt_fg) // 2 + 170, (H - alt_fg) // 2 + 24
+        y_chamada = max(160, (H - alt_fg) // 2 - 150)
 
-    gerar_legenda(palavras, inicio, fim, legenda, y_legenda, cor)
+    gerar_legenda(palavras, inicio, fim, legenda, y_legenda, cor, chamada=chamada, y_chamada=y_chamada)
+    duracao = max(1.0, fim - inicio)
     entradas = ["-ss", f"{inicio:.2f}", "-to", f"{fim:.2f}", "-i", str(bruto)]
+    proxima = 1
     if marca and Path(marca).exists():
         entradas += ["-i", str(marca)]
         filtro += (f";[1:v]scale=130:-1,format=rgba,colorchannelmixer=aa=0.85[m];"
                    f"[v0][m]overlay=W-w-28:{y_marca}[v1]")
+        proxima = 2
     else:
         filtro += ";[v0]null[v1]"
-    filtro += f";[v1]ass='{_escapar(legenda)}':fontsdir='{_escapar(FONTES)}',fps=30,format=yuv420p[v]"
+    if pico is not None and 0.5 < pico - inicio < duracao - 0.5:
+        a, b = pico - inicio - 0.35, pico - inicio + 1.1
+        filtro += (f";[v1]fps=30,zoompan=z='if(between(in_time,{a:.2f},{b:.2f}),1.12,1)':d=1:"
+                   f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps=30[v2]")
+    else:
+        filtro += ";[v1]null[v2]"
+    barra = "0x" + cor.lstrip("#")
+    filtro += (f";[v2]ass='{_escapar(legenda)}':fontsdir='{_escapar(FONTES)}',fps=30,"
+               f"drawbox=x=0:y=0:w='iw*t/{duracao:.2f}':h=12:color={barra}@1:t=fill,format=yuv420p[v]")
+    mapa_audio = "0:a?"
+    if audio:
+        entradas += ["-ss", f"{inicio:.2f}", "-to", f"{fim:.2f}", "-i", str(audio)]
+        mapa_audio = f"{proxima}:a"
 
     rodar(["ffmpeg", "-y", "-loglevel", "error", *entradas, "-filter_complex", filtro,
-           "-map", "[v]", "-map", "0:a?", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
+           "-map", "[v]", "-map", mapa_audio, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
            "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-c:a", "aac", "-b:a", "160k",
            "-ar", "48000", "-movflags", "+faststart", str(destino)])
     return {"layout": "webcam" if webcam else "fundo", "webcam": webcam}

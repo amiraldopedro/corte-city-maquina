@@ -151,8 +151,10 @@ def link_live(login: str, plataforma: str = "") -> str:
     return f"https://kick.com/{login}" if plataforma == "kick" else f"https://twitch.tv/{login}"
 
 
-def descricao_short(canal: Canal, titulo: str, login: str, plataforma: str = "") -> str:
-    return (f"{titulo}\n\n{LIVE[canal.idioma]}: {link_live(login, plataforma)}\n\n{AVISO[canal.idioma]}\n\n"
+def descricao_short(canal: Canal, titulo: str, login: str, plataforma: str = "", resumo: str = "") -> str:
+    # as 2 primeiras linhas são as que o YouTube mostra e usa na busca
+    topo = f"{titulo}\n{resumo}" if resumo else titulo
+    return (f"{topo}\n\n{LIVE[canal.idioma]}: {link_live(login, plataforma)}\n\n{AVISO[canal.idioma]}\n\n"
             + " ".join(canal.hashtags))
 
 
@@ -175,11 +177,17 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         return False
 
     final = PASTA_PRONTOS / f"{m['id']}.mp4"
-    info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque)
+    voz = None
+    if m.get("evento"):  # react a trailer: a música da Rockstar faz o YouTube silenciar o Short
+        from maquina.voz import tentar_isolar
+        voz = tentar_isolar(bruto)
+        log(f"    voz isolada: {'sim' if voz else 'não (vai com o áudio original)'}")
+    pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
+    info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque,
+                               chamada=d.get("chamada", ""), pico=pico, audio=voz)
     from maquina.baixar import MUDO_DB, volume_maximo
     if volume_maximo(final) <= MUDO_DB:
         raise RuntimeError("o vídeo final ficou sem som — não vou entregar")
-    pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
     capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), final.with_suffix(".jpg"), d["gancho"],
                              canal.cor_destaque, info["webcam"])
     from maquina.painel import guardar_thumb
@@ -187,14 +195,16 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
 
     titulo = ("[TESTE] " if m.get("teste") else "") + d["titulo"]
     jogo = cerebro.apelido(m.get("jogo", "")).lower()
-    tags = ["gta", "gta 6", "gta rp", nome.lower(), f"{nome.lower()} {jogo}", jogo, "cortes", "shorts"]
+    base = [nome.lower(), f"{nome.lower()} {jogo}", jogo, "gta rp", "gta 6", "cortes", "cortes gta", "shorts"]
+    tags = list(dict.fromkeys(d.get("tags", []) + base))[:15]
+    resumo = d.get("descricao", "")
     from maquina.entrega import entregar
     arquivos = entregar(final, capa, m["id"])   # sempre fica uma cópia para baixar (reserva)
     if canal.postar == "automatico" and not m.get("teste") and yt is not None:
         from maquina.youtube import proximo_horario
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
         publicar_em = proximo_horario(canal.horarios, canal.fuso, ocupados)
-        descricao = descricao_short(canal, titulo, m["streamer"], m.get("plataforma", ""))
+        descricao = descricao_short(canal, titulo, m["streamer"], m.get("plataforma", ""), resumo)
         vid = yt.enviar(final, titulo, descricao, tags, canal.idioma, publicar_em, capa)
         yt.por_na_playlist(vid, canal.playlists.get("shorts", ""))
         est.atualizar(m["id"], status="postado", tipo="short", jogo=m.get("jogo", ""), titulo=titulo,
@@ -205,7 +215,7 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         log(f"    ✅ enviado e agendado para {publicar_em}: https://youtu.be/{vid}")
         return True
     est.atualizar(m["id"], status="pronto", tipo="short", jogo=m.get("jogo", ""), titulo=titulo, gancho=d["gancho"],
-                  descricao=descricao_short(canal, titulo, m["streamer"], m.get("plataforma", "")), tags=tags,
+                  descricao=descricao_short(canal, titulo, m["streamer"], m.get("plataforma", ""), resumo), tags=tags,
                   playlist=canal.playlists.get("shorts", ""), corte=[d["inicio"], d["fim"]], feito_em=agora(),
                   layout=info["layout"], cerebro=d["fonte"], nome=nome,
                   duracao=round(d["fim"] - d["inicio"], 1), prioridade=False, **arquivos)
@@ -348,30 +358,72 @@ def produzir(cfg: Config):
 
 
 # ====================================================================== compilado
+def _capitulos(usados: list[dict], nomes: dict, idioma: str) -> str:
+    """Capítulos na descrição (YouTube pede o primeiro em 00:00 e pelo menos 3)."""
+    if len(usados) < 3:
+        return ""
+    linhas = []
+    for m in usados:
+        t = int(m.get("_cap", 0))
+        nome = nomes.get(m["streamer"], m.get("nome") or m["streamer"])
+        assunto = (m.get("titulo") or "").replace(nome, "").strip(" :-–|") or (m.get("evento") or "")
+        linhas.append(f"{t // 60:02d}:{t % 60:02d} {nome}" + (f" — {assunto[:60]}" if assunto else ""))
+    return ("⏱️ Capítulos\n" if idioma == "pt" else "⏱️ Chapters\n") + "\n".join(linhas)
+
+
+def _postar_longo(cfg: Config, canal: Canal, est: Estado, saida: Path, capa: Path, cid: str, tipo: str,
+                  titulo: str, descricao: str, tags: list[str], playlist: str, extra: dict):
+    from maquina.entrega import entregar
+    arquivos = entregar(saida, capa, cid)
+    envio = {}
+    if canal.postar == "automatico":
+        from maquina.youtube import YouTube, proximo_horario
+        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+        ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+        horario = canal.horario_longo if tipo == "longo" else canal.horario_compilado
+        publicar_em = proximo_horario([horario], canal.fuso, ocupados)
+        vid = yt.enviar(saida, titulo, descricao, tags, canal.idioma, publicar_em, capa)
+        yt.por_na_playlist(vid, playlist)
+        envio = {"status": "postado", "youtube_id": vid, "publicar_em": publicar_em, "postado_em": agora()}
+        log(f"  ✅ enviado e agendado para {publicar_em}: https://youtu.be/{vid}")
+    est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo, "status": "pronto",
+                         "titulo": titulo, "descricao": descricao, "tags": tags, "playlist": playlist,
+                         "feito_em": agora(), "criado_em": agora(), **extra, **arquivos, **envio}
+    est.salvar()
+    log(f"  ✅ {tipo} pronto: {titulo}")
+    log(f"     baixar: {arquivos['video_url']}")
+
+
 def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
+    if tipo == "longo":
+        return fazer_corte_longo(cfg)
     from maquina import cerebro, compilado, editar, thumb
-    from maquina.baixar import baixar_momento
-    from maquina.transcrever import texto_com_tempos, transcrever
     for canal in cfg.canais_ativos():
         est = Estado(canal.id)
-        dias = 7 if tipo == "top10" else 1
-        desde = (datetime.now(timezone.utc) - timedelta(days=dias)).isoformat(timespec="seconds")
+        horas = 7 * 24 if tipo == "top10" else 36
+        desde = (datetime.now(timezone.utc) - timedelta(hours=horas)).isoformat(timespec="seconds")
         candidatos = [m for m in est.momentos.values()
-                      if (m.get("evento", "").lower() == evento.lower() if tipo == "serie" else m.get("criado_em", "") >= desde) and m["status"] in ("novo", "pronto", "postado") and not m.get("teste")
-                      and m.get("tipo", "short") == "short" and m["streamer"] not in cfg.bloqueados]
+                      if (m.get("evento", "").lower() == evento.lower() if tipo == "serie" else m.get("criado_em", "") >= desde)
+                      and m["status"] in ("novo", "pronto", "postado") and not m.get("teste")
+                      and m.get("tipo", "short") == "short" and m["streamer"] not in cfg.bloqueados
+                      and tipo not in m.get("usado_em", [])]
         candidatos.sort(key=lambda m: -m.get("score", 0))
         qtd = 10 if tipo == "top10" else 12
-        escolhidos = candidatos[:qtd]
-        log(f"== {canal.nome}: compilado {tipo} com {len(escolhidos)} momentos")
-        if len(escolhidos) < 5:
+        escolhidos = candidatos[:qtd + 4]  # sobra, caso algum trecho não baixe ou não isole a voz
+        log(f"== {canal.nome}: compilado {tipo} com até {min(len(escolhidos), qtd)} momentos")
+        if len(escolhidos) < 3:
             log("  poucos momentos, fica para a próxima")
             continue
         if tipo == "top10":
-            escolhidos = list(reversed(escolhidos))  # contagem regressiva: #10 ... #1
+            escolhidos = list(reversed(escolhidos[:qtd]))  # contagem regressiva: #10 ... #1
         nomes = {s.login: s.nome for s in canal.streamers + canal.kick}
+        nomes.update({m["streamer"]: m["nome"] for m in escolhidos if m.get("nome") and m["streamer"] not in nomes})
         data = datetime.now(ZoneInfo(canal.fuso)).strftime("%d/%m" if canal.idioma == "pt" else "%b %d")
         saida = PASTA_PRONTOS / f"{tipo}_{canal.id}_{datetime.now().strftime('%Y%m%d')}.mp4"
-        usados = compilado.montar(escolhidos, nomes, tipo, canal.cor_destaque, RAIZ / canal.marca, saida)
+        usados = compilado.montar(escolhidos if tipo == "top10" else escolhidos, nomes, tipo, canal.cor_destaque,
+                                  RAIZ / canal.marca, saida)
+        if tipo != "top10":
+            usados = usados[:qtd]
         ordem_nomes = list(dict.fromkeys(nomes.get(m["streamer"], m["streamer"]) for m in reversed(usados)))
         titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data, evento)
 
@@ -386,32 +438,77 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}" + (f"_{re.sub(r'[^a-z0-9]', '', evento.lower())[:20]}" if evento else "")
         guardar_thumb(capa, cid)
         plat = {m["streamer"]: m.get("plataforma", "") for m in usados}
-        creditos = "\n".join(f"• {n}: {link_live(l, plat.get(l, ''))}" for l, n in nomes.items()
-                             if l in plat)
-        descricao = f"{titulo}\n\n{LIVE[canal.idioma]}:\n{creditos}\n\n{AVISO[canal.idioma]}\n\n#gta6 #gtavi"
-        from maquina.entrega import entregar
-        arquivos = entregar(saida, capa, cid)
-        envio = {}
-        if canal.postar == "automatico":
-            from maquina.youtube import YouTube, proximo_horario
-            yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
-            ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
-            publicar_em = proximo_horario([canal.horario_compilado], canal.fuso, ocupados)
-            vid = yt.enviar(saida, titulo, descricao, ["gta", "gta 6", "gta rp", *ordem_nomes[:5]], canal.idioma,
-                            publicar_em, capa)
-            yt.por_na_playlist(vid, canal.playlists.get("top10" if tipo == "top10" else "compilado", ""))
-            envio = {"status": "postado", "youtube_id": vid, "publicar_em": publicar_em, "postado_em": agora()}
-            log(f"  ✅ enviado e agendado para {publicar_em}: https://youtu.be/{vid}")
-        est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo, "status": "pronto",
-                             "titulo": titulo, "descricao": descricao,
-                             "tags": ["gta 6", "gta vi", "gta 6 best moments", *ordem_nomes[:5]],
-                             "playlist": canal.playlists.get("top10" if tipo == "top10" else "compilado", ""),
-                             "itens": [m["id"] for m in usados], "streamers": sorted({m["streamer"] for m in usados}),
-                             "feito_em": agora(), "criado_em": agora(), **arquivos, **envio}
-        est.salvar()
-        log(f"  ✅ compilado pronto para postar: {titulo}")
-        log(f"     baixar: {arquivos['video_url']}")
+        creditos = "\n".join(f"• {nomes.get(l, l)}: {link_live(l, p)}" for l, p in plat.items())
+        resumo = ("Os momentos mais engraçados e insanos das lives de GTA RP: " if canal.idioma == "pt"
+                  else "The funniest and craziest GTA RP stream moments: ") + ", ".join(ordem_nomes[:6]) + "."
+        descricao = (f"{titulo}\n{resumo}\n\n{_capitulos(usados, nomes, canal.idioma)}\n\n"
+                     f"{LIVE[canal.idioma]}:\n{creditos}\n\n{AVISO[canal.idioma]}\n\n#gtarp #gta6 #cortes")
+        tags = list(dict.fromkeys([*(n.lower() for n in ordem_nomes[:6]), "gta rp", "gta rp brasil", "cortes gta rp",
+                                   "momentos engraçados gta", "gta 6", "melhores momentos gta rp",
+                                   *([evento.lower(), "reagindo trailer gta 6"] if evento else [])]))[:15]
+        for m in usados:
+            est.atualizar(m["id"], usado_em=list(dict.fromkeys(est.momentos[m["id"]].get("usado_em", []) + [tipo])))
+        _postar_longo(cfg, canal, est, saida, capa, cid, tipo, titulo, descricao, tags,
+                      canal.playlists.get("top10" if tipo == "top10" else "compilado", ""),
+                      {"itens": [m["id"] for m in usados], "streamers": sorted({m["streamer"] for m in usados})})
 
+
+def fazer_corte_longo(cfg: Config):
+    """Corte longo (16:9, até 9 min): o melhor momento do dia com o contexto inteiro da live."""
+    from maquina import cerebro, compilado, editar, thumb
+    from maquina.baixar import baixar_trecho
+    from maquina.transcrever import texto_com_tempos, transcrever
+    from maquina.voz import tentar_isolar
+    for canal in cfg.canais_ativos():
+        est = Estado(canal.id)
+        desde = (datetime.now(timezone.utc) - timedelta(days=4)).isoformat(timespec="seconds")
+        candidatos = sorted([m for m in est.momentos.values()
+                             if m.get("video_id") and m.get("criado_em", "") >= desde and not m.get("teste")
+                             and m["status"] in ("novo", "pronto", "postado") and m.get("tipo", "short") == "short"
+                             and m["streamer"] not in cfg.bloqueados and "longo" not in m.get("usado_em", [])],
+                            key=lambda m: -m.get("score", 0))
+        log(f"== {canal.nome}: corte longo ({len(candidatos)} candidatos)")
+        for m in candidatos[:3]:
+            ini = max(0.0, m["inicio"] - 150)
+            fim = min(ini + 9 * 60, m["fim"] + 210)
+            destino = compilado.PASTA_BRUTOS / f"longo_{m['id']}.mp4"
+            try:
+                bruto = baixar_trecho(m["video_id"], ini, fim, None, destino)
+            except Exception as e:
+                log(f"  {m['id']}: não deu para baixar a live ({str(e)[:120]})")
+                est.atualizar(m["id"], usado_em=list(dict.fromkeys(m.get("usado_em", []) + ["longo"])))
+                continue
+            from maquina.baixar import MUDO_DB, volume_maximo
+            if volume_maximo(bruto) <= MUDO_DB:
+                log(f"  {m['id']}: trecho da live está mudo, pulando")
+                continue
+            voz = tentar_isolar(bruto)
+            if not voz:
+                continue
+            nome = cfg.nome_streamer(m["streamer"], m.get("nome", ""))
+            palavras = transcrever(voz, canal.idioma, cfg.whisper)
+            t = cerebro.textos_longo(nome, m, texto_com_tempos(palavras, 8.0), canal.idioma,
+                                     cfg.ia_endereco, cfg.ia_modelo, (fim - ini) / 60)
+            saida = PASTA_PRONTOS / f"longo_{canal.id}_{m['id']}.mp4"
+            compilado._segmento(voz, saida, nome, None, canal.cor_destaque, RAIZ / canal.marca)
+            dur = editar.info_video(saida)[2]
+            pico = editar.momento_mais_alto(saida, 0, dur)
+            capa = thumb.gerar_thumb(editar.frame_em(saida, pico), saida.with_suffix(".jpg"), t["gancho"],
+                                     canal.cor_destaque, editar.achar_webcam(bruto, 0, dur), "CORTE COMPLETO"
+                                     if canal.idioma == "pt" else "FULL CLIP")
+            from maquina.painel import guardar_thumb
+            cid = f"longo_{m['id']}"
+            guardar_thumb(capa, cid)
+            descricao = (f"{t['titulo']}\n{t['descricao']}\n\n{LIVE[canal.idioma]}: "
+                         f"{link_live(m['streamer'], m.get('plataforma', ''))}\n\n{AVISO[canal.idioma]}\n\n#gtarp #cortes")
+            tags = list(dict.fromkeys(t["tags"] + [nome.lower(), f"{nome.lower()} gta rp", "gta rp", "cortes gta rp",
+                                                   "gta rp brasil", "gta 6"]))[:15]
+            est.atualizar(m["id"], usado_em=list(dict.fromkeys(m.get("usado_em", []) + ["longo"])))
+            _postar_longo(cfg, canal, est, saida, capa, cid, "longo", t["titulo"], descricao, tags,
+                          canal.playlists.get("compilado", ""), {"itens": [m["id"]], "streamers": [m["streamer"]]})
+            break
+        else:
+            log("  nenhum momento com a live disponível para o corte longo")
 
 
 # ====================================================================== controle

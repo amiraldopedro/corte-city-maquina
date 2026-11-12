@@ -40,6 +40,7 @@ class Canal:
     postar: str = "manual"
     descobrir: dict = field(default_factory=dict)
     kick: list[Streamer] = field(default_factory=list)
+    horario_longo: str = "15:00"
 
     @property
     def refresh_token(self) -> str:
@@ -99,6 +100,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
             fuso=c.get("fuso", "America/Sao_Paulo"),
             horarios=list(c.get("horarios", ["12:00", "18:00", "21:00"])),
             horario_compilado=c.get("horario_compilado", "19:30"),
+            horario_longo=c.get("horario_longo", "15:00"),
             hashtags=list(c.get("hashtags", [])), playlists=dict(c.get("playlists", {})),
             postar=c.get("postar", "manual"), descobrir=dict(c.get("descobrir") or {}),
         )

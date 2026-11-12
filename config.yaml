@@ -70,8 +70,9 @@ canais:
     marca: assets/marca/marca_pt.png
     cor_destaque: "#C8FF2E"
     fuso: "America/Sao_Paulo"
-    horarios: ["12:00", "18:00", "21:00"]
-    horario_compilado: "19:30"
+    horarios: ["11:00", "13:30", "16:00", "18:00", "21:00"]   # 5 Shorts por dia
+    horario_compilado: "19:30"   # Melhores do Dia (vídeo longo)
+    horario_longo: "15:00"       # Corte longo (um momento com a live inteira em volta)
     hashtags: ["#gta6", "#gtavi", "#shorts"]
     # postar: "manual" = a máquina deixa pronto e você posta | "automatico" = a máquina envia agendado nos horários
     postar: automatico

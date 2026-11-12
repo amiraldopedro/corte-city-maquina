@@ -75,3 +75,29 @@ assert all(p["status"] == "postado" and p["publicar_em"] and p["video_url"] for 
 assert len({p["publicar_em"] for p in post}) == 3, "dois vídeos no mesmo horário"
 assert main.postados_hoje(est, cfg.canal("br")) == 3
 print("OK: ponta a ponta funcionando")
+
+# ---------- vídeos longos: compilado do dia e corte longo (voz isolada falsa) ----------
+from maquina import compilado, voz
+def trecho_falso(video_id, inicio, fim, clipe_url, destino):
+    destino = Path(destino); destino.parent.mkdir(parents=True, exist_ok=True); shutil.copy(VIDEO, destino); return destino
+compilado.baixar_trecho = trecho_falso
+baixar.baixar_trecho = trecho_falso
+isolados = []
+def isolar_falso(bruto):
+    d = Path(bruto).with_name(Path(bruto).stem + ".voz.mp4"); shutil.copy(bruto, d); isolados.append(d.name); return d
+voz.tentar_isolar = isolar_falso
+antes = len(enviados)
+main.fazer_compilado(carregar(), "dia")
+est = Estado("br"); comp = [m for m in est.momentos.values() if m.get("tipo") == "dia"]
+assert comp and comp[0]["status"] == "postado", "compilado do dia não postou"
+assert "Capítulos" in comp[0]["descricao"] and "00:00" in comp[0]["descricao"], comp[0]["descricao"]
+assert len(isolados) >= 3, "compilado tem que isolar a voz de cada trecho"
+main.fazer_compilado(carregar(), "dia")
+assert len([m for m in Estado("br").momentos.values() if m.get("tipo") == "dia"]) == 1, "repetiu os mesmos momentos"
+main.fazer_compilado(carregar(), "longo")
+lon = [m for m in Estado("br").momentos.values() if m.get("tipo") == "longo"]
+assert lon and lon[0]["status"] == "postado", "corte longo não postou"
+print("compilado:", comp[0]["titulo"], "| longo:", lon[0]["titulo"])
+print(comp[0]["descricao"][:400])
+print("OK: vídeos longos funcionando")
+print("pasta:", tmp)
