@@ -199,6 +199,57 @@ def fazer_cacada(cfg: Config):
             est.salvar()
 
 
+def buscar_series(cfg: Config, so_evento: str = ""):
+    """Busca os reacts de cada evento (trailers, adiamentos, lançamento) e põe na fila."""
+    import yaml
+    from datetime import datetime as dt
+    from maquina.twitch import Twitch
+    series = (yaml.safe_load((RAIZ / "config.yaml").read_text(encoding="utf-8")) or {}).get("series") or {}
+    palavras = [p.lower() for p in series.get("palavras", [])]
+    minimo = int(series.get("min_views", 200))
+    tw = Twitch(cfg.twitch_client_id, cfg.twitch_client_secret)
+    jogos = tw.ids_jogos(["Just Chatting", "Grand Theft Auto V", "Grand Theft Auto VI", "IRL"])
+    for canal in cfg.canais_ativos():
+        est = Estado(canal.id)
+        usuarios = tw.usuarios([s.login for s in cfg.streamers_do(canal)])
+        idioma = canal.descobrir.get("idioma", canal.idioma)
+        for ev in series.get("eventos", []):
+            if so_evento and so_evento.lower() not in ev["nome"].lower():
+                continue
+            ini = dt.fromisoformat(ev["inicio"]).replace(tzinfo=timezone.utc)
+            fim = dt.fromisoformat(ev["fim"]).replace(tzinfo=timezone.utc) + timedelta(days=1)
+            if ini > datetime.now(timezone.utc):
+                continue
+            por: dict[str, list] = {}
+            fontes = [("u", u["id"], login) for login, u in usuarios.items()] + [("g", gid, "") for gid in jogos]
+            for tipo, ident, login in fontes:
+                lista = tw.clipes(broadcaster_id=ident, inicio=ini, fim=fim, maximo=200) if tipo == "u" else \
+                    tw.clipes(game_id=ident, inicio=ini, fim=fim, maximo=500)
+                for c in lista:
+                    quem = login or (c.get("broadcaster_name") or "").lower().replace(" ", "")
+                    titulo = (c.get("title") or "").lower()
+                    if not quem or quem in cfg.bloqueados or est.clipe_visto(c["id"]):
+                        continue
+                    if tipo == "g" and (c.get("language") or "")[:2] != idioma:
+                        continue
+                    if c.get("view_count", 0) < minimo or not any(p in titulo for p in palavras):
+                        continue
+                    c["_nome"] = c.get("broadcaster_name") or quem
+                    if ini < datetime.now(timezone.utc) - timedelta(days=55):
+                        c["vod_offset"] = None  # live gravada já expirou: usa o clipe direto
+                    por.setdefault(quem, {})[c["id"]] = c
+            novos = 0
+            for quem, cs in por.items():
+                for m in agrupar(list(cs.values()), {}, quem, canal.id, 1, minimo):
+                    m.update(evento=ev["nome"], nome=cfg.nome_streamer(quem, list(cs.values())[0]["_nome"]),
+                             jogo="Just Chatting")
+                    if est.inserir(m):
+                        novos += 1
+                    est.marcar_clipes(m["clipe_ids"])
+            log(f"  {canal.nome} · {ev['nome']}: {sum(len(v) for v in por.values())} clipes de {len(por)} streamers → {novos} reacts na fila")
+        est.salvar()
+
+
 def tem_trabalho(cfg: Config) -> bool:
     """Existe algum canal com momento na fila e meta do dia ainda aberta?"""
     for canal in cfg.canais_ativos():
@@ -262,7 +313,7 @@ def produzir(cfg: Config):
 
 
 # ====================================================================== compilado
-def fazer_compilado(cfg: Config, tipo: str):
+def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
     from maquina import cerebro, compilado, editar, thumb
     from maquina.baixar import baixar_momento
     from maquina.transcrever import texto_com_tempos, transcrever
@@ -271,7 +322,7 @@ def fazer_compilado(cfg: Config, tipo: str):
         dias = 7 if tipo == "top10" else 1
         desde = (datetime.now(timezone.utc) - timedelta(days=dias)).isoformat(timespec="seconds")
         candidatos = [m for m in est.momentos.values()
-                      if m.get("criado_em", "") >= desde and m["status"] in ("novo", "pronto", "postado") and not m.get("teste")
+                      if (m.get("evento", "").lower() == evento.lower() if tipo == "serie" else m.get("criado_em", "") >= desde) and m["status"] in ("novo", "pronto", "postado") and not m.get("teste")
                       and m.get("tipo", "short") == "short" and m["streamer"] not in cfg.bloqueados]
         candidatos.sort(key=lambda m: -m.get("score", 0))
         qtd = 10 if tipo == "top10" else 12
@@ -287,17 +338,17 @@ def fazer_compilado(cfg: Config, tipo: str):
         saida = PASTA_PRONTOS / f"{tipo}_{canal.id}_{datetime.now().strftime('%Y%m%d')}.mp4"
         usados = compilado.montar(escolhidos, nomes, tipo, canal.cor_destaque, RAIZ / canal.marca, saida)
         ordem_nomes = list(dict.fromkeys(nomes.get(m["streamer"], m["streamer"]) for m in reversed(usados)))
-        titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data)
+        titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data, evento)
 
         melhor = usados[-1] if tipo == "top10" else usados[0]
         bruto = Path(compilado.PASTA_BRUTOS / f"{melhor['id']}.mp4")
         pico = editar.momento_mais_alto(bruto, 0, editar.info_video(bruto)[2])
-        etiqueta = "TOP 10" if tipo == "top10" else ("MELHORES DO DIA" if canal.idioma == "pt" else "BEST OF THE DAY")
+        etiqueta = "TOP 10" if tipo == "top10" else "REACTS" if tipo == "serie" else ("MELHORES DO DIA" if canal.idioma == "pt" else "BEST OF THE DAY")
         capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), saida.with_suffix(".jpg"),
                                  melhor.get("gancho") or cerebro.GANCHOS[canal.idioma][0], canal.cor_destaque,
                                  editar.achar_webcam(bruto, 0, editar.info_video(bruto)[2]), etiqueta)
         from maquina.painel import guardar_thumb
-        cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}"
+        cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}" + (f"_{re.sub(r'[^a-z0-9]', '', evento.lower())[:20]}" if evento else "")
         guardar_thumb(capa, cid)
         creditos = "\n".join(f"• {n}: https://twitch.tv/{l}" for l, n in nomes.items()
                              if any(m["streamer"] == l for m in usados))
@@ -428,7 +479,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -436,6 +487,7 @@ def main():
     p.add_argument("--login", default="")
     p.add_argument("--nome", default="")
     p.add_argument("--quando", default="")
+    p.add_argument("--evento", default="")
     a = p.parse_args()
     cfg = carregar()
     if a.comando == "cacar":
@@ -454,7 +506,9 @@ def main():
         from maquina.sincronizar import sincronizar
         sincronizar(a.alvo or "Memória da máquina")
     elif a.comando == "compilado":
-        fazer_compilado(cfg, a.alvo or "dia")
+        fazer_compilado(cfg, a.alvo or "dia", a.evento)
+    elif a.comando == "reacts":
+        buscar_series(cfg, a.evento)
     elif a.comando == "bloquear":
         bloquear(a.alvo)
     elif a.comando == "apagar":

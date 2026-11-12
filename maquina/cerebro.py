@@ -16,7 +16,7 @@ from .momentos import ANTES_SEG
 
 PROMPT = """Você é editor de um canal de cortes de GTA no YouTube Shorts.
 Streamer: {nome}
-Jogo/assunto: {jogo}
+Jogo/assunto: {jogo}{evento_txt}
 Idioma do canal: {idioma_nome}
 O trecho da live tem {duracao:.0f} segundos. Os espectadores fizeram clipes deste momento com estes títulos:
 {titulos}
@@ -70,6 +70,10 @@ def _limpar_titulo(t: str) -> str:
     return t[:95]
 
 
+REACT = {"pt": ["{nome} reagindo ao {evento}", "A reação do {nome} ao {evento} 😱", "{nome} viu o {evento} e não acreditou"],
+         "en": ["{nome} reacts to {evento}", "{nome}'s reaction to {evento} 😱", "{nome} watched {evento} and lost it"]}
+
+
 def plano_b(momento: dict, palavras: list[dict], nome: str, idioma: str, dmin: int, dmax: int) -> dict:
     """Sem IA: começa um pouco antes do primeiro clipe e fecha numa pausa da fala."""
     janela = momento["fim"] - momento["inicio"]
@@ -80,7 +84,10 @@ def plano_b(momento: dict, palavras: list[dict], nome: str, idioma: str, dmin: i
     if fins:
         fim = min(fim, fins[-1] + 0.6)
     chat = next((t for t in momento.get("titulos_chat", []) if t and len(t) > 8 and not LIXO.match(t)), "")
-    titulo = f"{nome}: {chat}" if chat else random.choice(MODELOS_TITULO[idioma]).format(nome=nome, jogo=apelido(momento.get("jogo", "")))
+    if momento.get("evento"):
+        titulo = random.choice(REACT[idioma]).format(nome=nome, evento=momento["evento"])
+    else:
+        titulo = f"{nome}: {chat}" if chat else random.choice(MODELOS_TITULO[idioma]).format(nome=nome, jogo=apelido(momento.get("jogo", "")))
     return {"usar": True, "inicio": round(inicio, 2), "fim": round(fim, 2), "titulo": _limpar_titulo(titulo),
             "gancho": random.choice(GANCHOS[idioma]), "motivo": "regras (sem IA)", "fonte": "regras"}
 
@@ -95,6 +102,9 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
         titulos="\n".join(f"- {t}" for t in momento.get("titulos_chat", [])[:8] if t) or "- (sem título)",
         transcricao=texto[:6000], exemplo=EXEMPLOS[idioma].format(jogo=apelido(momento.get("jogo", ""))),
         jogo=apelido(momento.get("jogo", "")),
+        evento_txt=(f"\nEste trecho é a REAÇÃO do streamer ao {momento['evento']}. O título deve dizer isso, "
+                    f"ex.: \"{nome} reagindo ao {momento['evento']}\" ou parecido, em estilo curiosidade.")
+                   if momento.get("evento") else "",
     )
     try:
         r = _perguntar_ollama(endereco, modelo, prompt)
@@ -116,8 +126,11 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
         return d
 
 
-def titulo_compilado(idioma: str, tipo: str, nomes: list[str], data: str) -> str:
+def titulo_compilado(idioma: str, tipo: str, nomes: list[str], data: str, evento: str = "") -> str:
     destaque = ", ".join(nomes[:3])
+    if tipo == "serie":
+        return (f"Streamers reagindo ao {evento} ({destaque})" if idioma == "pt"
+                else f"Streamers react to {evento} ({destaque})")[:95]
     if idioma == "pt":
         if tipo == "top10":
             return f"TOP 10 momentos mais insanos de GTA da semana ({destaque})"[:95]

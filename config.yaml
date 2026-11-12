@@ -17,6 +17,20 @@ jogos_com_palavra:
   jogos: ["Just Chatting", "IRL"]
   palavras: ["gta", "rockstar", "trailer", "vice city", "leonida", "lucia", "jason", "pré-carregamento", "pre load", "preload"]
 
+# Série de reacts: a máquina busca, nos dias de cada evento, clipes com estas palavras no título
+# (dos streamers da lista e de qualquer streamer do idioma do canal). Clipes da Twitch não expiram.
+# Rode pelo workflow "Série de reacts". Para um evento novo, é só acrescentar aqui.
+series:
+  palavras: ["gta", "trailer", "rockstar", "lucia", "jason", "vice city", "leonida", "adiad", "adiamento", "lançamento", "pré-venda", "pre load", "pré-carregamento"]
+  min_views: 200
+  eventos:
+    - { nome: "Trailer 1 do GTA 6",              inicio: "2023-12-04", fim: "2023-12-08" }
+    - { nome: "adiamento do GTA 6",              inicio: "2025-05-02", fim: "2025-05-05" }
+    - { nome: "Trailer 2 do GTA 6",              inicio: "2025-05-06", fim: "2025-05-10" }
+    - { nome: "novo adiamento do GTA 6",         inicio: "2025-11-06", fim: "2025-11-09" }
+    - { nome: "trailer de lançamento do GTA 6",  inicio: "2026-10-15", fim: "2026-10-19" }
+    - { nome: "pré-carregamento do GTA 6",       inicio: "2026-11-10", fim: "2026-11-14" }
+
 # Quantas horas para trás procurar clipes a cada rodada (72 no aquecimento, 24 depois do lançamento)
 janela_busca_horas: 72
 

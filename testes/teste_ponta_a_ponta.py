@@ -70,8 +70,8 @@ print("fila:", main.tem_trabalho(carregar()))
 main.produzir(carregar())
 est = Estado("br"); post = [m for m in est.momentos.values() if m["status"] in ("pronto", "postado")]
 print("entregues/enviados:", enviados); print("feitos:", [(m["status"], m["titulo"], m.get("youtube_id"), m.get("publicar_em"), m["video_url"]) for m in post])
-assert len(post) == 1 and list(Path("estado/thumbs").glob("*.jpg")), "não ficou pronto"
-assert post[0]["jogo"] == "Grand Theft Auto V"
-assert post[0]["status"] == "postado" and post[0]["publicar_em"] and post[0]["video_url"], "automático deveria agendar e guardar reserva"
-assert main.postados_hoje(est, cfg.canal("br")) == 1
+assert len(post) == 3 and list(Path("estado/thumbs").glob("*.jpg")), "esperava 3 Shorts (meta do dia)"
+assert all(p["status"] == "postado" and p["publicar_em"] and p["video_url"] for p in post), "automático deveria agendar e guardar reserva"
+assert len({p["publicar_em"] for p in post}) == 3, "dois vídeos no mesmo horário"
+assert main.postados_hoje(est, cfg.canal("br")) == 3
 print("OK: ponta a ponta funcionando")

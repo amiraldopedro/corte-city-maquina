@@ -9,8 +9,12 @@ on:
       tipo:
         description: "Qual vídeo longo"
         type: choice
-        options: [dia, top10]
+        options: [dia, top10, serie]
         default: dia
+      evento:
+        description: "Para tipo serie: nome do evento (ex.: Trailer 2 do GTA 6)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -43,7 +47,7 @@ jobs:
           if [ -z "$TIPO" ]; then
             if [ "${{ github.event.schedule }}" = "23 13 * * 0" ]; then TIPO=top10; else TIPO=dia; fi
           fi
-          python main.py compilado "$TIPO"
+          python main.py compilado "$TIPO" --evento "${{ inputs.evento }}"
       - name: Salvar memória da máquina
         if: always()
         run: |

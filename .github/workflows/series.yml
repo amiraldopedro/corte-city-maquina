@@ -1,0 +1,41 @@
+name: Série de reacts (trailers, adiamentos, lançamento)
+
+# Busca os reacts dos streamers nos dias de cada evento (lista em config.yaml → series) e põe na fila.
+# As rodadas normais transformam em Shorts. Depois rode "Compilado" com tipo "serie" para o vídeo longo.
+on:
+  schedule:
+    - cron: "53 12 * * *"   # todo dia 09:53 de Brasília (pega eventos novos, como o lançamento)
+  workflow_dispatch:
+    inputs:
+      evento:
+        description: "Só um evento (ex.: Trailer 2). Vazio = todos"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maquina
+  cancel-in-progress: false
+
+jobs:
+  series:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+      TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q -r requirements-leve.txt
+      - name: Buscar reacts
+        env:
+          EVENTO: ${{ inputs.evento }}
+        run: python main.py reacts --evento "$EVENTO"
+      - name: Salvar memória da máquina
+        if: always()
+        run: |
+          python main.py sincronizar "Série de reacts"
