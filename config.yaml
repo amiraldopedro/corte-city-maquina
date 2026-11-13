@@ -17,6 +17,13 @@ jogos_com_palavra:
   jogos: ["Just Chatting", "IRL"]
   palavras: ["gta", "rockstar", "trailer", "vice city", "leonida", "lucia", "jason", "pré-carregamento", "pre load", "preload"]
 
+# Shorts de notícia do GTA 6 (Google Notícias + posts do X que você colar no painel)
+# Vazamento e conteúdo adulto/sensível são barrados (filtro de palavras + IA).
+noticias:
+  termos: ["GTA 6", "GTA VI", "Rockstar GTA"]
+  por_dia: 2                     # notícias do Google por dia (posts do X que você colar não contam)
+  horarios: ["10:30", "20:30"]
+
 # Série de reacts: a máquina busca, nos dias de cada evento, clipes com estas palavras no título
 # (dos streamers da lista e de qualquer streamer do idioma do canal). Clipes da Twitch não expiram.
 # Rode pelo workflow "Série de reacts". Para um evento novo, é só acrescentar aqui.
@@ -86,6 +93,7 @@ canais:
       gta6: "GTA 6: Reações e Primeiros Momentos"
       rp: "GTA RP: Cortes das Lives"
       classicos: "Clássicos do GTA"
+      noticias: "GTA 6: Notícias"
       compilado: "Melhores Momentos de GTA 6"
       top10: "Top 10 da Semana"
     streamers:
@@ -123,6 +131,7 @@ canais:
       gta6: "GTA 6: Reactions and First Moments"
       rp: "GTA RP: Stream Clips"
       classicos: "GTA Classics"
+      noticias: "GTA 6: News"
       compilado: "Best GTA 6 Moments"
       top10: "Top 10 of the Week"
     streamers:

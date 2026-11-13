@@ -525,6 +525,147 @@ def fazer_corte_longo(cfg: Config):
             log("  nenhum momento com a live disponível para o corte longo")
 
 
+# ====================================================================== notícias (Google Notícias + posts do X)
+def fazer_noticias(cfg: Config, links: list[str]):
+    """Shorts de notícia: posts do X que você colou (sempre) + as notícias mais novas de GTA 6 (até o limite do dia)."""
+    from maquina import cerebro, editar, noticias, thumb
+    from maquina.baixar import baixar_trecho
+    conf = cfg.noticias
+    for canal in cfg.canais_ativos():
+        if canal.idioma != "pt" and not links:
+            continue
+        est = Estado(canal.id)
+        tz = ZoneInfo(canal.fuso)
+        hoje = datetime.now(tz).date()
+
+        def do_dia(m):
+            try:
+                return datetime.fromisoformat(m["feito_em"].replace("Z", "+00:00")).astimezone(tz).date() == hoje
+            except (KeyError, ValueError, AttributeError):
+                return False
+        feitas_hoje = sum(1 for m in est.momentos.values() if m.get("tipo") == "noticia"
+                          and m.get("origem") == "noticia" and do_dia(m))
+        fila = []
+        for link in links:
+            try:
+                fila.append(noticias.post_do_x(link))
+            except Exception as e:
+                log(f"  post do X não abriu ({link}): {str(e)[:120]}")
+        vagas = max(0, int(conf.get("por_dia", 2)) - feitas_hoje)
+        if vagas:
+            try:
+                novas = [n for n in noticias.google_noticias(conf.get("termos", ["GTA 6", "GTA VI"]), canal.idioma)
+                         if n["id"] not in est.momentos]
+                log(f"  Google Notícias: {len(novas)} notícias novas de GTA 6")
+                fila += novas
+            except Exception as e:
+                log(f"  Google Notícias fora do ar: {str(e)[:120]}")
+        feitas = 0
+        for item in fila:
+            if item["origem"] == "noticia" and feitas >= vagas:
+                break
+            if item["id"] in est.momentos and item["origem"] == "noticia":
+                continue
+            base = {"id": item["id"], "streamer": "*", "canal": canal.id, "tipo": "noticia", "quadro": "noticias",
+                    "origem": item["origem"], "fonte": item["fonte"], "link": item["link"], "criado_em": agora()}
+            if noticias.bloqueado(item["titulo_fonte"]):
+                est.momentos[item["id"]] = {**base, "status": "descartado", "motivo": "filtro (vazamento/sensível)"}
+                log(f"  barrada pelo filtro: {item['titulo_fonte'][:80]}")
+                continue
+            try:
+                r = noticias.roteiro(item, canal.nome, canal.idioma,
+                                     lambda pr: cerebro._perguntar_ollama(cfg.ia_endereco, cfg.ia_modelo, pr))
+            except Exception as e:
+                log(f"  IA fora do ar, notícia fica para depois: {str(e)[:100]}")
+                break
+            if not r:
+                est.momentos[item["id"]] = {**base, "status": "descartado", "motivo": "IA barrou"}
+                continue
+            try:
+                final, capa = montar_noticia(cfg, canal, item, r, baixar_trecho, editar, noticias, thumb)
+            except Exception as e:
+                log(f"  ❌ notícia falhou: {str(e)[:200]}")
+                continue
+            from maquina.painel import guardar_thumb
+            guardar_thumb(capa, item["id"])
+            descricao = (f"{r['titulo']}\n{r['narracao']}\n\n"
+                         f"{'Fonte' if canal.idioma == 'pt' else 'Source'}: {item['fonte']} {item['link']}\n\n"
+                         + " ".join(canal.hashtags))
+            tags = list(dict.fromkeys(r["tags"] + ["gta 6", "gta vi", "noticias gta 6", "gta 6 novidades", "rockstar"]))[:15]
+            est.momentos[item["id"]] = {**base, "status": "pronto", "titulo": r["titulo"], "descricao": descricao,
+                                       "tags": tags, "feito_em": agora(), "duracao": editar.info_video(final)[2]}
+            from maquina.entrega import entregar
+            est.momentos[item["id"]].update(entregar(final, capa, item["id"]))
+            if canal.postar == "automatico" and not TESTE:
+                from maquina.youtube import YouTube, proximo_horario
+                yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+                ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+                quando = proximo_horario(conf.get("horarios", ["10:30", "20:30"]), canal.fuso, ocupados)
+                vid = yt.enviar(final, r["titulo"], descricao, tags, canal.idioma, quando, capa)
+                yt.por_na_playlist(vid, canal.playlists.get("noticias", ""))
+                est.momentos[item["id"]].update(status="postado", youtube_id=vid, publicar_em=quando, postado_em=agora())
+                log(f"  ✅ notícia agendada para {quando}: https://youtu.be/{vid}")
+            est.salvar()
+            if item["origem"] == "noticia":
+                feitas += 1
+        est.salvar()
+
+
+def montar_noticia(cfg, canal, item, r, baixar_trecho, editar, noticias, thumb):
+    """Fundo de gameplay de GTA (sem som) + cartão da notícia + narração com legenda palavra por palavra."""
+    pasta = PASTA_PRONTOS / "noticias"
+    pasta.mkdir(parents=True, exist_ok=True)
+    voz = pasta / f"{item['id']}.mp3"
+    palavras = noticias.narrar(r["narracao"], canal.idioma, voz)
+    dur = (palavras[-1]["f"] if palavras else 30) + 0.8
+    fundo = fundo_gameplay(cfg, pasta, baixar_trecho)
+    card = noticias.cartao(item, r["manchete"], canal.cor_destaque, pasta / f"{item['id']}_card.png", canal.idioma)
+    legenda = pasta / f"{item['id']}.ass"
+    editar.gerar_legenda(palavras, 0, dur, legenda, 1500, canal.cor_destaque, chamada=r["chamada"], y_chamada=230)
+    final = pasta / f"{item['id']}.mp4"
+    barra = "0x" + canal.cor_destaque.lstrip("#")
+    entradas = ["-stream_loop", "-1", "-i", str(fundo), "-i", str(voz), "-i", str(card)]
+    filtro = (f"[0:v]scale=-2:1920,crop=1080:1920,eq=brightness=-0.18:saturation=1.1,setsar=1,fps=30[bg];"
+              f"[bg][2:v]overlay=(W-w)/2:430[v0]")
+    marca = RAIZ / canal.marca
+    if marca.exists():
+        entradas += ["-i", str(marca)]
+        filtro += ";[3:v]scale=130:-1,format=rgba,colorchannelmixer=aa=0.85[m];[v0][m]overlay=W-w-28:40[v1]"
+    else:
+        filtro += ";[v0]null[v1]"
+    filtro += (f";[v1]ass='{editar._escapar(legenda)}':fontsdir='{editar._escapar(editar.FONTES)}',"
+               f"drawbox=x=0:y=0:w='iw*t/{dur:.2f}':h=12:color={barra}@1:t=fill,format=yuv420p[v]")
+    editar.rodar(["ffmpeg", "-y", "-loglevel", "error", *entradas, "-filter_complex", filtro,
+                  "-map", "[v]", "-map", "1:a", "-t", f"{dur:.2f}", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
+                  "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-b:a", "160k",
+                  "-movflags", "+faststart", str(final)])
+    frame = editar.frame_em(final, min(3.0, dur / 2))
+    capa = thumb.gerar_thumb(frame, final.with_suffix(".jpg"), "NOVIDADE" if canal.idioma == "pt" else "BREAKING",
+                             canal.cor_destaque, None, "GTA 6")
+    return final, capa
+
+
+def fundo_gameplay(cfg: Config, pasta: Path, baixar_trecho) -> Path:
+    """Um clipe de GTA bem visto das últimas 48h (Twitch) para ficar de fundo, sem som."""
+    import random
+    from maquina.twitch import Twitch
+    pronto = sorted(pasta.glob("fundo_*.mp4"))
+    if pronto:
+        return random.choice(pronto)
+    tw = Twitch(cfg.twitch_client_id, cfg.twitch_client_secret)
+    jogos = tw.ids_jogos(["Grand Theft Auto VI", "Grand Theft Auto V"])
+    clipes = []
+    for gid in jogos:
+        clipes += [c for c in tw.clipes(game_id=gid, horas=48, maximo=50) if c.get("duration", 0) >= 20]
+    clipes.sort(key=lambda c: -c.get("view_count", 0))
+    for c in clipes[:6]:
+        try:
+            return baixar_trecho(None, 0, c["duration"], c["url"], pasta / f"fundo_{c['id']}.mp4")
+        except Exception as e:
+            log(f"  fundo: clipe {c['id']} não baixou ({str(e)[:80]})")
+    raise RuntimeError("sem clipe de fundo")
+
+
 # ====================================================================== controle
 def bloquear(login: str):
     from maquina import painel
@@ -626,7 +767,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -635,6 +776,7 @@ def main():
     p.add_argument("--nome", default="")
     p.add_argument("--quando", default="")
     p.add_argument("--evento", default="")
+    p.add_argument("--links", default="", help="links de posts do X separados por espaço")
     a = p.parse_args()
     cfg = carregar()
     if a.comando == "cacar":
@@ -662,6 +804,8 @@ def main():
         apagar(cfg, a.alvo)
     elif a.comando == "teste":
         teste(cfg)
+    elif a.comando == "noticias":
+        fazer_noticias(cfg, [l for l in re.split(r"[\s,]+", a.links) if "x.com/" in l or "twitter.com/" in l])
     elif a.comando == "simular":
         simular(cfg, a.alvo, a.canal)
 

@@ -247,6 +247,7 @@ tr:hover .vid-acoes,tr:focus-within .vid-acoes{opacity:1}
     <input id="busca" type="search" placeholder="Pesquisar nos vídeos e streamers" autocomplete="off">
   </label>
   <div class="topo-acoes">
+    <button class="btn btn-borda" data-acao="post-x" title="Cole links de posts do X sobre GTA 6 e a máquina transforma em Short"><span>Post do X → Short</span></button>
     <button class="btn btn-ac" id="btnRodar" data-acao="rodar" title="Caça clipes e monta o próximo Short agora"><i class="rec"></i><span>Rodar agora</span></button>
   </div>
 </header>
@@ -375,7 +376,7 @@ function visibilidade(m) {
 }
 const dataDe = m => m.postado_em || m.feito_em;
 const postados = tipo => todos().filter(m => ["pronto", "postado"].includes(m.status) || (m.status === "removido" && m.youtube_id))
-  .filter(m => tipo === "short" ? (m.tipo || "short") === "short" : (m.tipo === "dia" || m.tipo === "top10"))
+  .filter(m => tipo === "short" ? ["short", "noticia"].includes(m.tipo || "short") : ["dia", "top10", "longo", "serie"].includes(m.tipo))
   .sort((a, b) => (dataDe(b) || "").localeCompare(dataDe(a) || ""));
 const aRevisar = () => postados("short").concat(postados("comp")).filter(m => m.status === "pronto").sort((a, b) => (dataDe(a) || "").localeCompare(dataDe(b) || ""));
 const fila = () => todos().filter(m => m.status === "novo").sort((a, b) => (!!b.prioridade - !!a.prioridade) || (b.score - a.score));
@@ -640,6 +641,10 @@ function agoraLocal(horas = 2) { const d = new Date(Date.now() + horas * 36e5); 
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-acao]"); if (!b) return;
   const {acao, id, login, nome, n} = b.dataset, m = todos().find(x => x.id === id), canal = S.canal;
+  if (acao === "post-x") return dialogo(`<form><h2 id="dlgTitulo">Transformar posts do X em Shorts</h2><p>Cole um ou mais links de posts sobre GTA 6 (um por linha). A máquina lê o post, escreve a narração com as próprias palavras, dá o crédito do autor e posta. Vazamento e conteúdo adulto são barrados.</p><div class="campo"><label for="dlgLinks">Links dos posts</label><textarea id="dlgLinks" rows="4" placeholder="https://x.com/RockstarGames/status/…" style="width:100%;font:inherit;padding:10px;border-radius:10px"></textarea></div>${botoesDlg("Fazer os Shorts")}</form>`,
+    d => { const links = d.querySelector("#dlgLinks").value.split(/\s+/).filter(l => /(x|twitter)\.com\/.+\/status\//.test(l)).join(" ");
+           if (!links) return toast("Nenhum link de post do X encontrado.");
+           pedir("Pedido enviado. Os Shorts dos posts ficam prontos em uns 10 minutos.", "noticias.yml", {links}); });
   if (acao === "rodar") return pedir("Pedido enviado. A máquina começa em instantes e o Short aparece em uns 15 minutos.", "rodada.yml", {});
   if (acao === "numeros") return pedir("Atualizando as views. Leva cerca de 1 minuto.", "painel.yml", {acao: "numeros"});
   if (acao === "postei") return dialogo(`<form><h2 id="dlgTitulo">Já postou?</h2><p>Cole o link do vídeo no YouTube pra o painel mostrar as views. Se não tiver o link agora, pode deixar em branco.</p><div class="campo"><label for="dlgLink">Link do vídeo (opcional)</label><input id="dlgLink" placeholder="https://youtube.com/shorts/…" autocomplete="off"></div>${botoesDlg("Marcar como postado")}</form>`,

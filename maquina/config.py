@@ -64,6 +64,7 @@ class Config:
     canais: list[Canal]
     bloqueados: set[str]
 
+    noticias: dict = field(default_factory=dict)
     twitch_client_id: str = ""
     twitch_client_secret: str = ""
     yt_client_id: str = ""
@@ -119,6 +120,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
         jogos_com_palavra=list((bruto.get("jogos_com_palavra") or {}).get("jogos", [])),
         palavras=[p.lower() for p in (bruto.get("jogos_com_palavra") or {}).get("palavras", [])],
         janela_busca_horas=int(bruto.get("janela_busca_horas", 24)),
+        noticias=dict(bruto.get("noticias") or {}),
         minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
         duracao_min=int(du.get("minimo", 15)), duracao_max=int(du.get("maximo", 58)),
         max_por_rodada=int(bruto.get("max_por_rodada", 1)),

@@ -1,0 +1,61 @@
+name: Notícias do GTA 6 (Google Notícias + posts do X)
+
+on:
+  schedule:
+    - cron: "47 11 * * *"   # todo dia 08:47 de Brasília
+  workflow_dispatch:
+    inputs:
+      links:
+        description: "Links de posts do X (separados por espaço). Vazio = só as notícias do dia"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: noticias
+  cancel-in-progress: false
+
+jobs:
+  noticias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Instalar ferramentas
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q -r requirements.txt
+      - name: Guardar modelo da IA
+        uses: actions/cache@v4
+        with:
+          path: /home/runner/.ollama/models
+          key: modelos-noticias-${{ hashFiles('config.yaml') }}
+          restore-keys: |
+            modelos-noticias-
+            modelos-
+      - name: Ligar a IA gratuita (Ollama)
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          sudo systemctl stop ollama 2>/dev/null || true
+          nohup ollama serve > /tmp/ollama.log 2>&1 &
+          sleep 5
+          MODELO=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['ia']['modelo'])")
+          ollama pull "$MODELO"
+      - name: Fazer e postar as notícias
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+          TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
+          YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+          LINKS: ${{ inputs.links }}
+        run: python main.py noticias --links "$LINKS"
+      - name: Salvar memória da máquina
+        if: always()
+        run: python main.py sincronizar "Notícias: estado atualizado"
