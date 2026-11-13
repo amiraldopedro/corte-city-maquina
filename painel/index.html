@@ -595,6 +595,8 @@ function botoesPostar(m, curto) {
     <button class="btn btn-borda btn-sm" data-copiar="titulo" data-id="${m.id}">Copiar título</button>
     <button class="btn btn-borda btn-sm" data-copiar="descricao" data-id="${m.id}">Copiar descrição</button>
     ${curto ? "" : `<a class="btn btn-borda btn-sm" href="${esc(m.thumb_url || "#")}" target="_blank" rel="noopener">Baixar thumb</a>`}
+    ${m.kit_url ? `<a class="btn btn-borda btn-sm" href="${esc(m.kit_url)}" target="_blank" rel="noopener" title="PDF com frames, títulos e o texto pronto pra IA de imagem">Kit da thumb (PDF)</a>` : ""}
+    ${m.kit_zip_url ? `<a class="btn btn-borda btn-sm" href="${esc(m.kit_zip_url)}" target="_blank" rel="noopener" title="Frames em alta + texto pra anexar na IA">Frames (ZIP)</a>` : ""}
     <button class="btn btn-borda btn-sm" data-acao="postei" data-id="${m.id}">Já postei</button>
     ${curto ? "" : `<button class="btn btn-borda btn-sm" data-acao="descartar-pronto" data-id="${m.id}">Descartar</button>`}`;
 }

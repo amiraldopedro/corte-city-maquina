@@ -130,6 +130,23 @@ def descobrir(cfg: Config, canal: Canal, est: Estado, tw, ja_vistos: set) -> int
 MAX_ESPERANDO = 9  # se você não postar, a máquina para de fazer vídeo novo (e economiza minutos do GitHub)
 
 
+def fazer_kit(video: Path, inicio: float, fim: float, pico: float | None, titulo: str, variantes: list[str],
+              gancho: str, nome: str, jogo: str, canal: Canal, mid: str, vertical: bool) -> dict:
+    """Kit da thumb (PDF + ZIP) para você montar a capa na sua IA de imagem. Nunca derruba o vídeo."""
+    try:
+        from maquina import kit
+        from maquina.cerebro import apelido
+        frames = kit.melhores_frames(video, inicio, fim, 6, pico)
+        if not frames:
+            return {}
+        pdf, z = kit.gerar(frames, titulo, variantes, gancho, nome, apelido(jogo) or "GTA", canal.cor_destaque,
+                           PASTA_PRONTOS / "kits", mid, vertical, canal.idioma)
+        return kit.entregar_kit(pdf, z, mid)
+    except Exception as e:
+        log(f"  aviso: kit da thumb falhou ({str(e)[:150]})")
+        return {}
+
+
 def playlist_do(canal: Canal, m: dict) -> str:
     """Amontoado organizado: cada Short vai para a playlist do seu quadro."""
     from maquina.momentos import quadro
@@ -208,6 +225,8 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     resumo = d.get("descricao", "")
     from maquina.entrega import entregar
     arquivos = entregar(final, capa, m["id"])   # sempre fica uma cópia para baixar (reserva)
+    arquivos.update(fazer_kit(bruto, d["inicio"], d["fim"], pico, d["titulo"], d.get("titulos_extra", []),
+                              d["gancho"], nome, m.get("jogo", ""), canal, m["id"], vertical=True))
     if canal.postar == "automatico" and not m.get("teste") and yt is not None:
         from maquina.youtube import proximo_horario
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
@@ -446,6 +465,10 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         from maquina.painel import guardar_thumb
         cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}" + (f"_{re.sub(r'[^a-z0-9]', '', evento.lower())[:20]}" if evento else "")
         guardar_thumb(capa, cid)
+        kit_extra = fazer_kit(bruto, 0, editar.info_video(bruto)[2], pico, titulo,
+                              [cerebro.titulo_compilado(canal.idioma, t, ordem_nomes, data, evento) for t in ("dia", "top10")],
+                              melhor.get("gancho") or cerebro.GANCHOS[canal.idioma][0],
+                              nomes.get(melhor["streamer"], melhor["streamer"]), melhor.get("jogo", ""), canal, cid, vertical=False)
         plat = {m["streamer"]: m.get("plataforma", "") for m in usados}
         creditos = "\n".join(f"• {nomes.get(l, l)}: {link_live(l, p)}" for l, p in plat.items())
         resumo = ("Os momentos mais engraçados e insanos das lives de GTA RP: " if canal.idioma == "pt"
@@ -459,7 +482,7 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
             est.atualizar(m["id"], usado_em=list(dict.fromkeys(est.momentos[m["id"]].get("usado_em", []) + [tipo])))
         _postar_longo(cfg, canal, est, saida, capa, cid, tipo, titulo, descricao, tags,
                       canal.playlists.get("top10" if tipo == "top10" else "compilado", ""),
-                      {"itens": [m["id"] for m in usados], "streamers": sorted({m["streamer"] for m in usados})})
+                      {"itens": [m["id"] for m in usados], "streamers": sorted({m["streamer"] for m in usados}), **kit_extra})
 
 
 def fazer_corte_longo(cfg: Config):
@@ -518,8 +541,10 @@ def fazer_corte_longo(cfg: Config):
             tags = list(dict.fromkeys(t["tags"] + [nome.lower(), f"{nome.lower()} gta rp", "gta rp", "cortes gta rp",
                                                    "gta rp brasil", "gta 6"]))[:15]
             est.atualizar(m["id"], usado_em=list(dict.fromkeys(m.get("usado_em", []) + ["longo"])))
+            kit_extra = fazer_kit(bruto, 0, dur, pico, t["titulo"], [], t["gancho"], nome, m.get("jogo", ""),
+                                  canal, cid, vertical=False)
             _postar_longo(cfg, canal, est, saida, capa, cid, "longo", t["titulo"], descricao, tags,
-                          canal.playlists.get("compilado", ""), {"itens": [m["id"]], "streamers": [m["streamer"]]})
+                          canal.playlists.get("compilado", ""), {"itens": [m["id"]], "streamers": [m["streamer"]], **kit_extra})
             break
         else:
             log("  nenhum momento com a live disponível para o corte longo")

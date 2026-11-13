@@ -34,6 +34,7 @@ Tarefa:
 3. Escreva a CHAMADA: 3 a 6 palavras que aparecem escritas na tela nos 3 primeiros segundos, para a pessoa parar de rolar o feed (ex.: "ELE NÃO ESPERAVA ISSO", "OLHA O QUE ELE FEZ"). Sem repetir o título inteiro.
 4. Escolha uma palavra-gancho para a thumb (1 ou 2 palavras, em maiúsculas, em {idioma_nome}), como "SOCORRO", "NÃO!", "INSANO".
 5. Escreva a DESCRIÇÃO: 2 frases curtas em {idioma_nome} contando o que acontece, usando naturalmente as palavras que as pessoas buscam (nome do streamer, {jogo}, e termos como "cortes", "momentos engraçados", "reação").
+6b. Escreva 4 TÍTULOS ALTERNATIVOS ("titulos_extra"), cada um com um ângulo diferente (curiosidade, humor, choque, pergunta), seguindo as mesmas regras.
 6. Escreva 8 a 12 TAGS (palavras que a pessoa digitaria na busca do YouTube), do mais específico ao mais geral.
 7. Dê uma NOTA de 0 a 10 para o potencial viral (engraçado, surpreendente, dá para entender sem contexto, tem desfecho).
 8. Marque usar=false SÓ se não tiver nada aproveitável (silêncio, tela de loading). Momento fraco vira Short mesmo assim: capriche no título e na chamada.
@@ -41,7 +42,7 @@ Tarefa:
 {seo}
 
 Responda só com JSON neste formato:
-{{"usar": true, "nota": 7, "inicio": 8.0, "fim": 31.5, "titulo": "...", "chamada": "...", "gancho": "...", "descricao": "...", "tags": ["...", "..."], "motivo": "..."}}"""
+{{"usar": true, "nota": 7, "inicio": 8.0, "fim": 31.5, "titulo": "...", "chamada": "...", "gancho": "...", "descricao": "...", "tags": ["...", "..."], "titulos_extra": ["...", "..."], "motivo": "..."}}"""
 
 SEO = {
     "pt": """REGRAS DE SEO DO YOUTUBE (siga todas):
@@ -176,6 +177,8 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
             nota = 5
         return {"usar": bool(r.get("usar", True)), "nota": nota, "inicio": round(inicio, 2), "fim": round(fim, 2),
                 "titulo": titulo, "gancho": gancho, "chamada": chamada, "descricao": descricao, "tags": tags,
+                "titulos_extra": [t for t in (_limpar_titulo(str(x)) for x in (r.get("titulos_extra") or []))
+                                  if len(t) >= 15 and not ESTRANHAS.search(t)][:5],
                 "motivo": str(r.get("motivo", ""))[:200], "fonte": "ia"}
     except Exception as e:  # Ollama fora do ar, JSON quebrado etc.
         d = plano_b(momento, palavras, nome, idioma, dmin, dmax)
