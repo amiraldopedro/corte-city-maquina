@@ -88,15 +88,35 @@
   "T3c5qx_L5Bc": {
    "id": "T3c5qx_L5Bc",
    "link": "https://www.youtube.com/watch?v=T3c5qx_L5Bc",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "pedido_em": "2026-11-13T21:01:34+00:00",
-   "atualizado_em": "2026-11-13T21:01:34+00:00",
+   "atualizado_em": "2026-11-13T22:27:19+00:00",
    "auto": true,
    "titulo": "GTA 6 NOVO TRAILER DO NADA REACT",
    "canal_nome": "Gameplayrj",
    "isolar_voz": true,
-   "views_yt": 484474
+   "views_yt": 484474,
+   "longo": null,
+   "canal_handle": "Gameplayrj",
+   "canal_id": "UCJAbkIY17zAmCTNQHH0bQoQ",
+   "duracao": 261.0,
+   "segmentos": [
+    {
+     "asset_id": 745405228,
+     "inicio": 16.0,
+     "fim": 86.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 745410329,
+     "inicio": 131.0,
+     "fim": 201.0,
+     "duracao": 70.0,
+     "forca": 1.078
+    }
+   ]
   },
   "LNFioqaHYtk": {
    "id": "LNFioqaHYtk",
