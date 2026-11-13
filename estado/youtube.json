@@ -121,15 +121,47 @@
   "LNFioqaHYtk": {
    "id": "LNFioqaHYtk",
    "link": "https://www.youtube.com/watch?v=LNFioqaHYtk",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "pedido_em": "2026-11-13T21:01:34+00:00",
-   "atualizado_em": "2026-11-13T21:01:34+00:00",
+   "atualizado_em": "2026-11-13T22:42:29+00:00",
    "auto": true,
    "titulo": "FRAME A FRAME DO NOVO TRAILER DE GTA 6",
    "canal_nome": "Davy Jones GTA 6",
    "isolar_voz": true,
-   "views_yt": 346434
+   "views_yt": 346434,
+   "longo": {
+    "asset_id": 745455991,
+    "inicio": 0.0,
+    "fim": 600.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "DavyJonesGTA6",
+   "canal_id": "UCK4vuzS4fX8qxWi5Ik7XQYA",
+   "duracao": 3021.0,
+   "segmentos": [
+    {
+     "asset_id": 745429887,
+     "inicio": 373.0,
+     "fim": 443.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 745434647,
+     "inicio": 1719.0,
+     "fim": 1789.0,
+     "duracao": 70.0,
+     "forca": 1.01
+    },
+    {
+     "asset_id": 745439954,
+     "inicio": 2724.0,
+     "fim": 2794.0,
+     "duracao": 70.0,
+     "forca": 1.018
+    }
+   ]
   }
  },
  "clipes_vistos": [],
