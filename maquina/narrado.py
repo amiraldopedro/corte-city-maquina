@@ -136,13 +136,23 @@ def legenda(palavras: list[dict], capitulo: str, cor: str, destino: Path) -> Pat
 
 # ------------------------------------------------------------------ voz
 def falar(texto: str, voz: str, taxa: str, destino: Path) -> list[dict]:
+    """O serviço de voz grátis às vezes para de responder depois de muitos pedidos: espera e tenta de novo."""
+    import time
     from .noticias import _falar
-    for tentativa in range(3):
+    espera = 5
+    for tentativa in range(7):
         try:
-            return asyncio.run(_falar(texto, voz, destino, taxa))
-        except Exception:
-            if tentativa == 2:
+            palavras = asyncio.run(_falar(texto, voz, destino, taxa))
+            if palavras:
+                time.sleep(1.0)  # respiro entre cenas pra não ser barrado
+                return palavras
+            raise RuntimeError("voz sem palavras")
+        except Exception as e:
+            if tentativa == 6:
                 raise
+            print(f"  voz não respondeu ({str(e)[:60]}), tentando de novo em {espera}s")
+            time.sleep(espera)
+            espera = min(espera * 2, 90)
 
 
 # ------------------------------------------------------------------ imagens de fundo
