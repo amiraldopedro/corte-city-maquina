@@ -118,7 +118,9 @@ def _perguntar_ollama(endereco: str, modelo: str, prompt: str) -> dict:
     global _CLAUDE_FORA
     if os.getenv("CLAUDE_CODE_OAUTH_TOKEN") and not _CLAUDE_FORA:
         try:
-            return _perguntar_claude(prompt)
+            r = _perguntar_claude(prompt)
+            print("    🤖 Claude respondeu")
+            return r
         except Exception as e:
             print(f"  Claude não respondeu, usando o Ollama ({str(e)[:150]})")
             if "limit" in str(e).lower() or "auth" in str(e).lower() or "not found" in str(e).lower():
