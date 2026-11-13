@@ -89,6 +89,7 @@ def processar(cfg) -> int:
                     r"gta ?(6|vi)", item.get("titulo", ""), re.I) else "Grand Theft Auto V",
                 "views": int(seg.get("forca", 1) * 1000), "n_clipes": 1, "score": 10_000 - i,
                 "status": "novo", "prioridade": True, "criado_em": agora(), "atualizado_em": agora(),
+                "isolar_voz": bool(item.get("isolar_voz")),
             }
             total += 1
         longo = item.get("longo")

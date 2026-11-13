@@ -263,9 +263,12 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         log(f"    descartado pela nota: {d['nota']}/9 {d.get('criterios')}")
         return False
 
+    if d.get("palavrao_inicio") and d["fim"] - d["inicio"] - 2.0 >= cfg.duracao_min:
+        d["inicio"] = round(d["inicio"] + 2.0, 2)  # palavrão pesado logo de cara: o algoritmo pode segurar o Short
+        log("    palavrão no começo: o corte começa 2 s depois")
     final = PASTA_PRONTOS / f"{m['id']}.mp4"
     voz = None
-    if m.get("evento"):  # react a trailer: a música da Rockstar faz o YouTube silenciar o Short
+    if m.get("evento") or m.get("isolar_voz") or d.get("musica"):  # música (trailer, rádio) faz o YouTube silenciar o Short
         from maquina.voz import tentar_isolar
         voz = tentar_isolar(bruto)
         log(f"    voz isolada: {'sim' if voz else 'não (vai com o áudio original)'}")
@@ -274,8 +277,15 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
     info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque,
                                chamada=d.get("chamada", ""), pico=pico, audio=voz, etiqueta=etiqueta_do(m))
+    pico_rel = pico - d["inicio"]
     try:
-        if editar.abrir_no_pico(final, pico - d["inicio"]):
+        novo = editar.cortar_silencios(final, palavras, d["inicio"], d["fim"])
+        if novo:
+            pico_rel = novo(pico_rel)
+    except Exception as e:
+        log(f"    aviso: jump cut falhou ({str(e)[:100]})")
+    try:
+        if editar.abrir_no_pico(final, pico_rel):
             log("    abertura no pico: o 1º segundo mostra o momento mais forte")
     except Exception as e:
         log(f"    aviso: abertura no pico falhou ({str(e)[:100]})")
@@ -1091,7 +1101,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "narrado"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -1136,6 +1146,9 @@ def main():
     elif a.comando == "youtube_processar":
         from maquina import youtube_fonte
         youtube_fonte.processar(cfg)
+    elif a.comando == "youtube_auto":
+        from maquina import youtube_auto
+        youtube_auto.rodar(cfg)
     elif a.comando == "noticias":
         fazer_noticias(cfg, [l for l in re.split(r"[\s,]+", a.links) if re.search(r"(x|twitter)\.com/.+/status/\d+", l)])
     elif a.comando == "simular":

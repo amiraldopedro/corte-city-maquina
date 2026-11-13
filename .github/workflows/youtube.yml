@@ -1,12 +1,14 @@
 name: YouTube (vídeos que você manda pelo painel)
 
 on:
+  schedule:
+    - cron: "7 13 * * *"   # todo dia 10:07 de Brasília: o robô automático acha os vídeos de GTA mais vistos
   workflow_dispatch:
     inputs:
       acao:
         description: "pedir = pôr links na fila do robô do Mac | processar = transformar os trechos baixados em cortes"
         type: choice
-        options: [pedir, biblioteca, processar]
+        options: [pedir, biblioteca, processar, auto]
         default: pedir
       links:
         description: "Links de vídeos/lives do YouTube (separados por espaço)"
@@ -34,11 +36,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           LINKS: ${{ inputs.links }}
+          ACAO: ${{ inputs.acao || 'auto' }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
         run: |
-          if [ "${{ inputs.acao }}" = "processar" ]; then
+          if [ "$ACAO" = "auto" ]; then
+            python main.py youtube_auto
+          elif [ "$ACAO" = "processar" ]; then
             python main.py youtube_processar
           else
-            if [ "${{ inputs.acao }}" = "biblioteca" ]; then MODO=biblioteca; else MODO=cortes; fi
+            if [ "$ACAO" = "biblioteca" ]; then MODO=biblioteca; else MODO=cortes; fi
             python main.py youtube_pedir --links "$LINKS" --evento "$MODO"
           fi
       - name: Salvar memória da máquina

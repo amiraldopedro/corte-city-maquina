@@ -254,3 +254,47 @@ def abrir_no_pico(final: Path, pico_rel: float, duracao_teaser: float = 1.1) -> 
            "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-movflags", "+faststart", str(saida)])
     saida.replace(final)
     return True
+
+
+def cortar_silencios(final: Path, palavras: list[dict], inicio: float, fim: float,
+                     pausa_min: float = 0.6, folga: float = 0.15, limite_db: float = -32.0):
+    """Jump cut automático: tira as pausas longas entre falas (só onde o áudio também está quieto,
+    pra nunca cortar uma batida ou explosão do jogo sem fala). Devolve a função que converte um segundo
+    do vídeo antigo no segundo do vídeo novo (ou None se nada foi cortado)."""
+    ws = sorted((w for w in palavras if inicio <= w["i"] and w["f"] <= fim), key=lambda w: w["i"])
+    if len(ws) < 4:
+        return None
+    r = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(final), "-vn", "-ac", "1", "-ar", "8000",
+                        "-f", "s16le", "-"], capture_output=True, timeout=300)
+    amostras = np.frombuffer(r.stdout, dtype=np.int16).astype(np.float32)
+    _, _, dur = info_video(final)
+    cortes = []
+    for a, b in zip(ws, ws[1:]):
+        x, y = a["f"] - inicio + folga, b["i"] - inicio - folga
+        if y - x < pausa_min - 2 * folga:
+            continue
+        trecho = amostras[int(x * 8000):int(y * 8000)]
+        if trecho.size == 0:
+            continue
+        db = 20 * np.log10(np.sqrt((trecho ** 2).mean()) / 32768 + 1e-9)
+        if db < limite_db:
+            cortes.append((round(x, 2), round(y, 2)))
+    total = sum(b - a for a, b in cortes)
+    if total < 0.8:
+        return None
+    if total > dur * 0.3:  # nunca tira mais de 30% do vídeo
+        cortes = sorted(cortes, key=lambda c: c[0] - c[1])[: max(1, len(cortes) // 2)]
+        cortes.sort()
+    expr = "+".join(f"between(t,{a},{b})" for a, b in cortes)
+    saida = final.with_name(final.stem + ".jump.mp4")
+    rodar(["ffmpeg", "-y", "-loglevel", "error", "-i", str(final),
+           "-vf", f"select='not({expr})',setpts=N/FRAME_RATE/TB",
+           "-af", f"aselect='not({expr})',asetpts=N/SR/TB",
+           "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-c:a", "aac", "-b:a", "160k",
+           "-ar", "48000", "-movflags", "+faststart", str(saida)])
+    saida.replace(final)
+
+    def novo_tempo(t: float) -> float:
+        return t - sum(min(b, t) - a for a, b in cortes if a < t)
+    print(f"    jump cut: tirei {sum(b - a for a, b in cortes):.1f}s de pausa ({len(cortes)} cortes)")
+    return novo_tempo

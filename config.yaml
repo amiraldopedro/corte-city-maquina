@@ -25,6 +25,15 @@ noticias:
   horarios: ["10:30", "20:30"]
   modelo: "qwen2.5:7b"           # IA maior só pras notícias: escreve português melhor
 
+# Robô automático do YouTube: todo dia a máquina acha sozinha os vídeos de GTA mais vistos do YouTube BR
+# e põe na fila do robô do Mac (que baixa só os melhores trechos). Você não precisa colar link.
+youtube_auto:
+  ligado: true
+  por_dia: 2                     # vídeos novos por dia (cada um vira ~3 Shorts + 1 corte longo)
+  dias: 30                       # publicados nos últimos X dias
+  min_views: 50000
+  termos: ["GTA 6 react", "reagindo GTA 6"]
+
 # Série de reacts: a máquina busca, nos dias de cada evento, clipes com estas palavras no título
 # (dos streamers da lista e de qualquer streamer do idioma do canal). Clipes da Twitch não expiram.
 # Rode pelo workflow "Série de reacts". Para um evento novo, é só acrescentar aqui.
@@ -68,9 +77,9 @@ lancamento:
       descobrir_jogos: ["Grand Theft Auto VI"]
 
 # Duração do Short final (segundos)
-duracao:            # Short certeiro: de 12 a 40 segundos
+duracao:            # ação rápida: 15 a 30 s; conversa/react que fecha a ideia: até 55 s (a IA decide)
   minimo: 12
-  maximo: 40
+  maximo: 55
 
 # Curadoria: o Claude dá nota (0 a 9) vendo o vídeo: entende sem contexto + tem desfecho + emoção (0 a 3 cada).
 # Abaixo da nota mínima o momento é descartado ANTES de gastar tempo montando o vídeo.

@@ -27,7 +27,7 @@ Transcrição com o segundo em que cada fala começa:
 {transcricao}
 
 Tarefa:
-1. Escolha o corte entre {dmin} e {dmax} segundos (o ideal é de 15 a 30). Regras de corte de Short viral:
+1. Escolha o corte entre {dmin} e {dmax} segundos. Ação, susto, bug ou piada rápida: 15 a 30 s. Conversa, explicação ou react que precisa fechar o raciocínio: pode ir até {dmax} s, mas só se cada segundo prender. Regras de corte de Short viral:
    - Comece 1 a 2 segundos ANTES da ação ou da fala que importa. Nada de silêncio, "oi chat" ou enrolação no começo.
    - Se precisar de contexto, use só o mínimo para entender (uma frase), não a história toda.
    - Termine logo depois da reação/risada/desfecho, sem deixar o vídeo morrer no final.
@@ -41,11 +41,12 @@ Tarefa:
 8. AVALIE com honestidade, de 0 a 3 cada: "sem_contexto" (dá pra entender sem ter visto a live), "desfecho" (tem final/reação clara), "emocao" (risada, susto, raiva, absurdo). Momento morno merece nota baixa: a máquina só posta os melhores.
 9. Em "fala_inicial", copie as 3 a 6 primeiras palavras faladas no começo do SEU corte, exatamente como estão na transcrição (vazio se não houver fala).
 10. Marque usar=false se não tiver nada aproveitável (silêncio, tela de loading, conversa sem graça).
+11. RISCO: "musica" = true se tocar música com direitos autorais no trecho (trailer, rádio do jogo, música de fundo da live); "aposta" = true se aparecer ou for falada propaganda de casa de aposta/bet; "palavrao_inicio" = true se tiver palavrão pesado nos 3 primeiros segundos do corte.
 
 {seo}
 
 Responda só com JSON neste formato:
-{{"usar": true, "sem_contexto": <0-3>, "desfecho": <0-3>, "emocao": <0-3>, "inicio": <segundo>, "fala_inicial": "<palavras>", "fim": <segundo>, "titulo": "...", "chamada": "...", "gancho": "...", "descricao": "...", "tags": ["..."], "titulos_extra": ["..."], "motivo": "..."}}
+{{"usar": true, "sem_contexto": <0-3>, "desfecho": <0-3>, "emocao": <0-3>, "inicio": <segundo>, "fala_inicial": "<palavras>", "fim": <segundo>, "titulo": "...", "chamada": "...", "gancho": "...", "descricao": "...", "tags": ["..."], "titulos_extra": ["..."], "musica": false, "aposta": false, "palavrao_inicio": false, "motivo": "..."}}
 (troque cada <...> pelo valor que VOCÊ decidiu para este vídeo; não existe valor padrão)"""
 
 SEO = {
@@ -347,10 +348,15 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
             pico_visual = float(r["pico_visual"]) if r.get("pico_visual") is not None else None
         except (TypeError, ValueError):
             pico_visual = None
-        return {"pico_visual": pico_visual, "usar": bool(r.get("usar", True)), "nota": nota, "criterios": criterios, "inicio": round(inicio, 2), "fim": round(fim, 2),
+        usar = bool(r.get("usar", True))
+        motivo_risco = ""
+        if r.get("aposta") is True:
+            usar, motivo_risco = False, "propaganda de aposta no trecho"
+        return {"musica": r.get("musica") is True, "palavrao_inicio": r.get("palavrao_inicio") is True,
+                "pico_visual": pico_visual, "usar": usar, "nota": nota, "criterios": criterios, "inicio": round(inicio, 2), "fim": round(fim, 2),
                 "titulo": titulo, "gancho": gancho, "chamada": chamada, "descricao": descricao, "tags": tags,
                 "titulos_extra": [t for t in extras if t not in modelos][:5],
-                "motivo": str(r.get("motivo", ""))[:200], "fonte": "ia", "ia": ULTIMA_IA}
+                "motivo": motivo_risco or str(r.get("motivo", ""))[:200], "fonte": "ia", "ia": ULTIMA_IA}
     except Exception as e:  # Ollama fora do ar, JSON quebrado etc.
         d = plano_b(momento, palavras, nome, idioma, dmin, dmax)
         d["motivo"] = f"plano B: {str(e)[:120]}"

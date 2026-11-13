@@ -69,6 +69,7 @@ class Config:
     max_por_streamer_dia: int = 2
     lancado: bool = False
     noticias: dict = field(default_factory=dict)
+    youtube_auto: dict = field(default_factory=dict)
     twitch_client_id: str = ""
     twitch_client_secret: str = ""
     yt_client_id: str = ""
@@ -148,6 +149,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
         palavras=[p.lower() for p in (bruto.get("jogos_com_palavra") or {}).get("palavras", [])],
         janela_busca_horas=int(bruto.get("janela_busca_horas", 24)),
         noticias=dict(bruto.get("noticias") or {}),
+        youtube_auto=dict(bruto.get("youtube_auto") or {}),
         minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
         um_clipe_views=int(mm.get("um_clipe_views", 3 * int(mm.get("views", 150)))), lancado=lancado,
         nota_minima=int(bruto.get("nota_minima", 5)), max_por_streamer_dia=int(bruto.get("max_por_streamer_dia", 2)),

@@ -1,0 +1,100 @@
+"""Robô automático: todo dia a máquina procura sozinha os vídeos de GTA mais vistos do YouTube BR
+(reacts, gameplay, lives) e põe na fila do robô do Mac, sem você colar link.
+
+- Busca na API oficial do YouTube (custa ~100 unidades de cota por termo; a máquina desconta da cota do dia).
+- Filtra: português, publicado nos últimos dias, entre 4 min e 4 h, com muita view, sem canal oficial
+  (trailer puro da Rockstar não vira corte: só música e Content ID).
+- React tem a música do trailer no fundo: os cortes desses vídeos saem com a voz isolada.
+"""
+from __future__ import annotations
+
+import re
+from datetime import datetime, timedelta, timezone
+
+from .estado import Estado
+from .youtube_fonte import fila, pedir
+
+OFICIAIS = re.compile(r"rockstar|take.?two|playstation|xbox|ign\b", re.I)
+
+
+def _segundos(iso: str) -> int:
+    m = re.match(r"P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso or "")
+    if not m:
+        return 0
+    d, h, mi, s = (int(x or 0) for x in m.groups())
+    return d * 86400 + h * 3600 + mi * 60 + s
+
+
+def buscar(yt, conf: dict, ja: set[str]) -> list[dict]:
+    dias = int(conf.get("dias", 30))
+    desde = (datetime.now(timezone.utc) - timedelta(days=dias)).isoformat(timespec="seconds").replace("+00:00", "Z")
+    ids = []
+    for termo in conf.get("termos", ["GTA 6 react", "reagindo trailer GTA 6"]):
+        r = yt.search().list(q=termo, part="id", type="video", order="viewCount", maxResults=25,
+                             publishedAfter=desde, regionCode="BR", relevanceLanguage="pt",
+                             videoDuration="any").execute()
+        ids += [it["id"]["videoId"] for it in r.get("items", []) if it["id"]["videoId"] not in ja]
+    ids = list(dict.fromkeys(ids))
+    videos = []
+    for i in range(0, len(ids), 50):
+        r = yt.videos().list(part="snippet,statistics,contentDetails", id=",".join(ids[i:i + 50])).execute()
+        videos += r.get("items", [])
+    bons = []
+    for v in videos:
+        s, st = v["snippet"], v.get("statistics", {})
+        dur = _segundos(v["contentDetails"].get("duration"))
+        views = int(st.get("viewCount") or 0)
+        lingua = (s.get("defaultAudioLanguage") or s.get("defaultLanguage") or "pt")[:2]
+        if OFICIAIS.search(s.get("channelTitle", "")) or lingua not in ("pt", ""):
+            continue
+        if not (240 <= dur <= 4 * 3600) or views < int(conf.get("min_views", 50000)):
+            continue
+        if not re.search(r"gta|grand theft", s.get("title", ""), re.I):
+            continue
+        bons.append({"id": v["id"], "titulo": s["title"], "canal": s["channelTitle"], "views": views, "duracao": dur,
+                     "react": bool(re.search(r"react|reag|trailer", s["title"], re.I))})
+    bons.sort(key=lambda x: -x["views"])
+    return bons
+
+
+def rodar(cfg) -> int:
+    """Põe os melhores vídeos novos do dia na fila do robô do Mac. Devolve quantos entraram."""
+    conf = cfg.youtube_auto
+    if not conf or not conf.get("ligado", True):
+        print("  robô automático do YouTube desligado no config.yaml")
+        return 0
+    canal = next((c for c in cfg.canais_ativos() if c.idioma == "pt"), None)
+    if not canal or not canal.refresh_token:
+        print("  sem chave do YouTube do canal: não dá pra pesquisar")
+        return 0
+    from .publicar import _gastar, tem_cota
+    est_canal = Estado(canal.id)
+    if not tem_cota(est_canal, envios=2):  # guarda cota pros envios de vídeo, que importam mais
+        print("  cota do YouTube apertada hoje: pesquisa fica pra amanhã")
+        return 0
+    from .youtube import YouTube
+    yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token).yt
+    est_fila = fila()
+    ja = set(est_fila.momentos)
+    hoje = datetime.now(timezone.utc).date().isoformat()
+    feitos_hoje = sum(1 for m in est_fila.momentos.values() if m.get("auto") and (m.get("pedido_em") or "")[:10] == hoje)
+    vagas = int(conf.get("por_dia", 2)) - feitos_hoje
+    if vagas <= 0:
+        print("  o robô automático já pegou os vídeos de hoje")
+        return 0
+    bons = buscar(yt, conf, ja)
+    _gastar(est_canal, 100 * len(conf.get("termos", [1, 1])) + 2)
+    est_canal.salvar()
+    escolhidos = bons[:vagas]
+    if not escolhidos:
+        print("  nenhum vídeo novo de GTA passou no filtro hoje")
+        return 0
+    pedir([f"https://www.youtube.com/watch?v={v['id']}" for v in escolhidos])
+    est_fila = fila()
+    for v in escolhidos:
+        if v["id"] in est_fila.momentos:
+            est_fila.momentos[v["id"]].update(auto=True, titulo=v["titulo"], canal_nome=v["canal"],
+                                              isolar_voz=v["react"], views_yt=v["views"])
+            print(f"  🤖 {v['titulo'][:70]} ({v['canal']}, {v['views']:,} views)")
+    est_fila.salvar()
+    return len(escolhidos)
