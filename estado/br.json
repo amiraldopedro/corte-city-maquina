@@ -1185,6 +1185,43 @@
    "postado_em": "2026-11-13T06:54:06+00:00",
    "motivo": "descartado no painel",
    "atualizado_em": "2026-11-13T06:58:24+00:00"
+  },
+  "narrado_001": {
+   "id": "narrado_001",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "narrado",
+   "status": "pronto",
+   "titulo": "GTA 6: tudo que você precisa saber antes de jogar",
+   "titulos_extra": [
+    "GTA 6 chega dia 19: horário no Brasil, preço, tamanho e tudo que você precisa saber",
+    "Antes de jogar GTA 6, assista isso (horário, preço, 212 GB e o mapa)",
+    "GTA 6 está chegando: o guia completo pra não passar sufoco no dia 19"
+   ],
+   "descricao": "GTA 6: tudo que você precisa saber antes de jogar\nFaltam poucos dias pro GTA 6. Depois de treze anos esperando, o jogo mais aguardado da história finalmente tem dia e hora pra chegar. E se você não quer passar sufoco na hora de jogar, esse vídeo é pra você.\n\n⏱️ Capítulos\n00:00 Começo\n00:25 Data e horário no Brasil\n01:03 Em quais consoles\n01:31 Preço e edições\n02:00 Pré-carregamento e espaço\n02:53 A história: Jason e Lucia\n03:33 Leonida: o mapa\n04:19 Qual o tamanho do mapa\n04:44 Standard ou Ultimate?\n05:14 PS5 ou Xbox Series S?\n05:44 O que esperar do primeiro dia\n06:14 Os adiamentos\n06:38 Checklist do dia 19\n07:16 Encerramento\n\n📚 Fontes\n• Rockstar Games Newswire: data de 19 de novembro de 2026\n• PlayStation Store Brasil: horário e preços\n• Comunicado da Rockstar sobre o pré-carregamento (via IGN Brasil, Omelete, Fast Company Brasil)\n• Site oficial de GTA VI: regiões de Leonida e personagens\n\nImagens: trailers e materiais oficiais de divulgação da Rockstar Games, usados para comentário e notícia.\n\n#gta6 #gtavi #gta",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 lançamento",
+    "gta 6 horário brasil",
+    "gta 6 preço",
+    "gta 6 pré-carregamento",
+    "gta 6 tamanho",
+    "gta 6 mapa",
+    "leonida",
+    "vice city",
+    "jason e lucia",
+    "gta 6 tudo que você precisa saber"
+   ],
+   "duracao": 459.222,
+   "feito_em": "2026-11-13T06:58:52+00:00",
+   "criado_em": "2026-11-13T06:58:52+00:00",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001.mp4",
+   "video_asset": 742618335,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001.jpg",
+   "thumb_asset": 742618942,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001_kit.zip"
   }
  },
  "clipes_vistos": [
