@@ -91,6 +91,22 @@ def processar(cfg) -> int:
                 "status": "novo", "prioridade": True, "criado_em": agora(), "atualizado_em": agora(),
             }
             total += 1
+        longo = item.get("longo")
+        if longo and f"yt_{vid}_longo" not in est.momentos:
+            mid = f"yt_{vid}_longo"
+            est.momentos[mid] = {
+                "id": mid, "plataforma": "youtube", "streamer": login, "nome": canal_yt, "canal": canal.id,
+                "video_id": None, "inicio": 0.0, "fim": float(longo.get("duracao", 600)), "clipe_url": None,
+                "yt_asset": longo["asset_id"], "yt_longo": True, "yt_video": vid,
+                "yt_link": f"https://www.youtube.com/watch?v={vid}&t={int(longo.get('inicio', 0))}s",
+                "titulos_chat": [item.get("titulo", "")], "jogo": "Grand Theft Auto VI" if re.search(
+                    r"gta ?(6|vi)", item.get("titulo", ""), re.I) else "Grand Theft Auto V",
+                "views": 0, "n_clipes": 1, "score": 20_000, "status": "novo",
+                "criado_em": agora(), "atualizado_em": agora(),
+            }
+            total += 1
+            Path("/tmp/tem_longo").write_text("1")
+            print(f"  ✅ trecho grande ({longo.get('duracao', 0) / 60:.0f} min) na fila do corte longo")
         item.update(status="na_fila", atualizado_em=agora())
         print(f"  ✅ {item.get('titulo', vid)[:70]}: {len(item.get('segmentos', []))} trechos na fila de cortes")
     est.salvar()

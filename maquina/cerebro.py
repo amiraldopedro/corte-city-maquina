@@ -245,3 +245,39 @@ def textos_longo(nome: str, momento: dict, transcricao: str, idioma: str, endere
     except Exception as e:
         print(f"  IA fora para o corte longo, usando título padrão ({str(e)[:100]})")
     return padrao
+
+
+PROMPT_JANELA = """Você edita cortes longos de GTA para o YouTube. Abaixo está a transcrição (segundo: fala) de um trecho de {total:.0f} segundos
+do vídeo "{titulo}" de {nome}.
+
+Escolha o MELHOR bloco contínuo de {dmin} a {dmax} segundos para virar um corte longo: deve começar no início de um assunto
+(não no meio de uma frase), ter o momento mais engraçado/interessante/reação forte, e terminar quando o assunto fecha.
+Evite começar com silêncio, "oi chat" ou loading.
+
+Transcrição:
+{transcricao}
+
+Responda só com JSON: {{"inicio": 30, "fim": 400, "motivo": "..."}}"""
+
+
+def janela_longa(nome: str, momento: dict, transcricao: str, total: float, idioma: str, endereco: str, modelo: str,
+                 dmin: int = 180, dmax: int = 480) -> tuple[float, float]:
+    """Bloco de 3 a 8 min escolhido pela IA. Sem IA: o miolo do trecho."""
+    if total <= dmax:
+        return 0.0, total
+    padrao = (max(0.0, total / 2 - dmax / 2), min(total, total / 2 + dmax / 2))
+    try:
+        r = _perguntar_ollama(endereco, modelo, PROMPT_JANELA.format(
+            total=total, titulo=(momento.get("titulos_chat") or [""])[0][:120], nome=nome,
+            dmin=dmin, dmax=dmax, transcricao=transcricao[:9000]))
+        a, b = float(r.get("inicio", -1)), float(r.get("fim", -1))
+        a, b = max(0.0, a), min(total, b)
+        if b - a < dmin * 0.8:
+            b = min(total, a + dmin)
+        if b - a > dmax * 1.1:
+            b = a + dmax
+        if 0 <= a < b and b - a >= dmin * 0.8:
+            return a, b
+    except Exception as e:
+        print(f"  IA fora para escolher o bloco do corte longo ({str(e)[:100]})")
+    return padrao

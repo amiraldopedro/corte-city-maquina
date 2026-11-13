@@ -29,9 +29,32 @@ if ! security find-generic-password -s corte-city-github -w >/dev/null 2>&1; the
   echo "Chave guardada nas Chaves do macOS."
 fi
 
-# 3) Copia o robô e agenda para rodar a cada 15 minutos (enquanto o Mac estiver ligado)
-mkdir -p "$PASTA"
-cp "$AQUI/robo_youtube.py" "$PASTA/robo_youtube.py"
+# 3) Escolhe o SSD (onde ficam os vídeos baixados e o registro do robô)
+echo ""
+echo "Discos conectados:"
+DISCOS=()
+for d in /Volumes/*; do
+  n="$(basename "$d")"
+  [ "$n" = "Macintosh HD" ] && continue
+  [ -w "$d" ] || continue
+  DISCOS+=("$d")
+  echo "  ${#DISCOS[@]}) $n"
+done
+if [ ${#DISCOS[@]} -eq 0 ]; then
+  echo "Nenhum SSD encontrado. Conecte o SSD e rode de novo (ou aperte Enter para usar o próprio Mac)."
+  read -r _
+  SSD="$PASTA"
+else
+  echo "Digite o número do SSD e aperte Enter:"
+  read -r N
+  SSD="${DISCOS[$((N-1))]}/CorteCity"
+fi
+mkdir -p "$SSD" "$PASTA"
+cp "$AQUI/robo_youtube.py" "$SSD/robo_youtube.py" 2>/dev/null || true   # cópia no SSD (como você pediu)
+cp "$AQUI/robo_youtube.py" "$PASTA/robo_youtube.py"                     # cópia de segurança no Mac
+echo "Robô instalado em: $SSD"
+
+# 4) Agenda para rodar a cada 15 minutos (enquanto o Mac estiver ligado)
 PLIST="$HOME/Library/LaunchAgents/com.cortecity.robo-youtube.plist"
 mkdir -p "$HOME/Library/LaunchAgents"
 cat > "$PLIST" <<EOF
@@ -39,7 +62,8 @@ cat > "$PLIST" <<EOF
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
   <key>Label</key><string>com.cortecity.robo-youtube</string>
-  <key>ProgramArguments</key><array><string>/usr/bin/python3</string><string>$PASTA/robo_youtube.py</string></array>
+  <key>ProgramArguments</key><array><string>/bin/bash</string><string>-c</string><string>if [ -r "$SSD/robo_youtube.py" ]; then exec /usr/bin/python3 "$SSD/robo_youtube.py"; else exec /usr/bin/python3 "$PASTA/robo_youtube.py"; fi</string></array>
+  <key>EnvironmentVariables</key><dict><key>CC_BASE</key><string>$SSD</string></dict>
   <key>StartInterval</key><integer>900</integer>
   <key>RunAtLoad</key><true/>
   <key>StandardOutPath</key><string>$PASTA/saida.log</string>
@@ -51,6 +75,7 @@ launchctl load "$PLIST"
 
 echo ""
 echo "Pronto! O robô roda a cada 15 minutos enquanto o Mac estiver ligado."
-echo "Pra ver o que ele fez:  cat ~/.corte-city/robo_youtube.log"
+echo "Pra ver o que ele fez:  cat \"$SSD/robo_youtube.log\""
+echo "Se o macOS perguntar se o python3 pode acessar o disco removível, clique em Permitir."
 echo "Pra desligar:           launchctl unload ~/Library/LaunchAgents/com.cortecity.robo-youtube.plist"
 echo ""

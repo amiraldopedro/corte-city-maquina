@@ -27,9 +27,30 @@ from pathlib import Path
 REPO = "amiraldopedro/corte-city-maquina"
 TAG = "youtube-brutos"
 TRECHOS = 3
-JANELA = 70          # segundos por trecho
-PASTA = Path.home() / ".corte-city"
+JANELA = 70          # segundos por trecho curto (vira Short)
+JANELA_LONGA = 600   # trecho grande (vira corte longo / react completo): 10 min em volta da parte mais vista
+LONGO_A_PARTIR = 8 * 60   # vídeo com mais de 8 min também ganha o trecho grande
+# Arquivos temporários e registro ficam no SSD (CC_BASE). Se o SSD estiver desconectado ou o macOS
+# não deixar escrever nele, usa a pasta do próprio robô no Mac, pra nunca parar.
+LOCAL = Path(__file__).resolve().parent
+
+
+def _base() -> Path:
+    ssd = os.environ.get("CC_BASE")
+    if ssd:
+        try:
+            p = Path(ssd)
+            p.mkdir(parents=True, exist_ok=True)
+            (p / ".teste").write_text("ok")
+            return p
+        except OSError:
+            pass
+    return LOCAL
+
+
+PASTA = _base()
 LOG = PASTA / "robo_youtube.log"
+TEMP = PASTA / "temporarios"
 PATH_EXTRA = "/opt/homebrew/bin:/usr/local/bin"
 
 
@@ -163,6 +184,25 @@ def escolher(picos: list[tuple[float, float]], duracao: float) -> list[tuple[flo
     return saida
 
 
+def janela_longa(picos: list[tuple[float, float]], duracao: float) -> tuple[float, float] | None:
+    """Os 10 minutos seguidos com mais "repetições" (ou mais volume) do vídeo."""
+    if duracao < LONGO_A_PARTIR:
+        return None
+    if duracao <= JANELA_LONGA * 1.2:
+        return (0.0, duracao)
+    if not picos:
+        return (max(0.0, duracao / 2 - JANELA_LONGA / 2), min(duracao, duracao / 2 + JANELA_LONGA / 2))
+    minimo = min(f for _, f in picos)
+    melhor, melhor_soma = 0.0, -1.0
+    inicio = 0.0
+    while inicio + JANELA_LONGA <= duracao:
+        soma = sum(f - minimo for t, f in picos if inicio <= t < inicio + JANELA_LONGA)
+        if soma > melhor_soma:
+            melhor, melhor_soma = inicio, soma
+        inicio += 30
+    return (melhor, melhor + JANELA_LONGA)
+
+
 def processar(vid: str, item: dict):
     link = item.get("link") or f"https://www.youtube.com/watch?v={vid}"
     log(f"vídeo {vid}: lendo informações")
@@ -171,7 +211,8 @@ def processar(vid: str, item: dict):
         log(f"  {vid} ainda está ao vivo: tento de novo quando a live acabar")
         return
     duracao = float(info.get("duration") or 0)
-    pasta = Path(tempfile.mkdtemp(prefix="cc_yt_"))
+    TEMP.mkdir(exist_ok=True)
+    pasta = Path(tempfile.mkdtemp(prefix="cc_yt_", dir=TEMP))
     try:
         picos = picos_heatmap(info)
         origem = "mais repetidos"
@@ -187,7 +228,15 @@ def processar(vid: str, item: dict):
             aid = subir(arq, arq.name)
             segmentos.append({"asset_id": aid, "inicio": ini, "fim": fim, "duracao": fim - ini, "forca": forca})
             log(f"  trecho {i + 1}: {ini / 60:.1f}-{fim / 60:.1f} min enviado")
-        atualizar_item(vid, {"status": "baixado", "titulo": info.get("title", ""),
+        longo = None
+        jl = janela_longa(picos, duracao)
+        if jl:
+            arq = pasta / f"yt_{vid}_longo.mp4"
+            ytdlp("-f", "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720]/b", "--merge-output-format", "mp4",
+                  "--download-sections", f"*{jl[0]:.0f}-{jl[1]:.0f}", "--force-keyframes-at-cuts", "-o", str(arq), link)
+            longo = {"asset_id": subir(arq, arq.name), "inicio": jl[0], "fim": jl[1], "duracao": jl[1] - jl[0]}
+            log(f"  trecho grande: {jl[0] / 60:.1f}-{jl[1] / 60:.1f} min enviado (vira corte longo)")
+        atualizar_item(vid, {"status": "baixado", "longo": longo, "titulo": info.get("title", ""),
                              "canal_nome": info.get("channel") or info.get("uploader") or "",
                              "canal_handle": (info.get("uploader_id") or "").lstrip("@") or info.get("channel_id", ""),
                              "canal_id": info.get("channel_id", ""), "duracao": duracao, "segmentos": segmentos})
@@ -199,7 +248,8 @@ def processar(vid: str, item: dict):
 
 
 def main():
-    PASTA.mkdir(exist_ok=True)
+    if PASTA == LOCAL and os.environ.get("CC_BASE"):
+        log(f"SSD indisponível ({os.environ['CC_BASE']}): usando a pasta do Mac por enquanto")
     if not shutil.which("yt-dlp", path=PATH_EXTRA + ":" + os.environ.get("PATH", "")):
         log("yt-dlp não encontrado. Rode o instalador de novo.")
         return

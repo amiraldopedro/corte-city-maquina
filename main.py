@@ -333,7 +333,7 @@ def tem_trabalho(cfg: Config) -> bool:
     for canal in cfg.canais_ativos():
         est = Estado(canal.id)
         fila = [m for m in est.por_status("novo") if m["streamer"] not in cfg.bloqueados
-                and TESTE == bool(m.get("teste"))]
+                and TESTE == bool(m.get("teste")) and not m.get("yt_longo")]
         if fila and (TESTE or (postados_hoje(est, canal) < len(canal.horarios)
                                and (canal.postar == "automatico" or esperando(est) < MAX_ESPERANDO))):
             return True
@@ -360,7 +360,7 @@ def produzir(cfg: Config):
                 yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
             feitos = tentativas = 0
             for m in est.por_status("novo"):
-                if TESTE != bool(m.get("teste")):
+                if TESTE != bool(m.get("teste")) or m.get("yt_longo"):  # trecho longo do YouTube vai pro corte longo
                     continue
                 quantos = int(os.getenv("QUANTOS") or cfg.max_por_rodada)
                 if feitos >= (1 if TESTE else min(limite, quantos)) or tentativas >= quantos + 3:
@@ -501,17 +501,21 @@ def fazer_corte_longo(cfg: Config):
         est = Estado(canal.id)
         desde = (datetime.now(timezone.utc) - timedelta(days=4)).isoformat(timespec="seconds")
         candidatos = sorted([m for m in est.momentos.values()
-                             if m.get("video_id") and m.get("criado_em", "") >= desde and not m.get("teste")
-                             and m["status"] in ("novo", "pronto", "postado") and m.get("tipo", "short") == "short"
+                             if (m.get("video_id") or m.get("yt_longo")) and m.get("criado_em", "") >= desde
+                             and not m.get("teste") and m["status"] in ("novo", "pronto", "postado")
+                             and m.get("tipo", "short") == "short"
                              and m["streamer"] not in cfg.bloqueados and "longo" not in m.get("usado_em", [])],
-                            key=lambda m: -m.get("score", 0))
+                            key=lambda m: (not m.get("yt_longo"), -m.get("score", 0)))  # o que você mandou vem primeiro
         log(f"== {canal.nome}: corte longo ({len(candidatos)} candidatos)")
         for m in candidatos[:3]:
             ini = max(0.0, m["inicio"] - 120)
             fim = min(ini + 6 * 60, m["fim"] + 150)   # até 6 min: cabe na cota grátis do GitHub
             destino = compilado.PASTA_BRUTOS / f"longo_{m['id']}.mp4"
             try:
-                bruto = baixar_trecho(m["video_id"], ini, fim, None, destino)
+                if m.get("yt_longo"):
+                    bruto, ini, fim, m = corte_longo_youtube(cfg, canal, m, destino)
+                else:
+                    bruto = baixar_trecho(m["video_id"], ini, fim, None, destino)
             except Exception as e:
                 log(f"  {m['id']}: não deu para baixar a live ({str(e)[:120]})")
                 est.atualizar(m["id"], usado_em=list(dict.fromkeys(m.get("usado_em", []) + ["longo"])))
@@ -554,6 +558,24 @@ def fazer_corte_longo(cfg: Config):
             break
         else:
             log("  nenhum momento com a live disponível para o corte longo")
+
+
+def corte_longo_youtube(cfg: Config, canal: Canal, m: dict, destino: Path):
+    """Trecho grande do YouTube (até ~12 min): a IA lê a transcrição e escolhe o melhor bloco de 3 a 8 min."""
+    from maquina import cerebro, editar
+    from maquina.transcrever import texto_com_tempos, transcrever
+    from maquina.youtube_fonte import preparar_bruto
+    inteiro = preparar_bruto(m, destino.with_name(destino.stem + "_inteiro.mp4"))
+    total = editar.info_video(inteiro)[2]
+    palavras = transcrever(inteiro, canal.idioma, cfg.whisper)
+    nome = cfg.nome_streamer(m["streamer"], m.get("nome", ""))
+    a, b = cerebro.janela_longa(nome, m, texto_com_tempos(palavras, 10.0), total, canal.idioma,
+                                cfg.ia_endereco, cfg.ia_modelo)
+    log(f"  IA escolheu o bloco {a / 60:.1f}-{b / 60:.1f} min de {total / 60:.1f} min")
+    editar.rodar(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{a:.2f}", "-to", f"{b:.2f}", "-i", str(inteiro),
+                  "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-b:a", "160k", str(destino)])
+    # o resto do corte longo espera o momento "no meio" do trecho
+    return destino, 0.0, b - a, {**m, "inicio": min(120.0, (b - a) / 2), "fim": b - a}
 
 
 # ====================================================================== notícias (Google Notícias + posts do X)

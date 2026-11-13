@@ -46,4 +46,6 @@ jobs:
         if: inputs.acao == 'processar'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run rodada.yml -f quantos=3 || true
+        run: |
+          gh workflow run rodada.yml -f quantos=3 || true
+          if [ -f /tmp/tem_longo ]; then gh workflow run compilado.yml -f tipo=longo || true; fi
