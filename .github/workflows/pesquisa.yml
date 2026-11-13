@@ -1,0 +1,39 @@
+name: Pesquisa no YouTube (o que está performando)
+
+on:
+  workflow_dispatch:
+    inputs:
+      termos:
+        description: "Termos de busca (separe com vírgula)"
+        default: "GTA 6, GTA VI, GTA 6 trailer, GTA 6 gameplay"
+      dias:
+        description: "Últimos quantos dias"
+        default: "30"
+
+permissions:
+  contents: write
+
+jobs:
+  pesquisa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q -r requirements-leve.txt
+      - name: Pesquisar
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
+          TERMOS: ${{ inputs.termos }}
+        run: |
+          IFS=',' read -ra T <<< "$TERMOS"
+          python ferramentas/pesquisa_youtube.py "${T[@]}" --dias "${{ inputs.dias }}"
+      - name: Salvar
+        run: |
+          git config user.name "corte-city-bot"; git config user.email "bot@users.noreply.github.com"
+          git add estado/pesquisa
+          git commit -m "Pesquisa no YouTube [skip ci]" || exit 0
+          for i in 1 2 3 4; do git pull --rebase -q && git push -q && break; sleep 5; done
