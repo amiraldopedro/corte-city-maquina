@@ -14,7 +14,7 @@
    "titulos_chat": [
     "dourada"
    ],
-   "views": 87,
+   "views": 94,
    "n_clipes": 1,
    "score": 617.9720770839917,
    "teste": true,
@@ -39,7 +39,7 @@
    "likes": 4,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -59,7 +59,7 @@
    "n_clipes": 1,
    "score": 823.9720770839917,
    "teste": true,
-   "status": "erro",
+   "status": "novo",
    "criado_em": "2026-11-12T15:34:33+00:00",
    "erro": "open() got an unexpected keyword argument 'metadata_errors'",
    "atualizado_em": "2026-11-12T15:45:19+00:00"
@@ -90,7 +90,7 @@
    "n_clipes": 5,
    "score": 1995.9639203842082,
    "teste": true,
-   "status": "erro",
+   "status": "novo",
    "criado_em": "2026-11-12T15:34:33+00:00",
    "erro": "open() got an unexpected keyword argument 'metadata_errors'",
    "atualizado_em": "2026-11-12T15:42:32+00:00"
@@ -159,7 +159,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 1"
    ],
-   "views": 805,
+   "views": 809,
    "n_clipes": 1,
    "score": 761.9720770839917,
    "jogo": "Grand Theft Auto V",
@@ -201,7 +201,7 @@
    "likes": 20,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T16:28:49+00:00",
+   "numeros_em": "2026-11-13T18:02:36+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -263,7 +263,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T16:28:49+00:00",
+   "numeros_em": "2026-11-13T18:02:36+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -314,7 +314,7 @@
     "shorts"
    ],
    "youtube_id": "FyCfCgtakvo",
-   "publicar_em": "2026-11-13T19:00:00Z",
+   "publicar_em": "2026-11-14T19:00:00Z",
    "postado_em": "2026-11-13T06:10:04+00:00",
    "feito_em": "2026-11-13T06:10:04+00:00",
    "corte": [
@@ -336,7 +336,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK": {
    "id": "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK",
@@ -408,7 +408,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0": {
    "id": "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0",
@@ -424,7 +424,7 @@
    "titulos_chat": [
     "MAL POSSO ESPERAR PARA ACORDAR E ASSISTIR AO TRAILER DO ACLAMADO GTA 6 WOWWWWWW NAO VEJO A HORA ESTOU ARREPIADO"
    ],
-   "views": 0,
+   "views": 3,
    "n_clipes": 1,
    "score": 1144.4804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -469,7 +469,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -485,7 +485,7 @@
    "titulos_chat": [
     "Trailer do GTA VI"
    ],
-   "views": 3,
+   "views": 8,
    "n_clipes": 1,
    "score": 449.3804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -537,7 +537,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -603,7 +603,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4": {
    "id": "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
@@ -648,7 +648,7 @@
     "shorts"
    ],
    "youtube_id": "rjNCWTHlAkk",
-   "publicar_em": "2026-11-13T21:00:00Z",
+   "publicar_em": "2026-11-15T21:00:00Z",
    "postado_em": "2026-11-13T06:12:38+00:00",
    "feito_em": "2026-11-13T06:12:38+00:00",
    "corte": [
@@ -670,7 +670,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "dia_20261112": {
    "id": "dia_20261112",
@@ -720,7 +720,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "longo_2924173618_4957": {
    "id": "longo_2924173618_4957",
@@ -759,13 +759,13 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_2924173618_4957.jpg",
    "thumb_asset": 741312606,
    "youtube_id": "JhcsOuSfMXI",
-   "publicar_em": "2026-11-13T18:00:00Z",
+   "publicar_em": null,
    "postado_em": "2026-11-12T22:22:26+00:00",
    "views": 0,
    "likes": 0,
    "comentarios": 0,
-   "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "privacidade": "public",
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "news_8c0d2803c305": {
    "id": "news_8c0d2803c305",
@@ -1017,7 +1017,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "news_c8863f71d3b2": {
    "id": "news_c8863f71d3b2",
@@ -1055,7 +1055,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "news_876c7d48334f": {
    "id": "news_876c7d48334f",
@@ -1093,7 +1093,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "news_3574e5e614ec": {
    "id": "news_3574e5e614ec",
@@ -1254,7 +1254,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "x_2112674760278594021": {
    "id": "x_2112674760278594021",
@@ -1292,7 +1292,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
   },
   "news_9d9bff52c884": {
    "id": "news_9d9bff52c884",
@@ -1366,22 +1366,81 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T16:28:49+00:00"
+   "numeros_em": "2026-11-13T18:02:36+00:00"
+  },
+  "2926903009_462": {
+   "id": "2926903009_462",
+   "streamer": "alanzoka",
+   "canal": "br",
+   "video_id": "2926903009",
+   "inicio": 462.0,
+   "fim": 551.7,
+   "clipe_url": "https://www.twitch.tv/alanzoka/clip/SpeedyTastyDoveCeilingCat-4JO2Pv1TXD6nHt7Z",
+   "clipe_ids": [
+    "SpeedyTastyDoveCeilingCat-4JO2Pv1TXD6nHt7Z",
+    "ProtectiveSuaveWalletKreygasm-wBOmw7wNK1ZOxDvv"
+   ],
+   "titulos_chat": [
+    "..",
+    "3"
+   ],
+   "views": 121,
+   "n_clipes": 2,
+   "score": 358.39184330021646,
+   "jogo": "",
+   "teste": true,
+   "quadro": "rp",
+   "_priorizado": true,
+   "status": "novo",
+   "criado_em": "2026-11-13T18:02:35+00:00"
+  },
+  "2926018706_3490": {
+   "id": "2926018706_3490",
+   "streamer": "alanzoka",
+   "canal": "br",
+   "video_id": "2926018706",
+   "inicio": 3490.0,
+   "fim": 3558.0,
+   "clipe_url": "https://www.twitch.tv/alanzoka/clip/CourageousSquareVanillaMikeHogu-mItIS9K_-7MbSEeu",
+   "clipe_ids": [
+    "AgitatedSmilingKleeBuddhaBar-NlTzB4wyRlba696f",
+    "SilkyWittyTubersBrokeBack-3cFbWofbfwYTTLRJ",
+    "CourageousSquareVanillaMikeHogu-mItIS9K_-7MbSEeu"
+   ],
+   "titulos_chat": [
+    "Dino dando rage com a maldição do alanzoka 🤣🤣",
+    "seu palhaço",
+    "O FINAL DE PHANTOM BLADE FINALMENTE"
+   ],
+   "views": 110,
+   "n_clipes": 3,
+   "score": 449.9441541679836,
+   "jogo": "",
+   "teste": true,
+   "quadro": "rp",
+   "_priorizado": true,
+   "status": "novo",
+   "criado_em": "2026-11-13T18:02:35+00:00"
   }
  },
  "clipes_vistos": [
   "AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0",
+  "AgitatedSmilingKleeBuddhaBar-NlTzB4wyRlba696f",
   "AttractiveLitigiousRedpandaSpicyBoy-KUz6vtPMeq2tIvwa",
   "BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK",
   "BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
+  "CourageousSquareVanillaMikeHogu-mItIS9K_-7MbSEeu",
   "FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
   "GoldenAwkwardHabaneroTBTacoLeft-PtFVVPwTv4qM0Afm",
   "KathishFrailAlpacaDAESuppy-AcvQZ01XjYCRbrDO",
   "LitigiousResilientDugongFrankerZ-gNcijgYq5pOkpTiv",
   "NurturingPeppyPonyStrawBeary-5Qhb9YUF6jfuqKsj",
   "PleasantTransparentLaptopResidentSleeper-YBJdi9z4r0EKgCRJ",
+  "ProtectiveSuaveWalletKreygasm-wBOmw7wNK1ZOxDvv",
   "RefinedSweetFishMau5-AeG9FAHyG47_1Ckn",
+  "SilkyWittyTubersBrokeBack-3cFbWofbfwYTTLRJ",
   "SmellyHelpfulSamosaSpicyBoy-Fw9HAmzxpUX4RaKv",
+  "SpeedyTastyDoveCeilingCat-4JO2Pv1TXD6nHt7Z",
   "StormyHonestApeDatSheffy-7As3hLaiubGxM0Cu",
   "StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq",
   "TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
