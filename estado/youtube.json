@@ -3,10 +3,44 @@
   "kqyNJn81pGA": {
    "id": "kqyNJn81pGA",
    "link": "https://www.youtube.com/watch?v=kqyNJn81pGA",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "pedido_em": "2026-11-13T07:11:23+00:00",
-   "atualizado_em": "2026-11-13T07:11:23+00:00"
+   "atualizado_em": "2026-11-13T22:16:57+00:00",
+   "longo": {
+    "asset_id": 745380479,
+    "inicio": 120.0,
+    "fim": 720.0,
+    "duracao": 600.0
+   },
+   "titulo": "GTA 6 LIBERA PRE LOAD MAIS CEDO, SERÁ QUE AS LOJAS VÃO CAIR? FGN Direct #066",
+   "canal_nome": "Flow Games",
+   "canal_handle": "FlowGamesPodcast",
+   "canal_id": "UCUZfhX79dQrJvAgYefiXCCA",
+   "duracao": 815.0,
+   "segmentos": [
+    {
+     "asset_id": 745355508,
+     "inicio": 443.0,
+     "fim": 513.0,
+     "duracao": 70.0,
+     "forca": 1.059
+    },
+    {
+     "asset_id": 745360600,
+     "inicio": 558.0,
+     "fim": 628.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 745364434,
+     "inicio": 748.0,
+     "fim": 815.0,
+     "duracao": 67.0,
+     "forca": 1.042
+    }
+   ]
   },
   "QdBZY2fkU-0": {
    "id": "QdBZY2fkU-0",
