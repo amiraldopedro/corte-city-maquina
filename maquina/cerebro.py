@@ -7,6 +7,7 @@ para a máquina nunca parar.
 from __future__ import annotations
 
 import json
+import os
 import random
 import re
 
@@ -88,7 +89,40 @@ GANCHOS = {"pt": ["INSANO", "SOCORRO", "NÃO!", "KKKKK"], "en": ["NO WAY", "INSA
 LIXO = re.compile(r"^[\W_k]*$|^(lol|lmao|kkk+|haha+|clip|clipe)\W*$", re.I)
 
 
+_CLAUDE_FORA = False
+
+
+def _json_do_texto(texto: str) -> dict:
+    texto = texto.strip()
+    m = re.search(r"\{.*\}", texto, re.S)
+    return json.loads(m.group(0) if m else texto)
+
+
+def _perguntar_claude(prompt: str) -> dict:
+    """Claude pela assinatura (CLAUDE_CODE_OAUTH_TOKEN), sem ferramentas, só texto -> JSON."""
+    import subprocess
+    r = subprocess.run(["claude", "-p", "--output-format", "json", "--model", os.getenv("CLAUDE_MODELO", "sonnet"),
+                        "--max-turns", "1", "--disallowedTools", "Bash,Edit,Write,Read,WebFetch,WebSearch"],
+                       input=prompt + "\n\nResponda APENAS com o JSON pedido, sem texto antes ou depois.",
+                       capture_output=True, text=True, timeout=240)
+    if r.returncode != 0:
+        raise RuntimeError((r.stderr or r.stdout)[-300:])
+    saida = json.loads(r.stdout)
+    if saida.get("is_error"):
+        raise RuntimeError(str(saida.get("result"))[:300])
+    return _json_do_texto(saida.get("result", ""))
+
+
 def _perguntar_ollama(endereco: str, modelo: str, prompt: str) -> dict:
+    """Pergunta pra IA. Se o Claude estiver ligado (chave nos Secrets), ele responde; senão, o Ollama grátis."""
+    global _CLAUDE_FORA
+    if os.getenv("CLAUDE_CODE_OAUTH_TOKEN") and not _CLAUDE_FORA:
+        try:
+            return _perguntar_claude(prompt)
+        except Exception as e:
+            print(f"  Claude não respondeu, usando o Ollama ({str(e)[:150]})")
+            if "limit" in str(e).lower() or "auth" in str(e).lower() or "not found" in str(e).lower():
+                _CLAUDE_FORA = True  # cota acabou / chave ruim: não insiste nesta rodada
     r = requests.post(f"{endereco}/api/generate", timeout=600, json={
         "model": modelo, "prompt": prompt, "format": "json", "stream": False,
         "options": {"temperature": 0.6, "num_ctx": 4096},

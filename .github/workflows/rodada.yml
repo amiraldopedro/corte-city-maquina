@@ -39,6 +39,7 @@ jobs:
       YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
       WHISPER_CACHE: ${{ github.workspace }}/.cache/whisper
       TORCH_HOME: ${{ github.workspace }}/.cache/torch
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       OLLAMA_MODELS: /home/runner/.ollama/models
       MODO_TESTE: ${{ inputs.teste && '1' || '0' }}
       QUANTOS: ${{ inputs.quantos || '1' }}
@@ -86,6 +87,11 @@ jobs:
           MODELO=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['ia']['modelo'])")
           ollama pull "$MODELO"
 
+      - name: Ligar o Claude (se a chave CLAUDE_CODE_OAUTH_TOKEN estiver nos Secrets)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then npm install -g @anthropic-ai/claude-code >/dev/null 2>&1 && echo "Claude ligado"; else echo "Sem chave do Claude: usando só o Ollama"; fi
       - name: Produzir e postar
         if: steps.fila.outputs.tem == 'sim'
         run: python main.py produzir
