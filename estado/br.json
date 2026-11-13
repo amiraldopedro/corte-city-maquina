@@ -259,13 +259,14 @@
    "video_asset": 740576643,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_6557.jpg",
    "thumb_asset": 740576718,
-   "atualizado_em": "2026-11-12T21:53:53+00:00",
+   "atualizado_em": "2026-11-13T01:47:56+00:00",
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
    "numeros_em": "2026-11-13T01:16:50+00:00",
    "usado_em": [
-    "dia"
+    "dia",
+    "longo"
    ]
   },
   "clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq": {
@@ -846,6 +847,45 @@
    "criado_em": "2026-11-13T01:43:07+00:00",
    "status": "descartado",
    "motivo": "IA barrou"
+  },
+  "longo_2924173618_6557": {
+   "id": "longo_2924173618_6557",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "longo",
+   "status": "postado",
+   "titulo": "mount GTA RP: parece GTA 6 - parte 2",
+   "descricao": "mount GTA RP: parece GTA 6 - parte 2\nEm um corte inusitado, o streamer de GTA RP mostra uma cena que parece GTA 6. O espectador é deixado intrigado para saber como isso aconteceu.\n\n🎮 Live original: https://twitch.tv/mount\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
+   "tags": [
+    "gta rp",
+    "cortes",
+    "cidade alta",
+    "complexo",
+    "gta 6",
+    "reagindo",
+    "streamer",
+    "corte longo",
+    "gta rp brasil",
+    "mount",
+    "mount gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Melhores Momentos de GTA 6",
+   "feito_em": "2026-11-13T01:48:18+00:00",
+   "criado_em": "2026-11-13T01:48:18+00:00",
+   "itens": [
+    "2924173618_6557"
+   ],
+   "streamers": [
+    "mount"
+   ],
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_2924173618_6557.mp4",
+   "video_asset": 741851713,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_2924173618_6557.jpg",
+   "thumb_asset": 741852128,
+   "youtube_id": "FpMPtyN6G9U",
+   "publicar_em": "2026-11-14T18:00:00Z",
+   "postado_em": "2026-11-13T01:48:18+00:00"
   }
  },
  "clipes_vistos": [
