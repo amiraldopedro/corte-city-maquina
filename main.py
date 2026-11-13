@@ -199,8 +199,15 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     if bruto.with_suffix(".clipe").exists():  # usou o clipe do público: a janela é o clipe inteiro
         m = {**m, "inicio": 0.0, "fim": editar.info_video(bruto)[2], "video_id": None}
     palavras = transcrever(bruto, canal.idioma, cfg.whisper)
+    folhas = []
+    if os.getenv("CLAUDE_CODE_OAUTH_TOKEN"):  # o Claude "vê" o vídeo por folhas de quadros
+        try:
+            from maquina.kit import folhas_de_quadros
+            folhas = folhas_de_quadros(bruto, m["inicio"], m["fim"], PASTA_PRONTOS / "folhas" / m["id"])
+        except Exception as e:
+            log(f"    aviso: folhas de quadros falharam ({str(e)[:100]})")
     d = cerebro.decidir(m, palavras, texto_com_tempos(palavras), nome, canal.idioma,
-                        cfg.duracao_min, cfg.duracao_max, cfg.ia_endereco, cfg.ia_modelo)
+                        cfg.duracao_min, cfg.duracao_max, cfg.ia_endereco, cfg.ia_modelo, folhas)
     log(f"    cérebro ({d['fonte']}): {d['titulo']} | gancho {d['gancho']} | {d['inicio']}-{d['fim']}s")
     if not d["usar"]:
         est.atualizar(m["id"], status="descartado", motivo=d["motivo"])
@@ -213,7 +220,9 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         from maquina.voz import tentar_isolar
         voz = tentar_isolar(bruto)
         log(f"    voz isolada: {'sim' if voz else 'não (vai com o áudio original)'}")
-    pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
+    pico = d.get("pico_visual")
+    if pico is None or not (d["inicio"] + 0.5 < pico < d["fim"] - 0.5):
+        pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
     info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque,
                                chamada=d.get("chamada", ""), pico=pico, audio=voz)
     from maquina.baixar import MUDO_DB, volume_maximo

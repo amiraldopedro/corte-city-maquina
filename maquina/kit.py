@@ -127,3 +127,29 @@ def entregar_kit(pdf: Path, zip_path: Path, mid: str) -> dict:
     except Exception as e:
         print(f"  aviso: kit da thumb não subiu ({str(e)[:120]})")
         return {}
+
+
+def folhas_de_quadros(arquivo: Path, inicio: float, fim: float, pasta: Path, por_folha: int = 16) -> list[Path]:
+    """Folhas 4x4 com quadros a cada ~1,5-3 s, cada um com o segundo escrito (pro Claude "ver" o vídeo)."""
+    pasta.mkdir(parents=True, exist_ok=True)
+    dur = max(1.0, fim - inicio)
+    total = por_folha * (2 if dur > 40 else 1)
+    tempos = [inicio + dur * (k + 0.5) / total for k in range(total)]
+    fonte = ImageFont.truetype(str(FONTES / "Inter-ExtraBold.ttf"), 30)
+    folhas = []
+    for f in range(0, total, por_folha):
+        folha = Image.new("RGB", (4 * 480, 4 * 270), (0, 0, 0))
+        d = ImageDraw.Draw(folha)
+        for k, t in enumerate(tempos[f:f + por_folha]):
+            img = frame_em(arquivo, t)
+            if img is None:
+                continue
+            q = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)).resize((480, 270))
+            x, y = (k % 4) * 480, (k // 4) * 270
+            folha.paste(q, (x, y))
+            d.rectangle([x, y, x + 110, y + 42], fill=(0, 0, 0))
+            d.text((x + 8, y + 4), f"{t:.1f}s", font=fonte, fill=(255, 230, 0))
+        destino = pasta / f"folha_{len(folhas) + 1}.jpg"
+        folha.save(destino, quality=82)
+        folhas.append(destino)
+    return folhas

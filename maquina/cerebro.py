@@ -7,6 +7,7 @@ para a máquina nunca parar.
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import os
 import random
 import re
@@ -98,11 +99,20 @@ def _json_do_texto(texto: str) -> dict:
     return json.loads(m.group(0) if m else texto)
 
 
-def _perguntar_claude(prompt: str) -> dict:
-    """Claude pela assinatura (CLAUDE_CODE_OAUTH_TOKEN), sem ferramentas, só texto -> JSON."""
+def _perguntar_claude(prompt: str, imagens: list | None = None) -> dict:
+    """Claude pela assinatura (CLAUDE_CODE_OAUTH_TOKEN). Com `imagens`, ele abre as folhas de quadros
+    (ferramenta Read, só leitura) antes de responder; sem imagens, nenhuma ferramenta."""
     import subprocess
+    if imagens:
+        lista = "\n".join(f"- {Path(i).resolve()}" for i in imagens)
+        prompt = (f"ANTES DE RESPONDER, abra e OLHE estas imagens com a ferramenta Read (são folhas de quadros do vídeo; "
+                  f"cada quadro tem o segundo escrito no canto):\n{lista}\n\n" + prompt)
+        ferramentas = ["--allowedTools", "Read", "--disallowedTools", "Bash,Edit,Write,WebFetch,WebSearch,Glob,Grep",
+                       "--max-turns", str(len(imagens) + 3)]
+    else:
+        ferramentas = ["--max-turns", "1", "--disallowedTools", "Bash,Edit,Write,Read,WebFetch,WebSearch"]
     r = subprocess.run(["claude", "-p", "--output-format", "json", "--model", os.getenv("CLAUDE_MODELO", "sonnet"),
-                        "--max-turns", "1", "--disallowedTools", "Bash,Edit,Write,Read,WebFetch,WebSearch"],
+                        *ferramentas],
                        input=prompt + "\n\nResponda APENAS com o JSON pedido, sem texto antes ou depois.",
                        capture_output=True, text=True, timeout=240,
                        env={**os.environ, "CLAUDE_CODE_OAUTH_TOKEN": re.sub(r"\s", "", os.getenv("CLAUDE_CODE_OAUTH_TOKEN", ""))})
@@ -114,13 +124,13 @@ def _perguntar_claude(prompt: str) -> dict:
     return _json_do_texto(saida.get("result", ""))
 
 
-def _perguntar_ollama(endereco: str, modelo: str, prompt: str) -> dict:
+def _perguntar_ollama(endereco: str, modelo: str, prompt: str, imagens: list | None = None) -> dict:
     """Pergunta pra IA. Se o Claude estiver ligado (chave nos Secrets), ele responde; senão, o Ollama grátis."""
     global _CLAUDE_FORA
     if os.getenv("CLAUDE_CODE_OAUTH_TOKEN") and not _CLAUDE_FORA:
         try:
-            r = _perguntar_claude(prompt)
-            print("    🤖 Claude respondeu")
+            r = _perguntar_claude(prompt, imagens)
+            print("    🤖 Claude respondeu" + (f" (viu {len(imagens)} folha(s) de quadros)" if imagens else ""))
             return r
         except Exception as e:
             print(f"  Claude não respondeu, usando o Ollama ({str(e)[:150]})")
@@ -175,11 +185,22 @@ def plano_b(momento: dict, palavras: list[dict], nome: str, idioma: str, dmin: i
             "descricao": "", "tags": [], "motivo": "regras (sem IA)", "fonte": "regras"}
 
 
+VISAO = """
+
+VOCÊ TAMBÉM ESTÁ VENDO O VÍDEO: as folhas de quadros mostram o que acontece na tela, com o segundo de cada quadro.
+- Use as imagens pra entender a cena: batida, perseguição, tombo, susto, reação no rosto do streamer (webcam), tela de loading.
+- O corte começa 1-2 s antes da AÇÃO VISUAL ou da fala que importa, e termina logo depois da reação.
+- Título e chamada devem refletir o que SE VÊ (não invente o que não aparece nem é dito).
+- Dê "pico_visual": o segundo do momento mais forte na tela (vai ganhar um zoom rápido).
+- Se for silêncio, loading ou cena parada sem graça, pode marcar usar=false.
+Inclua "pico_visual" no JSON."""
+
+
 def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: str,
-            dmin: int, dmax: int, endereco: str, modelo: str) -> dict:
+            dmin: int, dmax: int, endereco: str, modelo: str, folhas: list | None = None) -> dict:
     janela = momento["fim"] - momento["inicio"]
-    if len(palavras) < 4:  # quase ninguém falando: corte por regras mesmo
-        return plano_b(momento, palavras, nome, idioma, dmin, dmax)
+    if len(palavras) < 4 and not (folhas and os.getenv("CLAUDE_CODE_OAUTH_TOKEN")):
+        return plano_b(momento, palavras, nome, idioma, dmin, dmax)  # sem fala e sem visão: regras
     prompt = PROMPT.format(
         nome=nome, idioma_nome=IDIOMAS[idioma], duracao=janela, dmin=dmin, dmax=dmax,
         titulos="\n".join(f"- {t}" for t in momento.get("titulos_chat", [])[:8] if t) or "- (sem título)",
@@ -189,8 +210,11 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
                     f"ex.: \"{nome} reagindo ao {momento['evento']}\" ou parecido, em estilo curiosidade.")
                    if momento.get("evento") else "",
     )
+    usa_visao = bool(folhas and os.getenv("CLAUDE_CODE_OAUTH_TOKEN"))
+    if usa_visao:
+        prompt += VISAO
     try:
-        r = _perguntar_ollama(endereco, modelo, prompt)
+        r = _perguntar_ollama(endereco, modelo, prompt, folhas if usa_visao else None)
         inicio, fim = float(r.get("inicio", 0)), float(r.get("fim", 0))
         inicio = max(0.0, min(inicio, janela - dmin))
         fim = min(janela, max(fim, inicio + dmin))
@@ -212,7 +236,11 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
             nota = max(0, min(10, int(float(r.get("nota", 5)))))
         except (TypeError, ValueError):
             nota = 5
-        return {"usar": bool(r.get("usar", True)), "nota": nota, "inicio": round(inicio, 2), "fim": round(fim, 2),
+        try:
+            pico_visual = float(r["pico_visual"]) if r.get("pico_visual") is not None else None
+        except (TypeError, ValueError):
+            pico_visual = None
+        return {"pico_visual": pico_visual, "usar": bool(r.get("usar", True)), "nota": nota, "inicio": round(inicio, 2), "fim": round(fim, 2),
                 "titulo": titulo, "gancho": gancho, "chamada": chamada, "descricao": descricao, "tags": tags,
                 "titulos_extra": [t for t in (_limpar_titulo(str(x)) for x in (r.get("titulos_extra") or []))
                                   if len(t) >= 15 and not ESTRANHAS.search(t)][:5],
