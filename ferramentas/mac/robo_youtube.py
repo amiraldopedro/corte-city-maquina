@@ -6,7 +6,7 @@ A cada 15 minutos: olha a fila (estado/youtube.json no GitHub), e para cada víd
 2. baixa SÓ os 3 melhores trechos (~1 minuto cada), sem login e sem cookies da sua conta;
 3. sobe os trechos pro GitHub e avisa a máquina, que faz os Shorts.
 
-Só usa o que já vem no Mac (Python 3) + yt-dlp e ffmpeg (instalados pelo Homebrew).
+Só usa o que já vem no Mac (Python 3) + yt-dlp e ffmpeg (baixados prontos pelo instalador em ~/.corte-city/bin).
 """
 from __future__ import annotations
 
@@ -51,7 +51,7 @@ def _base() -> Path:
 PASTA = _base()
 LOG = PASTA / "robo_youtube.log"
 TEMP = PASTA / "temporarios"
-PATH_EXTRA = "/opt/homebrew/bin:/usr/local/bin"
+PATH_EXTRA = f"{Path.home()}/.corte-city/bin:/opt/homebrew/bin:/usr/local/bin"
 
 
 def log(msg: str):

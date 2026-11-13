@@ -8,15 +8,29 @@ echo ""
 echo "=== Robô do YouTube - Corte City ==="
 echo ""
 
-# 1) Homebrew + yt-dlp + ffmpeg
-export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
-if ! command -v brew >/dev/null 2>&1; then
-  echo "Instalando o Homebrew (o Mac vai pedir a sua senha do computador)..."
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+# 1) yt-dlp + ffmpeg prontos (sem Homebrew: ele não suporta mais Mac Intel e tenta compilar tudo)
+BIN="$PASTA/bin"
+mkdir -p "$BIN"
+export PATH="$BIN:/opt/homebrew/bin:/usr/local/bin:$PATH"
+echo "Baixando o yt-dlp..."
+curl -fsSL -o "$BIN/yt-dlp" https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_macos
+chmod +x "$BIN/yt-dlp"
+xattr -d com.apple.quarantine "$BIN/yt-dlp" 2>/dev/null || true
+if command -v ffmpeg >/dev/null 2>&1 && ffmpeg -version >/dev/null 2>&1; then
+  echo "ffmpeg já está instalado: $(command -v ffmpeg)"
+else
+  echo "Baixando o ffmpeg..."
+  if [ "$(uname -m)" = "arm64" ]; then
+    curl -fsSL -o /tmp/ffmpeg.zip "https://ffmpeg.martin-riedl.de/redirect/latest/macos/arm64/release/ffmpeg.zip"
+  else
+    curl -fsSL -o /tmp/ffmpeg.zip "https://evermeet.cx/ffmpeg/getrelease/zip"
+  fi
+  unzip -o -q /tmp/ffmpeg.zip -d "$BIN" && rm -f /tmp/ffmpeg.zip
+  chmod +x "$BIN/ffmpeg"
+  xattr -d com.apple.quarantine "$BIN/ffmpeg" 2>/dev/null || true
 fi
-echo "Instalando yt-dlp e ffmpeg..."
-brew install yt-dlp ffmpeg >/dev/null || brew upgrade yt-dlp ffmpeg >/dev/null || true
+"$BIN/yt-dlp" --version >/dev/null && echo "yt-dlp ok"
+(command -v ffmpeg >/dev/null && ffmpeg -version >/dev/null 2>&1) && echo "ffmpeg ok"
 
 # 2) Chave do GitHub (fica guardada nas Chaves do macOS, não em arquivo)
 if ! security find-generic-password -s corte-city-github -w >/dev/null 2>&1; then
