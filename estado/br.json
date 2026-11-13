@@ -1575,6 +1575,58 @@
    "status": "novo",
    "criado_em": "2026-11-13T22:17:13+00:00",
    "atualizado_em": "2026-11-13T22:17:13+00:00"
+  },
+  "yt_T3c5qx_L5Bc_0": {
+   "id": "yt_T3c5qx_L5Bc_0",
+   "plataforma": "youtube",
+   "streamer": "Gameplayrj",
+   "nome": "Gameplayrj",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 745405228,
+   "yt_video": "T3c5qx_L5Bc",
+   "yt_link": "https://www.youtube.com/watch?v=T3c5qx_L5Bc&t=16s",
+   "titulos_chat": [
+    "GTA 6 NOVO TRAILER DO NADA REACT"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1000,
+   "n_clipes": 1,
+   "score": 10000,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-13T22:27:35+00:00",
+   "atualizado_em": "2026-11-13T22:27:35+00:00",
+   "isolar_voz": true
+  },
+  "yt_T3c5qx_L5Bc_1": {
+   "id": "yt_T3c5qx_L5Bc_1",
+   "plataforma": "youtube",
+   "streamer": "Gameplayrj",
+   "nome": "Gameplayrj",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 745410329,
+   "yt_video": "T3c5qx_L5Bc",
+   "yt_link": "https://www.youtube.com/watch?v=T3c5qx_L5Bc&t=131s",
+   "titulos_chat": [
+    "GTA 6 NOVO TRAILER DO NADA REACT"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1078,
+   "n_clipes": 1,
+   "score": 9999,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-13T22:27:35+00:00",
+   "atualizado_em": "2026-11-13T22:27:35+00:00",
+   "isolar_voz": true
   }
  },
  "clipes_vistos": [
