@@ -16,7 +16,22 @@ noticias.google_noticias = lambda termos, idioma="pt", horas=30: [
     {"id": "news_b", "origem": "noticia", "titulo_fonte": "Vazamento mostra mapa inteiro de GTA 6", "fonte": "Site X", "link": "https://x", "publicado": ""},
     {"id": "news_c", "origem": "noticia", "titulo_fonte": "GTA 6 terá pré-carregamento dia 17", "fonte": "The Enemy", "link": "https://te/x", "publicado": ""},
     {"id": "news_d", "origem": "noticia", "titulo_fonte": "GTA 6: modo foto confirmado", "fonte": "Eurogamer", "link": "https://eu/x", "publicado": ""}]
-noticias.post_do_x = lambda link: {"id": "news_x1", "origem": "x", "titulo_fonte": "GTA 6 chega em 7 dias!", "fonte": "Rockstar Games (@RockstarGames)", "link": link}
+from maquina import xposts
+from PIL import Image
+Image.new("RGB", (1600, 900), (40, 90, 200)).save(tmp / "foto.jpg")
+def baixar_falso(url, destino):
+    origem = VIDEO if url.endswith(".mp4") else tmp / "foto.jpg"
+    shutil.copy(origem, destino); return Path(destino)
+xposts._baixar = baixar_falso
+def post(link):
+    pid = xposts.id_do_post(link)
+    midias = {"1": [{"tipo": "video", "url": "https://v/1.mp4"}], "2": [{"tipo": "foto", "url": "https://p/1.jpg"}, {"tipo": "foto", "url": "https://p/2.jpg"}],
+              "3": [], "4": [{"tipo": "foto", "url": "https://p/x.jpg"}]}[pid]
+    return {"id": "x_" + pid, "origem": "x", "link": link, "autor": "Rockstar Games", "perfil": "RockstarGames", "avatar": "https://a/a.jpg",
+            "verificado": True, "texto": "Faltam 6 dias para Grand Theft Auto VI. Pré-carregamento liberado dia 17 de novembro." if pid != "4" else "mapa vazado do gta 6",
+            "idioma": "pt", "data": "2026-11-13T12:00:00.000Z", "curtidas": 254000, "sensivel": False, "midias": midias,
+            "fonte": "Rockstar Games (@RockstarGames)", "titulo_fonte": ""}
+xposts.buscar = post
 def ia(pr):
     return {"categoria": "ok", "narracao": "A Rockstar acabou de confirmar uma novidade enorme do GTA 6 e a galera ficou maluca com isso, " * 2 + "E aí, vai comprar no dia?",
             "titulo": "GTA 6: a Rockstar confirmou o que todo mundo esperava", "chamada": "A ROCKSTAR CONFIRMOU",
@@ -38,11 +53,14 @@ class YT:
 youtube.YouTube = YT
 os.environ.update(TWITCH_CLIENT_ID="x", TWITCH_CLIENT_SECRET="x", YT_CLIENT_ID="x", YT_CLIENT_SECRET="x", YT_REFRESH_TOKEN_BR="x")
 
-main.fazer_noticias(carregar(), ["https://x.com/RockstarGames/status/123"])
+main.fazer_noticias(carregar(), [f"https://x.com/RockstarGames/status/{i}" for i in (1, 2, 3, 4)])
 ms = Estado("br").momentos
 print({k: v["status"] for k, v in ms.items()})
 assert ms["news_b"]["status"] == "descartado", "vazamento passou!"
-assert ms["news_x1"]["status"] == "postado" and ms["news_a"]["status"] == "postado" and ms["news_c"]["status"] == "postado"
+assert all(ms[f"x_{i}"]["status"] == "postado" for i in (1, 2, 3)), "post do X não postou"
+assert ms["x_4"]["status"] == "descartado", "post de vazamento passou!"
+assert "Post original: https://x.com/RockstarGames/status/1" in ms["x_1"]["descricao"]
+assert ms["news_a"]["status"] == "postado" and ms["news_c"]["status"] == "postado"
 assert "news_d" not in ms, "passou do limite de 2 notícias por dia"
 assert "Fonte: IGN Brasil" in ms["news_a"]["descricao"]
 main.fazer_noticias(carregar(), [])

@@ -545,12 +545,9 @@ def fazer_noticias(cfg: Config, links: list[str]):
                 return False
         feitas_hoje = sum(1 for m in est.momentos.values() if m.get("tipo") == "noticia"
                           and m.get("origem") == "noticia" and do_dia(m))
-        fila = []
         for link in links:
-            try:
-                fila.append(noticias.post_do_x(link))
-            except Exception as e:
-                log(f"  post do X não abriu ({link}): {str(e)[:120]}")
+            fazer_post_x(cfg, canal, est, link)
+        fila = []
         vagas = max(0, int(conf.get("por_dia", 2)) - feitas_hoje)
         if vagas:
             try:
@@ -609,6 +606,74 @@ def fazer_noticias(cfg: Config, links: list[str]):
             if item["origem"] == "noticia":
                 feitas += 1
         est.salvar()
+
+
+def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
+    """Post do X do jeito que a pessoa postou (texto + foto/vídeo) num template de post, com crédito."""
+    from maquina import cerebro, editar, noticias, thumb, xposts
+    try:
+        post = xposts.buscar(link)
+    except Exception as e:
+        log(f"  post do X não abriu ({link}): {str(e)[:150]}")
+        return
+    if post["id"] in est.momentos and est.momentos[post["id"]].get("status") in ("pronto", "postado"):
+        log(f"  post já foi feito: {link}")
+        return
+    base = {"id": post["id"], "streamer": "*", "canal": canal.id, "tipo": "noticia", "quadro": "noticias",
+            "origem": "x", "fonte": post["fonte"], "link": post["link"], "criado_em": agora()}
+    ok, motivo = xposts.seguro(post)
+    if not ok:
+        est.momentos[post["id"]] = {**base, "status": "descartado", "motivo": motivo}
+        est.salvar()
+        log(f"  post barrado ({motivo}): {link}")
+        return
+    autor = post["autor"] or post["perfil"]
+    # título: a IA só resume em poucas palavras (o post em si não é reescrito)
+    titulo = ""
+    try:
+        r = cerebro._perguntar_ollama(cfg.ia_endereco, cfg.noticias.get("modelo") or cfg.ia_modelo,
+            f'Escreva um título de YouTube Shorts em português do Brasil, de 40 a 65 caracteres, sobre este post do X '
+            f'feito por {autor}. Comece com "GTA 6:" se o post for sobre GTA 6. Não invente nada que não está no post. '
+            f'Post: "{post["texto"][:600]}". Responda só com JSON: {{"titulo": "..."}}')
+        titulo = cerebro._limpar_titulo(str(r.get("titulo", "")))
+    except Exception as e:
+        log(f"  IA fora para o título, usando o padrão ({str(e)[:80]})")
+    if len(titulo) < 20 or cerebro.ESTRANHAS.search(titulo):
+        resumo = re.sub(r"\s+", " ", post["texto"])[:48].rstrip(" ,.;:") or "olha isso"
+        titulo = f"{autor} sobre o GTA 6: {resumo}"[:90]
+    chamada = (f"{autor[:18]} POSTOU" if canal.idioma == "pt" else f"{autor[:18]} POSTED").upper()
+    narrar = None
+    if post["idioma"] == canal.idioma and not any(m["tipo"] == "video" for m in post["midias"]):
+        narrar = lambda texto, destino: noticias.narrar(texto, canal.idioma, destino)
+    try:
+        final = xposts.montar(post, PASTA_PRONTOS / "noticias" / post["id"], canal.cor_destaque,
+                              RAIZ / canal.marca, chamada, narrar)
+    except Exception as e:
+        log(f"  ❌ post do X falhou: {str(e)[:200]}")
+        return
+    dur = editar.info_video(final)[2]
+    capa = thumb.gerar_thumb(editar.frame_em(final, min(2.5, dur / 2)), final.with_suffix(".jpg"),
+                             "OLHA ISSO" if canal.idioma == "pt" else "LOOK", canal.cor_destaque, None, "GTA 6")
+    from maquina.painel import guardar_thumb
+    guardar_thumb(capa, post["id"])
+    rotulo = "Post original" if canal.idioma == "pt" else "Original post"
+    descricao = (f"{titulo}\n\n“{post['texto'][:900]}”\n— {post['fonte']}\n\n{rotulo}: {post['link']}\n\n"
+                 + " ".join(canal.hashtags))
+    tags = list(dict.fromkeys([autor.lower(), post["perfil"].lower(), "gta 6", "gta vi", "noticias gta 6",
+                               "gta 6 novidades", "rockstar games"]))[:15]
+    from maquina.entrega import entregar
+    est.momentos[post["id"]] = {**base, "status": "pronto", "titulo": titulo, "descricao": descricao, "tags": tags,
+                               "feito_em": agora(), "duracao": dur, **entregar(final, capa, post["id"])}
+    if canal.postar == "automatico" and not TESTE:
+        from maquina.youtube import YouTube, proximo_horario
+        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+        ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+        quando = proximo_horario(cfg.noticias.get("horarios", ["10:30", "20:30"]) + canal.horarios, canal.fuso, ocupados)
+        vid = yt.enviar(final, titulo, descricao, tags, canal.idioma, quando, capa)
+        yt.por_na_playlist(vid, canal.playlists.get("noticias", ""))
+        est.momentos[post["id"]].update(status="postado", youtube_id=vid, publicar_em=quando, postado_em=agora())
+        log(f"  ✅ post do X agendado para {quando}: https://youtu.be/{vid}")
+    est.salvar()
 
 
 def montar_noticia(cfg, canal, item, r, baixar_trecho, editar, noticias, thumb):
@@ -805,7 +870,7 @@ def main():
     elif a.comando == "teste":
         teste(cfg)
     elif a.comando == "noticias":
-        fazer_noticias(cfg, [l for l in re.split(r"[\s,]+", a.links) if "x.com/" in l or "twitter.com/" in l])
+        fazer_noticias(cfg, [l for l in re.split(r"[\s,]+", a.links) if re.search(r"(x|twitter)\.com/.+/status/\d+", l)])
     elif a.comando == "simular":
         simular(cfg, a.alvo, a.canal)
 
