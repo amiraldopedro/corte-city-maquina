@@ -173,6 +173,8 @@ def esperando(est: Estado) -> int:
 
 
 def link_live(login: str, plataforma: str = "") -> str:
+    if plataforma == "youtube":
+        return f"https://www.youtube.com/channel/{login}" if login.startswith("UC") else f"https://www.youtube.com/@{login.lstrip('@')}"
     return f"https://kick.com/{login}" if plataforma == "kick" else f"https://twitch.tv/{login}"
 
 
@@ -189,7 +191,11 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     from maquina.transcrever import texto_com_tempos, transcrever
     nome = cfg.nome_streamer(m["streamer"], m.get("nome", ""))
     log(f"  produzindo {m['id']} ({nome}, {m['n_clipes']} clipes, {m['views']} views)")
-    bruto = baixar_momento(m)
+    if m.get("yt_asset"):  # trecho de vídeo do YouTube que o robô do Mac subiu
+        from maquina.youtube_fonte import preparar_bruto
+        bruto = preparar_bruto(m, compilado.PASTA_BRUTOS / f"{m['id']}.mp4")
+    else:
+        bruto = baixar_momento(m)
     if bruto.with_suffix(".clipe").exists():  # usou o clipe do público: a janela é o clipe inteiro
         m = {**m, "inicio": 0.0, "fim": editar.info_video(bruto)[2], "video_id": None}
     palavras = transcrever(bruto, canal.idioma, cfg.whisper)
@@ -862,7 +868,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -899,6 +905,12 @@ def main():
         apagar(cfg, a.alvo)
     elif a.comando == "teste":
         teste(cfg)
+    elif a.comando == "youtube_pedir":
+        from maquina import youtube_fonte
+        youtube_fonte.pedir([l for l in re.split(r"[\s,]+", a.links) if l])
+    elif a.comando == "youtube_processar":
+        from maquina import youtube_fonte
+        youtube_fonte.processar(cfg)
     elif a.comando == "noticias":
         fazer_noticias(cfg, [l for l in re.split(r"[\s,]+", a.links) if re.search(r"(x|twitter)\.com/.+/status/\d+", l)])
     elif a.comando == "simular":

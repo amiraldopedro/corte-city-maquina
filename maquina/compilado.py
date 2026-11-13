@@ -66,8 +66,12 @@ def montar(momentos: list[dict], nomes: dict[str, str], tipo: str, cor: str, mar
     relogio = 0.0
     for i, m in enumerate(momentos):
         try:
-            bruto = baixar_trecho(m.get("video_id"), m["inicio"], m["fim"], m.get("clipe_url"),
-                                  PASTA_BRUTOS / f"{m['id']}.mp4")
+            if m.get("yt_asset"):
+                from .youtube_fonte import preparar_bruto
+                bruto = preparar_bruto(m, PASTA_BRUTOS / f"{m['id']}.mp4")
+            else:
+                bruto = baixar_trecho(m.get("video_id"), m["inicio"], m["fim"], m.get("clipe_url"),
+                                      PASTA_BRUTOS / f"{m['id']}.mp4")
             voz = tentar_isolar(bruto)
             if not voz:
                 raise RuntimeError("sem voz isolada (não entra com música)")

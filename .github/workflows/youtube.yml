@@ -1,0 +1,49 @@
+name: YouTube (vídeos que você manda pelo painel)
+
+on:
+  workflow_dispatch:
+    inputs:
+      acao:
+        description: "pedir = pôr links na fila do robô do Mac | processar = transformar os trechos baixados em cortes"
+        type: choice
+        options: [pedir, processar]
+        default: pedir
+      links:
+        description: "Links de vídeos/lives do YouTube (separados por espaço)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: youtube
+  cancel-in-progress: false
+
+jobs:
+  youtube:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q -r requirements-leve.txt
+      - name: Pedir ou processar
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          LINKS: ${{ inputs.links }}
+        run: |
+          if [ "${{ inputs.acao }}" = "processar" ]; then
+            python main.py youtube_processar
+          else
+            python main.py youtube_pedir --links "$LINKS"
+          fi
+      - name: Salvar memória da máquina
+        run: python main.py sincronizar "YouTube - fila atualizada"
+      - name: Chamar a rodada pra fazer os cortes
+        if: inputs.acao == 'processar'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run rodada.yml -f quantos=3 || true
