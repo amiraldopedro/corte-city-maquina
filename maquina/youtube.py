@@ -82,11 +82,18 @@ class YouTube:
             except HttpError as e:
                 print(f"  aviso: não consegui criar a playlist '{nome_playlist}' ({str(e)[:120]})")
                 return
-        try:
-            self.yt.playlistItems().insert(part="snippet", body={"snippet": {
-                "playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": video_id}}}).execute()
-        except HttpError as e:
-            print(f"  aviso: não entrou na playlist ({str(e)[:120]})")
+        import time
+        for tentativa in range(4):  # vídeo recém-enviado às vezes ainda não "existe" pra playlist (erro 409)
+            try:
+                self.yt.playlistItems().insert(part="snippet", body={"snippet": {
+                    "playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": video_id}}}).execute()
+                return
+            except HttpError as e:
+                if tentativa < 3 and e.resp.status in (409, 500, 503):
+                    time.sleep(8 * (tentativa + 1))
+                    continue
+                print(f"  aviso: não entrou na playlist ({str(e)[:300]})")
+                return
 
     def apagar(self, video_id: str) -> bool:
         try:

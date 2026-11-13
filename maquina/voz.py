@@ -20,11 +20,18 @@ SR = 44100
 def _garantir():
     try:
         import demucs  # noqa: F401
+        import torch  # noqa: F401
     except ImportError:
         print("  instalando o separador de voz (Demucs)...")
         pip = [sys.executable, "-m", "pip", "install", "-q"]
         subprocess.run(pip + ["--index-url", "https://download.pytorch.org/whl/cpu", "torch", "torchaudio"], check=True)
         subprocess.run(pip + ["demucs"], check=True)
+        import importlib
+        import site
+        importlib.invalidate_caches()  # deixa o Python enxergar o que acabou de instalar
+        for pasta in site.getsitepackages():
+            if pasta not in sys.path:
+                sys.path.append(pasta)
 
 
 @lru_cache(maxsize=1)
