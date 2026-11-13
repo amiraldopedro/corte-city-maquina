@@ -14,7 +14,7 @@
    "titulos_chat": [
     "dourada"
    ],
-   "views": 20,
+   "views": 44,
    "n_clipes": 1,
    "score": 617.9720770839917,
    "teste": true,
@@ -36,10 +36,10 @@
    "duracao": 41.5,
    "prioridade": false,
    "atualizado_em": "2026-11-12T15:59:22+00:00",
-   "likes": 1,
+   "likes": 2,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T20:55:51+00:00"
+   "numeros_em": "2026-11-13T01:10:21+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -159,7 +159,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 1"
    ],
-   "views": 56,
+   "views": 253,
    "n_clipes": 1,
    "score": 761.9720770839917,
    "jogo": "Grand Theft Auto V",
@@ -198,10 +198,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_4957.jpg",
    "thumb_asset": 740569626,
    "atualizado_em": "2026-11-12T22:22:09+00:00",
-   "likes": 2,
+   "likes": 10,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-12T20:55:51+00:00",
+   "numeros_em": "2026-11-13T01:10:21+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -221,7 +221,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 2"
    ],
-   "views": 0,
+   "views": 3,
    "n_clipes": 1,
    "score": 496.9720770839918,
    "jogo": "Grand Theft Auto V",
@@ -244,7 +244,7 @@
     "shorts"
    ],
    "youtube_id": "OzKQz-wM0Xg",
-   "publicar_em": "2026-11-13T00:00:00Z",
+   "publicar_em": null,
    "postado_em": "2026-11-12T18:20:01+00:00",
    "feito_em": "2026-11-12T18:20:01+00:00",
    "corte": [
@@ -260,10 +260,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_6557.jpg",
    "thumb_asset": 740576718,
    "atualizado_em": "2026-11-12T21:53:53+00:00",
-   "likes": 0,
+   "likes": 1,
    "comentarios": 0,
-   "privacidade": "private",
-   "numeros_em": "2026-11-12T20:55:51+00:00",
+   "privacidade": "public",
+   "numeros_em": "2026-11-13T01:10:21+00:00",
    "usado_em": [
     "dia"
    ]
@@ -336,7 +336,7 @@
    "titulos_chat": [
     "MAL POSSO ESPERAR PARA ACORDAR E ASSISTIR AO TRAILER DO ACLAMADO GTA 6 WOWWWWWW NAO VEJO A HORA ESTOU ARREPIADO"
    ],
-   "views": 1531,
+   "views": 0,
    "n_clipes": 1,
    "score": 1144.4804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -377,7 +377,11 @@
    "atualizado_em": "2026-11-12T21:53:53+00:00",
    "usado_em": [
     "dia"
-   ]
+   ],
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T01:10:21+00:00"
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -393,7 +397,7 @@
    "titulos_chat": [
     "Trailer do GTA VI"
    ],
-   "views": 538,
+   "views": 0,
    "n_clipes": 1,
    "score": 449.3804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -441,7 +445,11 @@
    "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG.mp4",
    "video_asset": 741309148,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG.jpg",
-   "thumb_asset": 741309255
+   "thumb_asset": 741309255,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T01:10:21+00:00"
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -463,12 +471,47 @@
    "evento": "Trailer 1 do GTA 6",
    "nome": "Alanzoka",
    "jogo": "Just Chatting",
-   "status": "novo",
+   "status": "postado",
    "criado_em": "2026-11-12T20:43:35+00:00",
    "usado_em": [
     "dia"
    ],
-   "atualizado_em": "2026-11-12T21:53:53+00:00"
+   "atualizado_em": "2026-11-13T01:15:00+00:00",
+   "tipo": "short",
+   "titulo": "... Alanzoka reagindo ao Trailer 1 do GTA 6...",
+   "gancho": "SOCORRO",
+   "descricao": "... Alanzoka reagindo ao Trailer 1 do GTA 6...\nAlanzoka reagindo ao trailer do GTA 6. Não esperava isso.\n\n🎮 Live original: https://twitch.tv/alanzoka\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "alanzoka",
+    "gta6",
+    "trailer",
+    "cortes",
+    "reacao",
+    "alanzoka live",
+    "live",
+    "gta rp",
+    "gta 6",
+    "cortes gta",
+    "shorts"
+   ],
+   "youtube_id": "NYWks-2CYjk",
+   "publicar_em": "2026-11-13T16:30:00Z",
+   "postado_em": "2026-11-13T01:15:00+00:00",
+   "feito_em": "2026-11-13T01:15:00+00:00",
+   "corte": [
+    8.0,
+    30.02
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 7,
+   "quadro": null,
+   "duracao": 22.0,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO.mp4",
+   "video_asset": 741766110,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO.jpg",
+   "thumb_asset": 741766189
   },
   "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4": {
    "id": "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
@@ -540,7 +583,12 @@
    "thumb_asset": 741229688,
    "youtube_id": "A5JOxLuP_Vc",
    "publicar_em": "2026-11-13T22:30:00Z",
-   "postado_em": "2026-11-12T21:54:08+00:00"
+   "postado_em": "2026-11-12T21:54:08+00:00",
+   "views": 0,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T01:10:21+00:00"
   },
   "longo_2924173618_4957": {
    "id": "longo_2924173618_4957",
@@ -580,7 +628,12 @@
    "thumb_asset": 741312606,
    "youtube_id": "JhcsOuSfMXI",
    "publicar_em": "2026-11-13T18:00:00Z",
-   "postado_em": "2026-11-12T22:22:26+00:00"
+   "postado_em": "2026-11-12T22:22:26+00:00",
+   "views": 0,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T01:10:21+00:00"
   }
  },
  "clipes_vistos": [
