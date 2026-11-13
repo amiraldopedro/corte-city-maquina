@@ -23,6 +23,7 @@ noticias:
   termos: ["GTA 6", "GTA VI", "Rockstar GTA"]
   por_dia: 2                     # notícias do Google por dia (posts do X que você colar não contam)
   horarios: ["10:30", "20:30"]
+  modelo: "qwen2.5:7b"           # IA maior só pras notícias: escreve português melhor
 
 # Série de reacts: a máquina busca, nos dias de cada evento, clipes com estas palavras no título
 # (dos streamers da lista e de qualquer streamer do idioma do canal). Clipes da Twitch não expiram.

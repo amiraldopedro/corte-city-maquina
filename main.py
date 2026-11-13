@@ -574,7 +574,7 @@ def fazer_noticias(cfg: Config, links: list[str]):
                 continue
             try:
                 r = noticias.roteiro(item, canal.nome, canal.idioma,
-                                     lambda pr: cerebro._perguntar_ollama(cfg.ia_endereco, cfg.ia_modelo, pr))
+                                     lambda pr: cerebro._perguntar_ollama(cfg.ia_endereco, conf.get("modelo") or cfg.ia_modelo, pr))
             except Exception as e:
                 log(f"  IA fora do ar, notícia fica para depois: {str(e)[:100]}")
                 break

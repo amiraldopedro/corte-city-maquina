@@ -43,7 +43,7 @@ jobs:
           sudo systemctl stop ollama 2>/dev/null || true
           nohup ollama serve > /tmp/ollama.log 2>&1 &
           sleep 5
-          MODELO=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['ia']['modelo'])")
+          MODELO=$(python -c "import yaml;c=yaml.safe_load(open('config.yaml'));print(c.get('noticias',{}).get('modelo') or c['ia']['modelo'])")
           ollama pull "$MODELO"
       - name: Fazer e postar as notícias
         env:

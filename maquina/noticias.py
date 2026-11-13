@@ -102,7 +102,7 @@ Classifique em "categoria" (escolha UMA):
 Na dúvida, use "ok". Se for rumor, só deixe claro na narração que é rumor.
 
 Depois escreva em {idioma_nome}, com as SUAS palavras (não copie frases do original):
-- "narracao": 45 a 75 palavras, falada como um brasileiro animado contando a novidade pra um amigo. Comece pelo fato mais forte já na primeira frase. Termine com uma pergunta pra gerar comentário (ex.: "E aí, vai comprar no dia?").
+- "narracao": 50 a 75 palavras, em português do Brasil correto e natural, como um apresentador animado de canal de games. Comece pelo fato mais forte já na primeira frase (sem "oi pessoal", sem "oie"). Não cite nome de site ou jornal, não invente números nem detalhes que não estão no texto. Termine com uma pergunta pra gerar comentário (ex.: "E aí, vai comprar no dia?").
 - "titulo": 45 a 65 caracteres, "GTA 6" no começo, sem mentir, sem hashtag.
 - "chamada": 3 a 5 palavras para a tela nos primeiros segundos (ex.: "A ROCKSTAR CONFIRMOU").
 - "manchete": até 9 palavras, resumo do fato para o cartão na tela.
