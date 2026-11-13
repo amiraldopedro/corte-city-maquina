@@ -104,7 +104,8 @@ def _perguntar_claude(prompt: str) -> dict:
     r = subprocess.run(["claude", "-p", "--output-format", "json", "--model", os.getenv("CLAUDE_MODELO", "sonnet"),
                         "--max-turns", "1", "--disallowedTools", "Bash,Edit,Write,Read,WebFetch,WebSearch"],
                        input=prompt + "\n\nResponda APENAS com o JSON pedido, sem texto antes ou depois.",
-                       capture_output=True, text=True, timeout=240)
+                       capture_output=True, text=True, timeout=240,
+                       env={**os.environ, "CLAUDE_CODE_OAUTH_TOKEN": re.sub(r"\s", "", os.getenv("CLAUDE_CODE_OAUTH_TOKEN", ""))})
     if r.returncode != 0:
         raise RuntimeError((r.stderr or r.stdout)[-300:])
     saida = json.loads(r.stdout)
