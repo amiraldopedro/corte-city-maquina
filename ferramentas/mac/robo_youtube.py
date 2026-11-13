@@ -211,8 +211,8 @@ def biblioteca(vid: str, item: dict):
     pasta = Path(tempfile.mkdtemp(prefix="cc_bib_", dir=TEMP))
     try:
         info = json.loads(ytdlp("-J", link))
-        if float(info.get("duration") or 0) > 20 * 60:
-            raise RuntimeError("vídeo longo demais pra biblioteca (máximo 20 min)")
+        if float(info.get("duration") or 0) > 30 * 60:
+            raise RuntimeError("vídeo longo demais pra biblioteca (máximo 30 min)")
         arq = pasta / f"bib_{vid}.mp4"
         ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/b", "--merge-output-format", "mp4",
               "-o", str(arq), link)
