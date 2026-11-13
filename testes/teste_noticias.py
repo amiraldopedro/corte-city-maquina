@@ -29,7 +29,7 @@ def post(link):
               "3": [], "4": [{"tipo": "foto", "url": "https://p/x.jpg"}], "5": []}[pid]
     return {"id": "x_" + pid, "origem": "x", "link": link, "autor": "Rockstar Games", "perfil": "RockstarGames", "avatar": "https://a/a.jpg",
             "verificado": True, "texto": {"4": "mapa vazado do gta 6", "5": "esse leaker do gta 6 de novo kkkkk ninguém aguenta mais"}.get(pid, "Faltam 6 dias para Grand Theft Auto VI. Pré-carregamento liberado dia 17 de novembro."),
-            "idioma": "pt", "data": "2026-11-13T12:00:00.000Z", "curtidas": 254000, "sensivel": False, "midias": midias,
+            "idioma": "en" if pid == "3" else "pt", "data": "2026-11-13T12:00:00.000Z", "curtidas": 254000, "sensivel": False, "midias": midias,
             "fonte": "Rockstar Games (@RockstarGames)", "titulo_fonte": ""}
 xposts.buscar = post
 TITULOS_FALSOS = iter(["Pré-carregamento do GTA 6 liberado no PS5",
@@ -37,6 +37,8 @@ TITULOS_FALSOS = iter(["Pré-carregamento do GTA 6 liberado no PS5",
                        "Comunidade acha segredo escondido no trailer do GTA 6", "Jason e Lucia ganham pôster novo do GTA 6",
                        "Fãs fazem fila virtual pra jogar GTA 6 à meia-noite", "GTA 6 terá modo foto no lançamento", "GTA 6: a Rockstar confirmou o horário de lançamento"] * 3)
 def ia(pr):
+    if "Traduza este post" in pr:
+        return {"traducao": "Faltam 6 dias para o Grand Theft Auto VI. Pré-carregamento liberado dia 17 de novembro."}
     return {"categoria": "ok", "narracao": "A Rockstar acabou de confirmar uma novidade enorme do GTA 6 e a galera ficou maluca com isso, " * 2 + "E aí, vai comprar no dia?",
             "titulo": next(TITULOS_FALSOS), "chamada": "A ROCKSTAR CONFIRMOU",
             "manchete": "Rockstar confirma novidade do GTA 6", "tags": ["gta 6 lançamento"]}
@@ -61,6 +63,7 @@ _cfg = carregar(); _cfg.noticias["por_dia"] = 2  # o teste confere o limite de 2
 main.fazer_noticias(_cfg, [f"https://x.com/RockstarGames/status/{i}" for i in (1, 2, 3, 4, 5)])
 ms = Estado("br").momentos
 print({k: v["status"] for k, v in ms.items()})
+assert "Original (inglês)" in ms["x_3"]["descricao"], "post em inglês não foi traduzido"
 assert ms["news_b"]["status"] == "descartado", "vazamento passou!"
 assert all(ms[f"x_{i}"]["status"] == "postado" for i in (1, 2, 3)), "post do X não postou"
 assert ms["x_4"]["status"] == "descartado", "post com material vazado passou!"

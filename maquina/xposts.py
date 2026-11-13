@@ -106,7 +106,35 @@ def _baixar(url: str, destino: Path) -> Path:
 
 
 def _fmt(n: int) -> str:
-    return f"{n / 1e6:.1f} mi".replace(".0", "") if n >= 1e6 else f"{n / 1e3:.1f} mil".replace(".0", "") if n >= 1e3 else str(n)
+    t = f"{n / 1e6:.1f} mi" if n >= 1e6 else f"{n / 1e3:.1f} mil" if n >= 1e3 else str(n)
+    return t.replace(".0 ", " ").replace(".", ",")  # 18,4 mil (jeito brasileiro)
+
+
+LINGUAS = {"en": "inglês", "es": "espanhol", "ja": "japonês", "fr": "francês", "de": "alemão", "it": "italiano",
+           "ko": "coreano", "ru": "russo", "zh": "chinês", "ar": "árabe", "pl": "polonês", "tr": "turco", "nl": "holandês"}
+
+
+def traduzir(post: dict, perguntar, idioma_canal: str = "pt") -> bool:
+    """Post em outra língua: o texto do card vira português (tradução fiel, sem reescrever o sentido).
+    O original fica guardado em post["texto_original"] e vai pra descrição. Devolve True se traduziu."""
+    lingua = (post.get("idioma") or "")[:2]
+    texto = (post.get("texto") or "").strip()
+    if not texto or lingua in (idioma_canal, "", "un", "zx", "qm", "qs", "qh"):  # sem texto / só emoji / só link
+        return False
+    nome = LINGUAS.get(lingua, "outra língua")
+    r = perguntar(
+        "Traduza este post do X para português do Brasil, de forma fiel e natural, como um brasileiro escreveria. "
+        "Mantenha @menções, #hashtags, números, nomes próprios e emojis como estão. Não acrescente nem tire nada, "
+        "não explique, não comente. Se for gíria ou meme, use a gíria equivalente em português. "
+        f'Post ({nome}): """{texto[:1500]}""". Responda só com JSON: {{"traducao": "..."}}')
+    traducao = str((r or {}).get("traducao", "")).strip().strip('"')
+    if len(traducao) < max(3, len(texto) * 0.3):
+        raise RuntimeError("tradução veio vazia ou curta demais")
+    post["texto_original"] = texto
+    post["texto"] = traducao
+    post["traduzido_de"] = nome
+    post["idioma"] = idioma_canal
+    return True
 
 
 def cartao(post: dict, pasta: Path, cor: str, alto_midia: int) -> tuple[Path, tuple[int, int, int, int]]:
@@ -114,10 +142,12 @@ def cartao(post: dict, pasta: Path, cor: str, alto_midia: int) -> tuple[Path, tu
     Devolve o PNG e a caixa (x, y, w, h) onde a foto/vídeo entra, já na posição da tela."""
     f_nome = ImageFont.truetype(str(FONTES / "Inter-ExtraBold.ttf"), 40)
     f_user = ImageFont.truetype(str(FONTES / "Inter-SemiBold.ttf"), 32)
-    texto = post["texto"]
+    # a fonte do card não tem emoji: tira pra não aparecer quadradinho "NO GLYPH"
+    texto = re.sub(r"[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\u200D]", "", post["texto"])
+    texto = re.sub(r"[ \t]{2,}", " ", texto).strip()
     tam = 46 if len(texto) < 120 else 40 if len(texto) < 220 else 34
     f_txt = ImageFont.truetype(str(FONTES / "Inter-SemiBold.ttf"), tam)
-    largura_chars = int((CARD_W - 100) / (tam * 0.52))
+    largura_chars = int((CARD_W - 100) / (tam * 0.56))
     linhas = []
     for par in texto.split("\n"):
         linhas += textwrap.wrap(par, largura_chars) or [""]
@@ -125,7 +155,9 @@ def cartao(post: dict, pasta: Path, cor: str, alto_midia: int) -> tuple[Path, tu
     pad, topo = 50, 50
     y_txt = topo + 110
     alt_txt = int(len(linhas) * tam * 1.32) if texto else 0
-    y_midia = y_txt + alt_txt + (30 if texto else 0)
+    f_trad = ImageFont.truetype(str(FONTES / "Inter-SemiBold.ttf"), 28)
+    alt_trad = 50 if post.get("traduzido_de") else 0
+    y_midia = y_txt + alt_txt + alt_trad + (30 if texto else 0)
     alto = y_midia + (alto_midia + 30 if alto_midia else 0) + 80
     img = Image.new("RGBA", (CARD_W, alto), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
@@ -149,6 +181,8 @@ def cartao(post: dict, pasta: Path, cor: str, alto_midia: int) -> tuple[Path, tu
     for ln in linhas:
         d.text((pad, y), ln, font=f_txt, fill=M.AREIA)
         y += int(tam * 1.32)
+    if post.get("traduzido_de"):  # deixa claro que o texto foi traduzido (o original vai na descrição)
+        d.text((pad, y + 12), f"Traduzido do {post['traduzido_de']} pela Corte City", font=f_trad, fill=M.CIANO)
     rodape = []
     try:
         rodape.append(datetime.fromisoformat(post["data"].replace("Z", "+00:00")).strftime("%d/%m/%Y"))

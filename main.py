@@ -826,6 +826,13 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
         log(f"  post barrado ({motivo}): {link}")
         return
     autor = post["autor"] or post["perfil"]
+    # post em inglês (ou outra língua): o texto do card vira português pra pessoa conseguir ler
+    try:
+        if xposts.traduzir(post, lambda pr: cerebro._perguntar_ollama(
+                cfg.ia_endereco, cfg.noticias.get("modelo") or cfg.ia_modelo, pr), canal.idioma):
+            log(f"  traduzido do {post['traduzido_de']}: {post['texto'][:80]}")
+    except Exception as e:
+        log(f"  aviso: não consegui traduzir o post, vai no original ({str(e)[:80]})")
     # título: a IA só resume em poucas palavras (o post em si não é reescrito)
     titulo = ""
     try:
@@ -862,7 +869,9 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
     from maquina.painel import guardar_thumb
     guardar_thumb(capa, post["id"])
     rotulo = "Post original" if canal.idioma == "pt" else "Original post"
-    descricao = (f"{titulo}\n\n“{post['texto'][:900]}”\n— {post['fonte']}\n\n{rotulo}: {post['link']}\n\n"
+    original = (f"\n\nOriginal ({post['traduzido_de']}): “{post['texto_original'][:700]}”"
+                if post.get("traduzido_de") else "")
+    descricao = (f"{titulo}\n\n“{post['texto'][:900]}”\n— {post['fonte']}{original}\n\n{rotulo}: {post['link']}\n\n"
                  + " ".join(canal.hashtags))
     tags = list(dict.fromkeys([autor.lower(), post["perfil"].lower(), "gta 6", "gta vi", "gta 6 memes",
                                "comunidade gta 6", "gta 6 novidades", "rockstar games"]))[:15]
