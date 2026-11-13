@@ -33,11 +33,18 @@ fi
 (command -v ffmpeg >/dev/null && ffmpeg -version >/dev/null 2>&1) && echo "ffmpeg ok"
 
 # 2) Chave do GitHub (fica guardada nas Chaves do macOS, não em arquivo)
+if [ "$1" = "--trocar-chave" ]; then
+  security delete-generic-password -s corte-city-github >/dev/null 2>&1 || true
+fi
 if ! security find-generic-password -s corte-city-github -w >/dev/null 2>&1; then
   echo ""
   echo "Cole a mesma chave do GitHub que você usa no painel (ela não aparece enquanto você cola) e aperte Enter:"
   read -rs CHAVE
   echo ""
+  case "$CHAVE" in
+    github_pat_*|ghp_*) ;;
+    *) echo "Isso não parece uma chave do GitHub (começa com github_pat_). Rode de novo."; exit 1 ;;
+  esac
   security add-generic-password -a "$USER" -s corte-city-github -w "$CHAVE" -U
   unset CHAVE
   echo "Chave guardada nas Chaves do macOS."
@@ -58,9 +65,16 @@ if [ ${#DISCOS[@]} -eq 0 ]; then
   echo "Nenhum SSD encontrado. Conecte o SSD e rode de novo (ou aperte Enter para usar o próprio Mac)."
   read -r _
   SSD="$PASTA"
+elif [ ${#DISCOS[@]} -eq 1 ]; then
+  SSD="${DISCOS[0]}/CorteCity"
+  echo "Usando o único disco conectado: $(basename "${DISCOS[0]}")"
 else
-  echo "Digite o número do SSD e aperte Enter:"
-  read -r N
+  while true; do
+    echo "Digite SÓ o número do SSD (ex.: 1) e aperte Enter:"
+    read -r N
+    if [[ "$N" =~ ^[0-9]+$ ]] && [ "$N" -ge 1 ] && [ "$N" -le ${#DISCOS[@]} ]; then break; fi
+    echo "Número inválido."
+  done
   SSD="${DISCOS[$((N-1))]}/CorteCity"
 fi
 mkdir -p "$SSD" "$PASTA"
