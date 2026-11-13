@@ -61,12 +61,12 @@ jobs:
           ollama pull "$MODELO"
       - name: Ligar o Claude (se a chave CLAUDE_CODE_OAUTH_TOKEN estiver nos Secrets)
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}
         run: |
           if [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then npm install -g @anthropic-ai/claude-code >/dev/null 2>&1 && echo "Claude ligado"; else echo "Sem chave do Claude: usando só o Ollama"; fi
       - name: Montar e postar
         env:
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}
           GITHUB_TOKEN: ${{ github.token }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
