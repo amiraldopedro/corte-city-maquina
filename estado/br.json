@@ -39,7 +39,7 @@
    "likes": 4,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -59,7 +59,7 @@
    "n_clipes": 1,
    "score": 823.9720770839917,
    "teste": true,
-   "status": "novo",
+   "status": "descartado",
    "criado_em": "2026-11-12T15:34:33+00:00",
    "erro": "open() got an unexpected keyword argument 'metadata_errors'",
    "atualizado_em": "2026-11-12T15:45:19+00:00"
@@ -90,10 +90,45 @@
    "n_clipes": 5,
    "score": 1995.9639203842082,
    "teste": true,
-   "status": "novo",
+   "status": "pronto",
    "criado_em": "2026-11-12T15:34:33+00:00",
    "erro": "open() got an unexpected keyword argument 'metadata_errors'",
-   "atualizado_em": "2026-11-12T15:42:32+00:00"
+   "atualizado_em": "2026-11-13T18:21:48+00:00",
+   "tipo": "short",
+   "jogo": "",
+   "titulo": "[TESTE] Isso é Mario msm 0.o - Alanzoka",
+   "gancho": "ISSO",
+   "descricao": "[TESTE] Isso é Mario msm 0.o - Alanzoka\nAlanzoka reagindo a algo no GTA 6. Momento engraçado de Mario.\n\n🎮 Live original: https://twitch.tv/alanzoka\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "alanzoka",
+    "mario",
+    "gta 6",
+    "cortes",
+    "momentos engraçados",
+    "alanzoka gta",
+    "gta",
+    "gta rp",
+    "cortes gta",
+    "shorts"
+   ],
+   "playlist": "GTA RP: Cortes das Lives",
+   "corte": [
+    8.0,
+    31.5
+   ],
+   "feito_em": "2026-11-13T18:21:48+00:00",
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nome": "Alanzoka",
+   "nota": 7,
+   "duracao": 23.5,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522.mp4",
+   "video_asset": 744695773,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522.jpg",
+   "thumb_asset": 744695889,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522_kit.zip"
   },
   "2858027110_3819": {
    "id": "2858027110_3819",
@@ -201,7 +236,7 @@
    "likes": 20,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00",
+   "numeros_em": "2026-11-13T18:08:59+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -263,7 +298,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00",
+   "numeros_em": "2026-11-13T18:08:59+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -336,7 +371,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK": {
    "id": "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK",
@@ -408,7 +443,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0": {
    "id": "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0",
@@ -469,7 +504,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -537,7 +572,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -603,7 +638,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4": {
    "id": "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
@@ -670,7 +705,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "dia_20261112": {
    "id": "dia_20261112",
@@ -720,7 +755,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "longo_2924173618_4957": {
    "id": "longo_2924173618_4957",
@@ -765,7 +800,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "news_8c0d2803c305": {
    "id": "news_8c0d2803c305",
@@ -1017,7 +1052,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "news_c8863f71d3b2": {
    "id": "news_c8863f71d3b2",
@@ -1055,7 +1090,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "news_876c7d48334f": {
    "id": "news_876c7d48334f",
@@ -1093,7 +1128,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "news_3574e5e614ec": {
    "id": "news_3574e5e614ec",
@@ -1254,7 +1289,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "x_2112674760278594021": {
    "id": "x_2112674760278594021",
@@ -1292,7 +1327,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "news_9d9bff52c884": {
    "id": "news_9d9bff52c884",
@@ -1366,7 +1401,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T18:05:50+00:00"
+   "numeros_em": "2026-11-13T18:08:59+00:00"
   },
   "2926903009_462": {
    "id": "2926903009_462",
@@ -1391,7 +1426,7 @@
    "teste": true,
    "quadro": "rp",
    "_priorizado": true,
-   "status": "novo",
+   "status": "descartado",
    "criado_em": "2026-11-13T18:02:35+00:00"
   },
   "2926018706_3490": {
@@ -1419,7 +1454,7 @@
    "teste": true,
    "quadro": "rp",
    "_priorizado": true,
-   "status": "novo",
+   "status": "descartado",
    "criado_em": "2026-11-13T18:02:35+00:00"
   }
  },
