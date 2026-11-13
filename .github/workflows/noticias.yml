@@ -58,4 +58,4 @@ jobs:
         run: python main.py noticias --links "$LINKS"
       - name: Salvar memória da máquina
         if: always()
-        run: python main.py sincronizar "Notícias: estado atualizado"
+        run: python main.py sincronizar "Notícias - estado atualizado"
