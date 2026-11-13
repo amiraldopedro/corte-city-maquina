@@ -34,7 +34,7 @@ def fila() -> Estado:
     return Estado("youtube")
 
 
-def pedir(links: list[str]) -> int:
+def pedir(links: list[str], modo: str = "cortes") -> int:
     est = fila()
     novos = 0
     for link in links:
@@ -46,7 +46,7 @@ def pedir(links: list[str]) -> int:
             print(f"  já está na fila: {vid}")
             continue
         est.momentos[vid] = {"id": vid, "link": f"https://www.youtube.com/watch?v={vid}", "status": "esperando",
-                             "pedido_em": agora(), "atualizado_em": agora()}
+                             "modo": modo, "pedido_em": agora(), "atualizado_em": agora()}
         novos += 1
         print(f"  ✅ na fila do robô do Mac: https://youtu.be/{vid}")
     est.salvar()

@@ -130,10 +130,10 @@ def roteiro(item: dict, canal: str, idioma: str, perguntar) -> dict | None:
 
 
 # ------------------------------------------------------------------ voz
-async def _falar(texto: str, voz: str, destino: Path) -> list[dict]:
+async def _falar(texto: str, voz: str, destino: Path, taxa: str = "+8%") -> list[dict]:
     import edge_tts
     palavras = []
-    com = edge_tts.Communicate(texto, voz, rate="+8%", boundary="WordBoundary")
+    com = edge_tts.Communicate(texto, voz, rate=taxa, boundary="WordBoundary")
     with open(destino, "wb") as f:
         async for pedaco in com.stream():
             if pedaco["type"] == "audio":

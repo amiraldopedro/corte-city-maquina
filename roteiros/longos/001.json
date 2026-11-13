@@ -1,0 +1,340 @@
+{
+ "id": "001",
+ "titulo": "GTA 6: tudo que você precisa saber antes de jogar",
+ "titulos_extra": [
+  "GTA 6 chega dia 19: horário no Brasil, preço, tamanho e tudo que você precisa saber",
+  "Antes de jogar GTA 6, assista isso (horário, preço, 212 GB e o mapa)",
+  "GTA 6 está chegando: o guia completo pra não passar sufoco no dia 19"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+6%",
+ "gancho_thumb": "DIA 19",
+ "tags": [
+  "gta 6",
+  "gta vi",
+  "gta 6 lançamento",
+  "gta 6 horário brasil",
+  "gta 6 preço",
+  "gta 6 pré-carregamento",
+  "gta 6 tamanho",
+  "gta 6 mapa",
+  "leonida",
+  "vice city",
+  "jason e lucia",
+  "gta 6 tudo que você precisa saber"
+ ],
+ "fontes": [
+  "Rockstar Games Newswire: data de 19 de novembro de 2026",
+  "PlayStation Store Brasil: horário e preços",
+  "Comunicado da Rockstar sobre o pré-carregamento (via IGN Brasil, Omelete, Fast Company Brasil)",
+  "Site oficial de GTA VI: regiões de Leonida e personagens"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "Faltam poucos dias pro GTA 6. Depois de treze anos esperando, o jogo mais aguardado da história finalmente tem dia e hora pra chegar. E se você não quer passar sufoco na hora de jogar, esse vídeo é pra você.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "GTA 6",
+    "sub": "o guia antes de jogar"
+   }
+  },
+  {
+   "texto": "Em poucos minutos você vai saber o horário exato no Brasil, quanto custa, quanto de espaço precisa, quem são os protagonistas, como é o mapa e o que fazer antes do dia dezenove. Bora?",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Horário no Brasil",
+     "Preço e edições",
+     "Espaço no console",
+     "História e mapa",
+     "Checklist do dia 19"
+    ]
+   }
+  },
+  {
+   "capitulo": "Data e horário no Brasil",
+   "texto": "Primeiro, a data. GTA 6 chega no dia dezenove de novembro de dois mil e vinte e seis. Essa é a data oficial da Rockstar, e a dona da Rockstar, a Take-Two, já repetiu ela várias vezes este ano.",
+   "card": {
+    "tipo": "dado",
+    "numero": "19/11",
+    "texto": "data oficial de lançamento"
+   }
+  },
+  {
+   "texto": "E o horário? O lançamento é à meia-noite no horário de cada país. No Brasil, a PlayStation Store marca a liberação pra meia-noite do dia dezenove, no horário de Brasília.",
+   "card": {
+    "tipo": "dado",
+    "numero": "00:00",
+    "texto": "dia 19, horário de Brasília"
+   }
+  },
+  {
+   "texto": "Só que o Brasil é grande. Como o horário é o mesmo instante pra todo o país, em Manaus o jogo libera às onze da noite do dia dezoito. E no Acre, às dez da noite. Quem mora no Norte joga antes.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Brasília: 0h do dia 19",
+     "Manaus: 23h do dia 18",
+     "Acre: 22h do dia 18"
+    ]
+   }
+  },
+  {
+   "capitulo": "Em quais consoles",
+   "texto": "Agora, onde dá pra jogar. No lançamento, GTA 6 sai só pra PlayStation 5 e pra Xbox Series X e Series S. Não tem versão de PlayStation 4 nem de Xbox One.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "PlayStation 5",
+     "Xbox Series X",
+     "Xbox Series S"
+    ]
+   }
+  },
+  {
+   "texto": "E o PC? Por enquanto, nada. A Rockstar não anunciou data pra versão de computador. Com o GTA 5 foi parecido: o PC chegou bem depois dos consoles. Então, se você só joga no PC, a espera vai ser mais longa.",
+   "card": {
+    "tipo": "dado",
+    "numero": "PC",
+    "texto": "sem data anunciada"
+   }
+  },
+  {
+   "capitulo": "Preço e edições",
+   "texto": "Vamos falar de dinheiro. Na PlayStation Store do Brasil, a edição padrão custa quatrocentos e quarenta e nove reais e noventa centavos. A edição Ultimate sai por quinhentos e quarenta e nove e noventa.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Standard: R$ 449,90",
+     "Ultimate: R$ 549,90"
+    ]
+   }
+  },
+  {
+   "texto": "Lá fora, o preço é de setenta e nove dólares e noventa e nove centavos na padrão. Isso faz do GTA 6 um dos jogos mais caros já lançados. E tem um detalhe: quem comprar antes do dia vinte de novembro leva de brinde um pacote chamado Vintage Vice City.",
+   "card": {
+    "tipo": "dado",
+    "numero": "US$ 79,99",
+    "texto": "edição padrão lá fora"
+   }
+  },
+  {
+   "capitulo": "Pré-carregamento e espaço",
+   "texto": "Essa parte é importante. O pré-carregamento já está liberado. No PlayStation 5 ele abriu à meia-noite do dia dez de novembro. No Xbox, às nove da noite do dia nove, no horário de Brasília.",
+   "card": {
+    "tipo": "dado",
+    "numero": "JÁ LIBERADO",
+    "texto": "pré-carregamento no PS5 e no Xbox"
+   }
+  },
+  {
+   "texto": "Pré-carregar quer dizer baixar o jogo antes, pra no dia só apertar o play. Mas atenção: o jogo continua bloqueado até o lançamento. Baixar antes não deixa ninguém jogar antes.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "texto": "E o tamanho assusta: são até duzentos e doze gigas, dependendo do console. E ainda pode vir uma atualização no dia do lançamento. Então deixa uma folga boa no armazenamento pra não travar no meio.",
+   "card": {
+    "tipo": "dado",
+    "numero": "212 GB",
+    "texto": "de espaço livre (deixe folga)"
+   }
+  },
+  {
+   "texto": "Dica de ouro: se a sua internet é lenta, começa o download hoje. Duzentos gigas numa conexão de cem mega levam mais de quatro horas. Na noite do lançamento, com o mundo inteiro baixando, isso pode demorar bem mais.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Libere 250 GB pra garantir",
+     "Comece o download hoje",
+     "Deixe o console em modo de repouso baixando"
+    ]
+   }
+  },
+  {
+   "capitulo": "A história: Jason e Lucia",
+   "texto": "Agora a parte boa: a história. Pela primeira vez na era moderna da série, uma mulher divide o papel principal. São dois personagens: Lucia e Jason, um casal que vive no limite.",
+   "card": {
+    "tipo": "dado",
+    "numero": "2",
+    "texto": "protagonistas: Lucia e Jason"
+   }
+  },
+  {
+   "texto": "Pelo que a Rockstar já mostrou, um golpe que era pra ser simples dá errado, e os dois acabam no meio de uma conspiração criminosa que se espalha pelo estado inteiro. Ou seja: é uma história de Bonnie e Clyde em versão GTA.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "texto": "Os trailers dão o tom: Lucia sai da prisão querendo uma vida nova, e Jason tem um passado nas ilhas do sul, fazendo serviços pra gente barra-pesada. Juntos, eles tentam virar o jogo. Se vai dar certo, só jogando pra saber.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "capitulo": "Leonida: o mapa",
+   "texto": "E onde tudo isso acontece? Vice City está de volta, inspirada em Miami. Mas o mapa vai muito além da cidade. O jogo se passa no estado de Leonida, que é a versão da Rockstar para a Flórida.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "LEONIDA",
+    "sub": "a Flórida da Rockstar"
+   }
+  },
+  {
+   "texto": "A Rockstar já confirmou seis regiões. Vice City, a cidade grande. Leonida Keys, as ilhas tropicais ligadas por pontes. Grassrivers, os pântanos cheios de jacaré. Port Gellhorn, Ambrosia e o parque nacional de Mount Kalaga.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Vice City",
+     "Leonida Keys",
+     "Grassrivers",
+     "Port Gellhorn",
+     "Ambrosia",
+     "Mount Kalaga"
+    ]
+   }
+  },
+  {
+   "texto": "Cada região tem um clima diferente: praia, cidade, pântano, interior e montanha. Isso quer dizer missões, veículos e bichos diferentes em cada canto do mapa. Nos trailers dá pra ver até flamingo e jacaré andando por aí.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "capitulo": "Qual o tamanho do mapa",
+   "texto": "E o tamanho? Aqui é preciso ter cuidado. A Rockstar ainda não divulgou um número oficial em quilômetros. O que existe são estimativas de quem estudou os trailers e as prévias.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "texto": "E essas estimativas falam em algo entre uma vez e meia e duas vezes o tamanho do mapa do GTA 5. Mas o mais importante não é o tamanho: é que o mapa promete ser muito mais cheio, com mais coisa pra fazer em cada rua.",
+   "card": {
+    "tipo": "dado",
+    "numero": "1,5 a 2x",
+    "texto": "o mapa do GTA 5 (estimativa, sem número oficial)"
+   }
+  },
+  {
+   "capitulo": "Standard ou Ultimate?",
+   "texto": "Uma dúvida que muita gente tem: vale pagar cem reais a mais na Ultimate? A resposta depende de você. A diferença de preço é de cem reais, e o jogo principal, com a história de Jason e Lucia, é o mesmo nas duas.",
+   "card": {
+    "tipo": "dado",
+    "numero": "+ R$ 100",
+    "texto": "diferença entre Standard e Ultimate"
+   }
+  },
+  {
+   "texto": "Então pensa assim: se você quer só a história e explorar Leonida, a padrão resolve. Se você é daqueles que quer tudo desde o primeiro dia, aí a Ultimate pode fazer sentido. Antes de decidir, confere na loja do seu console o que vem em cada edição.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Só a história: Standard",
+     "Quer tudo no dia 1: Ultimate",
+     "Confira os itens na sua loja"
+    ]
+   }
+  },
+  {
+   "capitulo": "PS5 ou Xbox Series S?",
+   "texto": "Outra pergunta comum: o jogo vai rodar bem no Xbox Series S, que é o console mais fraco dessa geração? Ele está confirmado na lista, então vai rodar. Mas a Rockstar ainda não detalhou resolução nem taxa de quadros de cada console.",
+   "card": {
+    "tipo": "dado",
+    "numero": "Series S",
+    "texto": "confirmado, desempenho ainda sem detalhes"
+   }
+  },
+  {
+   "texto": "O conselho aqui é simples: não compre um console novo só por causa disso antes de ver os testes. Nos primeiros dias vão sair várias comparações mostrando como o jogo roda em cada aparelho. Vale esperar e ver com os próprios olhos.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "capitulo": "O que esperar do primeiro dia",
+   "texto": "E o primeiro dia em si? Prepara a paciência. Em lançamento gigante é normal a loja ficar lenta, o download travar e a internet de todo mundo sofrer ao mesmo tempo. Por isso o pré-carregamento é tão importante.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "texto": "E mais uma coisa: no dia dezenove, a internet inteira vai estar falando de GTA 6. Os maiores streamers vão fazer live desde o primeiro minuto, e é aí que nascem os momentos mais engraçados. A gente vai estar de olho em tudo isso aqui no canal.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "DIA 19",
+    "sub": "a internet vai parar"
+   }
+  },
+  {
+   "capitulo": "Os adiamentos",
+   "texto": "Uma lembrança rápida de como chegamos aqui. O primeiro trailer saiu em dezembro de dois mil e vinte e três, com lançamento previsto pra dois mil e vinte e cinco.",
+   "card": {
+    "tipo": "dado",
+    "numero": "2023",
+    "texto": "primeiro trailer"
+   }
+  },
+  {
+   "texto": "Depois veio o primeiro adiamento, pra maio de dois mil e vinte e seis. E em novembro do ano passado, mais um: dezenove de novembro de dois mil e vinte e seis. Agora, com o pré-carregamento liberado, essa data está mais firme do que nunca.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "2025 (previsto)",
+     "26 de maio de 2026",
+     "19 de novembro de 2026"
+    ]
+   }
+  },
+  {
+   "capitulo": "Checklist do dia 19",
+   "texto": "Pra fechar, o seu checklist pra não passar sufoco no dia dezenove. Um: confira se a sua compra está feita e se o pré-carregamento começou.",
+   "card": {
+    "tipo": "numero",
+    "numero": "1",
+    "texto": "Compra feita e download começado"
+   }
+  },
+  {
+   "texto": "Dois: libere espaço. Duzentos e doze gigas mais uma folga. Apaga aquele jogo que você não abre há meses.",
+   "card": {
+    "tipo": "numero",
+    "numero": "2",
+    "texto": "Libere mais de 212 GB"
+   }
+  },
+  {
+   "texto": "Três: deixe o console ligado na tomada, em modo de repouso, na noite do dia dezoito. Assim a atualização de lançamento baixa sozinha.",
+   "card": {
+    "tipo": "numero",
+    "numero": "3",
+    "texto": "Console em repouso na noite do dia 18"
+   }
+  },
+  {
+   "texto": "E quatro: cuidado com spoiler. Vai ter gente postando a história inteira nas primeiras horas. Se você quer jogar sem saber de nada, segura a curiosidade nas redes.",
+   "card": {
+    "tipo": "numero",
+    "numero": "4",
+    "texto": "Fuja dos spoilers"
+   }
+  },
+  {
+   "capitulo": "Encerramento",
+   "texto": "É isso. Agora você sabe tudo que precisa antes de entrar em Vice City. E aí, você vai jogar no primeiro dia, ou vai esperar baixar o preço? Deixa nos comentários.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "texto": "Aqui no Corte City a gente vai trazer os melhores momentos dos streamers jogando GTA 6 desde o primeiro minuto. Se inscreve pra não perder. Até a próxima.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve e ativa o sininho"
+   }
+  }
+ ]
+}

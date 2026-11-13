@@ -6,7 +6,7 @@ on:
       acao:
         description: "pedir = pôr links na fila do robô do Mac | processar = transformar os trechos baixados em cortes"
         type: choice
-        options: [pedir, processar]
+        options: [pedir, biblioteca, processar]
         default: pedir
       links:
         description: "Links de vídeos/lives do YouTube (separados por espaço)"
@@ -38,7 +38,8 @@ jobs:
           if [ "${{ inputs.acao }}" = "processar" ]; then
             python main.py youtube_processar
           else
-            python main.py youtube_pedir --links "$LINKS"
+            if [ "${{ inputs.acao }}" = "biblioteca" ]; then MODO=biblioteca; else MODO=cortes; fi
+            python main.py youtube_pedir --links "$LINKS" --evento "$MODO"
           fi
       - name: Salvar memória da máquina
         run: python main.py sincronizar "YouTube - fila atualizada"

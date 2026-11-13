@@ -1,0 +1,38 @@
+name: Vídeo longo narrado (vai pros downloads, você posta)
+
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "Número do roteiro em roteiros/longos (ex.: 001)"
+        default: "001"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: narrado
+  cancel-in-progress: false
+
+jobs:
+  narrado:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Instalar ferramentas
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q -r requirements.txt
+          pip install -q yt-dlp
+      - name: Montar o vídeo
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+          TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+        run: python main.py narrado "${{ inputs.id }}"
+      - name: Salvar memória da máquina
+        if: always()
+        run: python main.py sincronizar "Narrado - estado atualizado"

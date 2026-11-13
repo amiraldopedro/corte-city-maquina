@@ -789,6 +789,65 @@ def fundo_gameplay(cfg: Config, pasta: Path, baixar_trecho) -> Path:
     raise RuntimeError("sem clipe de fundo")
 
 
+# ====================================================================== vídeo longo narrado (você posta)
+def fazer_narrado(cfg: Config, rid: str):
+    """Roteiro roteiros/longos/<rid>.json -> vídeo 16:9 narrado nos downloads do painel. Não posta."""
+    import json as _json
+    from maquina import editar, kit, narrado, thumb
+    from maquina.baixar import baixar_trecho
+    roteiro = _json.loads((RAIZ / "roteiros" / "longos" / f"{rid}.json").read_text(encoding="utf-8"))
+    canal = next((c for c in cfg.canais_ativos() if c.idioma == "pt"), None) or cfg.canais_ativos()[0]
+    pasta = PASTA_PRONTOS / f"narrado_{rid}"
+    fontes = narrado.biblioteca(PASTA_PRONTOS / "biblioteca")
+    if fontes:
+        log(f"  imagens de fundo: {len(fontes)} vídeos da biblioteca")
+    else:
+        log("  biblioteca vazia: usando clipes de GTA da Twitch como fundo")
+        fontes = fundos_twitch(cfg, pasta / "fundos", baixar_trecho, 12)
+    final, capitulos = narrado.montar(roteiro, fontes, canal.cor_destaque, RAIZ / canal.marca, pasta, log)
+    dur = editar.info_video(final)[2]
+    pico = editar.momento_mais_alto(final, 5, min(dur, 60))
+    cid = f"narrado_{rid}"
+    capa = thumb.gerar_thumb(editar.frame_em(final, pico), final.with_suffix(".jpg"),
+                             roteiro.get("gancho_thumb", "GTA 6"), canal.cor_destaque, None, "GTA 6")
+    from maquina.painel import guardar_thumb
+    guardar_thumb(capa, cid)
+    desc = narrado.descricao(roteiro, capitulos, ["#gta6", "#gtavi", "#gta"])
+    from maquina.entrega import entregar
+    arquivos = entregar(final, capa, cid)
+    arquivos.update(fazer_kit(final, 3, min(dur, 300), pico, roteiro["titulo"], roteiro.get("titulos_extra", []),
+                              roteiro.get("gancho_thumb", "GTA 6"), "GTA 6", "Grand Theft Auto VI", canal, cid,
+                              vertical=False))
+    est = Estado(canal.id)
+    est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": "narrado", "status": "pronto",
+                         "titulo": roteiro["titulo"], "titulos_extra": roteiro.get("titulos_extra", []),
+                         "descricao": desc, "tags": roteiro.get("tags", []), "duracao": dur,
+                         "feito_em": agora(), "criado_em": agora(), **arquivos}
+    est.salvar()
+    log(f"  ✅ vídeo narrado pronto ({dur / 60:.1f} min): {arquivos.get('video_url')}")
+    log("     (não foi postado: baixe no painel e poste você)")
+
+
+def fundos_twitch(cfg: Config, pasta: Path, baixar_trecho, quantos: int) -> list[Path]:
+    """Clipes de GTA bem vistos (últimas 72h) pra servir de fundo quando a biblioteca está vazia."""
+    from maquina.twitch import Twitch
+    pasta.mkdir(parents=True, exist_ok=True)
+    tw = Twitch(cfg.twitch_client_id, cfg.twitch_client_secret)
+    clipes = []
+    for gid in tw.ids_jogos(["Grand Theft Auto VI", "Grand Theft Auto V"]):
+        clipes += [c for c in tw.clipes(game_id=gid, horas=72, maximo=80) if c.get("duration", 0) >= 15]
+    clipes.sort(key=lambda c: -c.get("view_count", 0))
+    saida = []
+    for c in clipes:
+        if len(saida) >= quantos:
+            break
+        try:
+            saida.append(baixar_trecho(None, 0, c["duration"], c["url"], pasta / f"tw_{c['id']}.mp4"))
+        except Exception as e:
+            log(f"  fundo {c['id']} não baixou ({str(e)[:80]})")
+    return saida
+
+
 # ====================================================================== controle
 def bloquear(login: str):
     from maquina import painel
@@ -890,7 +949,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "narrado"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -927,9 +986,11 @@ def main():
         apagar(cfg, a.alvo)
     elif a.comando == "teste":
         teste(cfg)
+    elif a.comando == "narrado":
+        fazer_narrado(cfg, a.alvo)
     elif a.comando == "youtube_pedir":
         from maquina import youtube_fonte
-        youtube_fonte.pedir([l for l in re.split(r"[\s,]+", a.links) if l])
+        youtube_fonte.pedir([l for l in re.split(r"[\s,]+", a.links) if l], a.evento or "cortes")
     elif a.comando == "youtube_processar":
         from maquina import youtube_fonte
         youtube_fonte.processar(cfg)

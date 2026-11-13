@@ -114,7 +114,7 @@ def release_id() -> int:
     st, d = api("GET", f"releases/tags/{TAG}")
     if st == 200:
         return d["id"]
-    st, d = api("POST", "releases", {"tag_name": TAG, "name": "Trechos do YouTube (robô do Mac)",
+    st, d = api("POST", "releases", {"tag_name": TAG, "name": "Biblioteca de imagens" if TAG == "biblioteca" else "Trechos do YouTube (robô do Mac)",
                                      "body": "Arquivos temporários do robô do YouTube.", "prerelease": True})
     if st not in (200, 201):
         raise RuntimeError(f"não criei a área de arquivos ({st}): {d}")
@@ -203,7 +203,34 @@ def janela_longa(picos: list[tuple[float, float]], duracao: float) -> tuple[floa
     return (melhor, melhor + JANELA_LONGA)
 
 
+def biblioteca(vid: str, item: dict):
+    """Vídeo inteiro (ex.: trailer oficial) pra servir de imagem de fundo nos vídeos narrados."""
+    link = item.get("link") or f"https://www.youtube.com/watch?v={vid}"
+    TEMP.mkdir(exist_ok=True)
+    pasta = Path(tempfile.mkdtemp(prefix="cc_bib_", dir=TEMP))
+    try:
+        info = json.loads(ytdlp("-J", link))
+        if float(info.get("duration") or 0) > 20 * 60:
+            raise RuntimeError("vídeo longo demais pra biblioteca (máximo 20 min)")
+        arq = pasta / f"bib_{vid}.mp4"
+        ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/b", "--merge-output-format", "mp4",
+              "-o", str(arq), link)
+        global TAG
+        antigo, TAG = TAG, "biblioteca"
+        try:
+            aid = subir(arq, arq.name)
+        finally:
+            TAG = antigo
+        atualizar_item(vid, {"status": "biblioteca_ok", "titulo": info.get("title", ""), "asset_id": aid,
+                             "duracao": info.get("duration")})
+        log(f"  ✅ biblioteca: {info.get('title', '')[:60]}")
+    finally:
+        shutil.rmtree(pasta, ignore_errors=True)
+
+
 def processar(vid: str, item: dict):
+    if item.get("modo") == "biblioteca":
+        return biblioteca(vid, item)
     link = item.get("link") or f"https://www.youtube.com/watch?v={vid}"
     log(f"vídeo {vid}: lendo informações")
     info = json.loads(ytdlp("-J", link))
