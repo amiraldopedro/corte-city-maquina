@@ -39,7 +39,7 @@
    "likes": 5,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -62,11 +62,11 @@
    "status": "descartado",
    "criado_em": "2026-11-12T15:34:33+00:00",
    "erro": "open() got an unexpected keyword argument 'metadata_errors'",
-   "atualizado_em": "2026-11-13T20:03:44+00:00",
+   "atualizado_em": "2026-11-13T20:13:23+00:00",
    "_priorizado": true,
    "quadro": "rp",
    "score_v": 2,
-   "motivo": "As duas folhas de quadros estão totalmente pretas, então não há nenhuma ação visual. A transcrição é só conversa solta: o streamer fala de não vacilar para não tomar monetizada, diz que vai jogar mal "
+   "motivo": "É só conversa com o chat e publi da Kabum, sem GTA na tela, sem ação e sem desfecho claro. A melhor parte são os primeiros segundos, em que ele ri e fala de monetização, mas isso não funciona sozinho."
   },
   "2926018706_5522": {
    "id": "2926018706_5522",
@@ -240,7 +240,7 @@
    "likes": 21,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00",
+   "numeros_em": "2026-11-13T20:05:22+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -302,7 +302,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00",
+   "numeros_em": "2026-11-13T20:05:22+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -375,7 +375,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK": {
    "id": "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK",
@@ -447,7 +447,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0": {
    "id": "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0",
@@ -508,7 +508,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -576,7 +576,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -642,7 +642,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4": {
    "id": "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
@@ -709,7 +709,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "dia_20261112": {
    "id": "dia_20261112",
@@ -759,7 +759,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "longo_2924173618_4957": {
    "id": "longo_2924173618_4957",
@@ -804,7 +804,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "news_8c0d2803c305": {
    "id": "news_8c0d2803c305",
@@ -1056,7 +1056,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "news_c8863f71d3b2": {
    "id": "news_c8863f71d3b2",
@@ -1094,7 +1094,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "news_876c7d48334f": {
    "id": "news_876c7d48334f",
@@ -1132,7 +1132,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "news_3574e5e614ec": {
    "id": "news_3574e5e614ec",
@@ -1293,7 +1293,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "x_2112674760278594021": {
    "id": "x_2112674760278594021",
@@ -1331,7 +1331,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "news_9d9bff52c884": {
    "id": "news_9d9bff52c884",
@@ -1405,7 +1405,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T19:52:45+00:00"
+   "numeros_em": "2026-11-13T20:05:22+00:00"
   },
   "2926903009_462": {
    "id": "2926903009_462",
@@ -1433,8 +1433,14 @@
    "status": "descartado",
    "criado_em": "2026-11-13T18:02:35+00:00",
    "score_v": 2,
-   "motivo": "Os dois quadros estão totalmente pretos, então não dá para ver nada na tela. A transcrição é só um papo sobre contas de PlayStation e Xbox, sem GTA, sem desfecho e sem reação forte. Por isso marquei u",
-   "atualizado_em": "2026-11-13T20:01:11+00:00"
+   "motivo": "nota 2/9 abaixo da mínima 5 ({'sem_contexto': 1, 'desfecho': 1, 'emocao': 0})",
+   "atualizado_em": "2026-11-13T20:11:26+00:00",
+   "nota": 2,
+   "criterios": {
+    "sem_contexto": 1,
+    "desfecho": 1,
+    "emocao": 0
+   }
   },
   "2926018706_3490": {
    "id": "2926018706_3490",
@@ -1464,8 +1470,8 @@
    "status": "descartado",
    "criado_em": "2026-11-13T18:02:35+00:00",
    "score_v": 2,
-   "motivo": "As duas folhas de quadros estão totalmente pretas, então não deu para confirmar nada pela imagem. A conversa é sobre uma floresta e um labirinto, provavelmente em outro jogo (um clipe cita Phantom Bla",
-   "atualizado_em": "2026-11-13T19:58:08+00:00"
+   "motivo": "O quadro mostra Mario Party (Waluigi correndo pelo lobby), não GTA. O assunto da conversa é um labirinto numa floresta, que não tem ligação com o tema do canal, o GTA 6. A imagem é parada e repetitiva",
+   "atualizado_em": "2026-11-13T20:09:14+00:00"
   }
  },
  "clipes_vistos": [
