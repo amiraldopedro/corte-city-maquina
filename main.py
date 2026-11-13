@@ -53,7 +53,11 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
         if not u:
             log(f"  {s.login}: não existe na Twitch (confira o login no config.yaml)")
             continue
-        clipes = [c for c in tw.clipes(u["id"], cfg.janela_busca_horas) if not est.clipe_visto(c["id"])]
+        try:
+            clipes = [c for c in tw.clipes(u["id"], cfg.janela_busca_horas) if not est.clipe_visto(c["id"])]
+        except Exception as e:
+            log(f"  {s.nome}: Twitch falhou ({str(e)[:100]}), sigo com os outros")
+            continue
         momentos = agrupar(clipes, jogos, s.login, canal.id, cfg.minimo_clipes, cfg.minimo_views,
                            jogos_palavra, cfg.palavras, cfg.um_clipe_views)
         for m in momentos:
@@ -63,7 +67,10 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
                 novos += 1
             est.marcar_clipes(m["clipe_ids"])
         log(f"  {s.nome}: {len(clipes)} clipes novos, {len(momentos)} momentos")
-    novos += descobrir(cfg, canal, est, tw, {s.login for s in streamers})
+    try:
+        novos += descobrir(cfg, canal, est, tw, {s.login for s in streamers})
+    except Exception as e:
+        log(f"  descoberta por jogo falhou ({str(e)[:100]})")
     novos += cacar_kick(cfg, canal, est)
     return novos
 
@@ -147,6 +154,32 @@ def fazer_kit(video: Path, inicio: float, fim: float, pico: float | None, titulo
         return {}
 
 
+def limite_streamer(cfg: Config, est: Estado, m: dict) -> str:
+    """Diversidade: no máximo N Shorts do mesmo streamer por dia e nunca dois seguidos em menos de 6 h.
+    React de evento velho (mais de 30 dias) sai da fila."""
+    agora_dt = datetime.now(timezone.utc)
+    if m.get("evento"):
+        quando = m.get("clipado_em") or ""
+        try:
+            if (agora_dt - datetime.fromisoformat(quando.replace("Z", "+00:00"))).days > 30:
+                return "velho"
+        except ValueError:
+            pass
+    feitos = [x for x in est.momentos.values() if x.get("streamer") == m["streamer"] and m["streamer"] != "*"
+              and x.get("tipo", "short") == "short" and x["status"] in ("pronto", "postado", "aguardando_cota")
+              and (x.get("feito_em") or x.get("postado_em"))]
+    def horas(x):
+        try:
+            return (agora_dt - datetime.fromisoformat((x.get("feito_em") or x.get("postado_em")).replace("Z", "+00:00"))).total_seconds() / 3600
+        except ValueError:
+            return 999
+    if sum(1 for x in feitos if horas(x) < 24) >= cfg.max_por_streamer_dia:
+        return "cota do dia"
+    if any(horas(x) < 6 for x in feitos):
+        return "muito seguido"
+    return ""
+
+
 def etiqueta_do(m: dict) -> str:
     """Plaquinha azul em cima da chamada: diz de que quadro é o corte."""
     from maquina.momentos import quadro
@@ -171,7 +204,7 @@ def postados_hoje(est: Estado, canal: Canal) -> int:
         quando = m.get("feito_em") or m.get("postado_em")
         if m.get("teste"):
             continue  # vídeo de teste não conta na meta
-        if m.get("tipo", "short") == "short" and m["status"] in ("pronto", "postado") and quando:
+        if m.get("tipo", "short") == "short" and m["status"] in ("pronto", "postado", "aguardando_cota") and quando:
             if datetime.fromisoformat(quando).astimezone(tz).date() == hoje:
                 n += 1
     return n
@@ -223,6 +256,11 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         est.atualizar(m["id"], status="descartado", motivo=d["motivo"])
         log(f"    descartado: {d['motivo']}")
         return False
+    if d.get("ia") == "claude" and d.get("nota") is not None and d["nota"] < cfg.nota_minima and not m.get("prioridade"):
+        est.atualizar(m["id"], status="descartado", nota=d["nota"], criterios=d.get("criterios"),
+                      motivo=f"nota {d['nota']}/9 abaixo da mínima {cfg.nota_minima} ({d.get('criterios')})")
+        log(f"    descartado pela nota: {d['nota']}/9 {d.get('criterios')}")
+        return False
 
     final = PASTA_PRONTOS / f"{m['id']}.mp4"
     voz = None
@@ -249,7 +287,11 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     tags = list(dict.fromkeys(d.get("tags", []) + base))[:15]
     resumo = d.get("descricao", "")
     from maquina.entrega import entregar
-    arquivos = entregar(final, capa, m["id"])   # sempre fica uma cópia para baixar (reserva)
+    try:
+        arquivos = entregar(final, capa, m["id"])   # sempre fica uma cópia para baixar (reserva)
+    except Exception as e:  # sem a cópia nos downloads o vídeo ainda pode ir pro YouTube
+        log(f"    aviso: cópia nos downloads falhou ({str(e)[:100]})")
+        arquivos = {}
     arquivos.update(fazer_kit(bruto, d["inicio"], d["fim"], pico, d["titulo"], d.get("titulos_extra", []),
                               d["gancho"], nome, m.get("jogo", ""), canal, m["id"], vertical=True))
     if canal.postar == "automatico" and not m.get("teste") and yt is not None:
@@ -257,13 +299,15 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
         publicar_em = proximo_horario(canal.horarios, canal.fuso, ocupados)
         descricao = descricao_short(canal, titulo, m["streamer"], m.get("plataforma", ""), resumo)
-        vid = yt.enviar(final, titulo, descricao, tags, canal.idioma, publicar_em, capa)
-        yt.por_na_playlist(vid, playlist_do(canal, m))
-        est.atualizar(m["id"], status="postado", tipo="short", jogo=m.get("jogo", ""), titulo=titulo,
-                      gancho=d["gancho"], descricao=descricao, tags=tags, youtube_id=vid, publicar_em=publicar_em,
-                      postado_em=agora(), feito_em=agora(), corte=[d["inicio"], d["fim"]], layout=info["layout"],
-                      cerebro=d["fonte"], nome=nome, nota=d.get("nota"), quadro=m.get("quadro"),
-                      duracao=round(d["fim"] - d["inicio"], 1), prioridade=False, **arquivos)
+        from maquina.publicar import publicar
+        vid = publicar(est, m["id"], yt, final, titulo, descricao, tags, canal.idioma, publicar_em, capa,
+                       playlist_do(canal, m), log, tipo="short", jogo=m.get("jogo", ""), titulo=titulo,
+                       gancho=d["gancho"], descricao=descricao, tags=tags, feito_em=agora(),
+                       corte=[d["inicio"], d["fim"]], layout=info["layout"], cerebro=d["fonte"], nome=nome,
+                       nota=d.get("nota"), quadro=m.get("quadro"), duracao=round(d["fim"] - d["inicio"], 1),
+                       prioridade=False, **arquivos)
+        if not vid:
+            return True  # ficou pronto, esperando cota: conta como feito
         log(f"    ✅ enviado e agendado para {publicar_em}: https://youtu.be/{vid}")
         return True
     est.atualizar(m["id"], status="pronto", tipo="short", jogo=m.get("jogo", ""), titulo=titulo, gancho=d["gancho"],
@@ -272,7 +316,7 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
                   layout=info["layout"], cerebro=d["fonte"], nome=nome, nota=d.get("nota"),
                   duracao=round(d["fim"] - d["inicio"], 1), prioridade=False, **arquivos)
     log(f"    ✅ pronto para postar: {titulo}")
-    log(f"       baixar: {arquivos['video_url']}")
+    log(f"       baixar: {arquivos.get('video_url', '(sem cópia)')}")
     return True
 
 
@@ -292,6 +336,9 @@ def fazer_cacada(cfg: Config):
                 x["status"] = "novo"       # teste de novo depois de uma correção
             elif not TESTE and x["status"] == "novo":
                 x["status"] = "descartado"  # momento de teste nunca vira vídeo de verdade
+        from maquina.momentos import reescalar
+        for x in est.momentos.values():
+            reescalar(x)
         try:
             log(f"  {cacar(cfg, canal, est, tw)} momentos novos na fila")
         finally:
@@ -355,6 +402,8 @@ def tem_trabalho(cfg: Config) -> bool:
         est = Estado(canal.id)
         fila = [m for m in est.por_status("novo") if m["streamer"] not in cfg.bloqueados
                 and TESTE == bool(m.get("teste")) and not m.get("yt_longo")]
+        if not TESTE and canal.postar == "automatico" and any(m["status"] == "aguardando_cota" for m in est.momentos.values()):
+            return True  # tem vídeo pronto esperando cota do YouTube
         if fila and (TESTE or (postados_hoje(est, canal) < len(canal.horarios)
                                and (canal.postar == "automatico" or esperando(est) < MAX_ESPERANDO))):
             return True
@@ -368,6 +417,25 @@ def produzir(cfg: Config):
         log(f"== {canal.nome} ({canal.modo})")
         est = Estado(canal.id)
         try:
+            yt = None
+            if canal.postar == "automatico" and not TESTE:
+                from maquina.youtube import YouTube
+                yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+                from maquina.publicar import enviar_pendentes
+                from maquina.youtube import proximo_horario
+
+                def horario_livre():
+                    ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+                    return proximo_horario(canal.horarios, canal.fuso, ocupados)
+                try:
+                    if enviar_pendentes(est, canal, yt, PASTA_PRONTOS / "pendentes", horario_livre, log):
+                        est.salvar()
+                except Exception as e:
+                    log(f"  aviso: envios pendentes falharam ({str(e)[:120]})")
+                from maquina.publicar import tem_cota
+                if not tem_cota(est):
+                    log("  cota do YouTube de hoje já acabou: não vou montar vídeo novo agora")
+                    continue
             limite = 1 if TESTE else len(canal.horarios) - postados_hoje(est, canal)
             if limite <= 0:
                 log("  meta de Shorts de hoje já cumprida")
@@ -375,10 +443,6 @@ def produzir(cfg: Config):
             if not TESTE and canal.postar != "automatico" and esperando(est) >= MAX_ESPERANDO:
                 log(f"  já tem {esperando(est)} vídeos prontos esperando você postar — não vou fazer mais agora")
                 continue
-            yt = None
-            if canal.postar == "automatico" and not TESTE:
-                from maquina.youtube import YouTube
-                yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
             feitos = tentativas = 0
             for m in est.por_status("novo"):
                 if TESTE != bool(m.get("teste")) or m.get("yt_longo"):  # trecho longo do YouTube vai pro corte longo
@@ -389,6 +453,13 @@ def produzir(cfg: Config):
                 if m["streamer"] in cfg.bloqueados:
                     est.atualizar(m["id"], status="descartado", motivo="streamer bloqueado")
                     continue
+                if not TESTE and not m.get("prioridade"):
+                    regra = limite_streamer(cfg, est, m)
+                    if regra == "velho":
+                        est.atualizar(m["id"], status="descartado", motivo="react de evento com mais de 30 dias")
+                        continue
+                    if regra:
+                        continue  # fica na fila: hoje esse streamer já teve o bastante
                 if m.get("evento") and not TESTE:
                     feitos_evento = [x for x in est.momentos.values() if x.get("evento") and x["status"] in ("pronto", "postado")]
                     if any(x["streamer"] == m["streamer"] and x["evento"] == m["evento"] for x in feitos_evento):
@@ -404,6 +475,11 @@ def produzir(cfg: Config):
                 try:
                     feitos += produzir_um(cfg, canal, est, m, yt)
                 except Exception as e:
+                    if est.momentos[m["id"]].get("youtube_id"):  # o erro veio depois do envio: já está no YouTube
+                        est.atualizar(m["id"], status="postado", erro_pos_envio=str(e)[:200])
+                        log(f"    aviso: erro depois do envio, mas o vídeo está no YouTube ({str(e)[:120]})")
+                        feitos += 1
+                        continue
                     falhas = m.get("falhas", 0) + 1
                     est.atualizar(m["id"], status="erro" if falhas >= 2 else "novo", falhas=falhas, erro=str(e)[:300],
                                   score=m.get("score", 0) * 0.5)
@@ -447,14 +523,19 @@ def _postar_longo(cfg: Config, canal: Canal, est: Estado, saida: Path, capa: Pat
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
         horario = canal.horario_longo if tipo == "longo" else canal.horario_compilado
         publicar_em = proximo_horario([horario], canal.fuso, ocupados)
-        vid = yt.enviar(saida, titulo, descricao, tags, canal.idioma, publicar_em, capa)
-        yt.por_na_playlist(vid, playlist)
-        envio = {"status": "postado", "youtube_id": vid, "publicar_em": publicar_em, "postado_em": agora()}
-        log(f"  ✅ enviado e agendado para {publicar_em}: https://youtu.be/{vid}")
-    est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo, "status": "pronto",
+        envio = {"yt": yt, "publicar_em": publicar_em}
+    anterior = est.momentos.get(cid, {})
+    est.momentos[cid] = {**anterior, "id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo,
+                         "status": anterior.get("status", "pronto") if anterior.get("youtube_id") else "pronto",
                          "titulo": titulo, "descricao": descricao, "tags": tags, "playlist": playlist,
-                         "feito_em": agora(), "criado_em": agora(), **extra, **arquivos, **envio}
+                         "feito_em": agora(), "criado_em": anterior.get("criado_em") or agora(), **extra, **arquivos}
     est.salvar()
+    if envio:
+        from maquina.publicar import publicar
+        vid = publicar(est, cid, envio["yt"], saida, titulo, descricao, tags, canal.idioma, envio["publicar_em"],
+                       capa, playlist, log)
+        if vid:
+            log(f"  ✅ enviado e agendado para {envio['publicar_em']}: https://youtu.be/{vid}")
     log(f"  ✅ {tipo} pronto: {titulo}")
     log(f"     baixar: {arquivos['video_url']}")
 
@@ -479,24 +560,20 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         if len(escolhidos) < 3:
             log("  poucos momentos, fica para a próxima")
             continue
-        if tipo == "top10":
-            escolhidos = list(reversed(escolhidos[:qtd]))  # contagem regressiva: #10 ... #1
         nomes = {s.login: s.nome for s in canal.streamers + canal.kick}
         nomes.update({m["streamer"]: m["nome"] for m in escolhidos if m.get("nome") and m["streamer"] not in nomes})
         data = datetime.now(ZoneInfo(canal.fuso)).strftime("%d/%m" if canal.idioma == "pt" else "%b %d")
         saida = PASTA_PRONTOS / f"{tipo}_{canal.id}_{datetime.now().strftime('%Y%m%d')}.mp4"
-        usados = compilado.montar(escolhidos if tipo == "top10" else escolhidos, nomes, tipo, canal.cor_destaque,
-                                  RAIZ / canal.marca, saida)
-        if tipo != "top10":
-            usados = usados[:qtd]
+        usados = compilado.montar(escolhidos, nomes, tipo, canal.cor_destaque, RAIZ / canal.marca, saida,
+                                  maximo=qtd)
         ordem_nomes = list(dict.fromkeys(nomes.get(m["streamer"], m["streamer"]) for m in reversed(usados)))
         reacts = sum(1 for m in usados if m.get("evento")) * 2 > len(usados)
-        titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data, evento, reacts)
+        titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data, evento, reacts, n=len(usados))
 
         melhor = usados[-1] if tipo == "top10" else usados[0]
         bruto = Path(compilado.PASTA_BRUTOS / f"{melhor['id']}.mp4")
         pico = editar.momento_mais_alto(bruto, 0, editar.info_video(bruto)[2])
-        etiqueta = "TOP 10" if tipo == "top10" else "REACTS" if tipo == "serie" else ("MELHORES DO DIA" if canal.idioma == "pt" else "BEST OF THE DAY")
+        etiqueta = f"TOP {len(usados)}" if tipo == "top10" else "REACTS" if tipo == "serie" else ("MELHORES DO DIA" if canal.idioma == "pt" else "BEST OF THE DAY")
         capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), saida.with_suffix(".jpg"),
                                  melhor.get("gancho") or cerebro.GANCHOS[canal.idioma][0], canal.cor_destaque,
                                  editar.achar_webcam(bruto, 0, editar.info_video(bruto)[2]), etiqueta)
@@ -698,10 +775,14 @@ def fazer_noticias(cfg: Config, links: list[str]):
                 yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
                 ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
                 quando = proximo_horario(conf.get("horarios", ["10:30", "20:30"]), canal.fuso, ocupados)
-                vid = yt.enviar(final, r["titulo"], descricao, tags, canal.idioma, quando, capa)
-                yt.por_na_playlist(vid, canal.playlists.get("noticias", ""))
-                est.momentos[item["id"]].update(status="postado", youtube_id=vid, publicar_em=quando, postado_em=agora())
-                log(f"  ✅ notícia agendada para {quando}: https://youtu.be/{vid}")
+                from maquina.publicar import publicar
+                try:
+                    vid = publicar(est, item["id"], yt, final, r["titulo"], descricao, tags, canal.idioma, quando,
+                                   capa, canal.playlists.get("noticias", ""), log)
+                    if vid:
+                        log(f"  ✅ notícia agendada para {quando}: https://youtu.be/{vid}")
+                except Exception as e:
+                    log(f"  ❌ envio da notícia falhou (fica pronta pra baixar): {str(e)[:150]}")
             est.salvar()
             if item["origem"] == "noticia":
                 feitas += 1
@@ -716,7 +797,8 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
     except Exception as e:
         log(f"  post do X não abriu ({link}): {str(e)[:150]}")
         return
-    if post["id"] in est.momentos and est.momentos[post["id"]].get("status") in ("pronto", "postado"):
+    if post["id"] in est.momentos and (est.momentos[post["id"]].get("status") in ("pronto", "postado", "aguardando_cota")
+                                       or est.momentos[post["id"]].get("youtube_id")):
         log(f"  post já foi feito: {link}")
         return
     base = {"id": post["id"], "streamer": "*", "canal": canal.id, "tipo": "noticia", "quadro": "comunidade",
@@ -739,9 +821,11 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
         titulo = cerebro._limpar_titulo(str(r.get("titulo", "")))
     except Exception as e:
         log(f"  IA fora para o título, usando o padrão ({str(e)[:80]})")
-    if len(titulo) < 20 or cerebro.ESTRANHAS.search(titulo):
+    from maquina import titulos
+    titulo = titulos.caixa_de_livro(titulo)
+    if titulos.ruim(titulo):
         resumo = re.sub(r"\s+", " ", post["texto"])[:48].rstrip(" ,.;:") or "olha isso"
-        titulo = f"GTA 6: {resumo}"[:90]
+        titulo = titulos.caixa_de_livro(f"GTA 6: {resumo}"[:90])
     import random
     oficial = post["perfil"].lower() in ("rockstargames", "rockstarsupport", "take2interactive")
     chamada = ((f"{autor[:18]} POSTOU" if oficial else random.choice(
@@ -774,10 +858,14 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
         yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
         quando = proximo_horario(cfg.noticias.get("horarios", ["10:30", "20:30"]) + canal.horarios, canal.fuso, ocupados)
-        vid = yt.enviar(final, titulo, descricao, tags, canal.idioma, quando, capa)
-        yt.por_na_playlist(vid, canal.playlists.get("comunidade") or canal.playlists.get("noticias", ""))
-        est.momentos[post["id"]].update(status="postado", youtube_id=vid, publicar_em=quando, postado_em=agora())
-        log(f"  ✅ post do X agendado para {quando}: https://youtu.be/{vid}")
+        from maquina.publicar import publicar
+        try:
+            vid = publicar(est, post["id"], yt, final, titulo, descricao, tags, canal.idioma, quando, capa,
+                           canal.playlists.get("comunidade") or canal.playlists.get("noticias", ""), log)
+            if vid:
+                log(f"  ✅ post do X agendado para {quando}: https://youtu.be/{vid}")
+        except Exception as e:
+            log(f"  ❌ envio do post falhou (fica pronto pra baixar): {str(e)[:150]}")
     est.salvar()
 
 

@@ -57,7 +57,8 @@ class YT:
 youtube.YouTube = YT
 os.environ.update(TWITCH_CLIENT_ID="x", TWITCH_CLIENT_SECRET="x", YT_CLIENT_ID="x", YT_CLIENT_SECRET="x", YT_REFRESH_TOKEN_BR="x")
 
-main.fazer_noticias(carregar(), [f"https://x.com/RockstarGames/status/{i}" for i in (1, 2, 3, 4, 5)])
+_cfg = carregar(); _cfg.noticias["por_dia"] = 2  # o teste confere o limite de 2 por dia
+main.fazer_noticias(_cfg, [f"https://x.com/RockstarGames/status/{i}" for i in (1, 2, 3, 4, 5)])
 ms = Estado("br").momentos
 print({k: v["status"] for k, v in ms.items()})
 assert ms["news_b"]["status"] == "descartado", "vazamento passou!"
@@ -65,10 +66,11 @@ assert all(ms[f"x_{i}"]["status"] == "postado" for i in (1, 2, 3)), "post do X n
 assert ms["x_4"]["status"] == "descartado", "post com material vazado passou!"
 assert ms["x_5"]["status"] == "postado", "meme sobre leaker (sem material) devia passar"
 assert "Post original: https://x.com/RockstarGames/status/1" in ms["x_1"]["descricao"]
-assert ms["news_a"]["status"] == "postado" and ms["news_c"]["status"] == "postado"
+assert ms["news_a"]["status"] == "postado" and ms["news_c"]["status"] in ("postado", "aguardando_cota")  # 6º envio do dia passa da cota
 assert "news_d" not in ms, "passou do limite de 2 notícias por dia"
 assert "Fonte: IGN Brasil" in ms["news_a"]["descricao"]
-main.fazer_noticias(carregar(), [])
+_cfg = carregar(); _cfg.noticias["por_dia"] = 2  # o teste confere o limite de 2 por dia
+main.fazer_noticias(_cfg, [])
 assert "news_d" not in Estado("br").momentos, "limite do dia não segurou"
 print("pasta:", tmp)
 print("OK: notícias funcionando")

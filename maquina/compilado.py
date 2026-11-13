@@ -52,19 +52,21 @@ def _duracao(arquivo: Path) -> float:
 
 
 def montar(momentos: list[dict], nomes: dict[str, str], tipo: str, cor: str, marca: Path | None,
-           saida: Path, minimo: int = 3) -> list[dict]:
-    """momentos já ordenados na ordem em que devem aparecer. Retorna os que entraram,
-    cada um com `_cap` = segundo em que começa no vídeo (para os capítulos da descrição).
+           saida: Path, minimo: int = 3, maximo: int | None = None) -> list[dict]:
+    """momentos em ordem de preferência (o melhor primeiro). Entram os primeiros `maximo` que derem certo.
+    No top10 a ordem no vídeo é a contagem regressiva (#N ... #1), numerada pelo que de fato entrou.
+    Retorna os que entraram, cada um com `_cap` = segundo em que começa no vídeo (capítulos da descrição).
 
     Vídeo longo NUNCA vai com a música original: a voz é isolada em cada trecho e,
     se não der para isolar, o trecho fica de fora."""
     from .voz import tentar_isolar
     pasta = PASTA_PRONTOS / f"comp_{saida.stem}"
     pasta.mkdir(parents=True, exist_ok=True)
-    partes, usados = [], []
-    total = len(momentos)
-    relogio = 0.0
-    for i, m in enumerate(momentos):
+    maximo = maximo or len(momentos)
+    bons = []  # (momento, voz) que baixaram e tiveram a voz isolada
+    for m in momentos:
+        if len(bons) >= maximo:
+            break
         try:
             if m.get("yt_asset"):
                 from .youtube_fonte import preparar_bruto
@@ -75,8 +77,17 @@ def montar(momentos: list[dict], nomes: dict[str, str], tipo: str, cor: str, mar
             voz = tentar_isolar(bruto)
             if not voz:
                 raise RuntimeError("sem voz isolada (não entra com música)")
+            bons.append((m, voz))
+        except Exception as e:
+            print(f"  compilado: pulei {m['id']} ({str(e)[:150]})")
+    if tipo == "top10":
+        bons = list(reversed(bons))  # #N primeiro, #1 por último
+    partes, usados = [], []
+    relogio = 0.0
+    for i, (m, voz) in enumerate(bons):
+        try:
             parte = pasta / f"{i:02d}.mp4"
-            numero = (total - i) if tipo == "top10" else None
+            numero = (len(bons) - i) if tipo == "top10" else None
             _segmento(voz, parte, nomes.get(m["streamer"], m.get("nome") or m["streamer"]), numero, cor, marca)
             partes.append(parte)
             usados.append({**m, "_cap": relogio})

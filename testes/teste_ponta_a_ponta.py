@@ -70,10 +70,15 @@ print("fila:", main.tem_trabalho(carregar()))
 main.produzir(carregar())
 est = Estado("br"); post = [m for m in est.momentos.values() if m["status"] in ("pronto", "postado")]
 print("entregues/enviados:", enviados); print("feitos:", [(m["status"], m["titulo"], m.get("youtube_id"), m.get("publicar_em"), m["video_url"]) for m in post])
-assert len(post) == 3 and list(Path("estado/thumbs").glob("*.jpg")), "esperava 3 Shorts (meta do dia)"
+# diversidade: 2 momentos do Cerol na fila -> só 1 sai agora (nunca dois do mesmo streamer em menos de 6 h)
+assert len(post) == 2 and list(Path("estado/thumbs").glob("*.jpg")), "esperava 2 Shorts (1 Cerol + 1 Cellbit)"
+assert sum(1 for m in est.momentos.values() if m["streamer"] == "cerol" and m["status"] == "novo") == 1, "o 2º do Cerol devia esperar"
 assert all(p["status"] == "postado" and p["publicar_em"] and p["video_url"] for p in post), "automático deveria agendar e guardar reserva"
-assert len({p["publicar_em"] for p in post}) == 3, "dois vídeos no mesmo horário"
-assert main.postados_hoje(est, cfg.canal("br")) == 3
+assert len({p["publicar_em"] for p in post}) == 2, "dois vídeos no mesmo horário"
+assert main.postados_hoje(est, cfg.canal("br")) == 2
+# cota: o 3º envio do dia em diante fica esperando quando a cota acaba
+from maquina import publicar as _pub
+assert _pub.cota_usada(est) == 2 * _pub.CUSTO_ENVIO, "a cota gasta não foi contada"
 print("OK: ponta a ponta funcionando")
 
 # ---------- vídeos longos: compilado do dia e corte longo (voz isolada falsa) ----------

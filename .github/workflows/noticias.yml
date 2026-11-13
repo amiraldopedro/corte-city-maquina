@@ -1,8 +1,7 @@
 name: Notícias do GTA 6 (Google Notícias + posts do X)
 
 on:
-  schedule:
-    - cron: "47 11 * * *"   # todo dia 08:47 de Brasília
+  # sem agenda: notícia do Google saiu do mix (dava 0 a 2 views). Roda quando você cola posts do X no painel.
   workflow_dispatch:
     inputs:
       links:
@@ -24,27 +23,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
+        with: { python-version: "3.12", cache: "pip" }
       - name: Instalar ferramentas
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
           pip install -q -r requirements.txt
-      - name: Guardar modelo da IA
-        uses: actions/cache@v4
-        with:
-          path: /home/runner/.ollama/models
-          key: modelos-noticias-${{ hashFiles('config.yaml') }}
-          restore-keys: |
-            modelos-noticias-
-            modelos-
-      - name: Ligar a IA gratuita (Ollama)
-        run: |
-          curl -fsSL https://ollama.com/install.sh | sh
-          sudo systemctl stop ollama 2>/dev/null || true
-          nohup ollama serve > /tmp/ollama.log 2>&1 &
-          sleep 5
-          MODELO=$(python -c "import yaml;c=yaml.safe_load(open('config.yaml'));print(c.get('noticias',{}).get('modelo') or c['ia']['modelo'])")
-          ollama pull "$MODELO"
       - name: Ligar o Claude (se a chave CLAUDE_CODE_OAUTH_TOKEN estiver nos Secrets)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}

@@ -11,6 +11,7 @@ import subprocess
 import time
 
 from .config import PASTA_ESTADO, RAIZ
+from .estado import gravar_json
 
 
 def _git(*args, check=True) -> subprocess.CompletedProcess:
@@ -21,13 +22,39 @@ def _quando(m: dict) -> str:
     return max(m.get("atualizado_em") or "", m.get("criado_em") or "")
 
 
+# ordem natural de um momento: um status "mais adiante" nunca volta para trás por causa de um merge
+ORDEM = {"novo": 0, "erro": 1, "pronto": 2, "aguardando_cota": 2, "descartado": 3, "postado": 4, "removido": 5}
+LISTAS = ("usado_em", "clipe_ids", "titulos_chat")
+
+
+def _juntar_momento(a: dict, b: dict) -> dict:
+    """Junta duas versões do mesmo momento campo a campo: a mais nova vence, mas listas somam,
+    youtube_id nunca se perde e o status não anda para trás."""
+    novo, velho = (a, b) if _quando(a) >= _quando(b) else (b, a)
+    m = {**velho, **novo}
+    for k in LISTAS:
+        if isinstance(a.get(k), list) or isinstance(b.get(k), list):
+            m[k] = list(dict.fromkeys((velho.get(k) or []) + (novo.get(k) or [])))
+    for k in ("youtube_id", "publicar_em", "postado_em", "video_url"):
+        if not m.get(k) and (a.get(k) or b.get(k)):
+            m[k] = a.get(k) or b.get(k)
+    sa, sb = a.get("status"), b.get("status")
+    if ORDEM.get(sa, 0) != ORDEM.get(sb, 0) and novo.get("status") not in ("novo", "removido"):
+        m["status"] = sa if ORDEM.get(sa, 0) > ORDEM.get(sb, 0) else sb
+    if m.get("youtube_id") and m.get("status") in ("novo", "erro", "pronto", "aguardando_cota"):
+        m["status"] = "postado"  # já está no YouTube: jamais volta para a fila
+    return m
+
+
 def juntar_estado(local: dict, remoto: dict) -> dict:
     ms = dict(remoto.get("momentos", {}))
     for mid, m in local.get("momentos", {}).items():
-        if mid not in ms or _quando(m) >= _quando(ms[mid]):
-            ms[mid] = m
+        ms[mid] = _juntar_momento(m, ms[mid]) if mid in ms else m
     vistos = sorted(set(remoto.get("clipes_vistos", [])) | set(local.get("clipes_vistos", [])))
-    return {**remoto, **local, "momentos": ms, "clipes_vistos": vistos}
+    cota = {**(remoto.get("cota") or {})}
+    for dia, n in (local.get("cota") or {}).items():
+        cota[dia] = max(n, cota.get(dia, 0))
+    return {**remoto, **local, "momentos": ms, "clipes_vistos": vistos[-20000:], "cota": cota}
 
 
 def sincronizar(mensagem: str, tentativas: int = 6):
@@ -45,14 +72,17 @@ def sincronizar(mensagem: str, tentativas: int = 6):
 
     for i in range(tentativas):
         # 2) pega a versão mais nova do repositório
-        _git("fetch", "-q", "origin", "main")
+        if _git("fetch", "-q", "origin", "main", check=False).returncode != 0:
+            print(f"fetch falhou (tentativa {i + 1}), tentando de novo…")
+            time.sleep(5 + i * 5)
+            continue
         _git("reset", "-q", "--hard", "origin/main")
         # 3) junta
         PASTA_ESTADO.mkdir(exist_ok=True)
         for nome, local in estados.items():
             p = PASTA_ESTADO / nome
             remoto = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {"momentos": {}, "clipes_vistos": []}
-            p.write_text(json.dumps(juntar_estado(local, remoto), ensure_ascii=False, indent=1), encoding="utf-8")
+            gravar_json(p, juntar_estado(local, remoto))
         if thumbs:
             (PASTA_ESTADO / "thumbs").mkdir(exist_ok=True)
             for nome, dados in thumbs.items():
@@ -74,3 +104,15 @@ def sincronizar(mensagem: str, tentativas: int = 6):
         print(f"push recusado (tentativa {i + 1}), juntando de novo…")
         time.sleep(3 + i * 2)
     raise SystemExit("não consegui salvar a memória da máquina depois de várias tentativas")
+
+
+def salvar_agora(mensagem: str):
+    """Salva a memória no repositório no meio da rodada (logo depois de um envio pro YouTube),
+    para uma queda do runner nunca fazer a máquina postar o mesmo vídeo de novo. Fora do GitHub, não faz nada."""
+    import os
+    if os.getenv("GITHUB_ACTIONS") != "true":
+        return
+    try:
+        sincronizar(mensagem, tentativas=3)
+    except BaseException as e:  # SystemExit incluso: a rodada continua, o fim do job tenta de novo
+        print(f"  aviso: não consegui salvar a memória agora ({str(e)[:120]})")

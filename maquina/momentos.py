@@ -15,9 +15,24 @@ DEPOIS_SEG = 6      # sobra depois do último clipe
 JANELA_MAX = 95     # janela bruta máxima baixada (a IA recorta depois)
 
 
-def _score(views: int, n: int) -> float:
-    # vários clipeiros diferentes valem mais que um clipe com muita view
-    return views * (1 + 0.6 * (n - 1)) + 150 * math.log1p(n)
+def _score(views: int, n: int, clipadores: int | None = None) -> float:
+    """Força do momento: views em escala de log (um clipe de 5 mil não vale 50x um de 100)
+    × pessoas DIFERENTES que clicaram o mesmo trecho (consenso vale mais que uma pessoa clipando 3 vezes)."""
+    pessoas = clipadores if clipadores else n
+    return 100 * math.log10(max(views, 1) + 10) * (1 + 0.5 * (max(pessoas, 1) - 1))
+
+
+def score_atual(m: dict, agora_ts: float | None = None) -> float:
+    """Score que a fila usa agora: perde metade da força a cada ~12 h (momento fresco na frente)."""
+    import time
+    from datetime import datetime
+    agora_ts = agora_ts or time.time()
+    quando = m.get("clipado_em") or m.get("criado_em") or ""
+    try:
+        idade_h = max(0.0, (agora_ts - datetime.fromisoformat(quando.replace("Z", "+00:00")).timestamp()) / 3600)
+    except ValueError:
+        idade_h = 0.0
+    return m.get("score", 0) * math.exp(-idade_h / 18)
 
 
 def _vale(c: dict, jogos_ok: dict, jogos_palavra: dict, palavras: list[str]) -> bool:
@@ -66,7 +81,8 @@ def agrupar(clipes: list[dict], jogos_ok: dict[str, str], streamer: str, canal: 
             "video_id": None, "inicio": 0.0, "fim": float(c.get("duration", 30)),
             "clipe_url": c["url"], "clipe_ids": [c["id"]],
             "titulos_chat": [c.get("title", "")],
-            "views": c.get("view_count", 0), "n_clipes": 1,
+            "views": c.get("view_count", 0), "n_clipes": 1, "clipadores": 1,
+            **({"clipado_em": c["created_at"]} if c.get("created_at") else {}),
             "score": _score(c.get("view_count", 0), 1) * 0.7,  # penaliza: sem contexto
         })
 
@@ -86,6 +102,8 @@ def _fechar(grupo: list[dict], video_id: str, streamer: str, canal: str) -> dict
         fim = inicio + JANELA_MAX
     views = sum(c.get("view_count", 0) for c in grupo)
     titulos = sorted(grupo, key=lambda c: -c.get("view_count", 0))
+    clipadores = len({c.get("creator_name") or c.get("creator_id") or c["id"] for c in grupo})
+    clipado_em = max((c.get("created_at") or "" for c in grupo), default="")
     return {
         "id": f"{video_id}_{int(inicio)}",
         "streamer": streamer, "canal": canal,
@@ -93,8 +111,9 @@ def _fechar(grupo: list[dict], video_id: str, streamer: str, canal: str) -> dict
         "clipe_url": titulos[0]["url"],
         "clipe_ids": [c["id"] for c in grupo],
         "titulos_chat": [c.get("title", "") for c in titulos[:8]],
-        "views": views, "n_clipes": len(grupo),
-        "score": _score(views, len(grupo)),
+        "views": views, "n_clipes": len(grupo), "clipadores": clipadores,
+        **({"clipado_em": clipado_em} if clipado_em else {}),
+        "score": _score(views, len(grupo), clipadores),
         "jogo": titulos[0].get("_jogo", ""),
     }
 
@@ -126,7 +145,20 @@ def priorizar(m: dict) -> dict:
     if not m.get("_priorizado"):
         m["quadro"] = quadro(m)
         # react antigo de trailer conta menos que clipe fresco do GTA 6
-        peso = 1.5 if m.get("evento") else 3.0 if m["quadro"] == "gta6" else 1.0
+        # peso extra só quando o JOGO é GTA 6 de verdade ("Jason"/"Lucia" no título também aparecem no RP)
+        jogo_gta6 = (m.get("jogo") or "").lower().endswith(" vi")
+        peso = 1.0 if m.get("evento") else 2.0 if jogo_gta6 else 1.2 if m["quadro"] == "gta6" else 1.0
         m["score"] = m.get("score", 0) * peso
         m["_priorizado"] = True
+        m["score_v"] = 2
+    return m
+
+
+def reescalar(m: dict) -> dict:
+    """Momentos da fila antiga (score por views brutas) passam pra escala nova."""
+    if m.get("score_v") != 2 and m.get("status") == "novo" and not m.get("yt_asset"):
+        m["score"] = _score(m.get("views", 0), m.get("n_clipes", 1), m.get("clipadores"))
+        m["_priorizado"] = False
+        priorizar(m)
+        m["score_v"] = 2
     return m

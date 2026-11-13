@@ -52,6 +52,9 @@ def atualizar_numeros(cfg: Config):
                 r = yt.yt.videos().list(part="statistics,status", id=",".join(ids[i:i + 50])).execute()
                 for v in r.get("items", []):
                     s, st = v.get("statistics", {}), v.get("status", {})
+                    alvo = alvos[v["id"]]
+                    if "views_twitch" not in alvo and not alvo.get("numeros_em"):  # guarda as views do clipe original
+                        alvo["views_twitch"] = alvo.get("views", 0)
                     alvos[v["id"]].update(views=int(s.get("viewCount", 0)), likes=int(s.get("likeCount", 0)),
                                           comentarios=int(s.get("commentCount", 0)),
                                           privacidade=st.get("privacyStatus"), publicar_em=st.get("publishAt"),
@@ -105,7 +108,7 @@ def desbloquear(login: str):
 
 def adicionar_streamer(canal_id: str, login: str, nome: str):
     login = re.sub(r"[^a-z0-9_]", "", login.lower().strip())
-    nome = (nome or login).replace('"', "").strip()
+    nome = re.sub(r'["\\{}\[\]\n\r#:]', "", (nome or login)).strip()[:40] or login
     if not login:
         raise SystemExit("login vazio")
     linhas = _ler_config().split("\n")

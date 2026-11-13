@@ -21,7 +21,7 @@ jogos_com_palavra:
 # Vazamento e conteúdo adulto/sensível são barrados (filtro de palavras + IA).
 noticias:
   termos: ["GTA 6", "GTA VI", "Rockstar GTA"]
-  por_dia: 2                     # notícias do Google por dia (posts do X que você colar não contam)
+  por_dia: 0                     # notícias do Google por dia: 0 = desligado (davam 0 a 2 views). Posts do X que você colar continuam
   horarios: ["10:30", "20:30"]
   modelo: "qwen2.5:7b"           # IA maior só pras notícias: escreve português melhor
 
@@ -58,16 +58,25 @@ lancamento:
   janela_busca_horas: 24
   max_por_rodada: 4
   momento_minimo: { clipes: 2, views: 150, um_clipe_views: 400 }
-  jogos: ["Grand Theft Auto VI", "Grand Theft Auto V"]
+  nota_minima: 4                 # mais material bom no lançamento: aceita nota um pouco menor
+  max_por_streamer_dia: 3
+  jogos: ["Grand Theft Auto VI"]   # no lançamento é só GTA 6
   canais:
     br:
       horarios: ["09:00", "11:00", "13:00", "15:00", "17:00", "19:00", "21:00", "23:00"]   # 8 Shorts por dia
       descobrir_min_views: 300   # com muita gente jogando, só os clipes mais vistos
+      descobrir_jogos: ["Grand Theft Auto VI"]
 
 # Duração do Short final (segundos)
 duracao:            # Short certeiro: de 12 a 40 segundos
   minimo: 12
   maximo: 40
+
+# Curadoria: o Claude dá nota (0 a 9) vendo o vídeo: entende sem contexto + tem desfecho + emoção (0 a 3 cada).
+# Abaixo da nota mínima o momento é descartado ANTES de gastar tempo montando o vídeo.
+nota_minima: 5
+# Diversidade: no máximo isto de Shorts do mesmo streamer por dia (e nunca dois em menos de 6 h)
+max_por_streamer_dia: 2
 
 # Quantos Shorts produzir por rodada, em cada canal (a máquina roda a cada 3 horas)
 max_por_rodada: 3
@@ -95,7 +104,7 @@ canais:
     marca: assets/marca/cc.png       # monograma CC da identidade Vice
     cor_destaque: "#FF3D7F"   # rosa neon da identidade Vice
     fuso: "America/Sao_Paulo"
-    horarios: ["11:00", "13:30", "16:00", "18:00", "21:00"]   # 5 Shorts por dia
+    horarios: ["12:00", "18:00", "21:30"]   # curadoria: 3 Shorts bons por dia (no lançamento vira 8)
     horario_compilado: "19:30"   # Melhores do Dia (vídeo longo)
     horario_longo: "15:00"       # Corte longo (um momento com a live inteira em volta)
     hashtags: ["#gta6", "#gtavi", "#shorts"]

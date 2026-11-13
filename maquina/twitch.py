@@ -35,8 +35,15 @@ class Twitch:
         return {"Client-Id": self.client_id, "Authorization": f"Bearer {self._token}"}
 
     def _get(self, rota: str, params) -> dict:
-        for tentativa in range(4):
-            r = self.sessao.get(f"{API}/{rota}", headers=self._cabecalhos(), params=params, timeout=30)
+        for tentativa in range(5):
+            try:
+                r = self.sessao.get(f"{API}/{rota}", headers=self._cabecalhos(), params=params, timeout=30)
+            except requests.RequestException:  # rede caiu: espera e tenta de novo
+                time.sleep(3 * (tentativa + 1))
+                continue
+            if r.status_code >= 500:  # Twitch instável
+                time.sleep(3 * (tentativa + 1))
+                continue
             if r.status_code == 429:  # limite de requisições: espera e tenta de novo
                 espera = max(1, int(r.headers.get("Ratelimit-Reset", time.time() + 5)) - int(time.time()))
                 time.sleep(min(espera, 30))

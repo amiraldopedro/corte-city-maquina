@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
+        with: { python-version: "3.12", cache: "pip" }
       - run: pip install -q -r requirements-leve.txt
       - name: Pesquisar
         env:
@@ -28,9 +28,10 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
           TERMOS: ${{ inputs.termos }}
+          DIAS: ${{ inputs.dias }}
         run: |
           IFS=',' read -ra T <<< "$TERMOS"
-          python ferramentas/pesquisa_youtube.py "${T[@]}" --dias "${{ inputs.dias }}"
+          python ferramentas/pesquisa_youtube.py "${T[@]}" --dias "$DIAS"
       - name: Salvar
         run: |
           git config user.name "corte-city-bot"; git config user.email "bot@users.noreply.github.com"

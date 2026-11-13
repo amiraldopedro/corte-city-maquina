@@ -1,0 +1,17 @@
+name: Testes rápidos
+
+# Roda a cada mudança no código da máquina (~1 minuto, sem vídeo e sem internet)
+on:
+  push:
+    paths: ["maquina/**", "main.py", "testes/teste_unidades.py"]
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: "pip" }
+      - run: pip install -q -r requirements-leve.txt
+      - run: python testes/teste_unidades.py

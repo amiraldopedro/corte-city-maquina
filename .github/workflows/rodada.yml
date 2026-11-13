@@ -52,9 +52,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
+        with: { python-version: "3.12", cache: "pip" }
 
       - name: Caçar clipes na Twitch
+        continue-on-error: true   # Twitch fora do ar não impede de produzir o que já está na fila
         run: |
           pip install -q -r requirements-leve.txt
           if [ -z "$TWITCH_CLIENT_ID" ]; then echo "Chaves da Twitch ainda não configuradas — pulando."; exit 0; fi
@@ -76,24 +77,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            /home/runner/.ollama/models
             .cache/whisper
             .cache/torch
           key: modelos-${{ hashFiles('config.yaml') }}
           restore-keys: modelos-
 
-      - name: Ligar a IA gratuita (Ollama)
-        if: steps.fila.outputs.tem == 'sim'
-        continue-on-error: true   # se falhar, a máquina usa o plano B com regras
-        run: |
-          curl -fsSL https://ollama.com/install.sh | sh
-          sudo systemctl stop ollama 2>/dev/null || true
-          nohup ollama serve > /tmp/ollama.log 2>&1 &
-          sleep 5
-          MODELO=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['ia']['modelo'])")
-          ollama pull "$MODELO"
-
       - name: Ligar o Claude (se a chave CLAUDE_CODE_OAUTH_TOKEN estiver nos Secrets)
+        if: steps.fila.outputs.tem == 'sim'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}
         run: |

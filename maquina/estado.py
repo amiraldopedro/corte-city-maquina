@@ -56,7 +56,8 @@ class Estado:
                         x["titulos_chat"] = (x.get("titulos_chat", []) + m.get("titulos_chat", []))[:8]
                         x["inicio"] = min(x["inicio"], m["inicio"])
                         x["fim"] = min(max(x["fim"], m["fim"]), x["inicio"] + JANELA_MAX)
-                        x["score"] = _score(x["views"], x["n_clipes"])
+                        x["clipadores"] = x.get("clipadores", 1) + m.get("clipadores", 1)
+                        x["score"] = _score(x["views"], x["n_clipes"], x["clipadores"])
                         x["atualizado_em"] = agora()
                     return False
         m = {**m, "status": "novo", "criado_em": agora()}
@@ -67,8 +68,9 @@ class Estado:
         self.momentos[mid].update(campos, atualizado_em=agora())
 
     def por_status(self, status: str) -> list[dict]:
+        from .momentos import score_atual
         lista = [m for m in self.momentos.values() if m["status"] == status]
-        return sorted(lista, key=lambda m: (not m.get("prioridade"), -m.get("score", 0)))
+        return sorted(lista, key=lambda m: (not m.get("prioridade"), -score_atual(m)))
 
     def do_streamer(self, login: str) -> list[dict]:
         return [m for m in self.momentos.values() if m["streamer"] == login]
@@ -87,4 +89,12 @@ class Estado:
             for m in velhos[: len(ms) - MAX_GUARDADOS]:
                 ms.pop(m["id"], None)
         self.dados["clipes_vistos"] = sorted(self._vistos)[-20000:]
-        self.caminho.write_text(json.dumps(self.dados, ensure_ascii=False, indent=1), encoding="utf-8")
+        gravar_json(self.caminho, self.dados)
+
+
+def gravar_json(caminho, dados):
+    """Grava sem risco de deixar o arquivo pela metade (escreve num temporário e troca de uma vez)."""
+    import os
+    tmp = caminho.with_suffix(caminho.suffix + ".tmp")
+    tmp.write_text(json.dumps(dados, ensure_ascii=False, indent=1), encoding="utf-8")
+    os.replace(tmp, caminho)

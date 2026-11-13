@@ -2,7 +2,7 @@ name: Compilado (Melhores do Dia / Top 10)
 
 on:
   schedule:
-    - cron: "41 20 * * *"   # todo dia 17:41 de Brasília -> Melhores do Dia
+    - cron: "41 20 19-26 11 *"   # semana do lançamento: todo dia 17:41 de Brasília -> Melhores do Dia
     - cron: "23 13 * * 0"   # domingo 10:23 de Brasília -> Top 10 da Semana
   workflow_dispatch:
     inputs:
@@ -30,7 +30,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
+        with: { python-version: "3.12", cache: "pip" }
       - name: Instalar ferramentas
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
@@ -42,7 +42,6 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            /home/runner/.ollama/models
             .cache/whisper
             .cache/torch
           key: modelos-longo-${{ hashFiles('config.yaml') }}
@@ -50,15 +49,6 @@ jobs:
             modelos-longo-
             modelos-
 
-      - name: Ligar a IA gratuita (Ollama)
-        continue-on-error: true
-        run: |
-          curl -fsSL https://ollama.com/install.sh | sh
-          sudo systemctl stop ollama 2>/dev/null || true
-          nohup ollama serve > /tmp/ollama.log 2>&1 &
-          sleep 5
-          MODELO=$(python -c "import yaml;print(yaml.safe_load(open('config.yaml'))['ia']['modelo'])")
-          ollama pull "$MODELO"
       - name: Ligar o Claude (se a chave CLAUDE_CODE_OAUTH_TOKEN estiver nos Secrets)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}
@@ -75,13 +65,16 @@ jobs:
           WHISPER_CACHE: ${{ github.workspace }}/.cache/whisper
           TORCH_HOME: ${{ github.workspace }}/.cache/torch
           OLLAMA_MODELS: /home/runner/.ollama/models
+          TIPO_PEDIDO: ${{ inputs.tipo }}
+          EVENTO: ${{ inputs.evento }}
+          AGENDA: ${{ github.event.schedule }}
         run: |
-          TIPO="${{ inputs.tipo }}"
+          TIPO="$TIPO_PEDIDO"
           if [ -z "$TIPO" ]; then
-            if [ "${{ github.event.schedule }}" = "23 13 * * 0" ]; then TIPO=top10; else TIPO="dia longo"; fi
+            if [ "$AGENDA" = "23 13 * * 0" ]; then TIPO=top10; else TIPO=dia; fi
           fi
           for T in $TIPO; do
-            python main.py compilado "$T" --evento "${{ inputs.evento }}" || echo "::warning::$T falhou"
+            python main.py compilado "$T" --evento "$EVENTO" || echo "::warning::$T falhou"
           done
       - name: Salvar memória da máquina
         if: always()
