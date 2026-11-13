@@ -377,6 +377,14 @@ def produzir(cfg: Config):
                 if m["streamer"] in cfg.bloqueados:
                     est.atualizar(m["id"], status="descartado", motivo="streamer bloqueado")
                     continue
+                if m.get("evento") and not TESTE:
+                    feitos_evento = [x for x in est.momentos.values() if x.get("evento") and x["status"] in ("pronto", "postado")]
+                    if any(x["streamer"] == m["streamer"] and x["evento"] == m["evento"] for x in feitos_evento):
+                        est.atualizar(m["id"], status="descartado", motivo="mesmo streamer já reagiu a esse evento num vídeo")
+                        continue
+                    hoje = datetime.now(timezone.utc).date().isoformat()
+                    if any((x.get("feito_em") or "")[:10] == hoje for x in feitos_evento):
+                        continue  # no máximo 1 react de trailer por dia: fica pra amanhã
                 tentativas += 1
                 try:
                     feitos += produzir_um(cfg, canal, est, m, yt)

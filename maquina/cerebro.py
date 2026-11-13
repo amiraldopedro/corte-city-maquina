@@ -150,6 +150,7 @@ ESTRANHAS = re.compile(r"\b(venir|pero|muy|cuando|ahora|también|aquí|hay|qué)
 
 def _limpar_titulo(t: str) -> str:
     t = re.sub(r"#\w+", "", t or "").strip().strip('"').strip()
+    t = re.sub(r"^[.…\s]+|[.…\s]+$", "", t).strip(" '\"")  # tira "..." do começo/fim
     letras = [c for c in t if c.isalpha()]
     if letras and sum(c.isupper() for c in letras) > 0.6 * len(letras):  # título gritando: vira normal
         palavras = t.lower().split()
