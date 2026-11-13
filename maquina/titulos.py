@@ -14,6 +14,7 @@ from datetime import datetime, timedelta, timezone
 ESPANHOL = re.compile(r"\b(venir|pero|muy|cuando|ahora|también|aquí|hay|qué|está aquí|lo que|el nuevo|nuevo|"
                       r"juego|todos los|mejor|increíble|tráiler)\b", re.I)
 QUEBRADO = re.compile(r"^\W|\.\.\.$|…$|\?\?|!!|\b(\w+) \1\b", re.I)
+GIRIA_DE_CHAT = re.compile(r"\b(msm|vc|vcs|tb|tbm|pq|mds|slk|kk+|kkk+|lol|lmao|0\.o|o\.o|xd)\b", re.I)
 PROIBIDAS = re.compile(r"\b(clickbait|short|shorts|vídeo|video|inscreva|subscribe)\b|#", re.I)
 PALAVRAS_VAZIAS = set("""a o as os um uma de do da dos das no na nos nas em e é que com por pra para ao à se
 seu sua the of in to and is on at for with gta 6 vi rp live ele ela isso esse essa""".split())
@@ -77,6 +78,8 @@ def ruim(t: str, nome: str = "") -> str:
         return "quebrado"
     if PROIBIDAS.search(t):
         return "palavra proibida"
+    if GIRIA_DE_CHAT.search(t):
+        return "parece título de chat"
     letras = [c for c in t if c.isalpha()]
     if letras and sum(c.isupper() for c in letras) > 0.5 * len(letras):
         return "caixa alta"
