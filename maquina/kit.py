@@ -137,6 +137,7 @@ def folhas_de_quadros(arquivo: Path, inicio: float, fim: float, pasta: Path, por
     tempos = [inicio + dur * (k + 0.5) / total for k in range(total)]
     fonte = ImageFont.truetype(str(FONTES / "Inter-ExtraBold.ttf"), 30)
     folhas = []
+    lidos = 0
     for f in range(0, total, por_folha):
         folha = Image.new("RGB", (4 * 480, 4 * 270), (0, 0, 0))
         d = ImageDraw.Draw(folha)
@@ -144,6 +145,7 @@ def folhas_de_quadros(arquivo: Path, inicio: float, fim: float, pasta: Path, por
             img = frame_em(arquivo, t)
             if img is None:
                 continue
+            lidos += 1
             q = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB)).resize((480, 270))
             x, y = (k % 4) * 480, (k // 4) * 270
             folha.paste(q, (x, y))
@@ -152,4 +154,6 @@ def folhas_de_quadros(arquivo: Path, inicio: float, fim: float, pasta: Path, por
         destino = pasta / f"folha_{len(folhas) + 1}.jpg"
         folha.save(destino, quality=82)
         folhas.append(destino)
+    if lidos < total // 2:  # não conseguiu ler o vídeo: folha preta só confundiria a IA
+        return []
     return folhas

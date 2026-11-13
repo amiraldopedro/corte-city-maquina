@@ -245,7 +245,8 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     if os.getenv("CLAUDE_CODE_OAUTH_TOKEN"):  # o Claude "vê" o vídeo por folhas de quadros
         try:
             from maquina.kit import folhas_de_quadros
-            folhas = folhas_de_quadros(bruto, m["inicio"], m["fim"], PASTA_PRONTOS / "folhas" / m["id"])
+            # o arquivo baixado já começa no início do momento: os segundos vão de 0 até a duração da janela
+            folhas = folhas_de_quadros(bruto, 0.0, editar.info_video(bruto)[2], PASTA_PRONTOS / "folhas" / m["id"])
         except Exception as e:
             log(f"    aviso: folhas de quadros falharam ({str(e)[:100]})")
     d = cerebro.decidir(m, palavras, texto_com_tempos(palavras), nome, canal.idioma,
