@@ -63,7 +63,7 @@ jobs:
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}
         run: |
-          if [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then npm install -g @anthropic-ai/claude-code >/dev/null 2>&1 && echo "Claude ligado"; else echo "Sem chave do Claude: usando só o Ollama"; fi
+          if [ -n "$CLAUDE_CODE_OAUTH_TOKEN" ]; then (npm install -g @anthropic-ai/claude-code >/dev/null 2>&1 || (sleep 20; npm install -g @anthropic-ai/claude-code >/dev/null 2>&1)) && echo "Claude ligado" || echo "Claude não instalou agora: usando o Ollama"; else echo "Sem chave do Claude: usando só o Ollama"; fi
       - name: Montar e postar
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}
