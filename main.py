@@ -274,6 +274,11 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
     info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque,
                                chamada=d.get("chamada", ""), pico=pico, audio=voz, etiqueta=etiqueta_do(m))
+    try:
+        if editar.abrir_no_pico(final, pico - d["inicio"]):
+            log("    abertura no pico: o 1º segundo mostra o momento mais forte")
+    except Exception as e:
+        log(f"    aviso: abertura no pico falhou ({str(e)[:100]})")
     from maquina.baixar import MUDO_DB, volume_maximo
     if volume_maximo(final) <= MUDO_DB:
         raise RuntimeError("o vídeo final ficou sem som — não vou entregar")

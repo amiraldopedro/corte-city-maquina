@@ -233,3 +233,24 @@ def momento_mais_alto(bruto: Path, inicio: float, fim: float) -> float:
     n = amostras.size // janela
     rms = np.sqrt((amostras[: n * janela].reshape(n, janela) ** 2).mean(axis=1))
     return inicio + float(np.argmax(rms)) * 0.5 + 0.25
+
+
+def abrir_no_pico(final: Path, pico_rel: float, duracao_teaser: float = 1.1) -> bool:
+    """"Cold open": os primeiros ~1 s do Short mostram o pico (grito, batida) e só depois vem o começo.
+    É o que os cortes que viralizam fazem pra pessoa não passar o vídeo. Só vale se o pico estiver longe do início."""
+    _, _, dur = info_video(final)
+    if pico_rel < 3.0 or pico_rel > dur - 1.0:
+        return False
+    a = max(0.0, pico_rel - 0.35)
+    b = min(dur, a + duracao_teaser)
+    saida = final.with_name(final.stem + ".cold.mp4")
+    filtro = (f"[0:v]trim={a:.2f}:{b:.2f},setpts=PTS-STARTPTS,"
+              f"drawbox=x=0:y=0:w=iw:h=ih:color=0x{M.hexa(M.ROSA).lstrip('#')}@0.25:t=fill:enable='lt(t,0.07)'[tv];"
+              f"[0:a]atrim={a:.2f}:{b:.2f},asetpts=PTS-STARTPTS[ta];"
+              f"[0:v]setpts=PTS-STARTPTS[mv];[0:a]asetpts=PTS-STARTPTS[ma];"
+              f"[tv][ta][mv][ma]concat=n=2:v=1:a=1[v][a]")
+    rodar(["ffmpeg", "-y", "-loglevel", "error", "-i", str(final), "-filter_complex", filtro,
+           "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+           "-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-movflags", "+faststart", str(saida)])
+    saida.replace(final)
+    return True

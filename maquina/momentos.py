@@ -8,6 +8,7 @@ e somamos as views. Cada grupo vira um momento com uma janela de vídeo real
 from __future__ import annotations
 
 import math
+import re
 
 JUNTAR_SEG = 40     # clipes com início até 40s de distância = mesmo momento
 ANTES_SEG = 10      # contexto antes do primeiro clipe (o setup da piada)
@@ -140,6 +141,11 @@ def quadro(m: dict) -> str:
     return "classicos"
 
 
+# o que mais roda na semana do lançamento (primeiras reações, bugs, comparações, segredos, dinheiro)
+TEMAS_LANCAMENTO = re.compile(r"bug|glitch|f[ií]sica|pol[ií]cia|carro|primeir|rea[çc][ãa]o|reagindo|segredo|easter|"
+                              r"escondid|gta ?5|gta ?v\b|compar|dinheiro|mapa|npc|tubar|jacar|crocodil", re.I)
+
+
 def priorizar(m: dict) -> dict:
     """GTA 6 sempre na frente da fila (o canal é sobre o GTA 6)."""
     if not m.get("_priorizado"):
@@ -148,6 +154,8 @@ def priorizar(m: dict) -> dict:
         # peso extra só quando o JOGO é GTA 6 de verdade ("Jason"/"Lucia" no título também aparecem no RP)
         jogo_gta6 = (m.get("jogo") or "").lower().endswith(" vi")
         peso = 1.0 if m.get("evento") else 2.0 if jogo_gta6 else 1.2 if m["quadro"] == "gta6" else 1.0
+        if jogo_gta6 and TEMAS_LANCAMENTO.search(" ".join(m.get("titulos_chat", []))):
+            peso *= 1.3  # tema que o público procura no lançamento
         m["score"] = m.get("score", 0) * peso
         m["_priorizado"] = True
         m["score_v"] = 2
