@@ -45,8 +45,8 @@ janela_busca_horas: 72
 # Um "momento" só vira vídeo se tiver pelo menos isto:
 momento_minimo:
   clipes: 2            # clipes diferentes no mesmo trecho da live...
-  views: 100           # ...somando pelo menos estas views
-  um_clipe_views: 150  # ou 1 clipe sozinho com estas views (pré-lançamento: as lives de GTA estão fracas)
+  views: 40            # ...somando pelo menos estas views
+  um_clipe_views: 60   # ou 1 clipe sozinho com estas views (pré-lançamento: lives de GTA fracas; a nota do Claude filtra o resto)
 
 # ------------------------------------------------------------
 #  MODO LANÇAMENTO DO GTA 6 (liga sozinho no dia "data", horário de Brasília)
@@ -114,7 +114,7 @@ canais:
     descobrir:
       jogos: ["Grand Theft Auto V", "Grand Theft Auto VI"]
       idioma: pt
-      min_views: 150
+      min_views: 80
     playlists:
       shorts: "Melhores Momentos de GTA 6"
       gta6: "GTA 6: Reações e Primeiros Momentos"
