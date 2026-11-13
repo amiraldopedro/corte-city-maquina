@@ -619,7 +619,7 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
     if post["id"] in est.momentos and est.momentos[post["id"]].get("status") in ("pronto", "postado"):
         log(f"  post já foi feito: {link}")
         return
-    base = {"id": post["id"], "streamer": "*", "canal": canal.id, "tipo": "noticia", "quadro": "noticias",
+    base = {"id": post["id"], "streamer": "*", "canal": canal.id, "tipo": "noticia", "quadro": "comunidade",
             "origem": "x", "fonte": post["fonte"], "link": post["link"], "criado_em": agora()}
     ok, motivo = xposts.seguro(post)
     if not ok:
@@ -632,16 +632,21 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
     titulo = ""
     try:
         r = cerebro._perguntar_ollama(cfg.ia_endereco, cfg.noticias.get("modelo") or cfg.ia_modelo,
-            f'Escreva um título de YouTube Shorts em português do Brasil, de 40 a 65 caracteres, sobre este post do X '
-            f'feito por {autor}. Comece com "GTA 6:" se o post for sobre GTA 6. Não invente nada que não está no post. '
+            f'Escreva um título de YouTube Shorts em português do Brasil, de 40 a 65 caracteres, para este post da comunidade '
+            f'do GTA 6 no X, feito por {autor}. Pode ser meme, opinião, teoria ou novidade: o título acompanha o tom do post '
+            f'(se for meme, título engraçado). Comece com "GTA 6:". Não invente nada que não está no post. '
             f'Post: "{post["texto"][:600]}". Responda só com JSON: {{"titulo": "..."}}')
         titulo = cerebro._limpar_titulo(str(r.get("titulo", "")))
     except Exception as e:
         log(f"  IA fora para o título, usando o padrão ({str(e)[:80]})")
     if len(titulo) < 20 or cerebro.ESTRANHAS.search(titulo):
         resumo = re.sub(r"\s+", " ", post["texto"])[:48].rstrip(" ,.;:") or "olha isso"
-        titulo = f"{autor} sobre o GTA 6: {resumo}"[:90]
-    chamada = (f"{autor[:18]} POSTOU" if canal.idioma == "pt" else f"{autor[:18]} POSTED").upper()
+        titulo = f"GTA 6: {resumo}"[:90]
+    import random
+    oficial = post["perfil"].lower() in ("rockstargames", "rockstarsupport", "take2interactive")
+    chamada = ((f"{autor[:18]} POSTOU" if oficial else random.choice(
+        ["OLHA O QUE POSTARAM", "A COMUNIDADE TÁ ASSIM", "VIU ISSO NO X?", "O X TÁ FALANDO DISSO"]))
+        if canal.idioma == "pt" else (f"{autor[:18]} POSTED" if oficial else "SEEN THIS ON X?")).upper()
     narrar = None
     if post["idioma"] == canal.idioma and not any(m["tipo"] == "video" for m in post["midias"]):
         narrar = lambda texto, destino: noticias.narrar(texto, canal.idioma, destino)
@@ -659,8 +664,8 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
     rotulo = "Post original" if canal.idioma == "pt" else "Original post"
     descricao = (f"{titulo}\n\n“{post['texto'][:900]}”\n— {post['fonte']}\n\n{rotulo}: {post['link']}\n\n"
                  + " ".join(canal.hashtags))
-    tags = list(dict.fromkeys([autor.lower(), post["perfil"].lower(), "gta 6", "gta vi", "noticias gta 6",
-                               "gta 6 novidades", "rockstar games"]))[:15]
+    tags = list(dict.fromkeys([autor.lower(), post["perfil"].lower(), "gta 6", "gta vi", "gta 6 memes",
+                               "comunidade gta 6", "gta 6 novidades", "rockstar games"]))[:15]
     from maquina.entrega import entregar
     est.momentos[post["id"]] = {**base, "status": "pronto", "titulo": titulo, "descricao": descricao, "tags": tags,
                                "feito_em": agora(), "duracao": dur, **entregar(final, capa, post["id"])}
@@ -670,7 +675,7 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
         quando = proximo_horario(cfg.noticias.get("horarios", ["10:30", "20:30"]) + canal.horarios, canal.fuso, ocupados)
         vid = yt.enviar(final, titulo, descricao, tags, canal.idioma, quando, capa)
-        yt.por_na_playlist(vid, canal.playlists.get("noticias", ""))
+        yt.por_na_playlist(vid, canal.playlists.get("comunidade") or canal.playlists.get("noticias", ""))
         est.momentos[post["id"]].update(status="postado", youtube_id=vid, publicar_em=quando, postado_em=agora())
         log(f"  ✅ post do X agendado para {quando}: https://youtu.be/{vid}")
     est.salvar()

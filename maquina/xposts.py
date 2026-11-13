@@ -79,11 +79,20 @@ def buscar(link: str) -> dict:
     }
 
 
+VAZAMENTO = re.compile(r"vaza|vazou|vazad|leak|datamin|build interna|source code|código fonte", re.I)
+SENSIVEL = re.compile(r"nsfw|porn|nud[eo]|sexo|sexual|onlyfans|\+18|18\+|nazi|suic|estupr|pedof|"
+                      r"morte de|morreu|assassin|tiroteio real|atentado", re.I)
+
+
 def seguro(post: dict) -> tuple[bool, str]:
+    """Conversa sobre leaker/vazamento pode (meme, opinião). O que não pode é MOSTRAR material vazado:
+    post que fala de vazamento E traz foto/vídeo é barrado. Adulto/sensível é sempre barrado."""
     if post["sensivel"]:
         return False, "o X marcou como conteúdo sensível"
-    if bloqueado(post["texto"]):
-        return False, "fala de vazamento ou assunto sensível"
+    if SENSIVEL.search(post["texto"]):
+        return False, "assunto sensível"
+    if VAZAMENTO.search(post["texto"]) and post["midias"]:
+        return False, "fala de vazamento e traz imagem/vídeo (pode ser o material vazado)"
     return True, ""
 
 

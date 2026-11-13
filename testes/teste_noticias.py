@@ -26,9 +26,9 @@ xposts._baixar = baixar_falso
 def post(link):
     pid = xposts.id_do_post(link)
     midias = {"1": [{"tipo": "video", "url": "https://v/1.mp4"}], "2": [{"tipo": "foto", "url": "https://p/1.jpg"}, {"tipo": "foto", "url": "https://p/2.jpg"}],
-              "3": [], "4": [{"tipo": "foto", "url": "https://p/x.jpg"}]}[pid]
+              "3": [], "4": [{"tipo": "foto", "url": "https://p/x.jpg"}], "5": []}[pid]
     return {"id": "x_" + pid, "origem": "x", "link": link, "autor": "Rockstar Games", "perfil": "RockstarGames", "avatar": "https://a/a.jpg",
-            "verificado": True, "texto": "Faltam 6 dias para Grand Theft Auto VI. Pré-carregamento liberado dia 17 de novembro." if pid != "4" else "mapa vazado do gta 6",
+            "verificado": True, "texto": {"4": "mapa vazado do gta 6", "5": "esse leaker do gta 6 de novo kkkkk ninguém aguenta mais"}.get(pid, "Faltam 6 dias para Grand Theft Auto VI. Pré-carregamento liberado dia 17 de novembro."),
             "idioma": "pt", "data": "2026-11-13T12:00:00.000Z", "curtidas": 254000, "sensivel": False, "midias": midias,
             "fonte": "Rockstar Games (@RockstarGames)", "titulo_fonte": ""}
 xposts.buscar = post
@@ -53,12 +53,13 @@ class YT:
 youtube.YouTube = YT
 os.environ.update(TWITCH_CLIENT_ID="x", TWITCH_CLIENT_SECRET="x", YT_CLIENT_ID="x", YT_CLIENT_SECRET="x", YT_REFRESH_TOKEN_BR="x")
 
-main.fazer_noticias(carregar(), [f"https://x.com/RockstarGames/status/{i}" for i in (1, 2, 3, 4)])
+main.fazer_noticias(carregar(), [f"https://x.com/RockstarGames/status/{i}" for i in (1, 2, 3, 4, 5)])
 ms = Estado("br").momentos
 print({k: v["status"] for k, v in ms.items()})
 assert ms["news_b"]["status"] == "descartado", "vazamento passou!"
 assert all(ms[f"x_{i}"]["status"] == "postado" for i in (1, 2, 3)), "post do X não postou"
-assert ms["x_4"]["status"] == "descartado", "post de vazamento passou!"
+assert ms["x_4"]["status"] == "descartado", "post com material vazado passou!"
+assert ms["x_5"]["status"] == "postado", "meme sobre leaker (sem material) devia passar"
 assert "Post original: https://x.com/RockstarGames/status/1" in ms["x_1"]["descricao"]
 assert ms["news_a"]["status"] == "postado" and ms["news_c"]["status"] == "postado"
 assert "news_d" not in ms, "passou do limite de 2 notícias por dia"
