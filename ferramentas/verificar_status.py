@@ -25,5 +25,5 @@ for m in sorted(ms, key=lambda x: x.get("publicar_em") or ""):
             estado += f" REJEITADO: {s.get('rejectionReason')}"
     resumo[estado.split()[0]] = resumo.get(estado.split()[0], 0) + 1
     views = (v or {}).get("statistics", {}).get("viewCount", "-")
-    print(f"{estado:45} | {views:>7} views | {m.get('publicar_em', '')[:16]} | {m.get('titulo', '')[:60]}")
+    print(f"{estado:45} | {views:>7} views | {(m.get('publicar_em') or '')[:16]} | {(m.get('titulo') or '')[:60]}")
 print("RESUMO:", resumo)
