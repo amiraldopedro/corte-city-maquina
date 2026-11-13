@@ -14,7 +14,7 @@
    "titulos_chat": [
     "dourada"
    ],
-   "views": 44,
+   "views": 84,
    "n_clipes": 1,
    "score": 617.9720770839917,
    "teste": true,
@@ -36,10 +36,10 @@
    "duracao": 41.5,
    "prioridade": false,
    "atualizado_em": "2026-11-12T15:59:22+00:00",
-   "likes": 2,
+   "likes": 4,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T01:16:50+00:00"
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -159,7 +159,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 1"
    ],
-   "views": 253,
+   "views": 790,
    "n_clipes": 1,
    "score": 761.9720770839917,
    "jogo": "Grand Theft Auto V",
@@ -198,10 +198,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2924173618_4957.jpg",
    "thumb_asset": 740569626,
    "atualizado_em": "2026-11-12T22:22:09+00:00",
-   "likes": 10,
+   "likes": 20,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T01:16:50+00:00",
+   "numeros_em": "2026-11-13T06:04:03+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -221,7 +221,7 @@
    "titulos_chat": [
     "patetadas #2 - parte 2"
    ],
-   "views": 3,
+   "views": 80,
    "n_clipes": 1,
    "score": 496.9720770839918,
    "jogo": "Grand Theft Auto V",
@@ -263,7 +263,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T01:16:50+00:00",
+   "numeros_em": "2026-11-13T06:04:03+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -289,13 +289,50 @@
    "evento": "Trailer 1 do GTA 6",
    "nome": "Paulinho O Loko",
    "jogo": "Just Chatting",
-   "status": "novo",
+   "status": "postado",
    "criado_em": "2026-11-12T20:43:35+00:00",
    "usado_em": [
     "dia"
    ],
-   "atualizado_em": "2026-11-13T06:03:48+00:00",
-   "prioridade": true
+   "atualizado_em": "2026-11-13T06:10:04+00:00",
+   "tipo": "short",
+   "titulo": "Paulinho O Loko reagindo ao Trailer 1 do GTA 6 - 'Não esperava isso'",
+   "gancho": "SOCORRO",
+   "descricao": "Paulinho O Loko reagindo ao Trailer 1 do GTA 6 - 'Não esperava isso'\nCorte do streamer reagindo ao trailer do GTA 6, Paulinho O Loko e seu público surpreendidos pela novidade\n\n🎮 Live original: https://twitch.tv/paulinholokobr\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "paulinho o loko",
+    "gta 6",
+    "cortes gta",
+    "reagindo gta 6",
+    "momento engraçado",
+    "gta rp",
+    "trailer gta 6",
+    "viral",
+    "paulinho o loko live",
+    "live",
+    "cortes",
+    "shorts"
+   ],
+   "youtube_id": "FyCfCgtakvo",
+   "publicar_em": "2026-11-13T19:00:00Z",
+   "postado_em": "2026-11-13T06:10:04+00:00",
+   "feito_em": "2026-11-13T06:10:04+00:00",
+   "corte": [
+    8.0,
+    30.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 7,
+   "quadro": null,
+   "duracao": 22.0,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq.mp4",
+   "video_asset": 742510055,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq.jpg",
+   "thumb_asset": 742510109,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_StrangeAmusedLionDatSheffy-WakJPGV6ULp8r1rq_kit.zip"
   },
   "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK": {
    "id": "clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK",
@@ -317,12 +354,53 @@
    "evento": "Trailer 1 do GTA 6",
    "nome": "Paulinho O Loko",
    "jogo": "Just Chatting",
-   "status": "novo",
+   "status": "postado",
    "criado_em": "2026-11-12T20:43:35+00:00",
    "usado_em": [
     "dia"
    ],
-   "atualizado_em": "2026-11-12T21:53:53+00:00"
+   "atualizado_em": "2026-11-13T06:15:33+00:00",
+   "tipo": "short",
+   "titulo": "...Paulinho O Loko reagindo ao Trailer 1 do GTA 6...",
+   "gancho": "SOCORRO",
+   "descricao": "...Paulinho O Loko reagindo ao Trailer 1 do GTA 6...\nLive Paulinho O Loko reagindo ao Trailer do GTA 6. Cortes engraçados de um dos streamers mais populares da cidade alta.\n\n🎮 Live original: https://twitch.tv/paulinholokobr\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "paulinhooloko",
+    "gta6",
+    "cortesrp",
+    "reagindo",
+    "trailergta6",
+    "gta6rp",
+    "streamingbr",
+    "paulinho o loko",
+    "paulinho o loko live",
+    "live",
+    "gta rp",
+    "gta 6",
+    "cortes",
+    "cortes gta",
+    "shorts"
+   ],
+   "youtube_id": "wNEIZSp92AY",
+   "publicar_em": "2026-11-14T00:00:00Z",
+   "postado_em": "2026-11-13T06:15:33+00:00",
+   "feito_em": "2026-11-13T06:15:33+00:00",
+   "corte": [
+    8.0,
+    30.01
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 7,
+   "quadro": null,
+   "duracao": 22.0,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK.mp4",
+   "video_asset": 742522059,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK.jpg",
+   "thumb_asset": 742522174,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_BoxyTolerantBibimbapDoggo-gXfhnkMh7o0UzmBK_kit.zip"
   },
   "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0": {
    "id": "clip_AbnegatePlausibleOysterSoBayed-b3v0H1WvE-mUYGy0",
@@ -383,7 +461,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:16:50+00:00"
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -399,7 +477,7 @@
    "titulos_chat": [
     "Trailer do GTA VI"
    ],
-   "views": 0,
+   "views": 2,
    "n_clipes": 1,
    "score": 449.3804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -451,7 +529,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:16:50+00:00"
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -517,7 +595,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:16:50+00:00"
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4": {
    "id": "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
@@ -539,12 +617,48 @@
    "evento": "novo adiamento do GTA 6",
    "nome": "Alanzoka",
    "jogo": "Just Chatting",
-   "status": "novo",
+   "status": "postado",
    "criado_em": "2026-11-12T20:43:51+00:00",
    "usado_em": [
     "dia"
    ],
-   "atualizado_em": "2026-11-12T21:53:53+00:00"
+   "atualizado_em": "2026-11-13T06:12:38+00:00",
+   "tipo": "short",
+   "titulo": "...Alanzoka reagindo ao novo adiamento do GTA 6...",
+   "gancho": "MENTIRA",
+   "descricao": "...Alanzoka reagindo ao novo adiamento do GTA 6...\nLive Alanzoka reagindo ao adiamento do GTA 6. Veja a reação do streamer.\n\n🎮 Live original: https://twitch.tv/alanzoka\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "alanzoka",
+    "gta 6",
+    "adiamento",
+    "reagindo",
+    "alanzoka live",
+    "live",
+    "gta rp",
+    "cortes",
+    "cortes gta",
+    "shorts"
+   ],
+   "youtube_id": "rjNCWTHlAkk",
+   "publicar_em": "2026-11-13T21:00:00Z",
+   "postado_em": "2026-11-13T06:12:38+00:00",
+   "feito_em": "2026-11-13T06:12:38+00:00",
+   "corte": [
+    8.0,
+    31.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 7,
+   "quadro": null,
+   "duracao": 23.5,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4.mp4",
+   "video_asset": 742515610,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4.jpg",
+   "thumb_asset": 742515695,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4_kit.zip"
   },
   "dia_20261112": {
    "id": "dia_20261112",
@@ -594,7 +708,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:16:50+00:00"
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "longo_2924173618_4957": {
    "id": "longo_2924173618_4957",
@@ -639,7 +753,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:16:50+00:00"
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "news_8c0d2803c305": {
    "id": "news_8c0d2803c305",
@@ -886,7 +1000,12 @@
    "thumb_asset": 741852128,
    "youtube_id": "FpMPtyN6G9U",
    "publicar_em": "2026-11-14T18:00:00Z",
-   "postado_em": "2026-11-13T01:48:18+00:00"
+   "postado_em": "2026-11-13T01:48:18+00:00",
+   "views": 0,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "news_c8863f71d3b2": {
    "id": "news_c8863f71d3b2",
@@ -919,7 +1038,12 @@
    "thumb_asset": 741861289,
    "youtube_id": "blMGDg_4hx8",
    "publicar_em": "2026-11-13T13:30:00Z",
-   "postado_em": "2026-11-13T01:50:54+00:00"
+   "postado_em": "2026-11-13T01:50:54+00:00",
+   "views": 1,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   },
   "news_876c7d48334f": {
    "id": "news_876c7d48334f",
@@ -952,7 +1076,12 @@
    "thumb_asset": 741865482,
    "youtube_id": "Nh9AppEFNZc",
    "publicar_em": "2026-11-13T23:30:00Z",
-   "postado_em": "2026-11-13T01:52:13+00:00"
+   "postado_em": "2026-11-13T01:52:13+00:00",
+   "views": 0,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T06:04:03+00:00"
   }
  },
  "clipes_vistos": [
