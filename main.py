@@ -557,7 +557,7 @@ def fazer_noticias(cfg: Config, links: list[str]):
                 novas = [n for n in noticias.google_noticias(conf.get("termos", ["GTA 6", "GTA VI"]), canal.idioma)
                          if n["id"] not in est.momentos]
                 log(f"  Google Notícias: {len(novas)} notícias novas de GTA 6")
-                fila += novas
+                fila += novas[: vagas * 4]  # não gasta tempo de IA com notícia demais
             except Exception as e:
                 log(f"  Google Notícias fora do ar: {str(e)[:120]}")
         feitas = 0

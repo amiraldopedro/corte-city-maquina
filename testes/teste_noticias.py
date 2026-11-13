@@ -18,7 +18,7 @@ noticias.google_noticias = lambda termos, idioma="pt", horas=30: [
     {"id": "news_d", "origem": "noticia", "titulo_fonte": "GTA 6: modo foto confirmado", "fonte": "Eurogamer", "link": "https://eu/x", "publicado": ""}]
 noticias.post_do_x = lambda link: {"id": "news_x1", "origem": "x", "titulo_fonte": "GTA 6 chega em 7 dias!", "fonte": "Rockstar Games (@RockstarGames)", "link": link}
 def ia(pr):
-    return {"seguro": True, "narracao": "A Rockstar acabou de confirmar uma novidade enorme do GTA 6 e a galera ficou maluca com isso, " * 2 + "E aí, vai comprar no dia?",
+    return {"categoria": "ok", "narracao": "A Rockstar acabou de confirmar uma novidade enorme do GTA 6 e a galera ficou maluca com isso, " * 2 + "E aí, vai comprar no dia?",
             "titulo": "GTA 6: a Rockstar confirmou o que todo mundo esperava", "chamada": "A ROCKSTAR CONFIRMOU",
             "manchete": "Rockstar confirma novidade do GTA 6", "tags": ["gta 6 lançamento"]}
 cerebro._perguntar_ollama = lambda e, m, pr: ia(pr)

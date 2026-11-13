@@ -94,26 +94,30 @@ PROMPT = """Você roteiriza Shorts de NOTÍCIA sobre GTA 6 para o canal brasilei
 Fonte: {fonte}
 Texto original: "{texto}"
 
-Primeiro julgue a SEGURANÇA. Marque seguro=false se o texto for: vazamento (leak, build interna, datamine,
-informação roubada/não oficial da Rockstar), conteúdo adulto/sexual, violência real, ódio, ou não tiver a ver com GTA.
-Rumor de fonte conhecida pode, mas deixe claro que é rumor.
+Classifique em "categoria" (escolha UMA):
+- "ok": notícia normal sobre GTA (lançamento, preço, consoles, pré-venda, recordes, streamers, trailers, curiosidades). A grande maioria é "ok".
+- "adulto": conteúdo sexual explícito.
+- "violencia_real": crime ou morte de pessoas reais.
+- "fora": não tem nada a ver com GTA.
+Na dúvida, use "ok". Se for rumor, só deixe claro na narração que é rumor.
 
-Se for seguro, escreva em {idioma_nome}, com as SUAS palavras (não copie frases do original):
+Depois escreva em {idioma_nome}, com as SUAS palavras (não copie frases do original):
 - "narracao": 45 a 75 palavras, falada como um brasileiro animado contando a novidade pra um amigo. Comece pelo fato mais forte já na primeira frase. Termine com uma pergunta pra gerar comentário (ex.: "E aí, vai comprar no dia?").
 - "titulo": 45 a 65 caracteres, "GTA 6" no começo, sem mentir, sem hashtag.
 - "chamada": 3 a 5 palavras para a tela nos primeiros segundos (ex.: "A ROCKSTAR CONFIRMOU").
 - "manchete": até 9 palavras, resumo do fato para o cartão na tela.
 - "tags": 8 a 12 buscas do YouTube.
 
-Responda só com JSON: {{"seguro": true, "motivo": "...", "narracao": "...", "titulo": "...", "chamada": "...", "manchete": "...", "tags": ["..."]}}"""
+Responda só com JSON: {{"categoria": "ok", "narracao": "...", "titulo": "...", "chamada": "...", "manchete": "...", "tags": ["..."]}}"""
 
 
 def roteiro(item: dict, canal: str, idioma: str, perguntar) -> dict | None:
     from .cerebro import IDIOMAS, _limpar_titulo
     r = perguntar(PROMPT.format(canal=canal, fonte=item["fonte"], texto=item["titulo_fonte"][:900],
                                 idioma_nome=IDIOMAS[idioma]))
-    if not r.get("seguro") or bloqueado(r.get("narracao", ""), r.get("titulo", "")):
-        print(f"  notícia barrada: {item['titulo_fonte'][:80]} ({r.get('motivo', 'filtro')})")
+    categoria = str(r.get("categoria", "ok")).lower().strip()
+    if categoria in ("adulto", "violencia_real", "fora") or bloqueado(r.get("narracao", ""), r.get("titulo", "")):
+        print(f"  notícia barrada: {item['titulo_fonte'][:80]} ({categoria})")
         return None
     narracao = re.sub(r"\s+", " ", str(r.get("narracao", ""))).strip()
     titulo = _limpar_titulo(str(r.get("titulo", "")))
