@@ -283,7 +283,8 @@ def main():
         log("yt-dlp não encontrado. Rode o instalador de novo.")
         return
     _, fila = ler_fila()
-    pendentes = {k: v for k, v in fila.get("momentos", {}).items() if v.get("status") == "esperando"}
+    pendentes = {k: v for k, v in fila.get("momentos", {}).items()
+                 if v.get("status") in ("esperando", "biblioteca_pendente")}
     if not pendentes:
         return
     for vid, item in pendentes.items():
@@ -293,7 +294,7 @@ def main():
             log(f"  ❌ {vid}: {e}")
             tentativas = int(item.get("tentativas", 0)) + 1
             atualizar_item(vid, {"tentativas": tentativas, "erro": str(e)[:300],
-                                 "status": "erro" if tentativas >= 3 else "esperando"})
+                                 "status": "erro" if tentativas >= 3 else item.get("status", "esperando")})
 
 
 def atualizar_sozinho():

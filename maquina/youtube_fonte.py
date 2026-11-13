@@ -45,8 +45,8 @@ def pedir(links: list[str], modo: str = "cortes") -> int:
         if vid in est.momentos and est.momentos[vid].get("status") not in ("erro",):
             print(f"  já está na fila: {vid}")
             continue
-        est.momentos[vid] = {"id": vid, "link": f"https://www.youtube.com/watch?v={vid}", "status": "esperando",
-                             "modo": modo, "pedido_em": agora(), "atualizado_em": agora()}
+        est.momentos[vid] = {"id": vid, "link": f"https://www.youtube.com/watch?v={vid}",
+                             "status": "biblioteca_pendente" if modo == "biblioteca" else "esperando", "modo": modo, "pedido_em": agora(), "atualizado_em": agora()}
         novos += 1
         print(f"  ✅ na fila do robô do Mac: https://youtu.be/{vid}")
     est.salvar()
