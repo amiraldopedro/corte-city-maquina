@@ -55,7 +55,7 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
             continue
         clipes = [c for c in tw.clipes(u["id"], cfg.janela_busca_horas) if not est.clipe_visto(c["id"])]
         momentos = agrupar(clipes, jogos, s.login, canal.id, cfg.minimo_clipes, cfg.minimo_views,
-                           jogos_palavra, cfg.palavras)
+                           jogos_palavra, cfg.palavras, cfg.um_clipe_views)
         for m in momentos:
             if TESTE:
                 m["teste"] = True
@@ -106,7 +106,7 @@ def descobrir(cfg: Config, canal: Canal, est: Estado, tw, ja_vistos: set) -> int
     idioma, minimo = d.get("idioma", canal.idioma), int(d.get("min_views", 300))
     por_streamer: dict[str, list] = {}
     for gid in list(jogos) + list(conversa):
-        for c in tw.clipes(game_id=gid, horas=cfg.janela_busca_horas, maximo=300):
+        for c in tw.clipes(game_id=gid, horas=cfg.janela_busca_horas, maximo=600 if cfg.lancado else 300):
             login = (c.get("broadcaster_name") or "").lower().replace(" ", "")
             if (c.get("language") or "")[:2] != idioma or c.get("view_count", 0) < minimo or est.clipe_visto(c["id"]):
                 continue
@@ -145,6 +145,15 @@ def fazer_kit(video: Path, inicio: float, fim: float, pico: float | None, titulo
     except Exception as e:
         log(f"  aviso: kit da thumb falhou ({str(e)[:150]})")
         return {}
+
+
+def etiqueta_do(m: dict) -> str:
+    """Plaquinha azul em cima da chamada: diz de que quadro é o corte."""
+    from maquina.momentos import quadro
+    if m.get("evento"):
+        return "REACT"
+    return {"gta6": "GTA 6", "rp": "GTA RP", "classicos": "CLÁSSICO", "noticias": "NOTÍCIA",
+            "comunidade": "COMUNIDADE"}.get(m.get("quadro") or quadro(m), "GTA")
 
 
 def playlist_do(canal: Canal, m: dict) -> str:
@@ -186,7 +195,7 @@ def descricao_short(canal: Canal, titulo: str, login: str, plataforma: str = "",
 
 
 def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
-    from maquina import cerebro, compilado, editar, thumb
+    from maquina import cerebro, compilado, editar, thumb, titulos
     from maquina.baixar import baixar_momento
     from maquina.transcrever import texto_com_tempos, transcrever
     nome = cfg.nome_streamer(m["streamer"], m.get("nome", ""))
@@ -207,7 +216,8 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         except Exception as e:
             log(f"    aviso: folhas de quadros falharam ({str(e)[:100]})")
     d = cerebro.decidir(m, palavras, texto_com_tempos(palavras), nome, canal.idioma,
-                        cfg.duracao_min, cfg.duracao_max, cfg.ia_endereco, cfg.ia_modelo, folhas)
+                        cfg.duracao_min, cfg.duracao_max, cfg.ia_endereco, cfg.ia_modelo, folhas,
+                        recentes=titulos.recentes(est))
     log(f"    cérebro ({d['fonte']}): {d['titulo']} | gancho {d['gancho']} | {d['inicio']}-{d['fim']}s")
     if not d["usar"]:
         est.atualizar(m["id"], status="descartado", motivo=d["motivo"])
@@ -224,7 +234,7 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     if pico is None or not (d["inicio"] + 0.5 < pico < d["fim"] - 0.5):
         pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
     info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque,
-                               chamada=d.get("chamada", ""), pico=pico, audio=voz)
+                               chamada=d.get("chamada", ""), pico=pico, audio=voz, etiqueta=etiqueta_do(m))
     from maquina.baixar import MUDO_DB, volume_maximo
     if volume_maximo(final) <= MUDO_DB:
         raise RuntimeError("o vídeo final ficou sem som — não vou entregar")
@@ -270,6 +280,8 @@ def fazer_cacada(cfg: Config):
     """Etapa leve: só consulta a Twitch e guarda os momentos novos na fila."""
     from maquina.twitch import Twitch
     tw = Twitch(cfg.twitch_client_id, cfg.twitch_client_secret)
+    if cfg.lancado:
+        log("🌴 MODO LANÇAMENTO DO GTA 6 ligado: mais Shorts, busca nas últimas 24h")
     for canal in cfg.canais_ativos():
         log(f"== {canal.nome}: caçando clipes")
         est = Estado(canal.id)
@@ -385,6 +397,9 @@ def produzir(cfg: Config):
                     hoje = datetime.now(timezone.utc).date().isoformat()
                     if any((x.get("feito_em") or "")[:10] == hoje for x in feitos_evento):
                         continue  # no máximo 1 react de trailer por dia: fica pra amanhã
+                    tres_dias = (datetime.now(timezone.utc) - timedelta(days=3)).isoformat()
+                    if any(x["streamer"] == m["streamer"] and (x.get("feito_em") or "") >= tres_dias for x in feitos_evento):
+                        continue  # o mesmo streamer reagindo de novo cansa: espera 3 dias
                 tentativas += 1
                 try:
                     feitos += produzir_um(cfg, canal, est, m, yt)
@@ -628,13 +643,22 @@ def fazer_noticias(cfg: Config, links: list[str]):
             except Exception as e:
                 log(f"  Google Notícias fora do ar: {str(e)[:120]}")
         feitas = 0
+        from maquina import titulos
+        ja = titulos.recentes(est, dias=5)
         for item in fila:
             if item["origem"] == "noticia" and feitas >= vagas:
                 break
             if item["id"] in est.momentos and item["origem"] == "noticia":
                 continue
             base = {"id": item["id"], "streamer": "*", "canal": canal.id, "tipo": "noticia", "quadro": "noticias",
-                    "origem": item["origem"], "fonte": item["fonte"], "link": item["link"], "criado_em": agora()}
+                    "origem": item["origem"], "fonte": item["fonte"], "link": item["link"], "criado_em": agora(),
+                    "titulo_fonte": item.get("titulo_fonte", "")}
+            if item["origem"] == "noticia" and titulos.repetido(item.get("titulo_fonte", ""), ja, 0.5):
+                est.momentos[item["id"]] = {**base, "status": "descartado", "motivo": "assunto repetido",
+                                            "atualizado_em": agora()}
+                log(f"  assunto já saiu no canal: {item.get('titulo_fonte', '')[:80]}")
+                continue
+            ja.append(item.get("titulo_fonte", ""))
             if noticias.bloqueado(item["titulo_fonte"]):
                 est.momentos[item["id"]] = {**base, "status": "descartado", "motivo": "filtro (vazamento/sensível)"}
                 log(f"  barrada pelo filtro: {item['titulo_fonte'][:80]}")
@@ -647,6 +671,12 @@ def fazer_noticias(cfg: Config, links: list[str]):
                 break
             if not r:
                 est.momentos[item["id"]] = {**base, "status": "descartado", "motivo": "IA barrou"}
+                continue
+            r["titulo"] = titulos.caixa_de_livro(r["titulo"])
+            if titulos.ruim(r["titulo"]) or titulos.repetido(r["titulo"], ja[:-1], 0.6):
+                est.momentos[item["id"]] = {**base, "status": "descartado",
+                                            "motivo": f"título ruim ou repetido: {r['titulo'][:60]}"}
+                log(f"  título ruim/repetido, pulei: {r['titulo'][:80]}")
                 continue
             try:
                 final, capa = montar_noticia(cfg, canal, item, r, baixar_trecho, editar, noticias, thumb)
@@ -761,7 +791,8 @@ def montar_noticia(cfg, canal, item, r, baixar_trecho, editar, noticias, thumb):
     fundo = fundo_gameplay(cfg, pasta, baixar_trecho)
     card = noticias.cartao(item, r["manchete"], canal.cor_destaque, pasta / f"{item['id']}_card.png", canal.idioma)
     legenda = pasta / f"{item['id']}.ass"
-    editar.gerar_legenda(palavras, 0, dur, legenda, 1500, canal.cor_destaque, chamada=r["chamada"], y_chamada=230)
+    editar.gerar_legenda(palavras, 0, dur, legenda, 1500, canal.cor_destaque, chamada=r["chamada"], y_chamada=290,
+                         etiqueta="NOTÍCIA")
     final = pasta / f"{item['id']}.mp4"
     barra = "0x" + canal.cor_destaque.lstrip("#")
     entradas = ["-stream_loop", "-1", "-i", str(fundo), "-i", str(voz), "-i", str(card)]

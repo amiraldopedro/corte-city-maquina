@@ -64,6 +64,8 @@ class Config:
     canais: list[Canal]
     bloqueados: set[str]
 
+    um_clipe_views: int = 300
+    lancado: bool = False
     noticias: dict = field(default_factory=dict)
     twitch_client_id: str = ""
     twitch_client_secret: str = ""
@@ -114,6 +116,26 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
     for p in (PASTA_BRUTOS, PASTA_PRONTOS, PASTA_ESTADO):
         p.mkdir(parents=True, exist_ok=True)
 
+    # Modo lançamento: do dia do lançamento em diante, os valores do bloco "lancamento" substituem os normais
+    lancado = False
+    lanc = bruto.get("lancamento") or {}
+    if lanc.get("data"):
+        from datetime import date, datetime
+        from zoneinfo import ZoneInfo
+        hoje = datetime.now(ZoneInfo("America/Sao_Paulo")).date()
+        forcado = os.getenv("MODO_LANCAMENTO", "")
+        lancado = forcado == "1" or (forcado != "0" and hoje >= date.fromisoformat(str(lanc["data"])))
+    if lancado:
+        for chave in ("janela_busca_horas", "max_por_rodada", "momento_minimo", "jogos"):
+            if chave in lanc:
+                bruto[chave] = lanc[chave]
+        for canal in canais:
+            extra = (lanc.get("canais") or {}).get(canal.id) or {}
+            if extra.get("horarios"):
+                canal.horarios = list(extra["horarios"])
+            if extra.get("descobrir_min_views"):
+                canal.descobrir["min_views"] = int(extra["descobrir_min_views"])
+
     mm, du, ia = bruto.get("momento_minimo", {}), bruto.get("duracao", {}), bruto.get("ia", {})
     return Config(
         jogos=list(bruto.get("jogos", ["Grand Theft Auto VI"])),
@@ -122,6 +144,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
         janela_busca_horas=int(bruto.get("janela_busca_horas", 24)),
         noticias=dict(bruto.get("noticias") or {}),
         minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
+        um_clipe_views=int(mm.get("um_clipe_views", 3 * int(mm.get("views", 150)))), lancado=lancado,
         duracao_min=int(du.get("minimo", 15)), duracao_max=int(du.get("maximo", 58)),
         max_por_rodada=int(bruto.get("max_por_rodada", 1)),
         ia_modelo=ia.get("modelo", "qwen2.5:3b"), ia_endereco=ia.get("endereco", "http://127.0.0.1:11434"),

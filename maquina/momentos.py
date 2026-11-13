@@ -32,7 +32,7 @@ def _vale(c: dict, jogos_ok: dict, jogos_palavra: dict, palavras: list[str]) -> 
 
 def agrupar(clipes: list[dict], jogos_ok: dict[str, str], streamer: str, canal: str,
             minimo_clipes: int, minimo_views: int, jogos_palavra: dict | None = None,
-            palavras: list[str] | None = None) -> list[dict]:
+            palavras: list[str] | None = None, um_clipe_views: int | None = None) -> list[dict]:
     com_vod: dict[str, list[dict]] = {}
     sem_vod: list[dict] = []
 
@@ -71,7 +71,7 @@ def agrupar(clipes: list[dict], jogos_ok: dict[str, str], streamer: str, canal: 
         })
 
     return [m for m in momentos
-            if m["n_clipes"] >= minimo_clipes or m["views"] >= minimo_views * 3
+            if m["n_clipes"] >= minimo_clipes or m["views"] >= (um_clipe_views or minimo_views * 3)
             if m["views"] >= minimo_views]
 
 

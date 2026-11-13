@@ -15,6 +15,7 @@ from pathlib import Path
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
 
+from . import marca as M
 from .config import FONTES
 from .noticias import UA, bloqueado
 
@@ -128,7 +129,7 @@ def cartao(post: dict, pasta: Path, cor: str, alto_midia: int) -> tuple[Path, tu
     alto = y_midia + (alto_midia + 30 if alto_midia else 0) + 80
     img = Image.new("RGBA", (CARD_W, alto), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle([0, 0, CARD_W - 1, alto - 1], 40, fill=(16, 16, 20, 245), outline=cor, width=5)
+    d.rounded_rectangle([0, 0, CARD_W - 1, alto - 1], 40, fill=(*M.OCEANO, 245), outline=M.AZUL, width=5)
     # avatar
     try:
         av = Image.open(_baixar(post["avatar"], pasta / "avatar.jpg")).convert("RGB").resize((96, 96))
@@ -138,15 +139,15 @@ def cartao(post: dict, pasta: Path, cor: str, alto_midia: int) -> tuple[Path, tu
     ImageDraw.Draw(masc).ellipse([0, 0, 95, 95], fill=255)
     img.paste(av, (pad, topo), masc)
     nome = post["autor"][:26]
-    d.text((pad + 120, topo + 6), nome, font=f_nome, fill=(255, 255, 255))
+    d.text((pad + 120, topo + 6), nome, font=f_nome, fill=M.AREIA)
     if post["verificado"]:
         x = pad + 120 + int(f_nome.getlength(nome)) + 14
         d.ellipse([x, topo + 14, x + 34, topo + 48], fill=(29, 155, 240))
         d.line([(x + 9, topo + 31), (x + 15, topo + 38), (x + 26, topo + 23)], fill=(255, 255, 255), width=5)
-    d.text((pad + 120, topo + 56), "@" + post["perfil"], font=f_user, fill=(140, 140, 155))
+    d.text((pad + 120, topo + 56), "@" + post["perfil"], font=f_user, fill=M.NEVOA)
     y = y_txt
     for ln in linhas:
-        d.text((pad, y), ln, font=f_txt, fill=(240, 240, 245))
+        d.text((pad, y), ln, font=f_txt, fill=M.AREIA)
         y += int(tam * 1.32)
     rodape = []
     try:
@@ -156,7 +157,7 @@ def cartao(post: dict, pasta: Path, cor: str, alto_midia: int) -> tuple[Path, tu
     if post["curtidas"]:
         rodape.append(f"{_fmt(post['curtidas'])} curtidas")
     rodape.append("Post no X")
-    d.text((pad, alto - 62), "   •   ".join(rodape), font=f_user, fill=(140, 140, 155))
+    d.text((pad, alto - 62), "   •   ".join(rodape), font=f_user, fill=M.NEVOA)
     destino = pasta / "post.png"
     img.save(destino)
     x0, y0 = (W - CARD_W) // 2, (H - alto) // 2 + 40
@@ -202,7 +203,8 @@ def montar(post: dict, pasta: Path, cor: str, marca: Path | None, chamada: str, 
             dur = max(7.0, min(18.0, len(post["texto"].split()) * 0.4 + 4))
     dur = max(dur, 5.0)
     legenda = pasta / "chamada.ass"
-    editar.gerar_legenda([], 0, dur, legenda, 1700, cor, chamada=chamada, y_chamada=max(140, cy - 90))
+    editar.gerar_legenda([], 0, dur, legenda, 1700, cor, chamada=chamada, y_chamada=max(240, cy - 70),
+                         etiqueta="COMUNIDADE")
     # fundo: a própria mídia borrada (ou o cartão), escurecida
     fundo_src = midia_arq if midia_arq else card
     entradas, fil = [], []
@@ -212,7 +214,7 @@ def montar(post: dict, pasta: Path, cor: str, marca: Path | None, chamada: str, 
         fil.append(f"[v_a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=30:3,"
                    f"eq=brightness=-0.25,setsar=1,fps=30[bg]")
         fil.append(f"[v_b]scale={caixa[2]}:{caixa[3]}:force_original_aspect_ratio=decrease,"
-                   f"pad={caixa[2]}:{caixa[3]}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,fps=30[mid]")
+                   f"pad={caixa[2]}:{caixa[3]}:(ow-iw)/2:(oh-ih)/2:color=0x0A0E2A,setsar=1,fps=30[mid]")
         idx_card = 1
     else:
         entradas += ["-loop", "1", "-t", f"{dur:.2f}", "-i", str(fundo_src)]
@@ -242,7 +244,7 @@ def montar(post: dict, pasta: Path, cor: str, marca: Path | None, chamada: str, 
                    f"s={W}x{H}:fps=30[c3]")
     else:
         fil.append("[c2]null[c3]")
-    barra = "0x" + cor.lstrip("#")
+    barra = "0x" + M.hexa(M.AZUL).lstrip("#")
     fil.append(f"[c3]ass='{editar._escapar(legenda)}':fontsdir='{editar._escapar(editar.FONTES)}',"
                f"drawbox=x=0:y=0:w='iw*t/{dur:.2f}':h=12:color={barra}@1:t=fill,format=yuv420p[v]")
     mapa_a = []

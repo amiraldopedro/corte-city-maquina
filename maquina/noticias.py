@@ -24,6 +24,7 @@ from pathlib import Path
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
+from . import marca as M
 from .config import FONTES
 
 UA = {"User-Agent": "CorteCityBot/1.0 (+https://youtube.com/@cortecity)"}
@@ -159,15 +160,15 @@ def cartao(item: dict, manchete: str, cor: str, destino: Path, idioma: str) -> P
     alto = 150 + 74 * len(linhas) + 70
     img = Image.new("RGBA", (W, alto), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle([0, 0, W - 1, alto - 1], 36, fill=(14, 14, 18, 235), outline=cor, width=6)
+    d.rounded_rectangle([0, 0, W - 1, alto - 1], 36, fill=(*M.OCEANO, 240), outline=M.AZUL, width=6)
     rotulo = ("POST NO X" if item["origem"] == "x" else "NOTÍCIA") if idioma == "pt" else \
              ("POST ON X" if item["origem"] == "x" else "NEWS")
-    d.rounded_rectangle([40, 40, 40 + 30 + int(fonte_s.getlength(rotulo)), 96], 14, fill=cor)
-    d.text((55, 46), rotulo, font=fonte_s, fill=(10, 10, 10))
-    d.text((40, 110), item["fonte"][:42], font=fonte_s, fill=(190, 190, 200))
+    d.rounded_rectangle([40, 40, 40 + 30 + int(fonte_s.getlength(rotulo)), 96], 14, fill=M.ROSA)
+    d.text((55, 46), rotulo, font=fonte_s, fill=M.NOITE)
+    d.text((40, 110), item["fonte"][:42], font=fonte_s, fill=M.NEVOA)
     y = 170
     for ln in linhas:
-        d.text((40, y), ln, font=fonte_b, fill=(255, 255, 255))
+        d.text((40, y), ln, font=fonte_b, fill=M.AREIA)
         y += 74
     img.save(destino)
     return destino

@@ -80,7 +80,9 @@ IDIOMAS = {"pt": "português do Brasil", "en": "inglês dos EUA"}
 
 MODELOS_TITULO = {
     "pt": ["{nome} não esperava por isso no {jogo}", "O que aconteceu com o {nome} no {jogo} é surreal",
-           "{nome} perdeu a cabeça no {jogo}", "Ninguém acreditou no que o {nome} fez no {jogo}"],
+           "{nome} perdeu a cabeça no {jogo}", "Ninguém acreditou no que o {nome} fez no {jogo}",
+           "{nome} tentou ser esperto no {jogo} e deu tudo errado", "O plano do {nome} no {jogo} durou 10 segundos",
+           "{nome} no {jogo}: o chat não aguentou esse momento", "Era pra ser simples, mas o {nome} tava no {jogo}"],
     "en": ["{nome} did NOT expect this in {jogo}", "What happened to {nome} in {jogo} is unreal",
            "{nome} lost it in {jogo}", "Nobody believed what {nome} did in {jogo}"],
 }
@@ -181,7 +183,11 @@ def plano_b(momento: dict, palavras: list[dict], nome: str, idioma: str, dmin: i
         titulo = random.choice(REACT[idioma]).format(nome=nome, evento=momento["evento"])
     else:
         titulo = f"{nome}: {chat}" if chat else random.choice(MODELOS_TITULO[idioma]).format(nome=nome, jogo=apelido(momento.get("jogo", "")))
-    return {"usar": True, "inicio": round(inicio, 2), "fim": round(fim, 2), "titulo": _limpar_titulo(titulo),
+    from .titulos import ruim
+    titulo = _limpar_titulo(titulo)
+    if ruim(titulo, nome):
+        titulo = random.choice(MODELOS_TITULO[idioma]).format(nome=nome, jogo=apelido(momento.get("jogo", "")))
+    return {"usar": True, "inicio": round(inicio, 2), "fim": round(fim, 2), "titulo": titulo,
             "gancho": random.choice(GANCHOS[idioma]), "chamada": random.choice(CHAMADAS[idioma]),
             "descricao": "", "tags": [], "motivo": "regras (sem IA)", "fonte": "regras"}
 
@@ -198,7 +204,10 @@ Inclua "pico_visual" no JSON."""
 
 
 def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: str,
-            dmin: int, dmax: int, endereco: str, modelo: str, folhas: list | None = None) -> dict:
+            dmin: int, dmax: int, endereco: str, modelo: str, folhas: list | None = None,
+            recentes: list[str] | None = None) -> dict:
+    from .titulos import escolher
+    recentes = recentes or []
     janela = momento["fim"] - momento["inicio"]
     if len(palavras) < 4 and not (folhas and os.getenv("CLAUDE_CODE_OAUTH_TOKEN")):
         return plano_b(momento, palavras, nome, idioma, dmin, dmax)  # sem fala e sem visão: regras
@@ -211,6 +220,9 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
                     f"ex.: \"{nome} reagindo ao {momento['evento']}\" ou parecido, em estilo curiosidade.")
                    if momento.get("evento") else "",
     )
+    if recentes:
+        prompt += ("\n\nTÍTULOS QUE O CANAL JÁ POSTOU NESTA SEMANA (não repita o tema, a estrutura nem o começo deles; "
+                   "o título novo tem que soar diferente):\n" + "\n".join(f"- {t}" for t in recentes[-25:]))
     usa_visao = bool(folhas and os.getenv("CLAUDE_CODE_OAUTH_TOKEN"))
     if usa_visao:
         prompt += VISAO
@@ -225,9 +237,13 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
         gancho = str(r.get("gancho", "")).upper().strip()[:16] or random.choice(GANCHOS[idioma])
         if ESTRANHAS.search(titulo):
             titulo = ""
-        if len(titulo) < 12 or nome.split()[0].lower() not in titulo.lower():
-            titulo = _limpar_titulo(f"{nome}: {titulo}") if len(titulo) >= 12 else \
-                random.choice(MODELOS_TITULO[idioma]).format(nome=nome, jogo=apelido(momento.get("jogo", "")))
+        extras = [_limpar_titulo(str(x)) for x in (r.get("titulos_extra") or [])]
+        reserva = [_limpar_titulo(f"{nome}: {titulo}")] if len(titulo) >= 12 else []
+        modelos = [m.format(nome=nome, jogo=apelido(momento.get("jogo", ""))) for m in MODELOS_TITULO[idioma]]
+        random.shuffle(modelos)
+        titulo, extras = escolher(titulo, extras + reserva + modelos, nome, recentes)
+        if not titulo:
+            titulo = modelos[0]
         chamada = re.sub(r"#\w+", "", str(r.get("chamada", ""))).strip().strip('"')[:40]
         if len(chamada.split()) < 2:
             chamada = random.choice(CHAMADAS[idioma])
@@ -243,8 +259,7 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
             pico_visual = None
         return {"pico_visual": pico_visual, "usar": bool(r.get("usar", True)), "nota": nota, "inicio": round(inicio, 2), "fim": round(fim, 2),
                 "titulo": titulo, "gancho": gancho, "chamada": chamada, "descricao": descricao, "tags": tags,
-                "titulos_extra": [t for t in (_limpar_titulo(str(x)) for x in (r.get("titulos_extra") or []))
-                                  if len(t) >= 15 and not ESTRANHAS.search(t)][:5],
+                "titulos_extra": [t for t in extras if t not in modelos][:5],
                 "motivo": str(r.get("motivo", ""))[:200], "fonte": "ia"}
     except Exception as e:  # Ollama fora do ar, JSON quebrado etc.
         d = plano_b(momento, palavras, nome, idioma, dmin, dmax)

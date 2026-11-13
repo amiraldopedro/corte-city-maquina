@@ -17,6 +17,7 @@ from pathlib import Path
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
+from . import marca as M
 from .config import FONTES, PASTA_PRONTOS
 from .editar import _escapar, info_video, rodar
 
@@ -41,7 +42,7 @@ def card(c: dict, cor: str, destino: Path) -> tuple[Path, int, int] | None:
     if tipo == "nenhum":
         return None
     ac = _rgb(cor)
-    escuro = (12, 12, 16, 228)
+    escuro = (*M.NOITE, 232)
     if tipo == "titulo":
         f1, f2 = _fonte("Anton-Regular.ttf", 190), _fonte("Inter-ExtraBold.ttf", 54)
         t, sub = c.get("texto", "").upper(), c.get("sub", "")
@@ -50,7 +51,7 @@ def card(c: dict, cor: str, destino: Path) -> tuple[Path, int, int] | None:
         d = ImageDraw.Draw(img)
         d.rounded_rectangle([0, 0, lw - 1, 379], 36, fill=escuro)
         d.rectangle([0, 0, 18, 379], fill=ac + (255,))
-        d.text((lw // 2, 150), t, font=f1, fill=(255, 255, 255), anchor="mm")
+        d.text((lw // 2, 150), t, font=f1, fill=M.AREIA, anchor="mm")
         d.text((lw // 2, 300), sub, font=f2, fill=ac, anchor="mm")
         img.save(destino)
         return destino, (W - lw) // 2, (H - 380) // 2 - 60
@@ -67,7 +68,7 @@ def card(c: dict, cor: str, destino: Path) -> tuple[Path, int, int] | None:
         d.text((70, 30), num, font=f1, fill=ac)
         y = 240
         for l in linhas:
-            d.text((70, y), l, font=f2, fill=(255, 255, 255)); y += 60
+            d.text((70, y), l, font=f2, fill=M.AREIA); y += 60
         img.save(destino)
         return destino, 110, (H - alto) // 2 - 80
     if tipo == "lista":
@@ -81,8 +82,8 @@ def card(c: dict, cor: str, destino: Path) -> tuple[Path, int, int] | None:
         y = 50
         for n, it in enumerate(itens, 1):
             d.ellipse([50, y + 4, 110, y + 64], fill=ac + (255,))
-            d.text((80, y + 34), str(n), font=_fonte("Anton-Regular.ttf", 42), fill=(12, 12, 16), anchor="mm")
-            d.text((135, y + 8), it, font=f, fill=(255, 255, 255))
+            d.text((80, y + 34), str(n), font=_fonte("Anton-Regular.ttf", 42), fill=M.NOITE, anchor="mm")
+            d.text((135, y + 8), it, font=f, fill=M.AREIA)
             y += 92
         img.save(destino)
         return destino, W - lw - 110, (H - alto) // 2 - 80
@@ -95,10 +96,10 @@ def card(c: dict, cor: str, destino: Path) -> tuple[Path, int, int] | None:
         d = ImageDraw.Draw(img)
         d.rounded_rectangle([0, 0, lw - 1, alto - 1], 36, fill=escuro)
         d.ellipse([50, alto // 2 - 120, 290, alto // 2 + 120], fill=ac + (255,))
-        d.text((170, alto // 2 + 6), str(c.get("numero", "")), font=f1, fill=(12, 12, 16), anchor="mm")
+        d.text((170, alto // 2 + 6), str(c.get("numero", "")), font=f1, fill=M.NOITE, anchor="mm")
         y = alto // 2 - 35 * len(linhas)
         for l in linhas:
-            d.text((340, y), l, font=f2, fill=(255, 255, 255)); y += 70
+            d.text((340, y), l, font=f2, fill=M.AREIA); y += 70
         img.save(destino)
         return destino, (W - lw) // 2, (H - alto) // 2 - 80
     return None

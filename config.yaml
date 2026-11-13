@@ -44,8 +44,25 @@ janela_busca_horas: 72
 
 # Um "momento" só vira vídeo se tiver pelo menos isto:
 momento_minimo:
-  clipes: 2            # clipes diferentes no mesmo trecho da live (ou 1 clipe com 3x as views abaixo)
-  views: 100           # soma de views desses clipes
+  clipes: 2            # clipes diferentes no mesmo trecho da live...
+  views: 100           # ...somando pelo menos estas views
+  um_clipe_views: 150  # ou 1 clipe sozinho com estas views (pré-lançamento: as lives de GTA estão fracas)
+
+# ------------------------------------------------------------
+#  MODO LANÇAMENTO DO GTA 6 (liga sozinho no dia "data", horário de Brasília)
+#  Todo mundo vai jogar GTA 6 ao mesmo tempo: mais Shorts, busca mais curta e mais seletiva.
+#  Para testar antes: rode a "Rodada" com a opção "modo lançamento" ligada.
+# ------------------------------------------------------------
+lancamento:
+  data: "2026-11-19"
+  janela_busca_horas: 24
+  max_por_rodada: 4
+  momento_minimo: { clipes: 2, views: 150, um_clipe_views: 400 }
+  jogos: ["Grand Theft Auto VI", "Grand Theft Auto V"]
+  canais:
+    br:
+      horarios: ["09:00", "11:00", "13:00", "15:00", "17:00", "19:00", "21:00", "23:00"]   # 8 Shorts por dia
+      descobrir_min_views: 300   # com muita gente jogando, só os clipes mais vistos
 
 # Duração do Short final (segundos)
 duracao:            # Short certeiro: de 12 a 40 segundos
@@ -75,8 +92,8 @@ canais:
     ativo: true
     modo: revisao
     idioma: pt
-    marca: assets/marca/marca_pt.png
-    cor_destaque: "#C8FF2E"
+    marca: assets/marca/cc.png       # monograma CC da identidade Vice
+    cor_destaque: "#FF3D7F"   # rosa neon da identidade Vice
     fuso: "America/Sao_Paulo"
     horarios: ["11:00", "13:30", "16:00", "18:00", "21:00"]   # 5 Shorts por dia
     horario_compilado: "19:30"   # Melhores do Dia (vídeo longo)

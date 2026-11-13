@@ -5,6 +5,7 @@ name: Rodada (caçar + Shorts)
 on:
   schedule:
     - cron: "17 */4 * * *"
+    - cron: "17 2-23/4 19-30 11 *"   # semana do lançamento do GTA 6: rodada a cada 2 horas
   workflow_dispatch:
     inputs:
       teste:
@@ -16,6 +17,10 @@ on:
         type: choice
         options: ["3", "2", "1"]
         default: "3"
+      lancamento:
+        description: "Forçar o modo lançamento do GTA 6 (pra testar antes do dia 19)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -42,7 +47,8 @@ jobs:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN || secrets.CLAUDE_AMI_PERSONAL }}
       OLLAMA_MODELS: /home/runner/.ollama/models
       MODO_TESTE: ${{ inputs.teste && '1' || '0' }}
-      QUANTOS: ${{ inputs.quantos || '1' }}
+      QUANTOS: ${{ inputs.quantos || '' }}
+      MODO_LANCAMENTO: ${{ inputs.lancamento && '1' || '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

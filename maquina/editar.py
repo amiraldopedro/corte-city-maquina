@@ -15,6 +15,7 @@ import cv2
 import numpy as np
 
 from .config import FONTES
+from . import marca as M
 
 W, H = 1080, 1920
 TOPO_H = 640                 # altura da faixa da webcam
@@ -103,7 +104,8 @@ def _cor_ass(hexa: str) -> str:
 
 
 def gerar_legenda(palavras: list[dict], inicio: float, fim: float, destino: Path,
-                  y_centro: int, cor: str, por_bloco: int = 3, chamada: str = "", y_chamada: int = 0):
+                  y_centro: int, cor: str, por_bloco: int = 3, chamada: str = "", y_chamada: int = 0,
+                  etiqueta: str = ""):
     """Legenda estilo Shorts: blocos de até 3 palavras, a palavra falada acende na cor do canal."""
     ps = [w for w in palavras if w["f"] > inicio and w["i"] < fim]
     linhas = [
@@ -112,15 +114,23 @@ def gerar_legenda(palavras: list[dict], inicio: float, fim: float, destino: Path
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, "
         "Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, "
         "MarginR, MarginV, Encoding",
-        "Style: L,Anton,104,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,1,0,1,7,3,5,60,60,0,1",
-        "Style: C,Anton,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,3,14,0,5,70,70,0,1",
+        # legenda: areia, contorno noite e sombra dura ameixa (placa de motel)
+        f"Style: L,Anton,100,{M.ass(M.AREIA)},{M.ass(M.AREIA)},{M.ass(M.NOITE)},{M.ass(M.AMEIXA)},0,0,0,0,100,100,1,0,1,6,7,5,60,60,0,1",
+        # chamada: texto noite numa placa rosa com sombra dura
+        f"Style: C,Anton,80,{M.ass(M.NOITE)},{M.ass(M.NOITE)},{M.ass(M.ROSA)},{M.ass(M.AMEIXA)},0,0,0,0,100,100,1,0,3,18,10,5,70,70,0,1",
+        # etiqueta do quadro (GTA 6 / GTA RP...): placa azul
+        f"Style: T,Anton,46,{M.ass(M.NOITE)},{M.ass(M.NOITE)},{M.ass(M.AZUL)},{M.ass(M.NOITE)},0,0,0,0,100,100,2,0,3,12,0,5,70,70,0,1",
         "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     destaque = _cor_ass(cor)
     if chamada:  # faixa de chamada nos primeiros segundos (prende quem está rolando o feed)
         t = chamada.upper().replace("{", "").replace("}", "")
         linhas.append(f"Dialogue: 1,{_ass_tempo(0)},{_ass_tempo(2.8)},C,,0,0,0,,"
-                      f"{{\\pos({W // 2},{y_chamada})\\fad(0,250)}}{t}")
+                      f"{{\\pos({W // 2},{y_chamada})\\fax-0.1\\fad(0,250)}}{t}")
+        if etiqueta:
+            e = etiqueta.upper().replace("{", "").replace("}", "")
+            linhas.append(f"Dialogue: 2,{_ass_tempo(0)},{_ass_tempo(2.8)},T,,0,0,0,,"
+                          f"{{\\pos({W // 2},{y_chamada - 100})\\fax-0.1\\fad(0,250)}}{e}")
     for i in range(0, len(ps), por_bloco):
         bloco = ps[i:i + por_bloco]
         for j, w in enumerate(bloco):
@@ -129,7 +139,7 @@ def gerar_legenda(palavras: list[dict], inicio: float, fim: float, destino: Path
             textos = []
             for k, o in enumerate(bloco):
                 t = o["p"].upper().replace("{", "").replace("}", "")
-                textos.append(f"{{\\c{destaque}}}{t}{{\\c&H00FFFFFF&}}" if k == j else t)
+                textos.append(f"{{\\c{destaque}\\fscx108\\fscy108}}{t}{{\\c{M.ass(M.AREIA)}\\fscx100\\fscy100}}" if k == j else t)
             texto = " ".join(textos)
             linhas.append(f"Dialogue: 0,{_ass_tempo(ini)},{_ass_tempo(fim_w)},L,,0,0,0,,"
                           f"{{\\pos({W // 2},{y_centro})}}{texto}")
@@ -143,7 +153,7 @@ def _escapar(caminho: Path) -> str:
 
 def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], destino: Path,
                  marca: Path | None, cor: str, chamada: str = "", pico: float | None = None,
-                 audio: Path | None = None) -> dict:
+                 audio: Path | None = None, etiqueta: str = "") -> dict:
     """`pico`: segundo (no arquivo) da reação, ganha um zoom rápido. `audio`: arquivo com a voz isolada."""
     webcam = achar_webcam(bruto, inicio, fim)
     legenda = destino.with_suffix(".ass")
@@ -172,13 +182,16 @@ def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], d
         y_legenda, y_marca = (H + alt_fg) // 2 + 170, (H - alt_fg) // 2 + 24
         y_chamada = max(160, (H - alt_fg) // 2 - 150)
 
-    gerar_legenda(palavras, inicio, fim, legenda, y_legenda, cor, chamada=chamada, y_chamada=y_chamada)
+    gerar_legenda(palavras, inicio, fim, legenda, y_legenda, cor, chamada=chamada, y_chamada=y_chamada + 40,
+                  etiqueta=etiqueta)
+    if M.MONOGRAMA.exists():  # identidade Vice: marca d'água é o monograma CC
+        marca = M.MONOGRAMA
     duracao = max(1.0, fim - inicio)
     entradas = ["-ss", f"{inicio:.2f}", "-to", f"{fim:.2f}", "-i", str(bruto)]
     proxima = 1
     if marca and Path(marca).exists():
         entradas += ["-i", str(marca)]
-        filtro += (f";[1:v]scale=130:-1,format=rgba,colorchannelmixer=aa=0.85[m];"
+        filtro += (f";[1:v]scale=150:-1,format=rgba,colorchannelmixer=aa=0.85[m];"
                    f"[v0][m]overlay=W-w-28:{y_marca}[v1]")
         proxima = 2
     else:
@@ -189,8 +202,12 @@ def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], d
                    f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps=30[v2]")
     else:
         filtro += ";[v1]null[v2]"
-    barra = "0x" + cor.lstrip("#")
-    filtro += (f";[v2]ass='{_escapar(legenda)}':fontsdir='{_escapar(FONTES)}',fps=30,"
+    barra = "0x" + M.hexa(M.AZUL).lstrip("#")
+    flash = ""
+    if pico is not None and 0.5 < pico - inicio < duracao - 0.5:  # flash rosa de 2 quadros no pico
+        fa = pico - inicio - 0.35
+        flash = f"drawbox=x=0:y=0:w=iw:h=ih:color=0x{M.hexa(M.ROSA).lstrip('#')}@0.35:t=fill:enable='between(t,{fa:.2f},{fa + 0.07:.2f})',"
+    filtro += (f";[v2]ass='{_escapar(legenda)}':fontsdir='{_escapar(FONTES)}',fps=30,{flash}"
                f"drawbox=x=0:y=0:w='iw*t/{duracao:.2f}':h=12:color={barra}@1:t=fill,format=yuv420p[v]")
     mapa_audio = "0:a?"
     if audio:

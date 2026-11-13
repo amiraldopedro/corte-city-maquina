@@ -32,9 +32,13 @@ def post(link):
             "idioma": "pt", "data": "2026-11-13T12:00:00.000Z", "curtidas": 254000, "sensivel": False, "midias": midias,
             "fonte": "Rockstar Games (@RockstarGames)", "titulo_fonte": ""}
 xposts.buscar = post
+TITULOS_FALSOS = iter(["Pré-carregamento do GTA 6 liberado no PS5",
+                       "GTA 6 bate recorde de pré-venda na PlayStation Store", "Leonida aparece em detalhes no novo vídeo do GTA 6",
+                       "Comunidade acha segredo escondido no trailer do GTA 6", "Jason e Lucia ganham pôster novo do GTA 6",
+                       "Fãs fazem fila virtual pra jogar GTA 6 à meia-noite", "GTA 6 terá modo foto no lançamento", "GTA 6: a Rockstar confirmou o horário de lançamento"] * 3)
 def ia(pr):
     return {"categoria": "ok", "narracao": "A Rockstar acabou de confirmar uma novidade enorme do GTA 6 e a galera ficou maluca com isso, " * 2 + "E aí, vai comprar no dia?",
-            "titulo": "GTA 6: a Rockstar confirmou o que todo mundo esperava", "chamada": "A ROCKSTAR CONFIRMOU",
+            "titulo": next(TITULOS_FALSOS), "chamada": "A ROCKSTAR CONFIRMOU",
             "manchete": "Rockstar confirma novidade do GTA 6", "tags": ["gta 6 lançamento"]}
 cerebro._perguntar_ollama = lambda e, m, pr: ia(pr)
 def narrar(texto, idioma, destino):
