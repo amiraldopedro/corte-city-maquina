@@ -25,7 +25,7 @@ from zoneinfo import ZoneInfo
 
 from maquina.config import PASTA_PRONTOS, RAIZ, Canal, Config, carregar
 from maquina.estado import Estado, agora
-from maquina.momentos import agrupar
+from maquina.momentos import agrupar, priorizar
 
 AVISO = {
     "pt": ("Canal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos "
@@ -59,7 +59,7 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
         for m in momentos:
             if TESTE:
                 m["teste"] = True
-            if est.inserir(m):
+            if est.inserir(priorizar(m)):
                 novos += 1
             est.marcar_clipes(m["clipe_ids"])
         log(f"  {s.nome}: {len(clipes)} clipes novos, {len(momentos)} momentos")
@@ -89,7 +89,7 @@ def cacar_kick(cfg: Config, canal: Canal, est: Estado) -> int:
         ms = kick.momentos(bons, s.login, canal.id, cfg.minimo_views)
         for m in ms:
             m["nome"] = s.nome
-            if est.inserir(m):
+            if est.inserir(priorizar(m)):
                 novos += 1
             est.marcar_clipes(m["clipe_ids"])
         log(f"  Kick {s.nome}: {len(clipes)} clipes novos, {len(ms)} momentos")
@@ -102,9 +102,10 @@ def descobrir(cfg: Config, canal: Canal, est: Estado, tw, ja_vistos: set) -> int
     if TESTE or not d.get("jogos"):
         return 0
     jogos = tw.ids_jogos(d["jogos"])
+    conversa = tw.ids_jogos(cfg.jogos_com_palavra) if cfg.jogos_com_palavra else {}
     idioma, minimo = d.get("idioma", canal.idioma), int(d.get("min_views", 300))
     por_streamer: dict[str, list] = {}
-    for gid in jogos:
+    for gid in list(jogos) + list(conversa):
         for c in tw.clipes(game_id=gid, horas=cfg.janela_busca_horas, maximo=300):
             login = (c.get("broadcaster_name") or "").lower().replace(" ", "")
             if (c.get("language") or "")[:2] != idioma or c.get("view_count", 0) < minimo or est.clipe_visto(c["id"]):
@@ -115,10 +116,10 @@ def descobrir(cfg: Config, canal: Canal, est: Estado, tw, ja_vistos: set) -> int
             por_streamer.setdefault(login, []).append(c)
     novos = 0
     for login, clipes in por_streamer.items():
-        for m in agrupar(clipes, jogos, login, canal.id, 1, minimo):
+        for m in agrupar(clipes, jogos, login, canal.id, 1, minimo, conversa, cfg.palavras):
             m["nome"] = clipes[0]["_nome"]
             m["descoberto"] = True
-            if est.inserir(m):
+            if est.inserir(priorizar(m)):
                 novos += 1
             est.marcar_clipes(m["clipe_ids"])
     log(f"  descoberta por jogo: {sum(len(v) for v in por_streamer.values())} clipes de {len(por_streamer)} streamers, {novos} momentos novos")
@@ -127,6 +128,12 @@ def descobrir(cfg: Config, canal: Canal, est: Estado, tw, ja_vistos: set) -> int
 
 # ====================================================================== produzir
 MAX_ESPERANDO = 9  # se você não postar, a máquina para de fazer vídeo novo (e economiza minutos do GitHub)
+
+
+def playlist_do(canal: Canal, m: dict) -> str:
+    """Amontoado organizado: cada Short vai para a playlist do seu quadro."""
+    from maquina.momentos import quadro
+    return canal.playlists.get(m.get("quadro") or quadro(m)) or canal.playlists.get("shorts", "")
 
 
 def postados_hoje(est: Estado, canal: Canal) -> int:
@@ -207,18 +214,18 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         publicar_em = proximo_horario(canal.horarios, canal.fuso, ocupados)
         descricao = descricao_short(canal, titulo, m["streamer"], m.get("plataforma", ""), resumo)
         vid = yt.enviar(final, titulo, descricao, tags, canal.idioma, publicar_em, capa)
-        yt.por_na_playlist(vid, canal.playlists.get("shorts", ""))
+        yt.por_na_playlist(vid, playlist_do(canal, m))
         est.atualizar(m["id"], status="postado", tipo="short", jogo=m.get("jogo", ""), titulo=titulo,
                       gancho=d["gancho"], descricao=descricao, tags=tags, youtube_id=vid, publicar_em=publicar_em,
                       postado_em=agora(), feito_em=agora(), corte=[d["inicio"], d["fim"]], layout=info["layout"],
-                      cerebro=d["fonte"], nome=nome, duracao=round(d["fim"] - d["inicio"], 1), prioridade=False,
-                      **arquivos)
+                      cerebro=d["fonte"], nome=nome, nota=d.get("nota"), quadro=m.get("quadro"),
+                      duracao=round(d["fim"] - d["inicio"], 1), prioridade=False, **arquivos)
         log(f"    ✅ enviado e agendado para {publicar_em}: https://youtu.be/{vid}")
         return True
     est.atualizar(m["id"], status="pronto", tipo="short", jogo=m.get("jogo", ""), titulo=titulo, gancho=d["gancho"],
                   descricao=descricao_short(canal, titulo, m["streamer"], m.get("plataforma", ""), resumo), tags=tags,
-                  playlist=canal.playlists.get("shorts", ""), corte=[d["inicio"], d["fim"]], feito_em=agora(),
-                  layout=info["layout"], cerebro=d["fonte"], nome=nome,
+                  playlist=playlist_do(canal, m), corte=[d["inicio"], d["fim"]], feito_em=agora(),
+                  layout=info["layout"], cerebro=d["fonte"], nome=nome, nota=d.get("nota"),
                   duracao=round(d["fim"] - d["inicio"], 1), prioridade=False, **arquivos)
     log(f"    ✅ pronto para postar: {titulo}")
     log(f"       baixar: {arquivos['video_url']}")
@@ -289,7 +296,7 @@ def buscar_series(cfg: Config, so_evento: str = ""):
                 for m in agrupar(list(cs.values()), {}, quem, canal.id, 1, minimo):
                     m.update(evento=ev["nome"], nome=cfg.nome_streamer(quem, list(cs.values())[0]["_nome"]),
                              jogo="Just Chatting")
-                    if est.inserir(m):
+                    if est.inserir(priorizar(m)):
                         novos += 1
                     est.marcar_clipes(m["clipe_ids"])
             log(f"  {canal.nome} · {ev['nome']}: {sum(len(v) for v in por.values())} clipes de {len(por)} streamers → {novos} reacts na fila")

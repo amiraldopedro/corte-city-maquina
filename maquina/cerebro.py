@@ -14,7 +14,7 @@ import requests
 
 from .momentos import ANTES_SEG
 
-PROMPT = """Você é editor de um canal de cortes de GTA no YouTube Shorts.
+PROMPT = """Você é editor de um canal de cortes de GTA no YouTube Shorts. O canal é sobre o GTA 6: cortes das lives de quem joga e fala de GTA, sempre com o GTA 6 como tema.
 Streamer: {nome}
 Jogo/assunto: {jogo}{evento_txt}
 Idioma do canal: {idioma_nome}
@@ -25,25 +25,31 @@ Transcrição com o segundo em que cada fala começa:
 {transcricao}
 
 Tarefa:
-1. Escolha o melhor corte entre {dmin} e {dmax} segundos que tenha começo (contexto), meio e o momento engraçado/insano. Não corte no meio de uma frase.
+1. Escolha o corte entre {dmin} e {dmax} segundos (o ideal é de 15 a 30). Regras de corte de Short viral:
+   - Comece 1 a 2 segundos ANTES da ação ou da fala que importa. Nada de silêncio, "oi chat" ou enrolação no começo.
+   - Se precisar de contexto, use só o mínimo para entender (uma frase), não a história toda.
+   - Termine logo depois da reação/risada/desfecho, sem deixar o vídeo morrer no final.
+   - Não corte no meio de uma frase.
 2. Escreva o TÍTULO em {idioma_nome} seguindo as regras de SEO abaixo. Ex.: "{exemplo}".
 3. Escreva a CHAMADA: 3 a 6 palavras que aparecem escritas na tela nos 3 primeiros segundos, para a pessoa parar de rolar o feed (ex.: "ELE NÃO ESPERAVA ISSO", "OLHA O QUE ELE FEZ"). Sem repetir o título inteiro.
 4. Escolha uma palavra-gancho para a thumb (1 ou 2 palavras, em maiúsculas, em {idioma_nome}), como "SOCORRO", "NÃO!", "INSANO".
 5. Escreva a DESCRIÇÃO: 2 frases curtas em {idioma_nome} contando o que acontece, usando naturalmente as palavras que as pessoas buscam (nome do streamer, {jogo}, e termos como "cortes", "momentos engraçados", "reação").
 6. Escreva 8 a 12 TAGS (palavras que a pessoa digitaria na busca do YouTube), do mais específico ao mais geral.
-7. Se o trecho não tiver nada interessante (silêncio, loading, conversa sem graça), marque usar=false.
+7. Dê uma NOTA de 0 a 10 para o potencial viral (engraçado, surpreendente, dá para entender sem contexto, tem desfecho).
+8. Marque usar=false SÓ se não tiver nada aproveitável (silêncio, tela de loading). Momento fraco vira Short mesmo assim: capriche no título e na chamada.
 
 {seo}
 
 Responda só com JSON neste formato:
-{{"usar": true, "inicio": 8.0, "fim": 49.5, "titulo": "...", "chamada": "...", "gancho": "...", "descricao": "...", "tags": ["...", "..."], "motivo": "..."}}"""
+{{"usar": true, "nota": 7, "inicio": 8.0, "fim": 31.5, "titulo": "...", "chamada": "...", "gancho": "...", "descricao": "...", "tags": ["...", "..."], "motivo": "..."}}"""
 
 SEO = {
     "pt": """REGRAS DE SEO DO YOUTUBE (siga todas):
 - Título com 45 a 65 caracteres. A palavra que as pessoas buscam vem no começo: o nome do streamer e o jogo (ex.: "Coringa no GTA RP", "Alanzoka reagindo ao trailer do GTA 6").
 - Depois, uma curiosidade que só se resolve assistindo ("...até isso acontecer", "...e ninguém esperava"). Gera clique sem mentir.
 - Escreva como brasileiro fala: casual, direto. No máximo 1 emoji e só no fim. Nada de título todo em maiúsculas; no máximo 1 palavra em maiúsculas.
-- Proibido: hashtag no título, mentir, prometer o que não acontece, dizer GTA 6 quando o jogo é GTA 5/RP, palavras como "clickbait", "vídeo", "short".
+- Proibido: hashtag no título, mentir, prometer o que não acontece, dizer que é GTA 6 quando o jogo é GTA 5/RP, palavras como "clickbait", "vídeo", "short".
+- O canal é sobre o GTA 6. Se o momento for de GTA 5/RP, você PODE ligar ao GTA 6 de forma verdadeira de vez em quando (ex.: "...enquanto o GTA 6 não chega", "treinando pro GTA 6"), mas sem repetir isso em todo título.
 - Termos que o público brasileiro busca: "GTA RP", "cortes", "cidade alta", "complexo", "GTA 6", "trailer do GTA 6", "reagindo", nome do streamer.
 - Tags: comece pelo nome do streamer + jogo, depois o jogo, depois o assunto do momento (ex.: "fuga da polícia gta rp"), por fim termos gerais ("cortes gta", "gta rp brasil").""",
     "en": """YOUTUBE SEO RULES (follow all):
@@ -51,6 +57,7 @@ SEO = {
 - Then a curiosity gap only solved by watching ("...then this happened"). Click without lying.
 - Casual tone. At most 1 emoji, at the end. Never all caps; at most 1 word in caps.
 - Forbidden: hashtags in title, lying, calling it GTA 6 when it's GTA 5/RP, the words "clickbait", "video", "short".
+- The channel is about GTA 6. For GTA 5/RP moments you MAY truthfully tie it to GTA 6 now and then ("...while we wait for GTA 6"), not in every title.
 - Terms people search: "GTA RP", "GTA 6", "GTA 6 trailer", "reacts", "funny moments", streamer name.
 - Tags: streamer + game first, then game, then the moment's topic, then general terms.""",
 }
@@ -163,7 +170,11 @@ def decidir(momento: dict, palavras: list[dict], texto: str, nome: str, idioma: 
             chamada = random.choice(CHAMADAS[idioma])
         tags = [str(t).strip().lower()[:40] for t in (r.get("tags") or []) if str(t).strip()][:12]
         descricao = re.sub(r"#\w+", "", str(r.get("descricao", ""))).strip()[:400]
-        return {"usar": bool(r.get("usar", True)), "inicio": round(inicio, 2), "fim": round(fim, 2),
+        try:
+            nota = max(0, min(10, int(float(r.get("nota", 5)))))
+        except (TypeError, ValueError):
+            nota = 5
+        return {"usar": bool(r.get("usar", True)), "nota": nota, "inicio": round(inicio, 2), "fim": round(fim, 2),
                 "titulo": titulo, "gancho": gancho, "chamada": chamada, "descricao": descricao, "tags": tags,
                 "motivo": str(r.get("motivo", ""))[:200], "fonte": "ia"}
     except Exception as e:  # Ollama fora do ar, JSON quebrado etc.

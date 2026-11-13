@@ -97,3 +97,36 @@ def _fechar(grupo: list[dict], video_id: str, streamer: str, canal: str) -> dict
         "score": _score(views, len(grupo)),
         "jogo": titulos[0].get("_jogo", ""),
     }
+
+
+GTA6_PALAVRAS = ("gta 6", "gta vi", "gta6", "gtavi", "trailer", "lucia", "jason", "vice city", "leonida",
+                 "rockstar", "lançamento", "pre load", "pré-carregamento", "adiamento", "adiad")
+
+
+def fala_de_gta6(m: dict) -> bool:
+    jogo = (m.get("jogo") or "").lower()
+    if jogo.endswith(" vi"):
+        return True
+    texto = " ".join(m.get("titulos_chat", [])).lower()
+    return bool(m.get("evento")) or any(p in texto for p in GTA6_PALAVRAS)
+
+
+def quadro(m: dict) -> str:
+    """Organiza o amontoado: gta6 (tudo sobre o GTA 6), rp (GTA RP / GTA V), classicos (outros GTAs)."""
+    jogo = (m.get("jogo") or "").lower()
+    if fala_de_gta6(m):
+        return "gta6"
+    if "grand theft auto v" == jogo or "rp" in jogo or not jogo or jogo in ("just chatting", "irl"):
+        return "rp"
+    return "classicos"
+
+
+def priorizar(m: dict) -> dict:
+    """GTA 6 sempre na frente da fila (o canal é sobre o GTA 6)."""
+    if not m.get("_priorizado"):
+        m["quadro"] = quadro(m)
+        # react antigo de trailer conta menos que clipe fresco do GTA 6
+        peso = 1.5 if m.get("evento") else 3.0 if m["quadro"] == "gta6" else 1.0
+        m["score"] = m.get("score", 0) * peso
+        m["_priorizado"] = True
+    return m

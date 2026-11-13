@@ -74,8 +74,14 @@ class YouTube:
             return
         pid = self._carregar_playlists().get(nome_playlist.strip().lower())
         if not pid:
-            print(f"  aviso: playlist '{nome_playlist}' não existe no canal")
-            return
+            try:  # cria a playlist pública na primeira vez
+                r = self.yt.playlists().insert(part="snippet,status", body={
+                    "snippet": {"title": nome_playlist.strip()}, "status": {"privacyStatus": "public"}}).execute()
+                pid = self._playlists[nome_playlist.strip().lower()] = r["id"]
+                print(f"  playlist criada: {nome_playlist}")
+            except HttpError as e:
+                print(f"  aviso: não consegui criar a playlist '{nome_playlist}' ({str(e)[:120]})")
+                return
         try:
             self.yt.playlistItems().insert(part="snippet", body={"snippet": {
                 "playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": video_id}}}).execute()
