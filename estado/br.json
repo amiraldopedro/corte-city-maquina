@@ -39,7 +39,7 @@
    "likes": 2,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T01:10:21+00:00"
+   "numeros_em": "2026-11-13T01:16:50+00:00"
   },
   "2926018706_619": {
    "id": "2926018706_619",
@@ -201,7 +201,7 @@
    "likes": 10,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T01:10:21+00:00",
+   "numeros_em": "2026-11-13T01:16:50+00:00",
    "usado_em": [
     "dia",
     "longo"
@@ -263,7 +263,7 @@
    "likes": 1,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-13T01:10:21+00:00",
+   "numeros_em": "2026-11-13T01:16:50+00:00",
    "usado_em": [
     "dia"
    ]
@@ -381,7 +381,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:10:21+00:00"
+   "numeros_em": "2026-11-13T01:16:50+00:00"
   },
   "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG": {
    "id": "clip_BraveSpikyCrocodileTriHard-t3Os2gB__teKKDWG",
@@ -449,7 +449,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:10:21+00:00"
+   "numeros_em": "2026-11-13T01:16:50+00:00"
   },
   "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO": {
    "id": "clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO",
@@ -465,7 +465,7 @@
    "titulos_chat": [
     "BROKEN SWORD 2 O ESPELHO FUMANTE MEU DEUS ATE O ESPELHO FUMA NAO ACREDITO GTA NOVO AMANHA 11 DA MANHA SERA QUE ACORDO? DESCUBRA WOW OI BJS"
    ],
-   "views": 375,
+   "views": 0,
    "n_clipes": 1,
    "score": 335.2804539587942,
    "evento": "Trailer 1 do GTA 6",
@@ -511,7 +511,11 @@
    "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO.mp4",
    "video_asset": 741766110,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_TenderBreakableAniseDansGame-xSvJxCgyIRmYVfWO.jpg",
-   "thumb_asset": 741766189
+   "thumb_asset": 741766189,
+   "likes": 0,
+   "comentarios": 0,
+   "privacidade": "private",
+   "numeros_em": "2026-11-13T01:16:50+00:00"
   },
   "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4": {
    "id": "clip_FairExuberantTrollMoreCowbell-6NFPolrWoJQjAPS4",
@@ -588,7 +592,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:10:21+00:00"
+   "numeros_em": "2026-11-13T01:16:50+00:00"
   },
   "longo_2924173618_4957": {
    "id": "longo_2924173618_4957",
@@ -633,7 +637,7 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "private",
-   "numeros_em": "2026-11-13T01:10:21+00:00"
+   "numeros_em": "2026-11-13T01:16:50+00:00"
   }
  },
  "clipes_vistos": [
