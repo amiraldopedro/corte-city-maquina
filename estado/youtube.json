@@ -7,6 +7,38 @@
    "modo": "cortes",
    "pedido_em": "2026-11-13T07:11:23+00:00",
    "atualizado_em": "2026-11-13T07:11:23+00:00"
+  },
+  "QdBZY2fkU-0": {
+   "id": "QdBZY2fkU-0",
+   "link": "https://www.youtube.com/watch?v=QdBZY2fkU-0",
+   "status": "esperando",
+   "modo": "biblioteca",
+   "pedido_em": "2026-11-13T08:57:48+00:00",
+   "atualizado_em": "2026-11-13T08:57:48+00:00"
+  },
+  "VQRLujxTm3c": {
+   "id": "VQRLujxTm3c",
+   "link": "https://www.youtube.com/watch?v=VQRLujxTm3c",
+   "status": "esperando",
+   "modo": "biblioteca",
+   "pedido_em": "2026-11-13T08:57:48+00:00",
+   "atualizado_em": "2026-11-13T08:57:48+00:00"
+  },
+  "rz1B4B2yBZY": {
+   "id": "rz1B4B2yBZY",
+   "link": "https://www.youtube.com/watch?v=rz1B4B2yBZY",
+   "status": "esperando",
+   "modo": "biblioteca",
+   "pedido_em": "2026-11-13T08:57:48+00:00",
+   "atualizado_em": "2026-11-13T08:57:48+00:00"
+  },
+  "tJbzMqJGH4k": {
+   "id": "tJbzMqJGH4k",
+   "link": "https://www.youtube.com/watch?v=tJbzMqJGH4k",
+   "status": "esperando",
+   "modo": "biblioteca",
+   "pedido_em": "2026-11-13T08:57:48+00:00",
+   "atualizado_em": "2026-11-13T08:57:48+00:00"
   }
  },
  "clipes_vistos": []
