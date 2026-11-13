@@ -136,7 +136,8 @@ def subir(arquivo: Path, nome: str) -> int:
 
 def ytdlp(*args, capturar=False):
     env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
-    r = subprocess.run(["yt-dlp", "--no-warnings", "--no-playlist", *args], capture_output=True, text=True, env=env)
+    r = subprocess.run(["yt-dlp", "--no-warnings", "--no-playlist", "--cache-dir", str(PASTA / "cache"), *args],
+                       capture_output=True, text=True, env=env)
     if r.returncode != 0:
         raise RuntimeError(r.stderr.strip()[-300:])
     return r.stdout
@@ -276,7 +277,8 @@ def processar(vid: str, item: dict):
 
 def main():
     if PASTA == LOCAL and os.environ.get("CC_BASE"):
-        log(f"SSD indisponível ({os.environ['CC_BASE']}): usando a pasta do Mac por enquanto")
+        log(f"SanDisk desconectado ({os.environ['CC_BASE']}): esperando ele voltar, nada é baixado no Mac")
+        return
     if not shutil.which("yt-dlp", path=PATH_EXTRA + ":" + os.environ.get("PATH", "")):
         log("yt-dlp não encontrado. Rode o instalador de novo.")
         return
@@ -294,6 +296,23 @@ def main():
                                  "status": "erro" if tentativas >= 3 else "esperando"})
 
 
+def atualizar_sozinho():
+    """Se a versão do robô no GitHub mudou, troca este arquivo e roda a nova versão."""
+    try:
+        st, d = api("GET", "contents/ferramentas/mac/robo_youtube.py?ref=main")
+        if st != 200:
+            return
+        novo = base64.b64decode(d["content"])
+        este = Path(__file__).resolve()
+        if novo.strip() and novo != este.read_bytes():
+            este.write_bytes(novo)
+            log("robô atualizado pelo GitHub")
+            os.execv(sys.executable, [sys.executable, str(este)])
+    except Exception as e:
+        log(f"não consegui checar atualização ({str(e)[:80]})")
+
+
 if __name__ == "__main__":
     TOKEN = token()
+    atualizar_sozinho()
     main()
