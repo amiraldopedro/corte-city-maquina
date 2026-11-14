@@ -1770,11 +1770,52 @@
    "views": 1010,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-13T22:42:44+00:00",
-   "atualizado_em": "2026-11-13T22:42:44+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-14T11:36:39+00:00",
+   "isolar_voz": true,
+   "youtube_id": "lm32Q7J9pOs",
+   "publicar_em": "2026-11-15T00:30:00Z",
+   "postado_em": "2026-11-14T11:36:39+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Davy Jones viu esse veículo no trailer do GTA 6 e se perguntou: pra quê?",
+   "gancho": "SCOOTER?",
+   "descricao": "Davy Jones viu esse veículo no trailer do GTA 6 e se perguntou: pra quê?\nDavy Jones reage ao trailer do GTA 6 e repara numa scooter elétrica rosa e num patinete no meio da rua, perto da viatura. Ele e o pessoal debatem se vai dar pra usar esses veículos no jogo. Cortes e reação do GTA 6 para quem acompanha os detalhes do trailer.\n\n🎮 Live original: https://www.youtube.com/@DavyJonesGTA6\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "davy jones gta 6",
+    "davy jones",
+    "scooter gta 6",
+    "patinete gta 6",
+    "detalhes trailer gta 6",
+    "trailer do gta 6",
+    "reagindo ao trailer gta 6",
+    "gta 6",
+    "cortes gta 6",
+    "cortes gta",
+    "momentos engraçados gta",
+    "davy jones gta 6 gta 6",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-14T11:36:32+00:00",
+   "corte": [
+    42.28,
+    65.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 3,
+   "quadro": null,
+   "duracao": 23.2,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_1.mp4",
+   "video_asset": 747297167,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_1.jpg",
+   "thumb_asset": 747297237,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_1_kit.zip"
   },
   "yt_LNFioqaHYtk_2": {
    "id": "yt_LNFioqaHYtk_2",
@@ -2148,6 +2189,6 @@
  ],
  "cota": {
   "2026-11-13": 8702,
-  "2026-11-14": 6800
+  "2026-11-14": 8500
  }
 }
