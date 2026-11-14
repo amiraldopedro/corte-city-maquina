@@ -1898,6 +1898,38 @@
    "postado_em": "2026-11-14T00:50:04+00:00",
    "envio_pendente": null,
    "atualizado_em": "2026-11-14T00:50:04+00:00"
+  },
+  "contagem_3_faltam3": {
+   "id": "contagem_3_faltam3",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "short",
+   "quadro": "contagem",
+   "status": "postado",
+   "titulo": "Faltam 3 dias pro GTA 6: quem são Jason e Lucia",
+   "descricao": "Faltam 3 dias pro GTA 6: quem são Jason e Lucia\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 lançamento",
+    "gta 6 brasil",
+    "contagem regressiva gta 6",
+    "gta 6 19 de novembro",
+    "vice city",
+    "corte city"
+   ],
+   "duracao": 30.5,
+   "feito_em": "2026-11-14T00:51:21+00:00",
+   "criado_em": "2026-11-14T00:51:21+00:00",
+   "publicar_em": "2026-11-16T15:00:00Z",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_3_faltam3.mp4",
+   "video_asset": 745779390,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_3_faltam3.jpg",
+   "thumb_asset": 745779455,
+   "youtube_id": "ug2gxPrj_sA",
+   "postado_em": "2026-11-14T00:51:25+00:00",
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-14T00:51:25+00:00"
   }
  },
  "clipes_vistos": [
@@ -1925,6 +1957,6 @@
   "UgliestSpineySkunkStoneLightning-0zagkvrrtS3Cej76"
  ],
  "cota": {
-  "2026-11-13": 7002
+  "2026-11-13": 8702
  }
 }
