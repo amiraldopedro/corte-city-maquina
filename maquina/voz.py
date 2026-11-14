@@ -47,6 +47,7 @@ def _modelo():
 
 def isolar_voz(entrada: Path, saida: Path) -> Path:
     """Gera `saida` com o mesmo vídeo e só a voz. Levanta erro se não conseguir."""
+    _garantir()  # instala o Demucs antes de tudo (antes o import do torch vinha primeiro e falhava)
     import torch
     from demucs.apply import apply_model
     modelo = _modelo()

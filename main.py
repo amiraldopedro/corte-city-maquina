@@ -271,7 +271,9 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     if m.get("evento") or m.get("isolar_voz") or d.get("musica"):  # música (trailer, rádio) faz o YouTube silenciar o Short
         from maquina.voz import tentar_isolar
         voz = tentar_isolar(bruto)
-        log(f"    voz isolada: {'sim' if voz else 'não (vai com o áudio original)'}")
+        log(f"    voz isolada: {'sim' if voz else 'NÃO'}")
+        if not voz:  # com música de trailer/rádio o Short leva Content ID: melhor não postar do que postar mudo
+            raise RuntimeError("precisava isolar a voz (tem música com direitos) e não deu: tenta de novo depois")
     pico = d.get("pico_visual")
     if pico is None or not (d["inicio"] + 0.5 < pico < d["fim"] - 0.5):
         pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
