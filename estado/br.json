@@ -1703,11 +1703,52 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-13T22:42:44+00:00",
-   "atualizado_em": "2026-11-13T22:42:44+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-14T11:34:57+00:00",
+   "isolar_voz": true,
+   "youtube_id": "ThjQt9-MimY",
+   "publicar_em": "2026-11-14T21:00:00Z",
+   "postado_em": "2026-11-14T11:34:57+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Davy Jones no GTA 6: esse carro é Lancer ou Skyline?",
+   "gancho": "SKYLINE?",
+   "descricao": "Davy Jones no GTA 6: esse carro é Lancer ou Skyline?\nDavy Jones GTA 6 para o trailer em cima de um carro vermelho e discute com a galera se é um Mitsubishi Lancer ou um Nissan Skyline. Nestes cortes de reação ao GTA 6, ele conta até que já dirigiu um Lancer no autódromo.\n\n🎮 Live original: https://www.youtube.com/@DavyJonesGTA6\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "davy jones gta 6",
+    "davy jones",
+    "lancer ou skyline gta 6",
+    "carro do trailer do gta 6",
+    "skyline gta 6",
+    "lancer gta 6",
+    "trailer do gta 6",
+    "reagindo ao trailer do gta 6",
+    "gta 6",
+    "cortes gta 6",
+    "cortes gta",
+    "gta 6 brasil",
+    "davy jones gta 6 gta 6",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-14T11:34:53+00:00",
+   "corte": [
+    0.0,
+    34.3
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 4,
+   "quadro": null,
+   "duracao": 34.3,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_0.mp4",
+   "video_asset": 747293093,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_0.jpg",
+   "thumb_asset": 747293136,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_0_kit.zip"
   },
   "yt_LNFioqaHYtk_1": {
    "id": "yt_LNFioqaHYtk_1",
@@ -2107,6 +2148,6 @@
  ],
  "cota": {
   "2026-11-13": 8702,
-  "2026-11-14": 5100
+  "2026-11-14": 6800
  }
 }
