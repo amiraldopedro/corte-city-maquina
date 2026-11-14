@@ -1,0 +1,62 @@
+{
+ "id": "1_faltam5",
+ "selo": "FALTAM 5 DIAS",
+ "publicar": "2026-11-14T12:00",
+ "titulo": "Faltam 5 dias pro GTA 6: tudo que já está confirmado",
+ "cenas": [
+  {
+   "texto": "Faltam cinco dias pro GTA 6. E aqui vai tudo que já é oficial, sem rumor.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Só o que é oficial"
+   }
+  },
+  {
+   "texto": "A data é dezenove de novembro, liberando à meia-noite no horário de Brasília.",
+   "card": {
+    "tipo": "dado",
+    "numero": "19/11",
+    "texto": "meia-noite, horário de Brasília"
+   }
+  },
+  {
+   "texto": "Sai só pra PlayStation 5 e Xbox Series X e S. Não tem versão de PS4, nem de PC por enquanto.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "PlayStation 5",
+     "Xbox Series X e S",
+     "PC: sem data"
+    ]
+   }
+  },
+  {
+   "texto": "Na loja brasileira, a edição padrão custa quatrocentos e quarenta e nove e noventa.",
+   "card": {
+    "tipo": "dado",
+    "numero": "R$ 449,90",
+    "texto": "edição padrão na PS Store"
+   }
+  },
+  {
+   "texto": "Amanhã: as seis regiões do mapa de Leonida. Segue o Corte City pra não perder a contagem.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Amanhã: o mapa"
+   }
+  }
+ ],
+ "tags": [
+  "gta 6",
+  "gta vi",
+  "gta 6 lançamento",
+  "gta 6 brasil",
+  "contagem regressiva gta 6",
+  "gta 6 19 de novembro",
+  "vice city",
+  "corte city"
+ ],
+ "descricao": "Faltam 5 dias pro GTA 6: tudo que já está confirmado\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+10%"
+}

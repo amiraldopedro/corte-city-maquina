@@ -1,0 +1,69 @@
+{
+ "id": "5_falta1",
+ "selo": "FALTA 1 DIA",
+ "publicar": "2026-11-18T12:00",
+ "titulo": "Falta 1 dia pro GTA 6: o checklist pra não passar sufoco",
+ "cenas": [
+  {
+   "texto": "Falta um dia pro GTA 6. Aqui vai o checklist pra amanhã.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Checklist do dia 19"
+   }
+  },
+  {
+   "texto": "Um: confere se a compra está feita e se o download terminou.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Compra feita",
+     "Download completo"
+    ]
+   }
+  },
+  {
+   "texto": "Dois: libera espaço. Duzentos e doze gigas, mais uma folga pra atualização.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Compra feita",
+     "Download completo",
+     "Espaço livre"
+    ]
+   }
+  },
+  {
+   "texto": "Três: deixa o console na tomada, em modo de repouso, esta noite.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Compra feita",
+     "Download completo",
+     "Espaço livre",
+     "Console em repouso"
+    ]
+   }
+  },
+  {
+   "texto": "E quatro: cuidado com spoiler nas redes. Libera meia-noite, no horário de Brasília. Nos vemos em Vice City.",
+   "card": {
+    "tipo": "dado",
+    "numero": "00:00",
+    "texto": "dia 19, horário de Brasília"
+   }
+  }
+ ],
+ "tags": [
+  "gta 6",
+  "gta vi",
+  "gta 6 lançamento",
+  "gta 6 brasil",
+  "contagem regressiva gta 6",
+  "gta 6 19 de novembro",
+  "vice city",
+  "corte city"
+ ],
+ "descricao": "Falta 1 dia pro GTA 6: o checklist pra não passar sufoco\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+10%"
+}

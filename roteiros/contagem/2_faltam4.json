@@ -1,0 +1,65 @@
+{
+ "id": "2_faltam4",
+ "selo": "FALTAM 4 DIAS",
+ "publicar": "2026-11-15T12:00",
+ "titulo": "Faltam 4 dias pro GTA 6: as 6 regiões de Leonida",
+ "cenas": [
+  {
+   "texto": "Faltam quatro dias pro GTA 6. Hoje é o mapa: o estado de Leonida, a versão da Rockstar pra Flórida.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Bem-vindo a Leonida"
+   }
+  },
+  {
+   "texto": "A Rockstar já confirmou seis regiões.",
+   "card": {
+    "tipo": "dado",
+    "numero": "6",
+    "texto": "regiões confirmadas"
+   }
+  },
+  {
+   "texto": "Vice City, a cidade grande. Leonida Keys, as ilhas com pontes. E Grassrivers, os pântanos cheios de jacaré.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Vice City",
+     "Leonida Keys",
+     "Grassrivers"
+    ]
+   }
+  },
+  {
+   "texto": "E ainda Port Gellhorn, Ambrosia e o parque de Mount Kalaga.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Port Gellhorn",
+     "Ambrosia",
+     "Mount Kalaga"
+    ]
+   }
+  },
+  {
+   "texto": "O tamanho exato ninguém sabe ainda: a Rockstar não deu número. Amanhã: Jason e Lucia.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Amanhã: a história"
+   }
+  }
+ ],
+ "tags": [
+  "gta 6",
+  "gta vi",
+  "gta 6 lançamento",
+  "gta 6 brasil",
+  "contagem regressiva gta 6",
+  "gta 6 19 de novembro",
+  "vice city",
+  "corte city"
+ ],
+ "descricao": "Faltam 4 dias pro GTA 6: as 6 regiões de Leonida\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+10%"
+}

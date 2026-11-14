@@ -1,0 +1,49 @@
+{
+ "id": "6_ehoje",
+ "selo": "É HOJE",
+ "publicar": "2026-11-19T08:00",
+ "titulo": "GTA 6 saiu: é hoje, Vice City está aberta",
+ "cenas": [
+  {
+   "texto": "É hoje. GTA 6 está liberado.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Vice City está aberta"
+   }
+  },
+  {
+   "texto": "Depois de treze anos desde o GTA 5 e dois adiamentos, o jogo chegou pro PlayStation 5 e Xbox Series.",
+   "card": {
+    "tipo": "dado",
+    "numero": "13 anos",
+    "texto": "de espera desde o GTA 5"
+   }
+  },
+  {
+   "texto": "Se o seu download travou, calma: no lançamento a loja fica lenta pra todo mundo.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "texto": "E hoje os maiores streamers do Brasil estão jogando. Os melhores momentos saem aqui no Corte City, o dia todo.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Os cortes saem aqui"
+   }
+  }
+ ],
+ "tags": [
+  "gta 6",
+  "gta vi",
+  "gta 6 lançamento",
+  "gta 6 brasil",
+  "contagem regressiva gta 6",
+  "gta 6 19 de novembro",
+  "vice city",
+  "corte city"
+ ],
+ "descricao": "GTA 6 saiu: é hoje, Vice City está aberta\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+10%"
+}

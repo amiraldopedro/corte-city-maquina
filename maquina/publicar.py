@@ -51,7 +51,8 @@ def publicar(est, mid: str, yt, video: Path, yt_titulo: str, yt_descricao: str, 
     if m.get("youtube_id"):  # já subiu antes (rodada que caiu no meio): nunca reenviar
         log(f"    já estava no YouTube: https://youtu.be/{m['youtube_id']}")
         return m["youtube_id"]
-    pendente = {"titulo": yt_titulo, "descricao": yt_descricao, "tags": yt_tags, "idioma": idioma, "playlist": playlist}
+    pendente = {"titulo": yt_titulo, "descricao": yt_descricao, "tags": yt_tags, "idioma": idioma, "playlist": playlist,
+                "publicar_em": publicar_em, "horario_fixo": bool(extras.pop("horario_fixo", False))}
     if not tem_cota(est):
         est.atualizar(mid, status="aguardando_cota", envio_pendente=pendente, **extras)
         est.salvar()
@@ -118,6 +119,8 @@ def enviar_pendentes(est, canal, yt, pasta: Path, horario, log=print) -> int:
             est.atualizar(m["id"], status="descartado", motivo="arquivo do envio pendente sumiu")
             continue
         quando = horario()
+        if p.get("horario_fixo") and (p.get("publicar_em") or "") > datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"):
+            quando = p["publicar_em"]  # vídeo com dia marcado (ex.: contagem regressiva) mantém o horário
         vid = publicar(est, m["id"], yt, video, p.get("titulo") or m.get("titulo", ""), p.get("descricao", ""),
                        p.get("tags") or [], p.get("idioma", canal.idioma), quando, capa, p.get("playlist", ""), log)
         if vid:

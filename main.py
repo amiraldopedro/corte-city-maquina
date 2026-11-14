@@ -989,6 +989,70 @@ def fazer_narrado(cfg: Config, rid: str):
     log("     (não foi postado: baixe no painel e poste você)")
 
 
+def fazer_contagem(cfg: Config):
+    """Contagem regressiva pro GTA 6 (roteiros/contagem): monta e agenda cada Short no dia e hora marcados."""
+    from zoneinfo import ZoneInfo
+    from maquina import contagem, editar, narrado, thumb
+    from maquina.baixar import baixar_trecho
+    from maquina.entrega import entregar
+    from maquina.painel import guardar_thumb
+    from maquina.publicar import publicar
+    canal = next((c for c in cfg.canais_ativos() if c.idioma == "pt"), None) or cfg.canais_ativos()[0]
+    est = Estado(canal.id)
+    agora_utc = datetime.now(timezone.utc)
+    pendentes = []
+    for r in contagem.roteiros():
+        cid = f"contagem_{r['id']}"
+        quando_dt = datetime.fromisoformat(r["publicar"]).replace(tzinfo=ZoneInfo(canal.fuso)).astimezone(timezone.utc)
+        x = est.momentos.get(cid, {})
+        if x.get("youtube_id") or x.get("status") in ("aguardando_cota", "postado"):
+            continue
+        if quando_dt < agora_utc + timedelta(minutes=30):
+            log(f"  {r['id']}: o dia já passou, pulei")
+            continue
+        pendentes.append((r, cid, quando_dt.strftime("%Y-%m-%dT%H:%M:%SZ")))
+    if not pendentes:
+        log("  contagem: nada novo pra montar")
+        return
+    pasta = PASTA_PRONTOS / "contagem"
+    fontes = narrado.biblioteca(PASTA_PRONTOS / "biblioteca")
+    if not fontes:
+        log("  biblioteca vazia: usando clipes de GTA da Twitch como fundo")
+        fontes = fundos_twitch(cfg, pasta / "fundos", baixar_trecho, 8)
+    yt = None
+    if canal.postar == "automatico" and canal.refresh_token:
+        from maquina.youtube import YouTube
+        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+    for r, cid, quando in pendentes:
+        log(f"== contagem {r['id']} (publica {quando})")
+        try:
+            final = contagem.montar(r, fontes, pasta / r["id"], log)
+            dur = editar.info_video(final)[2]
+            capa = thumb.gerar_thumb(editar.frame_em(final, min(3.0, dur / 2)), final.with_suffix(".jpg"),
+                                     r["selo"], canal.cor_destaque, None, "GTA 6")
+            guardar_thumb(capa, cid)
+            try:
+                arquivos = entregar(final, capa, cid)
+            except Exception as e:
+                log(f"  aviso: cópia nos downloads falhou ({str(e)[:100]})")
+                arquivos = {}
+            est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": "short", "quadro": "contagem",
+                                 "status": "pronto", "titulo": r["titulo"], "descricao": r["descricao"],
+                                 "tags": r["tags"], "duracao": round(dur, 1), "feito_em": agora(), "criado_em": agora(),
+                                 "publicar_em": quando, **arquivos}
+            est.salvar()
+            if yt:
+                vid = publicar(est, cid, yt, final, r["titulo"], r["descricao"], r["tags"], canal.idioma, quando, capa,
+                               canal.playlists.get("gta6", ""), log, horario_fixo=True)
+                if vid:
+                    log(f"  ✅ agendado pra {quando}: https://youtu.be/{vid}")
+            else:
+                log(f"  ✅ pronto pra baixar: {arquivos.get('video_url')}")
+        except Exception as e:
+            log(f"  ❌ {r['id']} falhou: {str(e)[:200]}")
+        est.salvar()
+
+
 def fundos_twitch(cfg: Config, pasta: Path, baixar_trecho, quantos: int) -> list[Path]:
     """Clipes de GTA bem vistos (últimas 72h) pra servir de fundo quando a biblioteca está vazia."""
     from maquina.twitch import Twitch
@@ -1110,7 +1174,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado", "contagem"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -1155,6 +1219,8 @@ def main():
     elif a.comando == "youtube_processar":
         from maquina import youtube_fonte
         youtube_fonte.processar(cfg)
+    elif a.comando == "contagem":
+        fazer_contagem(cfg)
     elif a.comando == "youtube_auto":
         from maquina import youtube_auto
         youtube_auto.rodar(cfg)

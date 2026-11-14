@@ -1,0 +1,57 @@
+{
+ "id": "4_faltam2",
+ "selo": "FALTAM 2 DIAS",
+ "publicar": "2026-11-17T12:00",
+ "titulo": "Faltam 2 dias pro GTA 6: seu console tem 212 GB livres?",
+ "cenas": [
+  {
+   "texto": "Faltam dois dias pro GTA 6, e esse aviso é importante: o pré-carregamento já está liberado.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Já dá pra baixar"
+   }
+  },
+  {
+   "texto": "O jogo ocupa até duzentos e doze gigas, dependendo do console. E ainda pode vir atualização no dia.",
+   "card": {
+    "tipo": "dado",
+    "numero": "212 GB",
+    "texto": "tamanho do jogo, até"
+   }
+  },
+  {
+   "texto": "Numa internet de cem mega, duzentos gigas levam mais de quatro horas. Na noite do lançamento, pode demorar bem mais.",
+   "card": {
+    "tipo": "dado",
+    "numero": "+4 h",
+    "texto": "de download a 100 mega"
+   }
+  },
+  {
+   "texto": "Baixar antes não libera jogar antes: o jogo fica bloqueado até a meia-noite do dia dezenove.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "texto": "Então começa o download hoje. Amanhã: o checklist do lançamento.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Baixa hoje"
+   }
+  }
+ ],
+ "tags": [
+  "gta 6",
+  "gta vi",
+  "gta 6 lançamento",
+  "gta 6 brasil",
+  "contagem regressiva gta 6",
+  "gta 6 19 de novembro",
+  "vice city",
+  "corte city"
+ ],
+ "descricao": "Faltam 2 dias pro GTA 6: seu console tem 212 GB livres?\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+10%"
+}
