@@ -2025,7 +2025,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "GTA 6 saiu: é hoje, Vice City está aberta",
    "descricao": "GTA 6 saiu: é hoje, Vice City está aberta\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
    "tags": [
@@ -2046,25 +2046,10 @@
    "video_asset": 745790921,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_6_ehoje.jpg",
    "thumb_asset": 745790977,
-   "envio_pendente": {
-    "titulo": "GTA 6 saiu: é hoje, Vice City está aberta",
-    "descricao": "GTA 6 saiu: é hoje, Vice City está aberta\n\nContagem regressiva do Corte City pro lançamento de GTA 6 (19/11/2026). Só informação oficial, sem vazamento.\n\nFontes: Rockstar Games Newswire, PlayStation Store Brasil e site oficial de GTA VI.\n\n#gta6 #gtavi #gta6brasil",
-    "tags": [
-     "gta 6",
-     "gta vi",
-     "gta 6 lançamento",
-     "gta 6 brasil",
-     "contagem regressiva gta 6",
-     "gta 6 19 de novembro",
-     "vice city",
-     "corte city"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-19T11:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-14T00:55:26+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-14T11:32:55+00:00",
+   "youtube_id": "7RiC5pBBvdE",
+   "postado_em": "2026-11-14T11:32:55+00:00"
   },
   "2927156193_1337": {
    "id": "2927156193_1337",
@@ -2122,6 +2107,6 @@
  ],
  "cota": {
   "2026-11-13": 8702,
-  "2026-11-14": 3400
+  "2026-11-14": 5100
  }
 }
