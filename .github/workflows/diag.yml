@@ -9,15 +9,21 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install -q requests
+      - run: pip install -q -r requirements-leve.txt pillow
       - run: |
           python - <<'PY'
-          import requests, json
-          UA={"User-Agent": "CorteCityBot/1.0 (canal de YouTube; github.com/amiraldopedro)"}
-          p={"action":"query","format":"json","generator":"search","gsrnamespace":6,"gsrsearch":"American alligator Florida filetype:bitmap","gsrlimit":5,"prop":"imageinfo","iiprop":"url|extmetadata|size|mime","iiurlwidth":2400}
-          r=requests.get("https://commons.wikimedia.org/w/api.php",params=p,headers=UA,timeout=30)
-          print(r.status_code, r.text[:300])
-          d=r.json()
-          for pg in (d.get("query") or {}).get("pages",{}).values():
-              ii=(pg.get("imageinfo") or [{}])[0]; m=ii.get("extmetadata") or {}
-              print(pg["title"], ii.get("width"), (m.get("LicenseShortName") or {}).get("value"), ii.get("thumburl","")[:80])
+          import sys, traceback, requests
+          sys.path.insert(0, ".")
+          from pathlib import Path
+          from maquina import visuais as V
+          orig = requests.get
+          def espia(*a, **k):
+              r = orig(*a, **k); print("GET", r.status_code, a[0][:90]); return r
+          V.requests.get = espia
+          P = Path("/tmp/m"); P.mkdir(exist_ok=True)
+          for b in ["American alligator Florida", "Everglades airboat"]:
+              try:
+                  print(b, "->", V.commons(b, P))
+              except Exception:
+                  traceback.print_exc()
           PY
