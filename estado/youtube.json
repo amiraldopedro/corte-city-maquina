@@ -162,6 +162,32 @@
      "forca": 1.018
     }
    ]
+  },
+  "MsBw25KFZMI": {
+   "id": "MsBw25KFZMI",
+   "link": "https://www.youtube.com/watch?v=MsBw25KFZMI",
+   "status": "esperando",
+   "modo": "cortes",
+   "pedido_em": "2026-11-15T19:20:12+00:00",
+   "atualizado_em": "2026-11-15T19:20:12+00:00",
+   "auto": true,
+   "titulo": "Meu novo PC MONSTRO pro GTA 6",
+   "canal_nome": "Gameplayrj",
+   "isolar_voz": false,
+   "views_yt": 1618778
+  },
+  "IrHIQePmYDY": {
+   "id": "IrHIQePmYDY",
+   "link": "https://www.youtube.com/watch?v=IrHIQePmYDY",
+   "status": "esperando",
+   "modo": "cortes",
+   "pedido_em": "2026-11-15T19:20:12+00:00",
+   "atualizado_em": "2026-11-15T19:20:12+00:00",
+   "auto": true,
+   "titulo": "REAGINDO AO DAVY JONES PRIME REVOLTADO COM GTA 5 ONLINE",
+   "canal_nome": "Davy Jones GTA 6",
+   "isolar_voz": true,
+   "views_yt": 280166
   }
  },
  "clipes_vistos": [],
