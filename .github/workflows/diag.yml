@@ -3,7 +3,7 @@ on: workflow_dispatch
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -11,7 +11,7 @@ jobs:
       - run: pip install -q requests
       - run: pip install -q -r requirements.txt
       - run: |
-          python - <<'PY'
+          python -u - <<'PY'
           import sys, traceback, requests
           sys.path.insert(0, ".")
           from pathlib import Path
