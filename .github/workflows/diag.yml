@@ -5,33 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - run: pip install -q yt-dlp
       - run: |
-          python3 -u - <<'PY'
-          import requests, time
-          UA = {"User-Agent": "CorteCityBot/1.0 (https://github.com/amiraldopedro/corte-city-maquina; YouTube channel bot)"}
-          def t(nome, url, h=UA, **k):
-              try:
-                  r = requests.get(url, headers=h, timeout=30, **k)
-                  print(nome, r.status_code, len(r.content)); return r
-              except Exception as e: print(nome, "ERRO", e)
-          API = "https://commons.wikimedia.org/w/api.php"
-          for largura in (1280, 1920):
-              r = t("wm api %d" % largura, API, params={"action":"query","format":"json","generator":"search","gsrsearch":"American alligator Florida filetype:bitmap","gsrnamespace":6,"gsrlimit":4,"prop":"imageinfo","iiprop":"url|size","iiurlwidth":largura})
-              for p in list(r.json()["query"]["pages"].values())[:4]:
-                  ii = p["imageinfo"][0]; print("  ", ii.get("width"), ii.get("thumburl","")[:110])
-                  t("   thumb", ii["thumburl"]); time.sleep(2)
-          r = t("openverse", "https://api.openverse.org/v1/images/", params={"q":"alligator","license_type":"commercial,modification","page_size":4})
-          for it in r.json()["results"]:
-              t("  flickr sem UA", it["url"], h={})
-              t("  flickr navegador", it["url"], h={"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"})
-              t("  thumb proxy", "https://api.openverse.org/v1/images/%s/thumb/" % it["id"], params={"full_size":"true"})
-          PY
-      - env: { K: "${{ secrets.PIXABAY_API_KEY }}" }
-        run: |
-          python3 -u - <<'PY'
-          import os, requests
-          if not os.environ.get("K"): print("sem PIXABAY_API_KEY"); raise SystemExit
-          r = requests.get("https://pixabay.com/api/videos/", params={"key": os.environ["K"], "q": "alligator", "per_page": 3}, timeout=30)
-          print("pixabay video", r.status_code, [h["videos"]["large"]["url"][:60] for h in r.json().get("hits", [])])
-          PY
+          for q in "ytsearch3:WPTV huge gator removed Palm Beach Gardens swimming pool" "ytsearch3:Florida man alligator beer run Jacksonville convenience store" "ytsearch3:12 foot alligator Coconut Point Mall Estero"; do
+            yt-dlp --flat-playlist --print "%(id)s | %(channel)s | %(duration)s | %(title)s" "$q" || true
+          done
+          yt-dlp -f "b[height<=720]/b" --download-sections "*5-10" -o /tmp/t.mp4 "ytsearch1:WPTV huge gator removed Palm Beach Gardens swimming pool" 2>&1 | tail -3; ls -la /tmp/t.mp4 || true
