@@ -211,18 +211,65 @@ def biblioteca(pasta: Path) -> list[Path]:
 
 
 # ------------------------------------------------------------------ montagem
-def cena(i: int, c: dict, voz: str, taxa: str, fundos: Fundos, cor: str, marca: Path | None, pasta: Path) -> dict:
+def _fundo_visual(i: int, c: dict, dur: float, fundos: Fundos, pasta: Path, creditos: list, usados: set):
+    """Monta o vídeo de fundo da cena conforme o "visual" pedido no roteiro. None = usar o trailer."""
+    from . import visuais as V
+    v = c.get("visual") or {}
+    tipo = v.get("tipo", "trailer")
+    if tipo == "trailer":
+        return None, None
+    cache = pasta / "midia"
+    cache.mkdir(exist_ok=True)
+    destino = pasta / f"c{i:02d}_fundo.mp4"
+    try:
+        if tipo == "mapa":
+            return V.mapa(v.get("pinos", []), v.get("titulo", ""), cache, dur, destino), None
+        if tipo in ("foto", "broll", "manchete", "comparar") and v.get("busca"):
+            achado = None
+            if tipo == "broll":
+                achado = V.commons(v["busca"], cache, video=True, usados=usados)
+                if achado:
+                    creditos.append(achado[1])
+                    return V.video_em_video(achado[0], dur, destino), None
+            achado = V.commons(v["busca"], cache, usados=usados)
+            if achado:
+                creditos.append(achado[1])
+                if tipo == "comparar":
+                    src, ini = fundos.trecho(dur)
+                    return V.comparar(src, ini, achado[0], dur, v.get("rotulos", ["GTA 6", "VIDA REAL"]), destino), None
+                return V.foto_em_video(achado[0], dur, destino, 1 if i % 2 else -1), None
+            print(f"  (cena {i + 1}: não achei imagem livre pra '{v['busca']}', vai o trailer)")
+    except Exception as e:
+        print(f"  (cena {i + 1}: visual '{tipo}' falhou, vai o trailer: {str(e)[:120]})")
+    return None, None
+
+
+def cena(i: int, c: dict, voz: str, taxa: str, fundos: Fundos, cor: str, marca: Path | None, pasta: Path,
+         creditos: list | None = None, usados: set | None = None) -> dict:
+    creditos = creditos if creditos is not None else []
+    usados = usados if usados is not None else set()
     audio = pasta / f"c{i:02d}.mp3"
     palavras = falar(c["texto"], voz, taxa, audio)
     dur = (palavras[-1]["f"] if palavras else 4) + PAUSA
-    src, ini = fundos.trecho(dur)
     ass = legenda(palavras, c.get("capitulo", "") if i else "", cor, pasta / f"c{i:02d}.ass")
-    cd = card(c.get("card", {}), cor, pasta / f"c{i:02d}.png")
-    entradas = ["-ss", f"{ini:.2f}", "-t", f"{dur:.2f}", "-i", str(src), "-i", str(audio)]
-    pan = 1 if i % 2 else -1  # alterna o sentido do movimento
-    x = f"(iw-ow)*t/{dur:.2f}" if pan > 0 else f"(iw-ow)*(1-t/{dur:.2f})"
-    fil = [f"[0:v]scale=2112:1188:force_original_aspect_ratio=increase,crop=2112:1188,setsar=1,fps={FPS},"
-           f"crop={W}:{H}:x='{x}':y='(ih-oh)/2',eq=brightness=-0.10:saturation=1.08[b0]"]
+    v = c.get("visual") or {}
+    if v.get("tipo") == "manchete":  # a ilustração da notícia toma o lugar do card
+        from .visuais import manchete
+        cd = manchete(v, pasta / f"c{i:02d}.png")
+    else:
+        cd = card(c.get("card", {}), cor, pasta / f"c{i:02d}.png")
+    fundo, _ = _fundo_visual(i, c, dur, fundos, pasta, creditos, usados)
+    if fundo:
+        entradas = ["-i", str(fundo), "-i", str(audio)]
+        escurece = "-0.18" if cd else "-0.04"
+        fil = [f"[0:v]scale={W}:{H},setsar=1,fps={FPS},eq=brightness={escurece}[b0]"]
+    else:
+        src, ini = fundos.trecho(dur)
+        entradas = ["-ss", f"{ini:.2f}", "-t", f"{dur:.2f}", "-i", str(src), "-i", str(audio)]
+        pan = 1 if i % 2 else -1  # alterna o sentido do movimento
+        x = f"(iw-ow)*t/{dur:.2f}" if pan > 0 else f"(iw-ow)*(1-t/{dur:.2f})"
+        fil = [f"[0:v]scale=2112:1188:force_original_aspect_ratio=increase,crop=2112:1188,setsar=1,fps={FPS},"
+               f"crop={W}:{H}:x='{x}':y='(ih-oh)/2',eq=brightness=-0.10:saturation=1.08[b0]"]
     atual, n = "b0", 2
     if cd:
         png, cx, cy = cd
@@ -249,8 +296,9 @@ def montar(roteiro: dict, fontes: list[Path], cor: str, marca: Path | None, past
     fundos = Fundos(fontes, semente=int(roteiro.get("id", "1")) if str(roteiro.get("id", "1")).isdigit() else 7)
     voz, taxa = roteiro.get("voz", "pt-BR-AntonioNeural"), roteiro.get("taxa", "+6%")
     partes, capitulos, relogio = [], [], 0.0
+    creditos, usados = [], set()
     for i, c in enumerate(roteiro["cenas"]):
-        r = cena(i, c, voz, taxa, fundos, cor, marca, pasta)
+        r = cena(i, c, voz, taxa, fundos, cor, marca, pasta, creditos, usados)
         if r["capitulo"]:
             capitulos.append((relogio, r["capitulo"]))
         relogio += r["dur"]
@@ -263,6 +311,7 @@ def montar(roteiro: dict, fontes: list[Path], cor: str, marca: Path | None, past
     final = pasta / f"narrado_{roteiro['id']}.mp4"
     rodar(["ffmpeg", "-y", "-loglevel", "error", "-i", str(juntado), "-c:v", "copy",
            "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(final)])
+    roteiro["_creditos"] = list(dict.fromkeys(creditos))  # vão pra descrição
     return final, capitulos
 
 
@@ -272,5 +321,8 @@ def descricao(roteiro: dict, capitulos: list[tuple[float, str]], hashtags: list[
     resumo = roteiro["cenas"][0]["texto"]
     return (f"{roteiro['titulo']}\n{resumo}\n\n⏱️ Capítulos\n{caps}\n\n"
             + (f"📚 Fontes\n{fontes}\n\n" if fontes else "")
-            + "Imagens: trailers e materiais oficiais de divulgação da Rockstar Games, usados para comentário e notícia.\n\n"
+            + "Imagens: trailers e materiais oficiais de divulgação da Rockstar Games, usados para comentário e notícia.\n"
+            + ("Fotos e vídeos reais (licença livre):\n" + "\n".join(f"• {c}" for c in roteiro.get("_creditos", [])) + "\n"
+               if roteiro.get("_creditos") else "")
+            + "\n"
             + " ".join(hashtags))

@@ -1,0 +1,228 @@
+{
+ "id": "004",
+ "titulo": "Por que a Flórida é o estado mais maluco dos EUA (e virou o GTA 6)",
+ "titulos_extra": [
+  "Florida Man: a lei que explica a Flórida maluca do GTA 6",
+  "O segredo por trás da Flórida maluca do GTA 6",
+  "GTA 6 escolheu o estado mais estranho dos EUA. Entenda"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+6%",
+ "gancho_thumb": "POR QUÊ?",
+ "tags": [
+  "gta 6",
+  "florida man",
+  "flórida",
+  "gta 6 vida real",
+  "leonida",
+  "vice city",
+  "curiosidades gta 6",
+  "gta vi",
+  "corte city"
+ ],
+ "fontes": [
+  "Reason: How Public Records Laws Created the Florida Man",
+  "Daily Dot sobre a origem do perfil Florida Man",
+  "FWC (Comissão de Vida Selvagem da Flórida), via ClickOrlando e Fort Myers News-Press",
+  "Wikipedia: Grand Theft Auto VI"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "Jacaré dentro de loja. Homem correndo pelado da polícia. Gente dançando em cima de carro em movimento. O trailer do GTA 6 parece exagero. Mas quem conhece a Flórida sabe: isso é uma terça-feira normal. E existe um motivo de verdade pra Flórida ser assim. Bora entender.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "A FLÓRIDA É MALUCA?",
+    "sub": "o motivo real por trás do GTA 6"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Miami Beach Ocean Drive"
+   }
+  },
+  {
+   "texto": "O GTA 6 se passa em Leonida, a versão da Rockstar pra Flórida. E a Rockstar não escolheu esse estado por acaso: a Flórida tem a fama de ser o lugar mais estranho dos Estados Unidos.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "visual": {
+    "tipo": "mapa",
+    "titulo": "Leonida é a Flórida",
+    "pinos": [
+     {
+      "nome": "Vice City (Miami)",
+      "lat": 25.76,
+      "lon": -80.19
+     }
+    ]
+   }
+  },
+  {
+   "capitulo": "O Florida Man",
+   "texto": "Essa fama tem até nome: Florida Man, o Homem da Flórida. É um meme que junta manchetes absurdas de jornal que começam sempre igual: homem da Flórida faz alguma coisa inacreditável.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Florida Man"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "newspaper stack"
+   }
+  },
+  {
+   "texto": "O meme explodiu em dois mil e treze, quando um perfil no Twitter começou a juntar essas manchetes. Depois, o próprio criador encerrou a conta, dizendo que a brincadeira tinha ficado maldosa demais.",
+   "card": {
+    "tipo": "dado",
+    "numero": "2013",
+    "texto": "ano em que o meme explodiu"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "smartphone social media"
+   }
+  },
+  {
+   "capitulo": "A lei do sol",
+   "texto": "Agora vem o segredo. A Flórida tem uma das leis de transparência mais fortes dos Estados Unidos, chamada Sunshine Law, a Lei do Sol. Ela começou com a lei de registros públicos de mil novecentos e nove e ficou mais forte em mil novecentos e sessenta e sete.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "1909: registros públicos",
+     "1967: Lei do Sol",
+     "Boletins de ocorrência abertos"
+    ]
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Florida State Capitol Tallahassee"
+   }
+  },
+  {
+   "texto": "Na prática, boletim de ocorrência, registro de prisão e foto da delegacia ficam muito mais fáceis de acessar do que em outros estados. Então, quando acontece uma coisa bizarra, o jornal fica sabendo. E o mundo inteiro também.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "visual": {
+    "tipo": "mapa",
+    "titulo": "A Lei do Sol nasce aqui",
+    "pinos": [
+     {
+      "nome": "Tallahassee, capital",
+      "lat": 30.44,
+      "lon": -84.28
+     }
+    ]
+   }
+  },
+  {
+   "texto": "Mas atenção: tem especialista que acha essa explicação simples demais. Outros estados também têm leis abertas. A conclusão mais justa é que a Flórida não tem mais gente estranha. Ela só mostra mais.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Não é mais estranha. Só mostra mais"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Miami police car"
+   }
+  },
+  {
+   "capitulo": "Um milhão de jacarés",
+   "texto": "E tem o outro lado da Flórida maluca: a natureza. A comissão de vida selvagem do estado estima cerca de um milhão e trezentos mil jacarés, espalhados pelos sessenta e sete condados.",
+   "card": {
+    "tipo": "dado",
+    "numero": "1,3 milhão",
+    "texto": "de jacarés na Flórida"
+   },
+   "visual": {
+    "tipo": "broll",
+    "busca": "American alligator Florida"
+   }
+  },
+  {
+   "texto": "Só no lago Okeechobee, que no GTA 6 vira o Lake Leonida, são mais de trinta e três mil jacarés, segundo o censo de dois mil e vinte e quatro.",
+   "card": {
+    "tipo": "dado",
+    "numero": "33 mil",
+    "texto": "jacarés no lago Okeechobee"
+   },
+   "visual": {
+    "tipo": "mapa",
+    "titulo": "O lago dos jacarés",
+    "pinos": [
+     {
+      "nome": "Lago Okeechobee",
+      "lat": 26.95,
+      "lon": -80.8
+     }
+    ]
+   }
+  },
+  {
+   "texto": "Por isso cena de jacaré em piscina não é invenção. Em dois mil e dezenove, uma família em Palm Beach Gardens achou um jacaré de quase três metros no fundo da piscina de casa.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "visual": {
+    "tipo": "manchete",
+    "data": "2019",
+    "local": "Palm Beach Gardens, Flórida",
+    "titulo": "Jacaré de quase 3 metros aparece no fundo de piscina",
+    "busca": "alligator swimming pool"
+   }
+  },
+  {
+   "texto": "E um detalhe que pouca gente sabe: o jacaré chegou a estar na lista de espécies ameaçadas em mil novecentos e sessenta e sete. Ele se recuperou tão bem que saiu da lista em mil novecentos e oitenta e sete. Hoje, ataque grave é raríssimo: a chance é de uma em três milhões.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "1967: ameaçado de extinção",
+     "1987: saiu da lista",
+     "Ataque grave: 1 em 3 milhões"
+    ]
+   },
+   "visual": {
+    "tipo": "broll",
+    "busca": "alligator Everglades"
+   }
+  },
+  {
+   "capitulo": "Os pântanos",
+   "texto": "No GTA 6, esse lado selvagem aparece em Grassrivers, a versão dos Everglades: pântano, capim alto, barco de hélice e, claro, jacaré.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Grassrivers = Everglades"
+   },
+   "visual": {
+    "tipo": "comparar",
+    "busca": "Everglades airboat",
+    "rotulos": [
+     "GTA 6",
+     "VIDA REAL"
+    ]
+   }
+  },
+  {
+   "capitulo": "Por que isso é genial",
+   "texto": "Junta tudo: manchetes absurdas que viralizam, uma natureza perigosa, praias, festa e cidade grande. A Rockstar pegou o personagem que a internet já tinha criado, a Flórida maluca, e transformou num mapa inteiro. Por isso o trailer parece tão real.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Miami skyline night"
+   }
+  },
+  {
+   "capitulo": "Encerramento",
+   "texto": "E você, acha que a Flórida é mesmo mais maluca ou só aparece mais? Comenta aí. No dia dezenove o GTA 6 chega, e os melhores momentos dos streamers você vê aqui no Corte City. Se inscreve.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve pro dia 19"
+   },
+   "visual": {
+    "tipo": "trailer"
+   }
+  }
+ ]
+}

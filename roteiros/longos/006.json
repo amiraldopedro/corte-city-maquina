@@ -1,0 +1,181 @@
+{
+ "id": "006",
+ "titulo": "De Miami Vice ao GTA 6: a história de Vice City",
+ "titulos_extra": [
+  "Vice City voltou: a história da cidade mais famosa do GTA",
+  "Por que a Rockstar voltou pra Vice City depois de 20 anos",
+  "A série de TV que criou Vice City"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+6%",
+ "gancho_thumb": "1986",
+ "tags": [
+  "gta 6",
+  "gta vice city",
+  "vice city",
+  "miami vice",
+  "história do gta",
+  "gta 6 vice city",
+  "scarface",
+  "gta vi",
+  "corte city"
+ ],
+ "fontes": [
+  "Wikipedia: Grand Theft Auto: Vice City",
+  "GTA Wiki e GrandTheftWiki: Vice City",
+  "GamesRadar: The complete history of Grand Theft Auto",
+  "Gameranx: Vice City 23 anos"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "Em dois mil e vinte e seis, a Rockstar volta pra Vice City. Mas essa cidade nasceu há mais de vinte anos, inspirada numa série de TV, num filme de gângster e numa Miami de neon. Esta é a história de Vice City.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "A HISTÓRIA DE VICE CITY",
+    "sub": "de 2002 ao GTA 6"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Miami Beach Art Deco neon night"
+   }
+  },
+  {
+   "capitulo": "2002",
+   "texto": "Outubro de dois mil e dois. Chega ao PlayStation 2 o GTA Vice City. A história se passa em mil novecentos e oitenta e seis, numa versão fictícia de Miami, e acompanha Tommy Vercetti, um mafioso que acaba de sair da prisão.",
+   "card": {
+    "tipo": "dado",
+    "numero": "1986",
+    "texto": "o ano em que se passa Vice City"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "PlayStation 2 console"
+   }
+  },
+  {
+   "texto": "E tem um detalhe curioso: o jogo quase não existiu como jogo. A ideia começou como um pacote de missões extras pro GTA 3, e virou um jogo completo.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Era pra ser só uma expansão"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "retro video game cartridges"
+   }
+  },
+  {
+   "capitulo": "Miami Vice",
+   "texto": "A maior inspiração foi a série de TV Miami Vice, que passou de mil novecentos e oitenta e quatro a oitenta e nove. A equipe da Rockstar assistia à série durante o desenvolvimento, e o diretor de arte usou ela como referência pra luz de neon da cidade.",
+   "card": {
+    "tipo": "dado",
+    "numero": "1984-89",
+    "texto": "anos da série Miami Vice"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Ferrari Testarossa"
+   }
+  },
+  {
+   "texto": "A ligação é tão forte que a música Crockett's Theme, da série, toca numa rádio do jogo. E as cores pastel dos prédios lembram o estilo que a série criou pra Miami, onde tons de terra eram praticamente proibidos.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Ocean Drive Miami Beach pastel art deco buildings"
+   }
+  },
+  {
+   "capitulo": "Scarface",
+   "texto": "A outra grande inspiração foi o filme Scarface, de mil novecentos e oitenta e três. A Mansão do Tommy e a história de subir no crime em Miami bebem direto dessa fonte.",
+   "card": {
+    "tipo": "dado",
+    "numero": "1983",
+    "texto": "lançamento de Scarface"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Miami mansion waterfront"
+   }
+  },
+  {
+   "capitulo": "A pesquisa em Miami",
+   "texto": "E não foi só TV e cinema. Depois do GTA 3, a equipe fez viagens de pesquisa a Miami, dividida em pequenos grupos, observando as ruas, os prédios e as pessoas.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "visual": {
+    "tipo": "mapa",
+    "titulo": "A pesquisa da Rockstar",
+    "pinos": [
+     {
+      "nome": "Miami",
+      "lat": 25.76,
+      "lon": -80.19
+     },
+     {
+      "nome": "Miami Beach",
+      "lat": 25.79,
+      "lon": -80.13
+     }
+    ]
+   }
+  },
+  {
+   "capitulo": "O sucesso",
+   "texto": "Resultado: Vice City foi o jogo mais vendido de dois mil e dois e passou de dezessete milhões e meio de cópias. Um time principal de cerca de cinquenta pessoas fez o jogo em mais ou menos um ano e meio.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Mais vendido de 2002",
+     "+17,5 milhões de cópias",
+     "Time de ~50 pessoas"
+    ]
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Miami skyline 1980s"
+   }
+  },
+  {
+   "capitulo": "A volta",
+   "texto": "Agora, mais de vinte anos depois, Vice City volta no GTA 6. Só que muito maior: não é mais só a cidade, é o estado inteiro de Leonida, com praias, pântanos, ilhas e cidades do interior.",
+   "card": {
+    "tipo": "texto",
+    "texto": "De cidade a estado inteiro"
+   },
+   "visual": {
+    "tipo": "comparar",
+    "busca": "Miami Beach aerial",
+    "rotulos": [
+     "GTA 6",
+     "VIDA REAL"
+    ]
+   }
+  },
+  {
+   "texto": "E os prédios de Miami que inspiraram o jogo original continuam lá: os hotéis art déco da Ocean Drive aparecem de novo, agora com o realismo de vinte e quatro anos de evolução.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Colony Hotel Miami Beach"
+   }
+  },
+  {
+   "capitulo": "Encerramento",
+   "texto": "Você jogou o Vice City original? Conta nos comentários qual foi a sua primeira missão inesquecível. E se inscreve no Corte City: dia dezenove a gente volta pra Vice City junto com os maiores streamers do Brasil.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "bem-vindo de volta a Vice City"
+   },
+   "visual": {
+    "tipo": "trailer"
+   }
+  }
+ ]
+}

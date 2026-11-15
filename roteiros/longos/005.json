@@ -1,0 +1,169 @@
+{
+ "id": "005",
+ "titulo": "GTA 6 em números: o jogo que pode faturar bilhões",
+ "titulos_extra": [
+  "Quanto dinheiro o GTA 6 vai fazer? Os números",
+  "O jogo mais esperado da história em números",
+  "GTA 5 vendeu 230 milhões. E o GTA 6?"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+6%",
+ "gancho_thumb": "BILHÕES",
+ "tags": [
+  "gta 6",
+  "gta 6 dinheiro",
+  "gta 6 vendas",
+  "gta 5 vendas",
+  "take-two",
+  "rockstar games",
+  "gta 6 números",
+  "gta vi",
+  "corte city"
+ ],
+ "fontes": [
+  "Take-Two Interactive: resultados trimestrais (via Simulation Daily, Outlook Respawn e Gaming Amigos)",
+  "IGN: pesquisa sobre faltas no lançamento do GTA 5 (via 91mobiles)"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "O GTA 6 ainda nem saiu e já é o maior evento da história dos games. Neste vídeo, só com números oficiais, eu vou te mostrar por que esse jogo mexe com bilhões de dólares, e o que o GTA 5 já tinha mostrado treze anos atrás.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "GTA 6 EM NÚMEROS",
+    "sub": "só dado oficial"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Times Square New York night"
+   }
+  },
+  {
+   "capitulo": "O fenômeno GTA 5",
+   "texto": "Começa pelo GTA 5. Lançado em setembro de dois mil e treze, ele já passou de duzentos e trinta milhões de cópias vendidas, segundo a Take-Two, a dona da Rockstar, em agosto de dois mil e vinte e seis.",
+   "card": {
+    "tipo": "dado",
+    "numero": "230 mi",
+    "texto": "de cópias do GTA 5"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "video game store shelves"
+   }
+  },
+  {
+   "texto": "Pra ter noção: a série Grand Theft Auto inteira chega perto de quatrocentos e sessenta e cinco milhões de cópias. E o GTA 5 continua sendo o jogo mais vendido da última década nos Estados Unidos, tanto em unidades quanto em dinheiro.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Série GTA: ~465 milhões",
+     "GTA 5: +230 milhões",
+     "Mais vendido da década nos EUA"
+    ]
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "PlayStation 4 console"
+   }
+  },
+  {
+   "texto": "E tem uma curiosidade do lançamento dele: numa pesquisa da IGN com quase onze mil jogadores, quarenta e seis por cento disseram que tiraram folga do trabalho no dia que o GTA 5 saiu.",
+   "card": {
+    "tipo": "dado",
+    "numero": "46%",
+    "texto": "tiraram folga no lançamento do GTA 5"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "office empty desk"
+   }
+  },
+  {
+   "capitulo": "O trailer recorde",
+   "texto": "Agora o GTA 6. O segundo trailer, segundo a própria Take-Two, foi o maior lançamento de vídeo de todos os tempos: mais de quatrocentos e setenta e cinco milhões de visualizações em vinte e quatro horas, somando todas as plataformas.",
+   "card": {
+    "tipo": "dado",
+    "numero": "475 mi",
+    "texto": "de views do trailer 2 em 24 horas"
+   },
+   "visual": {
+    "tipo": "trailer"
+   }
+  },
+  {
+   "capitulo": "A aposta da Take-Two",
+   "texto": "A Take-Two está apostando alto. Pro ano fiscal que inclui o lançamento, ela prevê entre oito e oito vírgula dois bilhões de dólares em vendas líquidas. É o maior número da história da empresa.",
+   "card": {
+    "tipo": "dado",
+    "numero": "US$ 8 bi",
+    "texto": "previsão de vendas da Take-Two"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "Wall Street New York Stock Exchange"
+   }
+  },
+  {
+   "texto": "E o presidente da empresa, Strauss Zelnick, disse aos investidores que a pré-venda do GTA 6 está num nível sem precedentes. Tão alta que nem eles sabem direito como isso vai virar venda final.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Pré-venda sem precedentes"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "stock market chart screen"
+   }
+  },
+  {
+   "capitulo": "Onde está o dinheiro",
+   "texto": "Mas o dinheiro grande não vem só da venda do jogo. Hoje, mais de oitenta por cento do que a Take-Two fatura vem de gasto recorrente: dinheiro dentro do jogo, assinaturas e conteúdo extra. No GTA 5, isso se chama GTA Online.",
+   "card": {
+    "tipo": "dado",
+    "numero": "84%",
+    "texto": "do faturamento vem de gasto recorrente"
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "gaming setup controller"
+   }
+  },
+  {
+   "texto": "É por isso que o lançamento é só o começo. O modo online do GTA 6 ainda não tem data, e é ele que deve manter o jogo vivo, e faturando, por mais uma década.",
+   "card": {
+    "tipo": "texto",
+    "texto": "O online vem depois"
+   },
+   "visual": {
+    "tipo": "trailer"
+   }
+  },
+  {
+   "capitulo": "E pra quem cria conteúdo",
+   "texto": "E tem um efeito que vai além da Rockstar. O GTA 5 foi o jogo mais assistido da Twitch em dois mil e vinte e um, oito anos depois do lançamento. Com o GTA 6, streamers, canais de corte e criadores do mundo inteiro vão disputar a atenção desse jogo por anos.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Streamers",
+     "Canais de corte",
+     "Servidores de RP"
+    ]
+   },
+   "visual": {
+    "tipo": "foto",
+    "busca": "streaming setup microphone"
+   }
+  },
+  {
+   "capitulo": "Encerramento",
+   "texto": "Quantas cópias você acha que o GTA 6 vende no primeiro dia? Deixa o seu palpite nos comentários. E segue o Corte City: a partir do dia dezenove, os melhores momentos dos streamers jogando GTA 6 saem aqui.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "qual o seu palpite?"
+   },
+   "visual": {
+    "tipo": "trailer"
+   }
+  }
+ ]
+}
