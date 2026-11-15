@@ -1,0 +1,204 @@
+{
+ "id": "002",
+ "titulo": "Vice City x Miami de verdade: os lugares reais do GTA 6",
+ "titulos_extra": [
+  "GTA 6: esses lugares existem de verdade em Miami",
+  "Fui procurar Vice City no mapa real (e achei)",
+  "Leonida é a Flórida: o mapa do GTA 6 na vida real"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+6%",
+ "gancho_thumb": "É REAL?",
+ "tags": [
+  "gta 6",
+  "gta 6 mapa",
+  "vice city",
+  "gta 6 miami",
+  "leonida",
+  "gta 6 vida real",
+  "gta 6 lugares reais",
+  "gta vi",
+  "corte city"
+ ],
+ "fontes": [
+  "GTABase: comparação de Leonida com locais reais da Flórida",
+  "Miami New Times: marcos de Miami recriados no GTA 6",
+  "Site oficial de GTA VI e trailers da Rockstar"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "Vice City não é só inspirada em Miami. Em vários pontos, ela é Miami, prédio por prédio. Neste vídeo eu vou te mostrar os lugares do GTA 6 que existem de verdade, e alguns detalhes que pouca gente percebeu.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "VICE CITY É REAL?",
+    "sub": "os lugares do GTA 6 na vida real"
+   }
+  },
+  {
+   "texto": "Primeiro, o que é oficial: a Rockstar confirmou que Vice City é a versão do jogo para Miami, e que o estado de Leonida é a versão dela para a Flórida. O resto, as comparações prédio a prédio, vem de quem estudou os trailers quadro a quadro, como o site GTABase e o jornal Miami New Times.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Vice City = Miami",
+     "Leonida = Flórida",
+     "Comparações: GTABase e Miami New Times"
+    ]
+   }
+  },
+  {
+   "capitulo": "Ocean Drive",
+   "texto": "Começando pela praia. A Ocean Beach do jogo é a South Beach de Miami. Na vida real, a Ocean Drive tem prédios famosos de frente pro mar, como o 1500 Ocean Drive, o Royal Palm e o hotel Loews, separados da areia por fileiras de palmeiras.",
+   "card": {
+    "tipo": "dado",
+    "numero": "South Beach",
+    "texto": "vira a Ocean Beach do GTA 6"
+   }
+  },
+  {
+   "texto": "No jogo, tudo é mais compacto: mais palmeiras no mesmo espaço e um clima ainda mais intenso. A Rockstar faz isso sempre: aperta a cidade real pra caber mais coisa em cada quarteirão.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "capitulo": "Os hotéis de neon",
+   "texto": "Agora os hotéis. O Colony Hotel, um prédio art déco com neon azul na fachada, vira o Hotel Cortez no GTA 6. E tem um detalhe pra fã antigo: no Vice City de dois mil e dois, esse mesmo hotel já aparecia, com o nome de Colon Hotel.",
+   "card": {
+    "tipo": "dado",
+    "numero": "Colony",
+    "texto": "vira o Hotel Cortez"
+   }
+  },
+  {
+   "texto": "E não para aí. O Hotel Victor vira o Hotel Dixon, e o Hotel Breakwater vira o Hotel Boardwalk. Quem já andou pela Ocean Drive reconhece na hora.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Colony vira Cortez",
+     "Victor vira Dixon",
+     "Breakwater vira Boardwalk"
+    ]
+   }
+  },
+  {
+   "capitulo": "A casa da Lucia",
+   "texto": "Esse é um dos mais curiosos. O prédio onde a Lucia mora é inspirado no Belmar, um prédio de cinco andares, cor de pêssego, com varandas inclinadas, construído em mil novecentos e setenta e três.",
+   "card": {
+    "tipo": "dado",
+    "numero": "1973",
+    "texto": "ano em que o Belmar foi construído"
+   }
+  },
+  {
+   "texto": "Só que o Belmar não existe mais. Ele foi demolido em dois mil e vinte e dois. Ou seja: no GTA 6 você vai poder visitar um prédio de Miami que nem existe mais na vida real.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Demolido em 2022"
+   }
+  },
+  {
+   "capitulo": "O centro da cidade",
+   "texto": "No centro, a semelhança é ainda maior. O Kaseya Center, a arena do time de basquete Miami Heat, vira a Sahara Arena. E o Adrienne Arsht Center, o centro de artes, vira a Galina Ballet Opera House.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Kaseya Center: Sahara Arena",
+     "Arsht Center: Galina Ballet",
+     "Roda-gigante do Bayside"
+    ]
+   }
+  },
+  {
+   "texto": "Até a roda-gigante do Bayside Marketplace aparece no jogo. E a sensação geral é a mesma de Miami: prédios novos e antigos misturados, com água pra todo lado.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "capitulo": "Megamundo",
+   "texto": "Lembra do prédio onde Jason e Lucia entram vestidos de seguranças? É a Megamundo, uma rede de TV fictícia em espanhol. O prédio real por trás dela é a One Biscayne Tower, um arranha-céu de trinta e nove andares, de mil novecentos e setenta e dois.",
+   "card": {
+    "tipo": "dado",
+    "numero": "39 andares",
+    "texto": "One Biscayne Tower vira a Megamundo"
+   }
+  },
+  {
+   "capitulo": "Aeroporto e porto",
+   "texto": "O Aeroporto Internacional de Vice City é baseado no aeroporto de Miami. A torre de controle de verdade tem cento e um metros de altura. E aquela placa gigante escrita VICE? No aeroporto real ela não existe: foi um objeto de cena usado em filmes como Bad Boys 2.",
+   "card": {
+    "tipo": "dado",
+    "numero": "101 m",
+    "texto": "altura da torre de controle real"
+   }
+  },
+  {
+   "texto": "Do lado, o porto. O PortMiami é conhecido como a capital mundial dos cruzeiros. No jogo, ele vira o Port Vice City, menor, mas com o mesmo cenário de contêineres, guindastes e a cidade ao fundo.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Capital dos cruzeiros"
+   }
+  },
+  {
+   "capitulo": "Wynwood",
+   "texto": "O bairro de Stockyards, cheio de galpões e oficinas, é inspirado na região de Allapattah e no Wynwood, o bairro dos grafites de Miami. Os murais coloridos do trailer lembram muito a arte de rua de lá.",
+   "card": {
+    "tipo": "dado",
+    "numero": "Wynwood",
+    "texto": "inspira o bairro de Stockyards"
+   }
+  },
+  {
+   "capitulo": "Fora da cidade",
+   "texto": "Agora vamos sair de Vice City, porque o mapa vai muito além. As Leonida Keys são as Florida Keys, uma corrente de ilhas baixas com mais de cento e sessenta quilômetros. E uma das pontes do jogo lembra a Seven Mile Bridge, uma das pontes mais longas dos Estados Unidos.",
+   "card": {
+    "tipo": "dado",
+    "numero": "160 km",
+    "texto": "de ilhas nas Florida Keys"
+   }
+  },
+  {
+   "texto": "Os pântanos de Grassrivers são os Everglades. O próprio nome é uma brincadeira: os Everglades são chamados de rio de grama. Mangue, capim alto, jacaré e muito espaço aberto.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Rio de grama"
+   }
+  },
+  {
+   "texto": "Ambrosia é inspirada em Clewiston, uma cidade do açúcar perto do lago Okeechobee, que no jogo vira o Lake Leonida. Aquelas plantações de cana pegando fogo no trailer? Na vida real os produtores queimam a cana antes da colheita.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Clewiston vira Ambrosia",
+     "Okeechobee vira Lake Leonida",
+     "Cana queimada antes da colheita"
+    ]
+   }
+  },
+  {
+   "texto": "Port Gellhorn tem a cara de Panama City, no noroeste da Flórida: motéis, casas de penhor e bares antigos. E o autódromo de lá lembra o Sebring, um circuito famoso da Flórida.",
+   "card": {
+    "tipo": "dado",
+    "numero": "Port Gellhorn",
+    "texto": "inspirado em Panama City"
+   }
+  },
+  {
+   "texto": "E o parque de Mount Kalaga? Aqui é preciso cuidado: a Flórida é quase toda plana. A comunidade compara o parque com o Providence Canyon, que fica na Geórgia, mas isso é comparação de fã, não informação oficial.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Comparação de fã"
+   }
+  },
+  {
+   "capitulo": "Encerramento",
+   "texto": "Então fica a pergunta: você vai jogar o GTA 6 procurando esses lugares? E se você mora em Miami ou já foi pra lá, me conta nos comentários qual lugar você reconheceu. Aqui no Corte City a gente vai trazer os melhores momentos dos streamers jogando desde o primeiro minuto. Se inscreve pra não perder.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve pro dia 19"
+   }
+  }
+ ]
+}

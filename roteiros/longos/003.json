@@ -1,0 +1,135 @@
+{
+ "id": "003",
+ "titulo": "8 cenas do trailer do GTA 6 que aconteceram de verdade",
+ "titulos_extra": [
+  "O trailer do GTA 6 copiou a vida real (e eu provo)",
+  "GTA 6: as cenas do trailer que viralizaram antes na internet",
+  "Isso aconteceu de verdade antes de virar GTA 6"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+6%",
+ "gancho_thumb": "ACONTECEU!",
+ "tags": [
+  "gta 6",
+  "trailer gta 6",
+  "gta 6 vida real",
+  "gta 6 curiosidades",
+  "flórida",
+  "vice city",
+  "gta 6 detalhes",
+  "gta vi",
+  "corte city"
+ ],
+ "fontes": [
+  "GTABoom: cenas reais por trás do Trailer 1 de GTA 6",
+  "Trailer 1 oficial de GTA VI (Rockstar Games)"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "O primeiro trailer do GTA 6 tem cenas tão absurdas que parecem inventadas. Só que várias delas aconteceram de verdade, e viralizaram na internet anos antes. Bora ver as oito mais famosas.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "ACONTECEU DE VERDADE",
+    "sub": "8 cenas do trailer do GTA 6"
+   }
+  },
+  {
+   "texto": "Um aviso antes: essas comparações foram feitas pelo site GTABoom, olhando o trailer quadro a quadro. A Rockstar nunca confirmou que se inspirou nesses casos. Mas, quando você vê lado a lado, fica difícil achar que é coincidência.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Comparações de fã, não oficiais"
+   }
+  },
+  {
+   "capitulo": "1. Dançando no teto do carro",
+   "texto": "Número um: a mulher dançando em cima de um carro vermelho andando por Vice City. Em março de dois mil e dezessete, viralizou um vídeo de uma mulher se equilibrando pra fora do teto solar de um carro na MacArthur Causeway, em Miami, indo pra Miami Beach no pôr do sol.",
+   "card": {
+    "tipo": "dado",
+    "numero": "2017",
+    "texto": "vídeo na MacArthur Causeway, Miami"
+   }
+  },
+  {
+   "capitulo": "2. Jacaré na piscina",
+   "texto": "Número dois: o homem tirando um jacaré de uma piscina. Em dois mil e dezenove, em Palm Beach Gardens, na Flórida, uma família achou um jacaré de quase três metros no fundo da piscina. Ele foi retirado e arrastado pelo gramado, igualzinho ao trailer.",
+   "card": {
+    "tipo": "dado",
+    "numero": "3 metros",
+    "texto": "o jacaré achado na piscina, em 2019"
+   }
+  },
+  {
+   "capitulo": "3. Jacaré na loja",
+   "texto": "Número três: o jacaré entrando na loja de conveniência pela porta automática. Esse é uma mistura de casos reais. Em dois mil e dezoito, deixaram um jacaré machucado dentro de uma loja em Lakewood Ranch. E no mesmo ano um homem foi filmado entrando com um jacaré vivo numa loja de Jacksonville.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Lakewood Ranch, 2018",
+     "Jacksonville, 2018",
+     "Duas histórias, uma cena"
+    ]
+   }
+  },
+  {
+   "capitulo": "4. A perseguição",
+   "texto": "Número quatro: o homem quase pelado correndo da polícia no meio do trânsito. Aqui tem uma surpresa: a cena que mais lembra essa não foi na Flórida. Foi no Canadá, em Oakville, em dois mil e vinte e dois, filmada por um estudante de dentro de um carro.",
+   "card": {
+    "tipo": "dado",
+    "numero": "Canadá",
+    "texto": "Oakville, 2022"
+   }
+  },
+  {
+   "capitulo": "5. O jardineiro",
+   "texto": "Número cinco: o senhor regando o jardim só de viseira e roupa de banho mínima. Em dois mil e dezoito, em Stuart, na Flórida, os vizinhos reclamaram de um homem que cuidava do quintal praticamente sem roupa.",
+   "card": {
+    "tipo": "dado",
+    "numero": "Stuart",
+    "texto": "Flórida, 2018"
+   }
+  },
+  {
+   "capitulo": "6. Os dois martelos",
+   "texto": "Número seis: a mulher numa live segurando um martelo em cada mão. Essa também não é da Flórida: o caso parecido aconteceu na Califórnia, em dois mil e vinte, quando uma mulher bateu num carro com martelos por causa de uma vaga.",
+   "card": {
+    "tipo": "dado",
+    "numero": "2 martelos",
+    "texto": "Califórnia, 2020"
+   }
+  },
+  {
+   "capitulo": "7. O Coringa da Flórida",
+   "texto": "Número sete: o homem de cabelo colorido e tatuagens no rosto aparecendo no jornal da Weazel News. Ele lembra muito um homem que ficou famoso na internet em dois mil e dezessete como o Coringa da Flórida. No trailer, a Rockstar trocou o cabelo verde por roxo e mudou as tatuagens.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Coringa da Flórida"
+   }
+  },
+  {
+   "capitulo": "8. As motos tomando a rua",
+   "texto": "E o número oito: o grupo de motos e quadriciclos cercando os carros num cruzamento, filmado de helicóptero. Isso lembra os encontros que lotam as ruas do sul da Flórida todo ano, perto do feriado de Martin Luther King, como o de dois mil e dezoito em Miami-Dade e Broward.",
+   "card": {
+    "tipo": "dado",
+    "numero": "8",
+    "texto": "cenas com cara de vida real"
+   }
+  },
+  {
+   "capitulo": "Por que isso importa",
+   "texto": "Por que a Rockstar faz isso? Porque a Flórida da internet já é um personagem: vídeos absurdos que todo mundo já viu. Colocando essas cenas no trailer, o GTA 6 parece real antes mesmo de você jogar. E deu certo: esse trailer bateu recorde de visualizações nas primeiras vinte e quatro horas.",
+   "card": {
+    "tipo": "nenhum"
+   }
+  },
+  {
+   "capitulo": "Encerramento",
+   "texto": "Qual dessas te surpreendeu mais? Me fala nos comentários. E no dia dezenove, quando o jogo sair, aposto que vão aparecer muito mais cenas assim. Os melhores momentos dos streamers você vê aqui no Corte City. Se inscreve.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve pro dia 19"
+   }
+  }
+ ]
+}
