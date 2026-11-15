@@ -13,7 +13,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import math
 import re
 import time
 from pathlib import Path
@@ -26,7 +25,7 @@ from .config import FONTES
 from .editar import rodar
 
 W, H, FPS = 1920, 1080, 30
-UA = {"User-Agent": "CorteCityBot/1.0 (canal de YouTube; github.com/amiraldopedro)"}
+UA = {"User-Agent": "CorteCityBot/1.0 (https://github.com/amiraldopedro/corte-city-maquina; YouTube channel bot)"}
 API = "https://commons.wikimedia.org/w/api.php"
 LICENCAS_OK = re.compile(r"^(cc0|public domain|pd|cc by(-sa)?( \d\.\d)?|cc-by(-sa)?-\d\.\d)", re.I)
 ESTADOS = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
@@ -47,7 +46,7 @@ def commons(busca: str, pasta: Path, video: bool = False, usados: set | None = N
     filtro = "filetype:video" if video else "filetype:bitmap"
     params = {"action": "query", "format": "json", "generator": "search", "gsrnamespace": 6,
               "gsrsearch": f"{busca} {filtro}", "gsrlimit": 15, "prop": "imageinfo|videoinfo",
-              "iiprop": "url|extmetadata|size|mime", "iiurlwidth": 2400,
+              "iiprop": "url|extmetadata|size|mime", "iiurlwidth": 1920,  # largura padrão: vem pronta do cache (thumb.wikimedia.org)
               "viprop": "url|derivatives|extmetadata|size|mime"}
     r = {}
     for tentativa in range(4):  # a Wikimedia limita pedidos seguidos: espera e tenta de novo
@@ -77,17 +76,20 @@ def commons(busca: str, pasta: Path, video: bool = False, usados: set | None = N
         else:
             if (info.get("width") or 0) < 900:
                 continue
-            # o arquivo original não passa pelo gerador de miniaturas (que bloqueia robô rápido demais)
-            url = info.get("url") if (info.get("size") or 0) < 25e6 else (info.get("thumburl") or info.get("url"))
+            # o original (upload.wikimedia.org) devolve 429 para servidores do GitHub;
+            # a miniatura em largura padrão vem do cache e passa sem problema
+            url = info.get("thumburl") or info.get("url")
         ext = Path(url.split("?")[0]).suffix or (".webm" if video else ".jpg")
         destino = pasta / (hashlib.md5(url.encode()).hexdigest()[:12] + ext)
         baixou = destino.exists()
-        for tentativa in range(4):
+        for tentativa in range(4 if not video else 2):
             if baixou:
                 break
             try:
                 with requests.get(url, headers=UA, timeout=120, stream=True) as d:
                     if d.status_code == 429:
+                        if "upload.wikimedia.org" in url:
+                            break  # bloqueio do servidor de originais: não adianta insistir
                         time.sleep(6 * (tentativa + 1))
                         continue
                     d.raise_for_status()
@@ -113,6 +115,39 @@ def commons(busca: str, pasta: Path, video: bool = False, usados: set | None = N
         usados.add(p["title"])
         nome = p["title"].replace("File:", "").replace("Arquivo:", "")
         return destino, f"{nome} — {autor} ({lic}), via Wikimedia Commons"
+    return None if video else openverse(busca, pasta, usados)
+
+
+def openverse(busca: str, pasta: Path, usados: set | None = None) -> tuple[Path, str] | None:
+    """Reserva das fotos: Openverse (Flickr e outros acervos com licença livre que permite uso comercial)."""
+    usados = usados if usados is not None else set()
+    try:
+        r = requests.get("https://api.openverse.org/v1/images/", timeout=30, headers=UA,
+                         params={"q": busca, "license_type": "commercial,modification", "page_size": 12,
+                                 "aspect_ratio": "wide,square"}).json()
+    except Exception as e:
+        print(f"    openverse: busca falhou ({str(e)[:80]})")
+        return None
+    for it in r.get("results", []):
+        if it["id"] in usados or (it.get("width") or 0) < 900:
+            continue
+        destino = pasta / f"ov_{it['id'][:12]}.jpg"
+        for url in (it.get("url"), f"https://api.openverse.org/v1/images/{it['id']}/thumb/?full_size=true"):
+            try:
+                d = requests.get(url, timeout=60)
+                if d.ok and d.headers.get("content-type", "").startswith("image"):
+                    destino.write_bytes(d.content)
+                    Image.open(destino).convert("RGB").save(destino, quality=90)
+                    break
+            except Exception:
+                continue
+        else:
+            continue
+        usados.add(it["id"])
+        lic = f"CC {it.get('license', '').upper()} {it.get('license_version') or ''}".strip()
+        if it.get("license") in ("cc0", "pdm"):
+            lic = "domínio público" if it["license"] == "pdm" else "CC0"
+        return destino, f"{(it.get('title') or 'foto')[:60]} — {it.get('creator') or 'autor desconhecido'} ({lic}), via {it.get('source', 'Openverse')}"
     return None
 
 
