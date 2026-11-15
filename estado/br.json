@@ -94,10 +94,10 @@
    "n_clipes": 5,
    "score": 1995.9639203842082,
    "teste": true,
-   "status": "pronto",
+   "status": "descartado",
    "criado_em": "2026-11-12T15:34:33+00:00",
    "erro": "open() got an unexpected keyword argument 'metadata_errors'",
-   "atualizado_em": "2026-11-13T18:21:48+00:00",
+   "atualizado_em": "2026-11-15T19:11:27+00:00",
    "tipo": "short",
    "jogo": "",
    "titulo": "[TESTE] Isso é Mario msm 0.o - Alanzoka",
@@ -132,7 +132,8 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522.jpg",
    "thumb_asset": 744695889,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926018706_5522_kit.zip",
+   "motivo": "descartado no painel"
   },
   "2858027110_3819": {
    "id": "2858027110_3819",
