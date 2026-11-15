@@ -3,27 +3,43 @@ on: workflow_dispatch
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
-      - run: pip install -q requests
-      - run: pip install -q -r requirements.txt
       - run: |
-          python -u - <<'PY'
-          import sys, traceback, requests
-          sys.path.insert(0, ".")
-          from pathlib import Path
-          from maquina import visuais as V
-          orig = requests.get
-          def espia(*a, **k):
-              r = orig(*a, **k); print("GET", r.status_code, a[0][:90]); return r
-          V.requests.get = espia
-          P = Path("/tmp/m"); P.mkdir(exist_ok=True)
-          for b in ["Miami Beach Ocean Drive","newspaper stack","Florida State Capitol Tallahassee","Miami police car","American alligator Florida","alligator swimming pool","alligator Everglades","Everglades airboat","Miami skyline night","Ferrari Testarossa","PlayStation 2 console","Colony Hotel Miami Beach"]:
+          python3 -u - <<'PY'
+          import requests, time
+          UA = {"User-Agent": "CorteCityBot/1.0 (https://github.com/amiraldopedro/corte-city-maquina; YouTube channel bot)"}
+          def t(nome, url, **k):
               try:
-                  print(b, "->", V.commons(b, P))
-              except Exception:
-                  traceback.print_exc()
+                  r = requests.get(url, headers=UA, timeout=30, **k)
+                  print(nome, r.status_code, len(r.content), r.headers.get("content-type"))
+                  return r
+              except Exception as e:
+                  print(nome, "ERRO", e)
+          # 1) Openverse
+          r = t("openverse", "https://api.openverse.org/v1/images/", params={"q": "alligator", "license_type": "commercial,modification", "page_size": 5})
+          if r is not None and r.ok:
+              for it in r.json().get("results", [])[:5]:
+                  print("  ", it.get("source"), it.get("license"), it.get("width"), it.get("url")[:90])
+                  t("   baixa", it["url"])
+              rv = t("openverse audio?", "https://api.openverse.org/v1/images/", params={"q": "Miami skyline", "source": "flickr", "page_size": 3})
+          # 2) Wikimedia: uma só, com pausa, via Special:FilePath com largura
+          time.sleep(5)
+          t("wm filepath", "https://commons.wikimedia.org/wiki/Special:FilePath/Alligator_mississippiensis_-_Everglades.jpg", params={"width": 1600})
+          time.sleep(5)
+          t("wm original", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Alligator_mississippiensis.jpg/1280px-Alligator_mississippiensis.jpg")
+          # 3) NASA images (domínio público)
+          r = t("nasa", "https://images-api.nasa.gov/search", params={"q": "Miami Florida", "media_type": "image"})
+          if r is not None and r.ok:
+              it = r.json()["collection"]["items"][0]
+              t("   baixa nasa", it["links"][0]["href"])
+          PY
+      - env: { K: "${{ secrets.PIXABAY_API_KEY }}" }
+        run: |
+          python3 -u - <<'PY'
+          import os, requests
+          if not os.environ.get("K"): print("sem PIXABAY_API_KEY"); raise SystemExit
+          r = requests.get("https://pixabay.com/api/videos/", params={"key": os.environ["K"], "q": "alligator", "per_page": 3}, timeout=30)
+          print("pixabay video", r.status_code, [h["videos"]["large"]["url"][:60] for h in r.json().get("hits", [])])
           PY
