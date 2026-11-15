@@ -114,7 +114,7 @@ def release_id() -> int:
     st, d = api("GET", f"releases/tags/{TAG}")
     if st == 200:
         return d["id"]
-    st, d = api("POST", "releases", {"tag_name": TAG, "name": "Biblioteca de imagens" if TAG == "biblioteca" else "Trechos do YouTube (robô do Mac)",
+    st, d = api("POST", "releases", {"tag_name": TAG, "name": {"biblioteca": "Biblioteca de imagens", "fontes": "Fontes citadas nos vídeos narrados"}.get(TAG, "Trechos do YouTube (robô do Mac)"),
                                      "body": "Arquivos temporários do robô do YouTube.", "prerelease": True})
     if st not in (200, 201):
         raise RuntimeError(f"não criei a área de arquivos ({st}): {d}")
@@ -229,9 +229,39 @@ def biblioteca(vid: str, item: dict):
         shutil.rmtree(pasta, ignore_errors=True)
 
 
+def fonte(vid: str, item: dict):
+    """Trecho curto (3 a 10 s) de um vídeo de terceiros (YouTube ou X) pra citar num vídeo narrado."""
+    link = item["link"]
+    TEMP.mkdir(exist_ok=True)
+    pasta = Path(tempfile.mkdtemp(prefix="cc_fonte_", dir=TEMP))
+    try:
+        info = json.loads(ytdlp("-J", link))
+        if info.get("_type") == "playlist":  # busca ytsearch1: pega o primeiro resultado
+            info = (info.get("entries") or [{}])[0]
+            link = info.get("webpage_url") or link
+        ini, fim = float(item.get("ini", 0)), float(item.get("fim", 8))
+        arq = pasta / f"{vid}.mp4"
+        ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/b", "--merge-output-format", "mp4",
+              "--download-sections", f"*{ini:.1f}-{fim:.1f}", "--force-keyframes-at-cuts", "-o", str(arq), link)
+        global TAG
+        antigo, TAG = TAG, "fontes"
+        try:
+            aid = subir(arq, arq.name)
+        finally:
+            TAG = antigo
+        atualizar_item(vid, {"status": "fonte_ok", "asset_id": aid, "titulo": info.get("title", ""),
+                             "canal_nome": info.get("channel") or info.get("uploader") or "",
+                             "url_final": info.get("webpage_url") or link})
+        log(f"  ✅ fonte {vid}: {info.get('title', '')[:60]}")
+    finally:
+        shutil.rmtree(pasta, ignore_errors=True)
+
+
 def processar(vid: str, item: dict):
     if item.get("modo") == "biblioteca":
         return biblioteca(vid, item)
+    if item.get("modo") == "fonte":
+        return fonte(vid, item)
     link = item.get("link") or f"https://www.youtube.com/watch?v={vid}"
     log(f"vídeo {vid}: lendo informações")
     info = json.loads(ytdlp("-J", link))
@@ -284,7 +314,7 @@ def main():
         return
     _, fila = ler_fila()
     pendentes = {k: v for k, v in fila.get("momentos", {}).items()
-                 if v.get("status") in ("esperando", "biblioteca_pendente")}
+                 if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente")}
     if not pendentes:
         return
     for vid, item in pendentes.items():
