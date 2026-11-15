@@ -1497,7 +1497,7 @@
    "status": "postado",
    "prioridade": false,
    "criado_em": "2026-11-13T22:17:13+00:00",
-   "atualizado_em": "2026-11-15T15:52:41+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "isolar_voz": false,
    "youtube_id": "8F18Ji0P5g8",
    "publicar_em": "2026-11-17T00:30:00Z",
@@ -1539,7 +1539,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0.jpg",
    "thumb_asset": 751489255,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0_kit.zip",
+   "usado_em": [
+    "top10"
+   ]
   },
   "yt_kqyNJn81pGA_1": {
    "id": "yt_kqyNJn81pGA_1",
@@ -1564,8 +1567,11 @@
    "status": "novo",
    "prioridade": true,
    "criado_em": "2026-11-13T22:17:13+00:00",
-   "atualizado_em": "2026-11-13T22:17:13+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
+   "isolar_voz": false,
+   "usado_em": [
+    "top10"
+   ]
   },
   "yt_kqyNJn81pGA_2": {
    "id": "yt_kqyNJn81pGA_2",
@@ -1590,8 +1596,11 @@
    "status": "novo",
    "prioridade": true,
    "criado_em": "2026-11-13T22:17:13+00:00",
-   "atualizado_em": "2026-11-13T22:17:13+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
+   "isolar_voz": false,
+   "usado_em": [
+    "top10"
+   ]
   },
   "yt_kqyNJn81pGA_longo": {
    "id": "yt_kqyNJn81pGA_longo",
@@ -1616,9 +1625,10 @@
    "score": 20000,
    "status": "novo",
    "criado_em": "2026-11-13T22:17:13+00:00",
-   "atualizado_em": "2026-11-13T22:32:16+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "usado_em": [
-    "longo"
+    "longo",
+    "top10"
    ]
   },
   "yt_T3c5qx_L5Bc_0": {
@@ -1644,7 +1654,7 @@
    "status": "postado",
    "prioridade": false,
    "criado_em": "2026-11-13T22:27:35+00:00",
-   "atualizado_em": "2026-11-15T15:46:59+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "isolar_voz": true,
    "youtube_id": "u0PSIWLV1Ss",
    "publicar_em": "2026-11-16T00:30:00Z",
@@ -1686,7 +1696,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_0.jpg",
    "thumb_asset": 751474576,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_0_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_0_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_0_kit.zip",
+   "usado_em": [
+    "top10"
+   ]
   },
   "yt_T3c5qx_L5Bc_1": {
    "id": "yt_T3c5qx_L5Bc_1",
@@ -1711,7 +1724,7 @@
    "status": "postado",
    "prioridade": false,
    "criado_em": "2026-11-13T22:27:35+00:00",
-   "atualizado_em": "2026-11-15T15:50:20+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "isolar_voz": true,
    "youtube_id": "ILtTWSb0AWc",
    "publicar_em": "2026-11-16T21:00:00Z",
@@ -1753,7 +1766,10 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1.jpg",
    "thumb_asset": 751483453,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1_kit.zip",
+   "usado_em": [
+    "top10"
+   ]
   },
   "longo_yt_kqyNJn81pGA_longo": {
    "id": "longo_yt_kqyNJn81pGA_longo",
@@ -1830,7 +1846,7 @@
    "status": "postado",
    "prioridade": false,
    "criado_em": "2026-11-13T22:42:44+00:00",
-   "atualizado_em": "2026-11-14T11:34:57+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "isolar_voz": true,
    "youtube_id": "ThjQt9-MimY",
    "publicar_em": "2026-11-14T21:00:00Z",
@@ -1877,7 +1893,10 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-15T15:41:45+00:00"
+   "numeros_em": "2026-11-15T15:41:45+00:00",
+   "usado_em": [
+    "top10"
+   ]
   },
   "yt_LNFioqaHYtk_1": {
    "id": "yt_LNFioqaHYtk_1",
@@ -1902,7 +1921,7 @@
    "status": "postado",
    "prioridade": false,
    "criado_em": "2026-11-13T22:42:44+00:00",
-   "atualizado_em": "2026-11-14T11:36:39+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "isolar_voz": true,
    "youtube_id": "lm32Q7J9pOs",
    "publicar_em": "2026-11-15T00:30:00Z",
@@ -1949,7 +1968,10 @@
    "likes": 0,
    "comentarios": 0,
    "privacidade": "public",
-   "numeros_em": "2026-11-15T15:41:45+00:00"
+   "numeros_em": "2026-11-15T15:41:45+00:00",
+   "usado_em": [
+    "top10"
+   ]
   },
   "yt_LNFioqaHYtk_2": {
    "id": "yt_LNFioqaHYtk_2",
@@ -1974,7 +1996,7 @@
    "status": "novo",
    "prioridade": false,
    "criado_em": "2026-11-13T22:42:44+00:00",
-   "atualizado_em": "2026-11-14T19:38:28+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "isolar_voz": true,
    "tipo": "short",
    "titulo": "Davy Jones no GTA 6: será que essa carga no prédio foi roubada?",
@@ -2011,7 +2033,10 @@
    "thumb_asset": 747301435,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_2_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_LNFioqaHYtk_2_kit.zip",
-   "motivo": "refazer com a voz isolada (saiu com a música do trailer)"
+   "motivo": "refazer com a voz isolada (saiu com a música do trailer)",
+   "usado_em": [
+    "top10"
+   ]
   },
   "yt_LNFioqaHYtk_longo": {
    "id": "yt_LNFioqaHYtk_longo",
@@ -2036,9 +2061,10 @@
    "score": 20000,
    "status": "novo",
    "criado_em": "2026-11-13T22:42:44+00:00",
-   "atualizado_em": "2026-11-13T22:56:28+00:00",
+   "atualizado_em": "2026-11-15T19:52:37+00:00",
    "usado_em": [
-    "longo"
+    "longo",
+    "top10"
    ]
   },
   "longo_yt_LNFioqaHYtk_longo": {
@@ -2442,6 +2468,57 @@
    "thumb_asset": 752016980,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_003_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_003_kit.zip"
+  },
+  "top10_20261115": {
+   "id": "top10_20261115",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "top10",
+   "status": "postado",
+   "titulo": "GTA RP: TOP 10 momentos mais insanos da semana (Flow Games, Davy Jones GTA 6, Gameplayrj)",
+   "descricao": "GTA RP: TOP 10 momentos mais insanos da semana (Flow Games, Davy Jones GTA 6, Gameplayrj)\nOs momentos mais engraçados e insanos das lives de GTA RP: Flow Games, Davy Jones GTA 6, Gameplayrj.\n\n⏱️ Capítulos\n00:00 Davy Jones GTA 6 — Davy Jones no GTA 6: será que essa carga no prédio foi rouba\n01:10 Flow Games\n02:17 Davy Jones GTA 6 — Davy Jones viu esse veículo no trailer do GTA 6 e se pergunt\n03:27 Gameplayrj — viu a cena do beijo do GTA 6 e falou isso\n04:37 Flow Games\n05:47 Davy Jones GTA 6 — Davy Jones no GTA 6: esse carro é Lancer ou Skyline?\n06:57 Gameplayrj — descobre o Launch Trailer do GTA 6 do nada\n08:07 Flow Games — PS5 Pro usado a R$ 1.400 por causa do GTA 6\n09:17 Davy Jones GTA 6\n19:17 Flow Games\n\n🎮 Live original:\n• Davy Jones GTA 6: https://www.youtube.com/@DavyJonesGTA6\n• Flow Games: https://www.youtube.com/@FlowGamesPodcast\n• Gameplayrj: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #gta6 #cortes",
+   "tags": [
+    "flow games",
+    "davy jones gta 6",
+    "gameplayrj",
+    "gta rp",
+    "gta rp brasil",
+    "cortes gta rp",
+    "momentos engraçados gta",
+    "gta 6",
+    "melhores momentos gta rp"
+   ],
+   "playlist": "Top 10 da Semana",
+   "feito_em": "2026-11-15T19:52:57+00:00",
+   "criado_em": "2026-11-15T19:52:57+00:00",
+   "itens": [
+    "yt_LNFioqaHYtk_2",
+    "yt_kqyNJn81pGA_2",
+    "yt_LNFioqaHYtk_1",
+    "yt_T3c5qx_L5Bc_1",
+    "yt_kqyNJn81pGA_1",
+    "yt_LNFioqaHYtk_0",
+    "yt_T3c5qx_L5Bc_0",
+    "yt_kqyNJn81pGA_0",
+    "yt_LNFioqaHYtk_longo",
+    "yt_kqyNJn81pGA_longo"
+   ],
+   "streamers": [
+    "DavyJonesGTA6",
+    "FlowGamesPodcast",
+    "Gameplayrj"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/top10_20261115_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/top10_20261115_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/top10_20261115.mp4",
+   "video_asset": 752160803,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/top10_20261115.jpg",
+   "thumb_asset": 752161805,
+   "youtube_id": "6gJ2VST2400",
+   "publicar_em": "2026-11-15T22:30:00Z",
+   "postado_em": "2026-11-15T19:53:10+00:00",
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-15T19:53:10+00:00"
   }
  },
  "clipes_vistos": [
@@ -2473,6 +2550,6 @@
  "cota": {
   "2026-11-13": 8702,
   "2026-11-14": 8500,
-  "2026-11-15": 5302
+  "2026-11-15": 7002
  }
 }
