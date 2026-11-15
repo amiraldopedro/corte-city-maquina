@@ -31,175 +31,408 @@
    "capitulo": "Começo",
    "texto": "Jacaré dentro de loja. Homem correndo pelado da polícia. Gente dançando em cima de carro em movimento. O trailer do GTA 6 parece exagero. Mas quem conhece a Flórida sabe: isso é uma terça-feira normal. E existe um motivo de verdade pra Flórida ser assim. Bora entender.",
    "card": {
-    "tipo": "titulo",
-    "texto": "A FLÓRIDA É MALUCA?",
-    "sub": "o motivo real por trás do GTA 6"
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "foto",
-    "busca": "Miami Beach Ocean Drive"
-   }
+   "batidas": [
+    {
+     "tipo": "clipe",
+     "fonte": "f004_cerveja",
+     "ini": 2,
+     "credito": "CBS Miami (YouTube)",
+     "reserva": {
+      "tipo": "foto",
+      "busca": "American alligator Florida"
+     }
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 54.0,
+     "na": "Homem"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 44.0,
+     "na": "Gente"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.6,
+     "na": "trailer"
+    },
+    {
+     "tipo": "clipe",
+     "fonte": "f004_piscina",
+     "ini": 12,
+     "credito": "WPTV News (YouTube)",
+     "reserva": {
+      "tipo": "foto",
+      "busca": "American alligator swimming pool Florida"
+     },
+     "na": "quem"
+    },
+    {
+     "tipo": "numero",
+     "na": "motivo",
+     "numero": "POR QUÊ?",
+     "texto": "o motivo real por trás do GTA 6",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 12
+    }
+   ]
   },
   {
    "texto": "O GTA 6 se passa em Leonida, a versão da Rockstar pra Flórida. E a Rockstar não escolheu esse estado por acaso: a Flórida tem a fama de ser o lugar mais estranho dos Estados Unidos.",
    "card": {
     "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "mapa",
-    "titulo": "Leonida é a Flórida",
-    "pinos": [
-     {
-      "nome": "Vice City (Miami)",
-      "lat": 25.76,
-      "lon": -80.19
-     }
-    ]
-   }
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 10.0
+    },
+    {
+     "tipo": "mapa",
+     "na": "Rockstar",
+     "titulo": "Leonida é a Flórida",
+     "pinos": [
+      {
+       "nome": "Vice City (Miami)",
+       "lat": 25.76,
+       "lon": -80.19
+      }
+     ]
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 64.6,
+     "na": "estranho"
+    }
+   ]
   },
   {
    "capitulo": "O Florida Man",
    "texto": "Essa fama tem até nome: Florida Man, o Homem da Flórida. É um meme que junta manchetes absurdas de jornal que começam sempre igual: homem da Flórida faz alguma coisa inacreditável.",
    "card": {
-    "tipo": "texto",
-    "texto": "Florida Man"
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "foto",
-    "busca": "newspaper stack"
-   }
+   "batidas": [
+    {
+     "tipo": "materia",
+     "veiculo": "Daily Dot",
+     "data": "",
+     "titulo": "The Florida man meme, explained",
+     "grifo": "Florida man",
+     "url": "https://www.dailydot.com/unclick/florida-man-meme/"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 63.6,
+     "na": "manchetes"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 66.6,
+     "na": "homem"
+    }
+   ]
   },
   {
-   "texto": "O meme explodiu em dois mil e treze, quando um perfil no Twitter começou a juntar essas manchetes. Depois, o próprio criador encerrou a conta, dizendo que a brincadeira tinha ficado maldosa demais.",
+   "texto": "O meme explodiu em dois mil e treze, quando um perfil no Twitter começou a juntar essas manchetes. Anos depois, o próprio criador parou, e a imprensa americana começou a perguntar: será que é certo rir disso?",
    "card": {
-    "tipo": "dado",
-    "numero": "2013",
-    "texto": "ano em que o meme explodiu"
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "foto",
-    "busca": "smartphone social media"
-   }
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "2013",
+     "texto": "o ano em que o meme explodiu",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 46.2
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 46.4,
+     "na": "perfil"
+    },
+    {
+     "tipo": "materia",
+     "na": "criador",
+     "veiculo": "The Washington Post Magazine",
+     "data": "jul 2019",
+     "titulo": "Is it okay to laugh at the Florida Man?",
+     "grifo": "laugh at the Florida Man"
+    }
+   ]
   },
   {
    "capitulo": "A lei do sol",
    "texto": "Agora vem o segredo. A Flórida tem uma das leis de transparência mais fortes dos Estados Unidos, chamada Sunshine Law, a Lei do Sol. Ela começou com a lei de registros públicos de mil novecentos e nove e ficou mais forte em mil novecentos e sessenta e sete.",
    "card": {
-    "tipo": "lista",
-    "itens": [
-     "1909: registros públicos",
-     "1967: Lei do Sol",
-     "Boletins de ocorrência abertos"
-    ]
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "foto",
-    "busca": "Florida State Capitol Tallahassee"
-   }
+   "batidas": [
+    {
+     "tipo": "foto",
+     "busca": "Florida State Capitol Tallahassee"
+    },
+    {
+     "tipo": "numero",
+     "na": "começou",
+     "numero": "1909",
+     "texto": "lei de registros públicos",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 36
+    },
+    {
+     "tipo": "numero",
+     "na": "ficou",
+     "numero": "1967",
+     "texto": "a Lei do Sol (Sunshine Law)",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 2.5
+    }
+   ]
   },
   {
    "texto": "Na prática, boletim de ocorrência, registro de prisão e foto da delegacia ficam muito mais fáceis de acessar do que em outros estados. Então, quando acontece uma coisa bizarra, o jornal fica sabendo. E o mundo inteiro também.",
    "card": {
     "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "mapa",
-    "titulo": "A Lei do Sol nasce aqui",
-    "pinos": [
-     {
-      "nome": "Tallahassee, capital",
-      "lat": 30.44,
-      "lon": -84.28
-     }
-    ]
-   }
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 48.0
+    },
+    {
+     "tipo": "materia",
+     "na": "jornal",
+     "veiculo": "Reason",
+     "data": "3 dez 2023",
+     "titulo": "Monkey Herpes, Face Eating, and the Pork Chop Gang: How Public Records Laws Created the Florida Man",
+     "grifo": "How Public Records Laws Created the Florida Man",
+     "url": "https://reason.com/2023/12/03/monkey-herpes-face-eating-and-the-pork-chop-gang-how-public-records-laws-created-the-florida-man/"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 24.5,
+     "na": "mundo"
+    }
+   ]
   },
   {
    "texto": "Mas atenção: tem especialista que acha essa explicação simples demais. Outros estados também têm leis abertas. A conclusão mais justa é que a Flórida não tem mais gente estranha. Ela só mostra mais.",
    "card": {
-    "tipo": "texto",
-    "texto": "Não é mais estranha. Só mostra mais"
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "foto",
-    "busca": "Miami police car"
-   }
+   "batidas": [
+    {
+     "tipo": "materia",
+     "veiculo": "Florida State University Law Review",
+     "data": "2021",
+     "titulo": "Explaining Florida Man — Ira P. Robbins",
+     "grifo": "Explaining Florida Man",
+     "url": "https://digitalcommons.wcl.american.edu/facsch_lawrev/2117/"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 11.0,
+     "na": "Outros"
+    },
+    {
+     "tipo": "numero",
+     "na": "conclusão",
+     "numero": "NÃO É MAIS ESTRANHA",
+     "texto": "ela só mostra mais",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 64.8
+    }
+   ]
   },
   {
    "capitulo": "Um milhão de jacarés",
    "texto": "E tem o outro lado da Flórida maluca: a natureza. A comissão de vida selvagem do estado estima cerca de um milhão e trezentos mil jacarés, espalhados pelos sessenta e sete condados.",
    "card": {
-    "tipo": "dado",
-    "numero": "1,3 milhão",
-    "texto": "de jacarés na Flórida"
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "broll",
-    "busca": "American alligator Florida"
-   }
+   "batidas": [
+    {
+     "tipo": "clipe",
+     "fonte": "f004_shopping",
+     "ini": 1,
+     "credito": "Gulf Coast News (YouTube)",
+     "reserva": {
+      "tipo": "broll",
+      "busca": "American alligator Florida"
+     }
+    },
+    {
+     "tipo": "numero",
+     "na": "comissão",
+     "numero": "1,3 MILHÃO",
+     "texto": "de jacarés na Flórida (FWC)",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20.5
+    },
+    {
+     "tipo": "foto",
+     "na": "espalhados",
+     "busca": "American alligator Florida"
+    }
+   ]
   },
   {
    "texto": "Só no lago Okeechobee, que no GTA 6 vira o Lake Leonida, são mais de trinta e três mil jacarés, segundo o censo de dois mil e vinte e quatro.",
    "card": {
-    "tipo": "dado",
-    "numero": "33 mil",
-    "texto": "jacarés no lago Okeechobee"
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "mapa",
-    "titulo": "O lago dos jacarés",
-    "pinos": [
-     {
-      "nome": "Lago Okeechobee",
-      "lat": 26.95,
-      "lon": -80.8
-     }
-    ]
-   }
+   "batidas": [
+    {
+     "tipo": "mapa",
+     "titulo": "O lago dos jacarés",
+     "pinos": [
+      {
+       "nome": "Lago Okeechobee",
+       "lat": 26.95,
+       "lon": -80.8
+      }
+     ]
+    },
+    {
+     "tipo": "numero",
+     "na": "trinta",
+     "numero": "33 MIL",
+     "texto": "jacarés só no lago Okeechobee",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20.2
+    },
+    {
+     "tipo": "materia",
+     "na": "censo",
+     "veiculo": "Palm Beach Post (via Yahoo)",
+     "data": "2025",
+     "titulo": "Florida alligator mating season begins: Top 20 most gator-infested lakes in the state",
+     "grifo": "most gator-infested lakes",
+     "url": "https://www.yahoo.com/news/florida-alligator-mating-season-begins-090817375.html"
+    }
+   ]
   },
   {
    "texto": "Por isso cena de jacaré em piscina não é invenção. Em dois mil e dezenove, uma família em Palm Beach Gardens achou um jacaré de quase três metros no fundo da piscina de casa.",
    "card": {
     "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "manchete",
-    "data": "2019",
-    "local": "Palm Beach Gardens, Flórida",
-    "titulo": "Jacaré de quase 3 metros aparece no fundo de piscina",
-    "busca": "alligator swimming pool"
-   }
+   "batidas": [
+    {
+     "tipo": "comparar",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.6,
+     "fonte": "f004_piscina",
+     "fonte_ini": 12,
+     "busca": "alligator swimming pool",
+     "rotulos": [
+      "GTA 6",
+      "VIDA REAL"
+     ]
+    },
+    {
+     "tipo": "clipe",
+     "fonte": "f004_piscina",
+     "ini": 20,
+     "credito": "WPTV News (YouTube)",
+     "reserva": {
+      "tipo": "foto",
+      "busca": "American alligator swimming pool Florida"
+     },
+     "na": "família"
+    },
+    {
+     "tipo": "materia",
+     "na": "jacaré",
+     "veiculo": "CBS Miami",
+     "data": "8 abr 2019",
+     "titulo": "9 Foot Gator Pulled From Palm Beach Garden Family's Pool",
+     "grifo": "9 Foot Gator",
+     "url": "https://www.cbsnews.com/miami/news/gator-palm-beach-garden-pool/"
+    }
+   ]
   },
   {
    "texto": "E um detalhe que pouca gente sabe: o jacaré chegou a estar na lista de espécies ameaçadas em mil novecentos e sessenta e sete. Ele se recuperou tão bem que saiu da lista em mil novecentos e oitenta e sete. Hoje, ataque grave é raríssimo: a chance é de uma em três milhões.",
    "card": {
-    "tipo": "lista",
-    "itens": [
-     "1967: ameaçado de extinção",
-     "1987: saiu da lista",
-     "Ataque grave: 1 em 3 milhões"
-    ]
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "broll",
-    "busca": "alligator Everglades"
-   }
+   "batidas": [
+    {
+     "tipo": "foto",
+     "busca": "alligator Everglades"
+    },
+    {
+     "tipo": "numero",
+     "na": "lista",
+     "numero": "1967",
+     "texto": "na lista de espécies ameaçadas",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20.4
+    },
+    {
+     "tipo": "numero",
+     "na": "saiu",
+     "numero": "1987",
+     "texto": "fora da lista",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 21.0
+    },
+    {
+     "tipo": "numero",
+     "na": "ataque",
+     "numero": "1 EM 3 MILHÕES",
+     "texto": "chance de um ataque grave",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.6
+    }
+   ]
   },
   {
    "capitulo": "Os pântanos",
    "texto": "No GTA 6, esse lado selvagem aparece em Grassrivers, a versão dos Everglades: pântano, capim alto, barco de hélice e, claro, jacaré.",
    "card": {
-    "tipo": "texto",
-    "texto": "Grassrivers = Everglades"
+    "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "comparar",
-    "busca": "Everglades airboat",
-    "rotulos": [
-     "GTA 6",
-     "VIDA REAL"
-    ]
-   }
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20.0
+    },
+    {
+     "tipo": "comparar",
+     "na": "pântano",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20.2,
+     "busca": "Everglades airboat",
+     "rotulos": [
+      "GRASSRIVERS",
+      "EVERGLADES"
+     ]
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.8,
+     "na": "jacaré"
+    }
+   ]
   },
   {
    "capitulo": "Por que isso é genial",
@@ -207,10 +440,42 @@
    "card": {
     "tipo": "nenhum"
    },
-   "visual": {
-    "tipo": "foto",
-    "busca": "Miami skyline night"
-   }
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 63.8
+    },
+    {
+     "tipo": "clipe",
+     "fonte": "f004_cerveja",
+     "ini": 8,
+     "credito": "CBS Miami (YouTube)",
+     "reserva": {
+      "tipo": "foto",
+      "busca": "alligator Everglades"
+     },
+     "na": "natureza"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22.0,
+     "na": "praias"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 32.0,
+     "na": "Rockstar"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 2.5,
+     "na": "trailer"
+    }
+   ]
   },
   {
    "capitulo": "Encerramento",

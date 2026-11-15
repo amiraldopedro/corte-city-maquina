@@ -175,12 +175,49 @@ class Fundos:
             self.vez += 1
             if total <= dur + 1:
                 return a, 0.0
-            ini = self.rng.uniform(0.5, total - dur - 0.5)
+            lo, hi = (18.0, total - 14.0) if total > dur + 40 else (0.5, total - 0.5)  # pula ESRB/logos
+            ini = self.rng.uniform(lo, max(lo + 0.1, hi - dur))
             if all(ini + dur < x or ini > y for x, y in self.usado[a]):
                 self.usado[a].append((ini, ini + dur))
                 return a, ini
         a, total = self.rng.choice(self.fontes)
         return a, max(0.0, self.rng.uniform(0, max(0.1, total - dur)))
+
+
+    def por_nome(self, nome: str) -> Path | None:
+        return next((a for a, _ in self.fontes if nome and nome in a.name), None)
+
+
+def fontes_citadas(pasta: Path, prefixo: str) -> dict[str, Path]:
+    """Trechos de vídeos de terceiros que o robô do Mac subiu (Releases, tag fontes)."""
+    import os
+    repo, token = os.environ.get("GITHUB_REPOSITORY"), os.environ.get("GITHUB_TOKEN")
+    if not (repo and token):
+        return {p.stem: p for p in pasta.glob(f"{prefixo}*.mp4")} if pasta.exists() else {}
+    cab = {"Authorization": f"Bearer {token}"}
+    r = requests.get(f"https://api.github.com/repos/{repo}/releases/tags/fontes", headers=cab, timeout=30)
+    saida = {}
+    if r.status_code != 200:
+        return saida
+    pasta.mkdir(parents=True, exist_ok=True)
+    for a in r.json().get("assets", []):
+        if not (a["name"].startswith(prefixo) and a["name"].endswith(".mp4")):
+            continue
+        destino = pasta / a["name"]
+        if not destino.exists():
+            d = requests.get(a["url"], headers={**cab, "Accept": "application/octet-stream"}, timeout=600)
+            d.raise_for_status()
+            destino.write_bytes(d.content)
+        saida[destino.stem] = destino
+    return saida
+
+
+def _info_fonte(chave: str) -> dict:
+    try:
+        from .config import PASTA_ESTADO
+        return json.loads((PASTA_ESTADO / "youtube.json").read_text()).get("momentos", {}).get(chave, {})
+    except Exception:
+        return {}
 
 
 def biblioteca(pasta: Path) -> list[Path]:
@@ -244,8 +281,61 @@ def _fundo_visual(i: int, c: dict, dur: float, fundos: Fundos, pasta: Path, cred
     return None, None
 
 
+def _batida(b: dict, k: int, i: int, dur: float, fundos: Fundos, pasta: Path, creditos: list, usados: set,
+            citadas: dict) -> Path:
+    """Um pedaço da cena (ver edicao.py)."""
+    from . import edicao as E
+    from . import visuais as V
+    destino = pasta / f"c{i:02d}_b{k:02d}.mp4"
+    tipo = b.get("tipo", "trailer")
+    cache = pasta / "midia"
+    cache.mkdir(exist_ok=True)
+    if tipo == "clipe":
+        src = citadas.get(b.get("fonte", ""))
+        if not src:
+            print(f"  (cena {i + 1}: trecho '{b.get('fonte')}' ainda não chegou, vai a reserva)")
+            return _batida(b.get("reserva") or {"tipo": "trailer"}, k, i, dur, fundos, pasta, creditos, usados, citadas)
+        info = _info_fonte(b["fonte"])
+        cred = b.get("credito") or info.get("canal_nome") or "vídeo original"
+        creditos.append(f"Trecho citado: \"{info.get('titulo', b['fonte'])}\" — {info.get('canal_nome', cred)}"
+                        f" ({info.get('url_final') or info.get('link', '')})")
+        return E.clipe(src, float(b.get("ini", 0)), dur, cred, destino, float(b.get("volume", 0.35)))
+    if tipo == "materia":
+        creditos.append(f"Matéria: {b.get('veiculo', '')}, {b.get('data', '')} — {b.get('url', '')}".strip(" —"))
+        return E.materia(b, dur, cache, destino)
+    if tipo == "numero":
+        src = fundos.por_nome(b.get("arquivo", "")) if b.get("arquivo") else None
+        if b.get("arquivo") and src:
+            return E.numero(b, dur, destino, src, float(b.get("ini", 20)))
+        src, ini = fundos.trecho(dur)
+        return E.numero(b, dur, destino, src, ini)
+    if tipo == "comparar":
+        esq = fundos.por_nome(b.get("arquivo", "")) or fundos.trecho(dur)[0]
+        if b.get("fonte") and citadas.get(b["fonte"]):
+            info = _info_fonte(b["fonte"])
+            creditos.append(f"Trecho citado: \"{info.get('titulo', b['fonte'])}\" — {info.get('canal_nome', '')}"
+                            f" ({info.get('url_final') or info.get('link', '')})")
+            return E.comparar(esq, float(b.get("ini", 20)), citadas[b["fonte"]], float(b.get("fonte_ini", 0)), dur,
+                              b.get("rotulos"), destino)
+        achado = V.commons(b.get("busca", ""), cache, usados=usados) if b.get("busca") else None
+        if achado:
+            creditos.append(achado[1])
+            return E.comparar(esq, float(b.get("ini", 20)), achado[0], 0, dur, b.get("rotulos"), destino, dir_e_foto=True)
+        tipo = "trailer"
+    if tipo in ("foto", "broll", "mapa"):
+        bruto, _ = _fundo_visual(i * 100 + k, {"visual": b}, dur, fundos, pasta, creditos, usados)
+        if bruto:
+            return E.com_audio(bruto, dur, destino)
+        tipo = "trailer"
+    src = fundos.por_nome(b.get("arquivo", "")) if b.get("arquivo") else None
+    if src is not None and "ini" in b:
+        return E.trailer(src, float(b["ini"]), dur, destino, 1 if k % 2 == 0 else -1)
+    src, ini = fundos.trecho(dur)
+    return E.trailer(src, ini, dur, destino, 1 if k % 2 == 0 else -1)
+
+
 def cena(i: int, c: dict, voz: str, taxa: str, fundos: Fundos, cor: str, marca: Path | None, pasta: Path,
-         creditos: list | None = None, usados: set | None = None) -> dict:
+         creditos: list | None = None, usados: set | None = None, citadas: dict | None = None) -> dict:
     creditos = creditos if creditos is not None else []
     usados = usados if usados is not None else set()
     audio = pasta / f"c{i:02d}.mp3"
@@ -258,10 +348,22 @@ def cena(i: int, c: dict, voz: str, taxa: str, fundos: Fundos, cor: str, marca: 
         cd = manchete(v, pasta / f"c{i:02d}.png")
     else:
         cd = card(c.get("card", {}), cor, pasta / f"c{i:02d}.png")
-    fundo, _ = _fundo_visual(i, c, dur, fundos, pasta, creditos, usados)
+    com_som = False
+    if c.get("batidas"):
+        from . import edicao as E
+        pedacos = []
+        for k, (b, (t0, t1)) in enumerate(zip(c["batidas"], E.tempos(c["batidas"], palavras, dur))):
+            try:
+                pedacos.append(_batida(b, k, i, t1 - t0, fundos, pasta, creditos, usados, citadas or {}))
+            except Exception as e:
+                print(f"  (cena {i + 1}, batida {k + 1} '{b.get('tipo')}' falhou: {str(e)[:160]}; vai trailer)")
+                pedacos.append(_batida({"tipo": "trailer"}, k, i, t1 - t0, fundos, pasta, creditos, usados, {}))
+        fundo, com_som = E.colar(pedacos, pasta / f"c{i:02d}_fundo.mp4"), True
+    else:
+        fundo, _ = _fundo_visual(i, c, dur, fundos, pasta, creditos, usados)
     if fundo:
         entradas = ["-i", str(fundo), "-i", str(audio)]
-        escurece = "-0.18" if cd else "-0.04"
+        escurece = "-0.18" if cd else ("0" if com_som else "-0.04")
         fil = [f"[0:v]scale={W}:{H},setsar=1,fps={FPS},eq=brightness={escurece}[b0]"]
     else:
         src, ini = fundos.trecho(dur)
@@ -283,8 +385,14 @@ def cena(i: int, c: dict, voz: str, taxa: str, fundos: Fundos, cor: str, marca: 
         atual, n = "b2", n + 1
     fil.append(f"[{atual}]ass='{_escapar(ass)}':fontsdir='{_escapar(FONTES)}',format=yuv420p[v]")
     saida = pasta / f"c{i:02d}.mp4"
+    if com_som:  # narração por cima do som dos pedaços (whoosh + som real dos clipes)
+        fil.append(f"[1:a]aresample=48000,aformat=channel_layouts=stereo,apad,atrim=0:{dur:.2f}[nar];"
+                   f"[0:a]aresample=48000,apad,atrim=0:{dur:.2f}[fx];[nar][fx]amix=inputs=2:duration=first:normalize=0[a]")
+        mapa_audio = ["-map", "[a]"]
+    else:
+        mapa_audio = ["-map", "1:a", "-af", f"apad,atrim=0:{dur:.2f},aresample=48000"]
     rodar(["ffmpeg", "-y", "-loglevel", "error", *entradas, "-filter_complex", ";".join(fil),
-           "-map", "[v]", "-map", "1:a", "-af", f"apad,atrim=0:{dur:.2f},aresample=48000",
+           "-map", "[v]", *mapa_audio,
            "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-r", str(FPS),
            "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", str(saida)])
     return {"arquivo": saida, "dur": dur, "capitulo": c.get("capitulo", "")}
@@ -297,8 +405,11 @@ def montar(roteiro: dict, fontes: list[Path], cor: str, marca: Path | None, past
     voz, taxa = roteiro.get("voz", "pt-BR-AntonioNeural"), roteiro.get("taxa", "+6%")
     partes, capitulos, relogio = [], [], 0.0
     creditos, usados = [], set()
+    citadas = fontes_citadas(pasta / "fontes", f"f{roteiro['id']}_")
+    if citadas:
+        log(f"  trechos citados disponíveis: {', '.join(sorted(citadas))}")
     for i, c in enumerate(roteiro["cenas"]):
-        r = cena(i, c, voz, taxa, fundos, cor, marca, pasta, creditos, usados)
+        r = cena(i, c, voz, taxa, fundos, cor, marca, pasta, creditos, usados, citadas)
         if r["capitulo"]:
             capitulos.append((relogio, r["capitulo"]))
         relogio += r["dur"]
@@ -322,7 +433,7 @@ def descricao(roteiro: dict, capitulos: list[tuple[float, str]], hashtags: list[
     return (f"{roteiro['titulo']}\n{resumo}\n\n⏱️ Capítulos\n{caps}\n\n"
             + (f"📚 Fontes\n{fontes}\n\n" if fontes else "")
             + "Imagens: trailers e materiais oficiais de divulgação da Rockstar Games, usados para comentário e notícia.\n"
-            + ("Fotos e vídeos reais (licença livre):\n" + "\n".join(f"• {c}" for c in roteiro.get("_creditos", [])) + "\n"
+            + ("Fotos, matérias e trechos citados (para comentário, com crédito aos autores):\n" + "\n".join(f"• {c}" for c in roteiro.get("_creditos", [])) + "\n"
                if roteiro.get("_creditos") else "")
             + "\n"
             + " ".join(hashtags))
