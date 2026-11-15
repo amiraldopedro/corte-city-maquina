@@ -50,7 +50,7 @@ def tempos(batidas: list[dict], palavras: list[dict], dur: float) -> list[tuple[
         elif b.get("na"):
             alvo = _sem_acento(b["na"])
             for p in palavras:
-                w = _sem_acento(re.sub(r"[^\w]", "", p["w"]))
+                w = _sem_acento(re.sub(r"[^\w]", "", p.get("p") or p.get("w", "")))
                 if p["i"] >= depois + 0.2 and w.startswith(alvo):
                     t = max(0.0, p["i"] - 0.08)
                     break
