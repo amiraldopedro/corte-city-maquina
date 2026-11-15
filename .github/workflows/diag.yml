@@ -10,30 +10,22 @@ jobs:
           python3 -u - <<'PY'
           import requests, time
           UA = {"User-Agent": "CorteCityBot/1.0 (https://github.com/amiraldopedro/corte-city-maquina; YouTube channel bot)"}
-          def t(nome, url, **k):
+          def t(nome, url, h=UA, **k):
               try:
-                  r = requests.get(url, headers=UA, timeout=30, **k)
-                  print(nome, r.status_code, len(r.content), r.headers.get("content-type"))
-                  return r
-              except Exception as e:
-                  print(nome, "ERRO", e)
-          # 1) Openverse
-          r = t("openverse", "https://api.openverse.org/v1/images/", params={"q": "alligator", "license_type": "commercial,modification", "page_size": 5})
-          if r is not None and r.ok:
-              for it in r.json().get("results", [])[:5]:
-                  print("  ", it.get("source"), it.get("license"), it.get("width"), it.get("url")[:90])
-                  t("   baixa", it["url"])
-              rv = t("openverse audio?", "https://api.openverse.org/v1/images/", params={"q": "Miami skyline", "source": "flickr", "page_size": 3})
-          # 2) Wikimedia: uma só, com pausa, via Special:FilePath com largura
-          time.sleep(5)
-          t("wm filepath", "https://commons.wikimedia.org/wiki/Special:FilePath/Alligator_mississippiensis_-_Everglades.jpg", params={"width": 1600})
-          time.sleep(5)
-          t("wm original", "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Alligator_mississippiensis.jpg/1280px-Alligator_mississippiensis.jpg")
-          # 3) NASA images (domínio público)
-          r = t("nasa", "https://images-api.nasa.gov/search", params={"q": "Miami Florida", "media_type": "image"})
-          if r is not None and r.ok:
-              it = r.json()["collection"]["items"][0]
-              t("   baixa nasa", it["links"][0]["href"])
+                  r = requests.get(url, headers=h, timeout=30, **k)
+                  print(nome, r.status_code, len(r.content)); return r
+              except Exception as e: print(nome, "ERRO", e)
+          API = "https://commons.wikimedia.org/w/api.php"
+          for largura in (1280, 1920):
+              r = t("wm api %d" % largura, API, params={"action":"query","format":"json","generator":"search","gsrsearch":"American alligator Florida filetype:bitmap","gsrnamespace":6,"gsrlimit":4,"prop":"imageinfo","iiprop":"url|size","iiurlwidth":largura})
+              for p in list(r.json()["query"]["pages"].values())[:4]:
+                  ii = p["imageinfo"][0]; print("  ", ii.get("width"), ii.get("thumburl","")[:110])
+                  t("   thumb", ii["thumburl"]); time.sleep(2)
+          r = t("openverse", "https://api.openverse.org/v1/images/", params={"q":"alligator","license_type":"commercial,modification","page_size":4})
+          for it in r.json()["results"]:
+              t("  flickr sem UA", it["url"], h={})
+              t("  flickr navegador", it["url"], h={"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"})
+              t("  thumb proxy", "https://api.openverse.org/v1/images/%s/thumb/" % it["id"], params={"full_size":"true"})
           PY
       - env: { K: "${{ secrets.PIXABAY_API_KEY }}" }
         run: |
