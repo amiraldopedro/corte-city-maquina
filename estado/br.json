@@ -1493,11 +1493,52 @@
    "views": 1059,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-13T22:17:13+00:00",
-   "atualizado_em": "2026-11-13T22:17:13+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-15T15:52:41+00:00",
+   "isolar_voz": false,
+   "youtube_id": "8F18Ji0P5g8",
+   "publicar_em": "2026-11-17T00:30:00Z",
+   "postado_em": "2026-11-15T15:52:41+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Flow Games: PS5 Pro usado a R$ 1.400 por causa do GTA 6",
+   "gancho": "ABSURDO",
+   "descricao": "Flow Games: PS5 Pro usado a R$ 1.400 por causa do GTA 6\nNo FGN Direct do Flow Games, a apresentadora mostra quanto custam o PS5 e o PS5 Pro e conta que a espera pelo GTA 6 deixou o PS5 Pro difícil de achar. Até usado ele já é vendido por R$ 1.400 lá fora, nestes cortes de notícias sobre o GTA 6.\n\n🎮 Live original: https://www.youtube.com/@FlowGamesPodcast\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "flow games gta 6",
+    "ps5 pro gta 6",
+    "ps5 pro usado preço",
+    "ps5 pro esgotado gta 6",
+    "preço do ps5 pro",
+    "playstation troca de console usado",
+    "fgn direct",
+    "notícias gta 6",
+    "gta 6",
+    "cortes gta",
+    "cortes flow games",
+    "flow games",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-15T15:52:32+00:00",
+   "corte": [
+    16.72,
+    38.0
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 4,
+   "quadro": null,
+   "duracao": 21.3,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0.mp4",
+   "video_asset": 751489140,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0.jpg",
+   "thumb_asset": 751489255,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_kqyNJn81pGA_0_kit.zip"
   },
   "yt_kqyNJn81pGA_1": {
    "id": "yt_kqyNJn81pGA_1",
@@ -2363,6 +2404,6 @@
  "cota": {
   "2026-11-13": 8702,
   "2026-11-14": 8500,
-  "2026-11-15": 3400
+  "2026-11-15": 5100
  }
 }
