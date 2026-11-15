@@ -1666,11 +1666,52 @@
    "views": 1078,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-13T22:27:35+00:00",
-   "atualizado_em": "2026-11-13T22:27:35+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-15T15:50:20+00:00",
+   "isolar_voz": true,
+   "youtube_id": "ILtTWSb0AWc",
+   "publicar_em": "2026-11-16T21:00:00Z",
+   "postado_em": "2026-11-15T15:50:20+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj viu a cena do beijo do GTA 6 e falou isso",
+   "gancho": "IMAGENS NOVAS",
+   "descricao": "Gameplayrj viu a cena do beijo do GTA 6 e falou isso\nGameplayrj reage às imagens novas do trailer do GTA 6, com a cena do chuveiro e o beijo do casal. Ele elogia a animação e diz que é difícil fazer um beijo assim em videogame, nos melhores cortes e reações do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gameplayrj gta 6",
+    "gameplayrj reagindo",
+    "cena do beijo gta 6",
+    "imagens novas gta 6",
+    "trailer do gta 6",
+    "reagindo ao trailer gta 6",
+    "gta 6 animações",
+    "gta 6",
+    "gta 6 reação",
+    "cortes gta 6",
+    "cortes gta",
+    "momentos engraçados gta",
+    "gameplayrj",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-15T15:50:13+00:00",
+   "corte": [
+    37.55,
+    69.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 32.0,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1.mp4",
+   "video_asset": 751483376,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1.jpg",
+   "thumb_asset": 751483453,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_T3c5qx_L5Bc_1_kit.zip"
   },
   "longo_yt_kqyNJn81pGA_longo": {
    "id": "longo_yt_kqyNJn81pGA_longo",
@@ -2322,6 +2363,6 @@
  "cota": {
   "2026-11-13": 8702,
   "2026-11-14": 8500,
-  "2026-11-15": 1700
+  "2026-11-15": 3400
  }
 }
