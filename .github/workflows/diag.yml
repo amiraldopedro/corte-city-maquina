@@ -21,7 +21,7 @@ jobs:
               r = orig(*a, **k); print("GET", r.status_code, a[0][:90]); return r
           V.requests.get = espia
           P = Path("/tmp/m"); P.mkdir(exist_ok=True)
-          for b in ["American alligator Florida", "Everglades airboat"]:
+          for b in ["Miami Beach Ocean Drive","newspaper stack","Florida State Capitol Tallahassee","Miami police car","American alligator Florida","alligator swimming pool","alligator Everglades","Everglades airboat","Miami skyline night","Ferrari Testarossa","PlayStation 2 console","Colony Hotel Miami Beach"]:
               try:
                   print(b, "->", V.commons(b, P))
               except Exception:

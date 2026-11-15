@@ -15,6 +15,7 @@ import hashlib
 import json
 import math
 import re
+import time
 from pathlib import Path
 
 import requests
@@ -48,10 +49,18 @@ def commons(busca: str, pasta: Path, video: bool = False, usados: set | None = N
               "gsrsearch": f"{busca} {filtro}", "gsrlimit": 15, "prop": "imageinfo|videoinfo",
               "iiprop": "url|extmetadata|size|mime", "iiurlwidth": 2400,
               "viprop": "url|derivatives|extmetadata|size|mime"}
-    try:
-        r = requests.get(API, params=params, headers=UA, timeout=30).json()
-    except Exception:
-        return None
+    r = {}
+    for tentativa in range(4):  # a Wikimedia limita pedidos seguidos: espera e tenta de novo
+        try:
+            resp = requests.get(API, params=params, headers=UA, timeout=30)
+            if resp.status_code == 429 or "maxlag" in resp.text[:200]:
+                time.sleep(5 * (tentativa + 1))
+                continue
+            r = resp.json()
+            break
+        except Exception as e:
+            print(f"    commons: busca falhou ({str(e)[:80]})")
+            time.sleep(3)
     paginas = sorted((r.get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 99))
     for p in paginas:
         info = ((p.get("videoinfo") or p.get("imageinfo")) or [{}])[0]
@@ -68,18 +77,38 @@ def commons(busca: str, pasta: Path, video: bool = False, usados: set | None = N
         else:
             if (info.get("width") or 0) < 900:
                 continue
-            url = info.get("thumburl") or info.get("url")
+            # o arquivo original não passa pelo gerador de miniaturas (que bloqueia robô rápido demais)
+            url = info.get("url") if (info.get("size") or 0) < 25e6 else (info.get("thumburl") or info.get("url"))
         ext = Path(url.split("?")[0]).suffix or (".webm" if video else ".jpg")
         destino = pasta / (hashlib.md5(url.encode()).hexdigest()[:12] + ext)
-        try:
-            if not destino.exists():
+        baixou = destino.exists()
+        for tentativa in range(4):
+            if baixou:
+                break
+            try:
                 with requests.get(url, headers=UA, timeout=120, stream=True) as d:
+                    if d.status_code == 429:
+                        time.sleep(6 * (tentativa + 1))
+                        continue
                     d.raise_for_status()
                     with open(destino, "wb") as f:
                         for parte in d.iter_content(1 << 20):
                             f.write(parte)
-        except Exception:
+                baixou = True
+            except Exception as e:
+                print(f"    commons: download falhou ({str(e)[:80]})")
+                time.sleep(3)
+        if not baixou:
             continue
+        time.sleep(1)  # educação com o servidor
+        if not video and destino.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff"):
+            try:
+                im = Image.open(destino)
+                if im.width > 2600:
+                    im.convert("RGB").resize((2600, int(im.height * 2600 / im.width))).save(destino.with_suffix(".jpg"), quality=90)
+                    destino = destino.with_suffix(".jpg")
+            except Exception:
+                continue
         autor = _limpo((meta.get("Artist") or {}).get("value", "")) or "autor desconhecido"
         usados.add(p["title"])
         nome = p["title"].replace("File:", "").replace("Arquivo:", "")
