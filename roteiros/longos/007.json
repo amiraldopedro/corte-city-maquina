@@ -40,9 +40,14 @@
      "ini": 70
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 48,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "camisa"
     },
     {
@@ -52,21 +57,36 @@
      "na": "gasolina"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 38,
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "engorda"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 52,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_17",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "dono"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 106,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_19",
+     "foco": [
+      0.3,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "encarar"
     }
    ]
@@ -230,9 +250,14 @@
      "na": "moto"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 48,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_19",
+     "foco": [
+      0.3,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "cachorro"
     },
     {
@@ -293,15 +318,25 @@
      "ini": 56
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 56,
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Comeu"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 38,
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "academia"
     },
     {
@@ -322,15 +357,25 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 24,
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_02",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "dormir"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 38,
+     "tipo": "oficial",
+     "arquivo": "Lucia_Caminos_09",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "academia"
     },
     {
@@ -351,9 +396,14 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 80
+     "tipo": "oficial",
+     "arquivo": "Vice_City_22",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
      "tipo": "trailer",
@@ -383,15 +433,25 @@
      "ini": 98
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 26,
+     "tipo": "oficial",
+     "arquivo": "Lucia_Caminos_13",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Lucia"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 98,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_11",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "proximidade"
     },
     {
@@ -417,9 +477,14 @@
      "ini": 32
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 134,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Casal"
     },
     {
@@ -429,9 +494,14 @@
      "na": "troca"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 148,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_09",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "fuga"
     },
     {
@@ -486,9 +556,14 @@
      "ini": 64
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 114,
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_17",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "porta"
     },
     {
@@ -602,14 +677,24 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 18
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 46,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_24",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "luxo"
     },
     {
@@ -630,14 +715,24 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 10
+     "tipo": "oficial",
+     "arquivo": "Vice_City_09",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 34,
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_02",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "ônibus"
     },
     {
@@ -664,15 +759,25 @@
      "ini": 32
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 52,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_22",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "posto"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 32,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "loja"
     },
     {
@@ -691,14 +796,24 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 34
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_09",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 42,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_18",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "sujo"
     },
     {
@@ -777,9 +892,14 @@
      "na": "filmando"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 22,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_05",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "praia"
     }
    ]
@@ -806,15 +926,25 @@
      "na": "cento"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 42.6,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_19",
+     "foco": [
+      0.3,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "cachorro"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 138,
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "aerobarco"
     }
    ]
@@ -853,9 +983,14 @@
      ]
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 36,
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_04",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "clima"
     },
     {
@@ -948,20 +1083,35 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 62
+     "tipo": "oficial",
+     "arquivo": "Vice_City_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 48,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "camisa"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 34,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_22",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "drive"
     },
     {
