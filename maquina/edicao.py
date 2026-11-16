@@ -99,12 +99,18 @@ def _png_em_video(png: Path, dur: float, destino: Path, de=1.0, ate=1.05, extra_
 
 
 # ------------------------------------------------------------------ trailer num momento escolhido
-def trailer(src: Path, ini: float, dur: float, destino: Path, sentido: int = 1) -> Path:
+def trailer(src: Path, ini: float, dur: float, destino: Path, sentido: int = 1, rotulo: tuple | None = None) -> Path:
     de, ate = (1.0, 1.08) if sentido > 0 else (1.08, 1.0)
+    entradas = ["-ss", f"{ini:.2f}", "-t", f"{dur + 0.5:.2f}", "-i", str(src)]
     fil = [f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS},"
            f"scale={W * 2}:{H * 2},{_zoom(dur, de, ate)},eq=brightness=-0.04:saturation=1.08,format=yuv420p[v]",
            _whoosh(dur, forte=False).replace("[w]", "[a]")]
-    return _encode(["-ss", f"{ini:.2f}", "-t", f"{dur + 0.5:.2f}", "-i", str(src)], fil, dur, destino)
+    if rotulo:
+        tag = etiqueta(rotulo[0], rotulo[1], destino.with_name(destino.stem + "_rot.png"))
+        entradas += ["-loop", "1", "-t", f"{dur:.3f}", "-i", str(tag)]
+        fil[0] = fil[0].replace("format=yuv420p[v]", "format=yuv420p[t]")
+        fil.insert(1, "[1:v]format=rgba,fade=t=in:st=0.15:d=0.25:alpha=1[r];[t][r]overlay=0:0,format=yuv420p[v]")
+    return _encode(entradas, fil, dur, destino)
 
 
 # ------------------------------------------------------------------ vídeo real de terceiros (citação)
@@ -185,8 +191,8 @@ def materia(b: dict, dur: float, pasta: Path, destino: Path) -> Path:
     foto = _og_imagem(b.get("url", ""), pasta)
     larg = 1240
     f_veic, f_data = _f("Anton-Regular.ttf", 46), _f("Inter-SemiBold.ttf", 26)
-    f_tit = _f("Inter-ExtraBold.ttf", 60)
-    linhas = textwrap.wrap(b.get("titulo", ""), 34)[:4]
+    f_tit = _f("Inter-ExtraBold.ttf", 60) if not b.get("trecho") else _f("Inter-SemiBold.ttf", 46)
+    linhas = textwrap.wrap(b.get("trecho") or b.get("titulo", ""), 34 if not b.get("trecho") else 46)[:6]
     alto_foto = 380 if foto else 0
     alto = 150 + 74 * len(linhas) + 40 + alto_foto + (30 if foto else 0)
     pag = Image.new("RGBA", (larg, alto), (250, 250, 247, 255))
@@ -338,4 +344,118 @@ def colar(pedacos: list[Path], destino: Path) -> Path:
     lista.write_text("\n".join(f"file '{p.resolve()}'" for p in pedacos))
     rodar(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lista),
            "-c", "copy", str(destino)])
+    return destino
+
+
+# ------------------------------------------------------------------ mapa de capítulos (estilo "hub")
+CAPITULOS_PADRAO = ["A polícia", "O corpo", "A dupla", "As armas", "Os carros", "O dinheiro", "As pessoas", "O mundo"]
+
+
+def capitulo(b: dict, dur: float, destino: Path, fundo_src: Path | None = None, fundo_ini: float = 0) -> Path:
+    """Os capítulos como pontos ligados num círculo; o atual acende em rosa, e o título entra ao lado."""
+    import math
+    nomes = b.get("lista") or CAPITULOS_PADRAO
+    atual = b.get("atual", 0)
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    cx, cy, r = 480, H // 2, 270
+    pts = [(cx + r * math.cos(-math.pi / 2 + 2 * math.pi * k / len(nomes)),
+            cy + r * math.sin(-math.pi / 2 + 2 * math.pi * k / len(nomes))) for k in range(len(nomes))]
+    for k in range(len(pts)):
+        a, z = pts[k], pts[(k + 1) % len(pts)]
+        cor = (*M.ROSA, 255) if k < atual else (120, 130, 170, 140)
+        d.line([a, z], fill=cor, width=5 if k < atual else 3)
+    f_n = _f("Inter-ExtraBold.ttf", 26)
+    for k, (x, y) in enumerate(pts):
+        feito, agora = k < atual, k == atual
+        raio = 46 if agora else 32
+        if agora:
+            d.ellipse([x - raio - 16, y - raio - 16, x + raio + 16, y + raio + 16], fill=(*M.ROSA, 70))
+        d.ellipse([x - raio, y - raio, x + raio, y + raio],
+                  fill=(*(M.ROSA if (feito or agora) else M.NOITE), 255), outline=(*M.AREIA, 255), width=4)
+        d.text((x, y), f"{k + 1:02d}", font=f_n, fill=M.NOITE if (feito or agora) else M.AREIA, anchor="mm")
+        lx = x + (70 if x >= cx else -70)
+        d.text((lx, y), nomes[k].upper(), font=f_n, fill=(*M.AREIA, 255 if agora else 170),
+               anchor="lm" if x >= cx else "rm")
+    f_parte, f_tit = _f("Inter-ExtraBold.ttf", 40), _f("Anton-Regular.ttf", 150)
+    d.text((1120, H // 2 - 120), f"PARTE {atual + 1:02d}", font=f_parte, fill=(*M.AZUL, 255), anchor="lm")
+    d.text((1128, H // 2 + 18), nomes[atual].upper(), font=f_tit, fill=(*M.AMEIXA, 255), anchor="lm")
+    d.text((1120, H // 2 + 10), nomes[atual].upper(), font=f_tit, fill=(*M.ROSA, 255), anchor="lm")
+    camada = destino.with_name(destino.stem + "_cap.png")
+    img.save(camada)
+    if fundo_src:
+        fil = [f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS},"
+               f"boxblur=22:2,eq=brightness=-0.42:saturation=0.9[bg]",
+               "[1:v]format=rgba,fade=t=in:st=0:d=0.25:alpha=1[n]",
+               "[bg][n]overlay=0:0,format=yuv420p[v]", _whoosh(dur).replace("[w]", "[a]")]
+        return _encode(["-ss", f"{fundo_ini:.2f}", "-t", f"{dur + 0.5:.2f}", "-i", str(fundo_src),
+                        "-loop", "1", "-t", f"{dur:.3f}", "-i", str(camada)], fil, dur, destino)
+    base = Image.new("RGB", (W, H), M.NOITE)
+    base.paste(img, (0, 0), img)
+    png = destino.with_suffix(".png")
+    base.save(png)
+    return _png_em_video(png, dur, destino, 1.0, 1.04)
+
+
+# ------------------------------------------------------------------ painel de procurado (desenho nosso, não o HUD do jogo)
+def procurado(b: dict, dur: float, destino: Path, fundo_src: Path | None = None, fundo_ini: float = 0) -> Path:
+    """Estrelas de procurado e o que a polícia sabe; os itens riscados somem um a um."""
+    estrelas, total = int(b.get("estrelas", 3)), int(b.get("total", 6))
+    itens = b.get("itens") or ["ROSTO", "ROUPA", "ARMA", "CARRO", "PARCEIRO", "CÂMERA"]
+    riscar = b.get("riscar", [])
+    n = 18
+    quadros = []
+    pasta = destino.parent
+    for q in range(n + 1):
+        p = q / n
+        img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        d = ImageDraw.Draw(img)
+        x0, y0 = 1180, 140
+        d.rounded_rectangle([x0 - 40, y0 - 40, W - 80, y0 + 470], 28, fill=(*M.NOITE, 215), outline=(*M.ROSA, 255), width=4)
+        for k in range(total):
+            cx, cy, r = x0 + 50 + k * 100, y0 + 50, 40
+            pts = []
+            import math
+            for j in range(10):
+                ang = -math.pi / 2 + j * math.pi / 5
+                rr = r if j % 2 == 0 else r * 0.45
+                pts.append((cx + rr * math.cos(ang), cy + rr * math.sin(ang)))
+            acesa = k < estrelas
+            d.polygon(pts, fill=(*(M.AMARELO_SOL if hasattr(M, "AMARELO_SOL") else AMARELO), 255) if acesa else (60, 66, 100, 255))
+        f = _f("Inter-ExtraBold.ttf", 34)
+        for k, it in enumerate(itens):
+            cx, cy = x0 + (k % 3) * 205, y0 + 180 + (k // 3) * 130
+            some = it in riscar and p > (0.25 + 0.6 * riscar.index(it) / max(1, len(riscar)))
+            cor = (110, 115, 140, 255) if some else (*M.AREIA, 255)
+            d.rounded_rectangle([cx - 10, cy - 40, cx + 180, cy + 40], 14, fill=(*(M.OCEANO if not some else M.NOITE), 255))
+            d.text((cx + 85, cy), it, font=f, fill=cor, anchor="mm")
+            if some:
+                d.line([(cx - 4, cy), (cx + 174, cy)], fill=(*M.ROSA, 255), width=6)
+        arq = pasta / f"{destino.stem}_p{q:02d}.png"
+        img.save(arq)
+        quadros.append(arq)
+    seq = pasta / f"{destino.stem}_seq.txt"
+    passo = max(0.04, (dur * 0.85) / n)
+    seq.write_text("\n".join([f"file '{a.name}'\nduration {passo:.4f}" for a in quadros] +
+                             [f"file '{quadros[-1].name}'\nduration {max(0.2, dur - passo * n):.3f}", f"file '{quadros[-1].name}'"]))
+    src, ini = fundo_src, fundo_ini
+    fil = [f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1,fps={FPS},eq=brightness=-0.12[bg]",
+           f"[1:v]fps={FPS},format=rgba[n]", "[bg][n]overlay=0:0,format=yuv420p[v]", _whoosh(dur).replace("[w]", "[a]")]
+    return _encode(["-ss", f"{ini:.2f}", "-t", f"{dur + 0.5:.2f}", "-i", str(src),
+                    "-f", "concat", "-safe", "0", "-i", str(seq)], fil, dur, destino)
+
+
+# ------------------------------------------------------------------ nome de quem falou (sem foto)
+def etiqueta(nome: str, cargo: str, destino: Path) -> Path:
+    img = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    f_n, f_c = _f("Anton-Regular.ttf", 62), _f("Inter-ExtraBold.ttf", 30)
+    x, y = 90, H - 330
+    wn = int(f_n.getlength(nome.upper())) + 50
+    wc = int(f_c.getlength(cargo.upper())) + 40
+    d.rectangle([x, y, x + wn, y + 86], fill=(*M.AREIA, 255))
+    d.text((x + 25, y + 43), nome.upper(), font=f_n, fill=M.NOITE, anchor="lm")
+    d.rectangle([x, y + 86, x + wc, y + 132], fill=(*M.ROSA, 255))
+    d.text((x + 20, y + 109), cargo.upper(), font=f_c, fill=M.NOITE, anchor="lm")
+    img.save(destino)
     return destino

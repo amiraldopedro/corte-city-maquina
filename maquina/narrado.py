@@ -309,6 +309,12 @@ def _batida(b: dict, k: int, i: int, dur: float, fundos: Fundos, pasta: Path, cr
             return E.numero(b, dur, destino, src, float(b.get("ini", 20)))
         src, ini = fundos.trecho(dur)
         return E.numero(b, dur, destino, src, ini)
+    if tipo in ("capitulo", "procurado"):
+        src = fundos.por_nome(b.get("arquivo", "")) if b.get("arquivo") else None
+        ini = float(b.get("ini", 20))
+        if src is None:
+            src, ini = fundos.trecho(dur)
+        return (E.capitulo if tipo == "capitulo" else E.procurado)(b, dur, destino, src, ini)
     if tipo == "comparar":
         esq = fundos.por_nome(b.get("arquivo", "")) or fundos.trecho(dur)[0]
         if b.get("fonte") and citadas.get(b["fonte"]):
@@ -328,10 +334,11 @@ def _batida(b: dict, k: int, i: int, dur: float, fundos: Fundos, pasta: Path, cr
             return E.com_audio(bruto, dur, destino)
         tipo = "trailer"
     src = fundos.por_nome(b.get("arquivo", "")) if b.get("arquivo") else None
+    rot = tuple(b["etiqueta"]) if b.get("etiqueta") else None
     if src is not None and "ini" in b:
-        return E.trailer(src, float(b["ini"]), dur, destino, 1 if k % 2 == 0 else -1)
+        return E.trailer(src, float(b["ini"]), dur, destino, 1 if k % 2 == 0 else -1, rot)
     src, ini = fundos.trecho(dur)
-    return E.trailer(src, ini, dur, destino, 1 if k % 2 == 0 else -1)
+    return E.trailer(src, ini, dur, destino, 1 if k % 2 == 0 else -1, rot)
 
 
 def cena(i: int, c: dict, voz: str, taxa: str, fundos: Fundos, cor: str, marca: Path | None, pasta: Path,
