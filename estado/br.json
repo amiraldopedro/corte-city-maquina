@@ -2975,7 +2975,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "manual",
+   "status": "aguardando_cota",
    "titulo": "GTA 6: TUDO que você precisa saber antes do dia 19",
    "titulos_extra": [
     "GTA 6: que horas libera no Brasil, preço e tamanho",
@@ -3019,14 +3019,14 @@
     "publicar_em": "2026-11-17T13:00:00Z",
     "horario_fixo": true
    },
-   "atualizado_em": "2026-11-16T17:10:25+00:00"
+   "atualizado_em": "2026-11-16T17:23:16+00:00"
   },
   "narrado_009": {
    "id": "narrado_009",
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "manual",
+   "status": "aguardando_cota",
    "titulo": "GTA 6: as 39 screenshots novas e TUDO que elas revelam",
    "titulos_extra": [
     "GTA 6: a revelação final antes do lançamento",
@@ -3070,14 +3070,14 @@
     "publicar_em": "2026-11-18T13:00:00Z",
     "horario_fixo": true
    },
-   "atualizado_em": "2026-11-16T17:10:55+00:00"
+   "atualizado_em": "2026-11-16T17:23:16+00:00"
   },
   "narrado_007": {
    "id": "narrado_007",
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "manual",
+   "status": "aguardando_cota",
    "titulo": "GTA 6 faz coisas que o GTA 5 NUNCA fez (e tirou algumas)",
    "titulos_extra": [
     "Tudo que o GTA 6 faz e o GTA 5 nunca fez",
@@ -3123,7 +3123,7 @@
     "publicar_em": "2026-11-18T22:00:00Z",
     "horario_fixo": true
    },
-   "atualizado_em": "2026-11-16T17:10:43+00:00"
+   "atualizado_em": "2026-11-16T17:23:16+00:00"
   },
   "x_2121416009043108272": {
    "id": "x_2121416009043108272",
