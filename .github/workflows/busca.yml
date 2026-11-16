@@ -1,0 +1,14 @@
+name: Busca no YouTube (lista, sem baixar)
+on:
+  workflow_dispatch:
+    inputs:
+      urls: { description: "URLs de busca separadas por espaço", required: true }
+jobs:
+  busca:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - run: pip install -q yt-dlp
+      - env: { URLS: "${{ inputs.urls }}" }
+        run: |
+          for u in $URLS; do echo "== $u"; yt-dlp --flat-playlist --playlist-end 40 --print "%(view_count)s|%(duration)s|%(channel)s|%(id)s|%(title)s" "$u" || true; done
