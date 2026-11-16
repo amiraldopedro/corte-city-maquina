@@ -179,7 +179,7 @@
   "IrHIQePmYDY": {
    "id": "IrHIQePmYDY",
    "link": "https://www.youtube.com/watch?v=IrHIQePmYDY",
-   "status": "esperando",
+   "status": "pausado",
    "modo": "cortes",
    "pedido_em": "2026-11-15T19:20:12+00:00",
    "atualizado_em": "2026-11-15T19:20:12+00:00",
@@ -279,38 +279,6 @@
    "id": "an_XoCFl2wxuTs",
    "modo": "analise",
    "link": "https://www.youtube.com/watch?v=XoCFl2wxuTs",
-   "status": "analise_pendente",
-   "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T07:19:33+00:00"
-  },
-  "an_A9fifS608C8": {
-   "id": "an_A9fifS608C8",
-   "modo": "analise",
-   "link": "https://www.youtube.com/watch?v=A9fifS608C8",
-   "status": "analise_pendente",
-   "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T07:19:33+00:00"
-  },
-  "an_0qCw4co8QCg": {
-   "id": "an_0qCw4co8QCg",
-   "modo": "analise",
-   "link": "https://www.youtube.com/watch?v=0qCw4co8QCg",
-   "status": "analise_pendente",
-   "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T07:19:33+00:00"
-  },
-  "an_UpNCw7eWOng": {
-   "id": "an_UpNCw7eWOng",
-   "modo": "analise",
-   "link": "https://www.youtube.com/watch?v=UpNCw7eWOng",
-   "status": "analise_pendente",
-   "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T07:19:33+00:00"
-  },
-  "an_FV93IVwJP_4": {
-   "id": "an_FV93IVwJP_4",
-   "modo": "analise",
-   "link": "https://www.youtube.com/watch?v=FV93IVwJP_4",
    "status": "analise_pendente",
    "pedido_em": "2026-11-16T07:19:33+00:00",
    "atualizado_em": "2026-11-16T07:19:33+00:00"
