@@ -272,7 +272,7 @@ def analise(vid: str, item: dict):
         ytdlp("-f", "bv*[height<=480][ext=mp4]+ba[ext=m4a]/b[height<=480]/b", "--merge-output-format", "mp4",
               "-o", str(arq), link)
         try:
-            ytdlp("--skip-download", "--write-auto-subs", "--write-subs", "--sub-langs", "en.*,en,pt.*",
+            ytdlp("--skip-download", "--write-auto-subs", "--write-subs", "--sub-langs", "en-orig,en", "--sleep-subtitles", "3",
                   "--sub-format", "json3", "-o", str(pasta / "leg"), link)
         except Exception as e:
             log(f"  (sem legenda: {str(e)[:80]})")
