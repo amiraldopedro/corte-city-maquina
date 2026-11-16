@@ -2911,6 +2911,35 @@
    "postado_em": "2026-11-16T09:18:57+00:00",
    "envio_pendente": null,
    "atualizado_em": "2026-11-16T09:18:57+00:00"
+  },
+  "contagem_7_danca": {
+   "id": "contagem_7_danca",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "short",
+   "quadro": "contagem",
+   "status": "postado",
+   "titulo": "A dança no GTA 6 parece real demais 😳 #gta6 #shorts",
+   "descricao": "Repara nas baladas do GTA 6: cada pessoa dança de um jeito, suada, com luz de balada de verdade. Dia 19 a gente vê rodando.\n\nImagens: Rockstar Games (trailers e screenshots oficiais).\n#gta6 #gtavi #gta",
+   "tags": [
+    "gta 6",
+    "gta 6 dança",
+    "gta 6 balada",
+    "gta vi",
+    "shorts"
+   ],
+   "duracao": 20.2,
+   "feito_em": "2026-11-16T09:56:17+00:00",
+   "criado_em": "2026-11-16T09:56:17+00:00",
+   "publicar_em": "2026-11-16T23:00:00Z",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_7_danca.mp4",
+   "video_asset": 754319670,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_7_danca.jpg",
+   "thumb_asset": 754319769,
+   "youtube_id": "hQQG9rJM83g",
+   "postado_em": "2026-11-16T09:56:21+00:00",
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-16T09:56:21+00:00"
   }
  },
  "clipes_vistos": [
@@ -2943,6 +2972,6 @@
   "2026-11-13": 8702,
   "2026-11-14": 8500,
   "2026-11-15": 8702,
-  "2026-11-16": 5100
+  "2026-11-16": 6800
  }
 }
