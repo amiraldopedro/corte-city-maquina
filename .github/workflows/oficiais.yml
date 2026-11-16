@@ -1,0 +1,59 @@
+name: Imagens oficiais da Rockstar (screenshots em alta)
+on: workflow_dispatch
+permissions: { contents: write }
+jobs:
+  oficiais:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - run: pip install -q playwright requests && python -m playwright install --with-deps chromium > /dev/null
+      - env: { GH_TOKEN: "${{ github.token }}", GH_REPO: "${{ github.repository }}" }
+        run: |
+          mkdir -p of && cd of
+          python3 -u - <<'PY'
+          import re, requests, json, time
+          from playwright.sync_api import sync_playwright
+          urls = set()
+          paginas = ["https://www.rockstargames.com/VI/downloads/screenshots", "https://www.rockstargames.com/VI",
+                     "https://www.rockstargames.com/VI/downloads/artwork-wallpapers"]
+          with sync_playwright() as p:
+              b = p.chromium.launch()
+              pg = b.new_page(viewport={"width": 1600, "height": 1000})
+              def pega(resp):
+                  u = resp.url
+                  if re.search(r"\.(jpe?g|png|webp)(\?|$)", u) and "rockstargames" in u: urls.add(u)
+              pg.on("response", pega)
+              for url in paginas:
+                  try:
+                      pg.goto(url, wait_until="networkidle", timeout=90000)
+                      for _ in range(40):
+                          pg.mouse.wheel(0, 2500); time.sleep(0.4)
+                      html = pg.content()
+                      for u in re.findall(r"https://[^\"' )]+akamaized\.net[^\"' )]+\.(?:jpe?g|png|webp)", html): urls.add(u)
+                      print(url, "->", len(urls))
+                  except Exception as e: print("falhou", url, e)
+              b.close()
+          print("total", len(urls))
+          # agrupa variações do mesmo arquivo e fica com a maior
+          fic = {}
+          for u in urls:
+              nome = re.sub(r"\?.*$", "", u.split("/")[-1])
+              fic.setdefault(nome, []).append(u)
+          json.dump(sorted(urls), open("urls.json", "w"), indent=1)
+          n = 0
+          for nome, us in fic.items():
+              melhor, tam = None, 0
+              for u in us:
+                  for cand in (re.sub(r"/(\d{3,4})/", "/3840/", u), u):
+                      try:
+                          r = requests.get(cand, timeout=60)
+                          if r.ok and len(r.content) > tam and r.headers.get("content-type", "").startswith("image"):
+                              melhor, tam = r.content, len(r.content)
+                      except Exception: pass
+              if melhor and tam > 150_000:  # só imagem grande (screenshot/arte), não ícone
+                  open(f"of_{n:03d}_{nome}", "wb").write(melhor); n += 1
+          print("baixadas", n)
+          PY
+          ls | head -50; du -sh .
+          gh release view oficiais >/dev/null 2>&1 || gh release create oficiais -t "Imagens oficiais da Rockstar" -n "Screenshots e artes oficiais de GTA VI em alta resolução"
+          gh release upload oficiais of_* urls.json --clobber
