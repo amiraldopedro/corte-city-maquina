@@ -1,0 +1,988 @@
+{
+ "id": "007",
+ "titulo": "GTA 6 faz coisas que o GTA 5 NUNCA fez (e tirou algumas)",
+ "titulos_extra": [
+  "Tudo que o GTA 6 faz e o GTA 5 nunca fez",
+  "GTA 6 x GTA 5: o que mudou de verdade",
+  "O GTA 6 vai cobrar a conta de tudo que você fizer"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+8%",
+ "gancho_thumb": "GTA 5 NUNCA FEZ",
+ "tags": [
+  "gta 6",
+  "gta 6 vs gta 5",
+  "gta vi",
+  "novidades gta 6",
+  "gta 6 gameplay",
+  "gta 6 polícia",
+  "gta 6 lucia",
+  "corte city"
+ ],
+ "fontes": [
+  "Prévias da Edge e Game Informer",
+  "TGG e criadores convidados pela Rockstar",
+  "Bloomberg (Jason Schreier) sobre a roda de armas",
+  "Dazed",
+  "Trailers e Extended Look da Rockstar Games"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "No GTA 5, você assalta uma loja, dá uma volta no quarteirão e a polícia esquece que você existe. No GTA 6, ela lembra da sua camisa. O carro fica sem gasolina. O personagem engorda. O dono do carro que você tá roubando pode estar armado. E se você encarar um desconhecido por tempo demais, ele solta o cachorro em você. E isso aconteceu na demonstração da própria Rockstar.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 70
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 48,
+     "na": "camisa"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "gasolina"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 38,
+     "na": "engorda"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 52,
+     "na": "dono"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 106,
+     "na": "encarar"
+    }
+   ]
+  },
+  {
+   "capitulo": "Começo",
+   "texto": "Eu juntei tudo que já foi mostrado: os trailers, o gameplay estendido de vinte e seis minutos e as prévias das revistas que jogaram o game, como a Edge e a Game Informer. E contei tudo que o GTA 6 deixa fazer e o GTA 5 nunca deixou. E no final tem o contrário: o que o GTA 5 fazia e o GTA 6 tirou. Fica até lá, porque tem gente que vai sentir falta.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6
+    },
+    {
+     "tipo": "materia",
+     "veiculo": "Dazed",
+     "data": "6 set 2026",
+     "trecho": "Gone are the days when you could traverse the city like a god.",
+     "grifo": "traverse the city like a god",
+     "na": "prévias"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 36,
+     "na": "contei"
+    },
+    {
+     "tipo": "numero",
+     "numero": "GTA 5 x GTA 6",
+     "texto": "o que mudou (e o que saiu)",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "final"
+    }
+   ]
+  },
+  {
+   "capitulo": "A polícia",
+   "texto": "Começando pelo que todo mundo reparou: o GTA 5 para em cinco estrelas. O GTA 6 tem seis. Mas as estrelas são a parte chata. O que importa tá embaixo delas: uns ícones que mostram o que a polícia sabe sobre você. Sua aparência, sua roupa, a arma que você usou, se tinha parceiro, se a câmera te pegou.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 0,
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6
+    },
+    {
+     "tipo": "procurado",
+     "na": "cinco",
+     "estrelas": 5,
+     "total": 6,
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 70
+    },
+    {
+     "tipo": "procurado",
+     "na": "ícones",
+     "estrelas": 6,
+     "total": 6,
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148
+    }
+   ]
+  },
+  {
+   "capitulo": "A polícia",
+   "texto": "E cada um desses dá pra apagar. Trocou de roupa, a descrição da roupa some. Cortou o cabelo, não bate mais com o retrato. Largou a arma, largou o carro. E segundo as prévias, se você colocar a máscara antes do crime, nem câmera nem testemunha veem o seu rosto. No GTA 5 fugir era questão de distância. No GTA 6, é questão de quem eles acham que estão procurando.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "procurado",
+     "estrelas": 4,
+     "total": 6,
+     "riscar": [
+      "ROUPA",
+      "ROSTO",
+      "ARMA",
+      "CARRO"
+     ],
+     "arquivo": "VQRLujxTm3c",
+     "ini": 134
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 136,
+     "na": "máscara"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "distância"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 152,
+     "na": "quem"
+    }
+   ]
+  },
+  {
+   "capitulo": "A polícia",
+   "texto": "E tem estrela vazada: a polícia sabe que rolou um crime, mas ainda não sabe que foi você. Os policiais sumiram do minimapa, pra ver onde eles estão você usa um modo chamado foco. Guarda esse nome, ele volta. E a melhor: Jason e Lucia podem se separar, e a polícia divide a atenção. Segundo as prévias, isso tira uma estrela de quem você tá jogando.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "ESTRELA VAZADA",
+     "texto": "sabem do crime, não que foi você",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 106,
+     "na": "minimapa"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 40,
+     "na": "Jason"
+    }
+   ]
+  },
+  {
+   "capitulo": "A polícia",
+   "texto": "E a polícia ganhou brinquedos novos. Na demonstração da revista Edge, quem jogava era o Rob Nelson, um dos chefes da Rockstar North. Ele tá na moto com a Lucia na garupa, a polícia joga um tapete de pregos, o pneu estoura, os dois voam por cima do guidão, e um cachorro da polícia pega o Jason a pé. O cara que passou anos fazendo o jogo foi pego por um cachorro. Aí você sabe que funciona.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 106,
+     "etiqueta": [
+      "Rob Nelson",
+      "co-chefe da Rockstar North"
+     ],
+     "na": "polícia"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 48,
+     "na": "moto"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 48,
+     "na": "cachorro"
+    },
+    {
+     "tipo": "numero",
+     "numero": "PEGO PELO CACHORRO",
+     "texto": "o chefe da Rockstar na própria demo",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 48,
+     "na": "cara"
+    }
+   ]
+  },
+  {
+   "capitulo": "A polícia",
+   "texto": "E tem uma coisa que nunca zera: a sua ficha criminal. Ela mede como você se comporta, de profissional até sem salvação, com um anjinho e um diabinho. E a Rockstar diz que isso muda a história. Atirou no pneu em vez do policial? Ponto pra você. E no gameplay estendido, fazer carinho num cachorro dá karma positivo. Jogar lixo no lixo também. Ou seja: dá pra assaltar uma joalheria, fazer carinho num golden e reciclar uma latinha. Tá quite.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 64.6
+    },
+    {
+     "tipo": "numero",
+     "numero": "ANJO x DIABO",
+     "texto": "a ficha criminal muda a história",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 64.8,
+     "na": "anjinho"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.8,
+     "na": "carinho"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22,
+     "na": "joalheria"
+    }
+   ]
+  },
+  {
+   "capitulo": "O corpo",
+   "texto": "E se fugir agora é mudar a aparência, olha que problema: o seu corpo também muda. Comeu fast food demais, Jason e Lucia engordam. Foi pra academia, ganham músculo. No GTA 5, o Franklin termina o jogo do mesmo jeitinho que começou. Quem jogou San Andreas lembra do CJ fazendo isso em dois mil e quatro. Mas aqui vai além.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 1,
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 56
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 56,
+     "na": "Comeu"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 38,
+     "na": "academia"
+    },
+    {
+     "tipo": "numero",
+     "numero": "2004",
+     "texto": "o CJ já fazia isso no San Andreas",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 56,
+     "na": "San"
+    }
+   ]
+  },
+  {
+   "capitulo": "O corpo",
+   "texto": "Eles precisam dormir. Tem um app de saúde no jogo, e virar a noite deixa marca no rosto: olheira, cara de cansado de tanto fugir da polícia. A academia é de verdade: você faz matrícula, compra whey na máquina, e os exercícios são minigames de tempo. Segundo as prévias, ganhar força leva uns dias seguidos de treino. E se parar, o músculo vai embora. A Rockstar inventou o pular o dia de perna.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 24,
+     "na": "dormir"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 38,
+     "na": "academia"
+    },
+    {
+     "tipo": "numero",
+     "numero": "DIA DE PERNA",
+     "texto": "a Rockstar inventou o pular o dia de perna",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 38,
+     "na": "inventou"
+    }
+   ]
+  },
+  {
+   "capitulo": "O corpo",
+   "texto": "Comida virou bônus: café dá fôlego, whey dá vida. E tem drive-thru! Burger Shot, Cluckin Bell, pedindo sem sair do carro. Mas calma, não é jogo de sobrevivência: não tem barra de fome te matando. Você pode ignorar o sono no meio de um assalto, a conta só aparece depois, na cara dos personagens.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 80
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "na": "drive"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 120,
+     "na": "calma"
+    }
+   ]
+  },
+  {
+   "capitulo": "A dupla",
+   "texto": "E pela primeira vez tem uma mulher protagonista: a Lucia. E o romance é opcional, eles podem ser só parceiros. A proximidade dos dois cresce com o tempo juntos: passeio na praia, academia, dar a mão, abrir a porta, responder mensagem rápido. Ignorar mensagem piora. O GTA 6 é o primeiro GTA que vai te julgar por deixar alguém no vácuo.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 2,
+     "arquivo": "VQRLujxTm3c",
+     "ini": 98
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 26,
+     "na": "Lucia"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 98,
+     "na": "proximidade"
+    },
+    {
+     "tipo": "numero",
+     "numero": "VÁCUO",
+     "texto": "o primeiro GTA que te julga por deixar no vácuo",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 90,
+     "na": "GTA"
+    }
+   ]
+  },
+  {
+   "capitulo": "A dupla",
+   "texto": "E aqui vira Bonnie e Clyde: assaltar junto fortalece a relação. Casal que assalta unido, permanece unido. Isso agora é mecânica de jogo. E a troca de personagem mudou: se os dois estão no mesmo carro, a troca de motorista pra carona é na hora. Numa fuga, você pula pro banco do passageiro e atira enquanto o parceiro dirige. Só que, se um morrer no trabalho em dupla, acabou pros dois.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 32
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 134,
+     "na": "Casal"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 40,
+     "na": "troca"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "na": "fuga"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 64,
+     "na": "morrer"
+    }
+   ]
+  },
+  {
+   "capitulo": "As armas",
+   "texto": "E agora a regra que a série nunca tinha quebrado. No GTA 5 o Trevor anda de regata com uma minigun, um lança-foguetes, um rifle de precisão e um bolso cheio de granadas. E ninguém pergunta onde ele guarda. No GTA 6 isso acabou. O Rob Nelson confirmou que os bolsos infinitos sumiram.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 3,
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 64
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 72,
+     "na": "Trevor"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 64,
+     "etiqueta": [
+      "Rob Nelson",
+      "co-chefe da Rockstar North"
+     ],
+     "na": "Rob"
+    }
+   ]
+  },
+  {
+   "capitulo": "As armas",
+   "texto": "As prévias falam em duas pistolas escondidas e duas armas longas, uma nas costas e outra na mão. O resto fica no porta-malas. E as pessoas reagem: arma nas costas tudo bem, arma na mão e o povo começa a se afastar. Uns correm, outros vêm tirar satisfação.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 64
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 114,
+     "na": "porta"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 100,
+     "na": "pessoas"
+    }
+   ]
+  },
+  {
+   "capitulo": "As armas",
+   "texto": "E a melhor história dessa pesquisa: segundo o Jason Schreier, da Bloomberg, a Rockstar passou meses, talvez anos, tentando substituir a roda de armas. Testaram bandeja, teia, até nenhuma roda. E no final, voltaram pra roda de armas. Anos de trabalho pra terminar no mesmo lugar. Mas ela ganhou uma aba nova: itens. Máscara, óculos, boné. O disfarce fica a um botão da arma.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "BLOOMBERG",
+     "texto": "anos tentando trocar a roda de armas",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 72
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 72,
+     "na": "Testaram"
+    },
+    {
+     "tipo": "numero",
+     "numero": "DE VOLTA",
+     "texto": "anos de trabalho pra voltar pra roda",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 64,
+     "na": "final"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 134,
+     "na": "itens"
+    }
+   ]
+  },
+  {
+   "capitulo": "As armas",
+   "texto": "Lembra do foco? Ele vira um câmera lenta estilo Red Dead, mostrando os pontos fracos dos inimigos. E dá pra lutar sem matar: atirar no braço ou na perna pra derrubar, ou arrancar a arma da mão do cara. A mira de longe finalmente parece de jogo moderno. Sua ficha criminal agradece.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 72
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "na": "lutar"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 64,
+     "na": "mira"
+    }
+   ]
+  },
+  {
+   "capitulo": "Os carros",
+   "texto": "Seu carro agora carrega suas armas. Então é bom ele ter gasolina. Todo carro e moto tem marcador de combustível, e acabar no meio da perseguição pode te deixar na mão. Carro elétrico carrega no posto. Mas calma: a Edge diz que o tanque dura bastante e encher é rápido. E tem nitro no modo história.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 4,
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "marcador"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "na": "elétrico"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 144,
+     "na": "nitro"
+    }
+   ]
+  },
+  {
+   "capitulo": "Os carros",
+   "texto": "E roubar carro mudou. No GTA 5 era quebrar o vidro e sair. Agora os carros têm níveis de segurança: carro velho, quebra o vidro; carro de luxo precisa de clonador de chave ou de hack pelo celular. E tem rastreador que é cruel: dirigindo rápido, ele fica quieto. Diminuiu a velocidade, ele começa a apitar e entrega sua posição. O único alarme da história que te pune por respeitar o limite de velocidade.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 18
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "luxo"
+    },
+    {
+     "tipo": "numero",
+     "numero": "RASTREADOR",
+     "texto": "pune quem respeita o limite",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "único"
+    }
+   ]
+  },
+  {
+   "capitulo": "Os carros",
+   "texto": "E o povo defende o carro. Tem motorista que corre, tem motorista armado que reage. Quer ir sem roubar? Tem app de carro por aplicativo, tem entregador que traz seu carro de patinete, e tem ônibus e trem funcionando. Imagina despistar a polícia pegando o ônibus quarenta e dois.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 10
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "na": "ônibus"
+    },
+    {
+     "tipo": "numero",
+     "numero": "42",
+     "texto": "o ônibus da fuga",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "na": "Imagina"
+    }
+   ]
+  },
+  {
+   "capitulo": "O dinheiro",
+   "texto": "E você vai precisar de dinheiro como nunca. Segundo as prévias, algumas missões da história só começam depois que você junta grana roubando posto, joalheria ou carro. No GTA 5 o dinheiro era placar. Aqui é portão. E roubar loja ficou mais esperto: dá pra arrombar a fechadura, apagar a câmera, pegar a chave do fundo da loja com o caixa que fugiu.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 5,
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 32
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 52,
+     "na": "posto"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 32,
+     "na": "loja"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 134,
+     "na": "chave"
+    }
+   ]
+  },
+  {
+   "capitulo": "O dinheiro",
+   "texto": "O cofre dá escolha: explodir e estragar parte do dinheiro, ou achar a senha enquanto a polícia chega. E dinheiro sujo precisa ser lavado: joia e dinheiro marcado você vende pra receptador. Jason e Lucia dividem uma conta no banco, e depósito só no caixa eletrônico. Porque se você morrer ou for preso com o dinheiro no bolso, perde tudo.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 34
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 42,
+     "na": "sujo"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 42,
+     "na": "conta"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 50,
+     "na": "morrer"
+    }
+   ]
+  },
+  {
+   "capitulo": "As pessoas",
+   "texto": "Segundo as prévias, o GTA 6 tem mais de seiscentas mil animações de pessoas. O GTA 5 tinha umas cinquenta e cinco mil. E dá pra conversar: cumprimentar, provocar, acalmar. As pessoas reparam se você encara, segue ou chega perto demais. Comentam sua roupa. E foi assim que o cara soltou o cachorro no Jason: ele encarou demais.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 6,
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 44
+    },
+    {
+     "tipo": "numero",
+     "numero": "600 MIL",
+     "texto": "animações de pessoas no GTA 6 (prévias)",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 44,
+     "na": "seiscentas"
+    },
+    {
+     "tipo": "numero",
+     "numero": "55 MIL",
+     "texto": "no GTA 5",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 26,
+     "na": "cinquenta"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 106,
+     "na": "cachorro"
+    }
+   ]
+  },
+  {
+   "capitulo": "As pessoas",
+   "texto": "E o mundo começa coisa sozinho. Na demonstração, uns caras numa caminhonete ficaram desafiando o Rob Nelson pra um racha até ele aceitar. E todo mundo em Leonida tá filmando tudo: as lives no celular mostram coisas acontecendo em tempo real, e você pode ir até lá achar quem tá transmitindo. Ou deitar na praia e ficar rolando o feed. Também vale.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 92
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 52,
+     "na": "caminhonete"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 46.4,
+     "na": "filmando"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22,
+     "na": "praia"
+    }
+   ]
+  },
+  {
+   "capitulo": "O mundo",
+   "texto": "Os bichos: o GTA 5 tinha algumas dezenas. O GTA 6 tem mais de cento e setenta espécies. Peixe-boi, flamingo, iguana, tubarão, baleia, tartaruga. E dá pra fazer carinho no cachorro dos outros, depois de pedir pro dono. E tem muita coisa pra fazer: basquete, sinuca, minigolfe, caiaque, aerobarco no pântano, pesca, tesouro em naufrágio, monster truck e corrida em autódromo.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 7,
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20
+    },
+    {
+     "tipo": "numero",
+     "numero": "170+",
+     "texto": "espécies de animais",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20.2,
+     "na": "cento"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.6,
+     "na": "cachorro"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "aerobarco"
+    }
+   ]
+  },
+  {
+   "capitulo": "O mundo",
+   "texto": "O mapa: Leonida tem cerca do dobro do tamanho do mapa do GTA 5, dividido em seis regiões bem diferentes, da cidade de Vice City até os pântanos e as florestas. E o clima ficou local: pode estar sol onde você tá e tempestade logo ali. A chuva deixa poça. E sim, tem furacão confirmado. Ou seja: pode chegar um furacão no meio do seu assalto. Talvez a frase mais GTA desse vídeo inteiro.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "mapa",
+     "titulo": "Leonida: ~2x o mapa do GTA 5",
+     "pinos": [
+      {
+       "nome": "Vice City",
+       "lat": 25.76,
+       "lon": -80.19
+      },
+      {
+       "nome": "Grassrivers",
+       "lat": 25.9,
+       "lon": -80.9
+      },
+      {
+       "nome": "Leonida Keys",
+       "lat": 24.7,
+       "lon": -81.2
+      },
+      {
+       "nome": "Port Gellhorn",
+       "lat": 30.2,
+       "lon": -85.7
+      }
+     ]
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 36,
+     "na": "clima"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 120,
+     "na": "chuva"
+    },
+    {
+     "tipo": "numero",
+     "numero": "FURACÃO",
+     "texto": "confirmado no jogo",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 70,
+     "na": "furacão"
+    }
+   ]
+  },
+  {
+   "capitulo": "O que saiu",
+   "texto": "E agora o prometido: o que o GTA 5 deixava e o GTA 6 tirou. Dois você já ouviu: os bolsos infinitos e a polícia no radar. O resto: não dá mais pra desvirar o carro de cabeça pra baixo mexendo o volante. Tênis, surf e skate não entraram como minigames. Não tem editor da Rockstar no lançamento, só modo foto. E nada de GTA Online no dia um.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "O QUE SAIU",
+     "texto": "o que o GTA 5 tinha e o GTA 6 tirou",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 60
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "desvirar"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22,
+     "na": "Tênis"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 46,
+     "na": "Online"
+    }
+   ]
+  },
+  {
+   "capitulo": "O que saiu",
+   "texto": "Nos consoles, segundo as prévias, o jogo mira trinta quadros por segundo. E o maior de todos: não tem modo primeira pessoa. Ela só aparece ao mirar com algumas armas, o jogo inteiro foi feito pra terceira pessoa. Se você jogava GTA 5 em primeira pessoa, o dia dezenove vai ser estranho por um dia.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "30 FPS",
+     "texto": "meta nos consoles (prévias)",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148
+    },
+    {
+     "tipo": "numero",
+     "numero": "SEM 1ª PESSOA",
+     "texto": "só ao mirar algumas armas",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 72,
+     "na": "maior"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 66,
+     "na": "jogava"
+    }
+   ]
+  },
+  {
+   "capitulo": "Fim",
+   "texto": "O GTA 5 era sobre uma pergunta: o que dá pra fazer sem ser pego. O GTA 6 pergunta outra coisa: o que você deixa pra trás. A camisa que a testemunha lembrou, os quilos do drive-thru, o rastreador do carro roubado, a mensagem sem resposta. O caos continua lá. Só que agora ele te manda a conta. E se a Rockstar te deixasse desligar um sistema só, qual seria? Comenta aí. Dia dezenove a gente descobre. Se inscreve na Corte City.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve pro dia 19"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 62
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 48,
+     "na": "camisa"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "na": "drive"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 48,
+     "na": "caos"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 154,
+     "na": "Comenta"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 66,
+     "na": "inscreve"
+    }
+   ]
+  }
+ ]
+}
