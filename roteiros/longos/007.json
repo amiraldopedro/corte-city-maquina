@@ -7,6 +7,7 @@
   "O GTA 6 vai cobrar a conta de tudo que você fizer"
  ],
  "voz": "pt-BR-AntonioNeural",
+ "publicar": "2026-11-18T19:00",
  "taxa": "+8%",
  "gancho_thumb": "GTA 5 NUNCA FEZ",
  "tags": [
@@ -526,9 +527,14 @@
      "ini": 64
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 72,
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_05",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Trevor"
     },
     {
@@ -589,9 +595,14 @@
      "ini": 72
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 72,
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_12",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Testaram"
     },
     {
@@ -618,9 +629,14 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 72
+     "tipo": "oficial",
+     "arquivo": "Lucia_Caminos_13",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
      "tipo": "trailer",
@@ -629,9 +645,14 @@
      "na": "lutar"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 64,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_19",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "mira"
     }
    ]
@@ -1134,6 +1155,5 @@
     }
    ]
   }
- ],
- "publicar": "2026-11-18T19:00"
+ ]
 }
