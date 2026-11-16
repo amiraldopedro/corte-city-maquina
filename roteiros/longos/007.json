@@ -1142,9 +1142,14 @@
      "na": "caos"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 154,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_16",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Comenta"
     },
     {
