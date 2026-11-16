@@ -2507,32 +2507,9 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "aguardando_cota",
+   "status": "postado",
    "criado_em": "2026-11-15T06:39:29+00:00",
-   "envio_pendente": {
-    "titulo": "Alanzoka ouve uma gritaria dos vizinhos na live e para tudo",
-    "descricao": "Alanzoka ouve uma gritaria dos vizinhos na live e para tudo\nAlanzoka estava conversando na live quando ouviu uma gritaria vinda dos vizinhos de cima e achou que alguém estava apanhando. A reação dele ao tentar entender o que aconteceu rendeu um dos momentos mais engraçados dos cortes da live.\n\n🎮 Live original: https://twitch.tv/alanzoka\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
-    "tags": [
-     "alanzoka",
-     "alanzoka live",
-     "cortes alanzoka",
-     "alanzoka reação",
-     "vizinho gritando live",
-     "momentos engraçados live",
-     "cortes de live",
-     "cortes gta",
-     "gta 6",
-     "reação streamer",
-     "live",
-     "gta rp",
-     "cortes",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-18T00:30:00Z",
-    "horario_fixo": false
-   },
+   "envio_pendente": null,
    "tipo": "short",
    "titulo": "Alanzoka ouve uma gritaria dos vizinhos na live e para tudo",
    "gancho": "QUE LOUCURA",
@@ -2570,7 +2547,10 @@
    "thumb_asset": 753779775,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926903009_1684_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2926903009_1684_kit.zip",
-   "atualizado_em": "2026-11-16T06:43:25+00:00"
+   "atualizado_em": "2026-11-16T09:06:18+00:00",
+   "youtube_id": "ldGj1rL_gj0",
+   "publicar_em": "2026-11-18T21:00:00Z",
+   "postado_em": "2026-11-16T09:06:18+00:00"
   },
   "narrado_002": {
    "id": "narrado_002",
@@ -2914,6 +2894,6 @@
   "2026-11-13": 8702,
   "2026-11-14": 8500,
   "2026-11-15": 8702,
-  "2026-11-16": 3400
+  "2026-11-16": 5100
  }
 }
