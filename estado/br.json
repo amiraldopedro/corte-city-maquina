@@ -2975,7 +2975,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "pronto",
+   "status": "aguardando_cota",
    "titulo": "GTA 6: TUDO que você precisa saber antes do dia 19",
    "titulos_extra": [
     "GTA 6: que horas libera no Brasil, preço e tamanho",
@@ -3000,7 +3000,26 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_010.jpg",
    "thumb_asset": 754328166,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_010_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_010_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_010_kit.zip",
+   "publicar_em": "2026-11-17T13:00:00Z",
+   "envio_pendente": {
+    "titulo": "GTA 6: TUDO que você precisa saber antes do dia 19",
+    "descricao": "GTA 6: TUDO que você precisa saber antes do dia 19\nFaltam três dias pro GTA 6. E tem coisa que você precisa saber antes de quinta-feira: que horas libera no Brasil, quanto espaço precisa no console, o brinde que some pra sempre se você vacilar, e o que o jogo tem e não tem no lançamento. Bora, rapidinho.\n\n⏱️ Capítulos\n00:00 Começo\n00:16 Data e hora\n00:36 Espaço\n00:55 Preço\n01:13 O brinde\n01:31 O que tem\n01:50 O que não tem\n02:05 Dicas\n02:24 Fim\n\n📚 Fontes\n• Rockstar Games\n• Tecnoblog e Omelete (preços no Brasil)\n• IBTimes (pré-download e espaço)\n• GTABase (pacote Vintage Vice City)\n\nImagens: trailers e materiais oficiais de divulgação da Rockstar Games, usados para comentário e notícia.\nFotos, matérias e trechos citados (para comentário, com crédito aos autores):\n• Screenshots oficiais: Rockstar Games\n\n#gta6 #gtavi #gta",
+    "tags": [
+     "gta 6",
+     "gta 6 lançamento",
+     "gta 6 preço brasil",
+     "gta 6 horário",
+     "gta 6 tamanho",
+     "gta 6 pré download",
+     "corte city"
+    ],
+    "idioma": "pt",
+    "playlist": "GTA 6: Reações e Primeiros Momentos",
+    "publicar_em": "2026-11-17T13:00:00Z",
+    "horario_fixo": true
+   },
+   "atualizado_em": "2026-11-16T10:07:47+00:00"
   },
   "narrado_009": {
    "id": "narrado_009",
