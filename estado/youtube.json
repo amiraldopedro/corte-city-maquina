@@ -188,6 +188,36 @@
    "canal_nome": "Davy Jones GTA 6",
    "isolar_voz": true,
    "views_yt": 280166
+  },
+  "f004_cerveja": {
+   "id": "f004_cerveja",
+   "modo": "fonte",
+   "link": "https://www.youtube.com/watch?v=IML3jU_yyGs",
+   "ini": 0,
+   "fim": 41,
+   "status": "fonte_pendente",
+   "pedido_em": "2026-11-16T07:04:40+00:00",
+   "atualizado_em": "2026-11-16T07:04:40+00:00"
+  },
+  "f004_piscina": {
+   "id": "f004_piscina",
+   "modo": "fonte",
+   "link": "https://www.youtube.com/watch?v=h0xdXQdDfo8",
+   "ini": 0,
+   "fim": 70,
+   "status": "fonte_pendente",
+   "pedido_em": "2026-11-16T07:04:40+00:00",
+   "atualizado_em": "2026-11-16T07:04:40+00:00"
+  },
+  "f004_shopping": {
+   "id": "f004_shopping",
+   "modo": "fonte",
+   "link": "https://www.youtube.com/watch?v=VreEhqlNbgU",
+   "ini": 0,
+   "fim": 17,
+   "status": "fonte_pendente",
+   "pedido_em": "2026-11-16T07:04:40+00:00",
+   "atualizado_em": "2026-11-16T07:04:40+00:00"
   }
  },
  "clipes_vistos": [],
