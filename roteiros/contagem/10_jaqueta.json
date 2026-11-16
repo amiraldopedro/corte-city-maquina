@@ -1,0 +1,65 @@
+{
+ "id": "10_jaqueta",
+ "selo": "MERCH DO GTA 6",
+ "publicar": "2026-11-18T20:00",
+ "titulo": "A jaqueta do GTA 6 custa mais que 3 PS5 Pro 💀 #gta6 #shorts",
+ "descricao": "A loja Selfridges, em Londres, está vendendo uma jaqueta oficial do GTA 6 por 2.500 libras. Três PS5 Pro saem mais barato.\n\nFonte: Push Square / Selfridges.\nImagens: Rockstar Games.\n#gta6 #gtavi",
+ "tags": [
+  "gta 6",
+  "jaqueta gta 6",
+  "merch gta 6",
+  "gta vi",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Essa jaqueta do GTA 6 custa mais que três PS5 Pro.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Jason_Duval_01"
+   }
+  },
+  {
+   "texto": "Em Londres, a loja Selfridges tá vendendo a jaqueta oficial por duas mil e quinhentas libras.",
+   "card": {
+    "tipo": "dado",
+    "numero": "£2.500",
+    "texto": "a jaqueta do GTA 6"
+   },
+   "fundo": {
+    "oficial": "Vice_City_24"
+   }
+  },
+  {
+   "texto": "Isso dá mais de quinze mil reais. Com esse dinheiro, você compra três PS5 Pro e ainda sobra.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 6
+   }
+  },
+  {
+   "texto": "E tem até bolsa de couro do Burger Shot por cento e vinte e cinco libras.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Vice_City_22"
+   }
+  },
+  {
+   "texto": "Você pagaria? Comenta aí. Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 66
+   }
+  }
+ ]
+}

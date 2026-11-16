@@ -1,0 +1,57 @@
+{
+ "id": "11_60fps",
+ "selo": "60 FPS?",
+ "publicar": "2026-11-19T13:00",
+ "titulo": "GTA 6 vai rodar a 60 FPS no PS5 Pro? 🤔 #gta6 #shorts",
+ "descricao": "Os rumores dizem que o GTA 6 roda a 60 FPS no PS5 Pro, mas a Rockstar nunca confirmou. O trailer 2 rodava a 30 FPS num PS5 normal, segundo a Digital Foundry.\n\nFontes: Digital Foundry, Notebookcheck, Dexerto.\nImagens: Rockstar Games.\n#gta6 #ps5pro",
+ "tags": [
+  "gta 6",
+  "gta 6 60 fps",
+  "gta 6 ps5 pro",
+  "gta vi",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "GTA 6 vai rodar a sessenta quadros no PS5 Pro?",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Jason_and_Lucia_09"
+   }
+  },
+  {
+   "texto": "O trailer 2 rodava num PS5 normal, travado em trinta quadros por segundo, segundo a Digital Foundry.",
+   "card": {
+    "tipo": "dado",
+    "numero": "30 FPS",
+    "texto": "trailer 2 no PS5"
+   },
+   "fundo": {
+    "arquivo": "VQRLujxTm3c",
+    "ini": 34
+   }
+  },
+  {
+   "texto": "Um insider diz que no PS5 Pro chega a sessenta. Mas atenção: a Rockstar nunca confirmou isso.",
+   "card": {
+    "tipo": "texto",
+    "texto": "60 no Pro? só rumor"
+   },
+   "fundo": {
+    "oficial": "Vice_City_27"
+   }
+  },
+  {
+   "texto": "Dia dezenove a gente descobre. Você joga em qual console? Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 66
+   }
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "id": "9_xbox_one",
+ "selo": "GTA 6 NO XBOX ONE?",
+ "publicar": "2026-11-18T15:00",
+ "titulo": "Vai dar pra jogar GTA 6 no Xbox One? 😱 #gta6 #shorts",
+ "descricao": "A Rockstar confirmou: o GTA 6 roda no Xbox One pelo Xbox Cloud Gaming, com gráficos do Series S. No PS4 não tem.\n\nFontes: Rockstar Games, Xbox Wire, Windows Central.\nImagens: Rockstar Games.\n#gta6 #gtavi #xbox",
+ "tags": [
+  "gta 6",
+  "gta 6 xbox one",
+  "gta 6 ps4",
+  "xbox cloud gaming",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Vai dar pra jogar GTA 6 no Xbox One? Vai. Mas tem pegadinha.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Vice_City_01"
+   }
+  },
+  {
+   "texto": "A Rockstar confirmou que o jogo roda no Xbox One pela nuvem, o Xbox Cloud Gaming.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Xbox One: pela nuvem"
+   },
+   "fundo": {
+    "oficial": "Vice_City_27"
+   }
+  },
+  {
+   "texto": "Só que com os gráficos do Xbox Series S, e você precisa de internet boa e comprar o jogo do mesmo jeito.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 46
+   }
+  },
+  {
+   "texto": "E no PS4? Aí não. Lá é só PS5 mesmo.",
+   "card": {
+    "tipo": "texto",
+    "texto": "PS4: não"
+   },
+   "fundo": {
+    "oficial": "Jason_and_Lucia_16"
+   }
+  },
+  {
+   "texto": "Marca aquele amigo que ainda tá no Xbox One. Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 66
+   }
+  }
+ ]
+}

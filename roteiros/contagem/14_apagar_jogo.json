@@ -1,0 +1,56 @@
+{
+ "id": "14_apagar_jogo",
+ "selo": "212 GB",
+ "publicar": "2026-11-18T22:30",
+ "titulo": "Qual jogo você vai apagar pro GTA 6? 😭 #gta6 #shorts",
+ "descricao": "Segundo a Rockstar, o GTA 6 pede até 212 GB, dependendo do console. Hora de escolher quem sai do HD.\n\nFonte: Rockstar Games / IBTimes.\nImagens: Rockstar Games.\n#gta6 #gtavi",
+ "tags": [
+  "gta 6",
+  "gta 6 tamanho",
+  "212 gb",
+  "gta vi",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "O GTA 6 pede até duzentos e doze gigas.",
+   "card": {
+    "tipo": "dado",
+    "numero": "212 GB",
+    "texto": "segundo a Rockstar"
+   },
+   "fundo": {
+    "oficial": "Vice_City_01"
+   }
+  },
+  {
+   "texto": "Aí você abre o console e começa o velório: o jogo de futebol, o de tiro que você nem joga mais, aquele que você jurou que ia zerar.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "VQRLujxTm3c",
+    "ini": 24
+   }
+  },
+  {
+   "texto": "No fim sobra só o GTA 6. E tá ótimo.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Jason_and_Lucia_16"
+   }
+  },
+  {
+   "texto": "Qual jogo você vai apagar? Comenta aí. Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 66
+   }
+  }
+ ]
+}

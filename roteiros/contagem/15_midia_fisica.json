@@ -1,0 +1,55 @@
+{
+ "id": "15_midia_fisica",
+ "selo": "MÍDIA FÍSICA",
+ "publicar": "2026-11-20T12:00",
+ "titulo": "A mídia física do GTA 6 não tem disco 😳 #gta6 #shorts",
+ "descricao": "A caixa física do GTA 6 vem com um código pra baixar o jogo, não com disco. Vale comparar o preço nas lojas.\n\nImagens: Rockstar Games.\n#gta6 #gtavi",
+ "tags": [
+  "gta 6",
+  "mídia física gta 6",
+  "gta 6 caixa",
+  "gta vi",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Comprou a mídia física do GTA 6? Abre a caixa.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Vice_City_24"
+   }
+  },
+  {
+   "texto": "Não tem disco. Dentro vem um código pra baixar o jogo, e são até duzentos e doze gigas.",
+   "card": {
+    "tipo": "texto",
+    "texto": "só um código"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 4
+   }
+  },
+  {
+   "texto": "A vantagem é que em algumas lojas a caixa sai mais barata. Então compara antes de comprar.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Vice_City_22"
+   }
+  },
+  {
+   "texto": "Você prefere física ou digital? Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 66
+   }
+  }
+ ]
+}

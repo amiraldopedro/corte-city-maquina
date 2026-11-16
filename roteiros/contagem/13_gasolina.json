@@ -1,0 +1,55 @@
+{
+ "id": "13_gasolina",
+ "selo": "GASOLINA NO GTA 6",
+ "publicar": "2026-11-19T20:00",
+ "titulo": "O carro no GTA 6 fica sem gasolina ⛽ #gta6 #shorts",
+ "descricao": "Segundo as prévias, todo carro e moto do GTA 6 tem marcador de gasolina, e carro elétrico carrega no posto. Mas o tanque dura bastante.\n\nFontes: prévias da Edge.\nImagens: Rockstar Games.\n#gta6 #gtavi",
+ "tags": [
+  "gta 6",
+  "gasolina gta 6",
+  "gta 6 carros",
+  "gta vi",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "No GTA 6, o carro fica sem gasolina.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Jason_Duval_18"
+   }
+  },
+  {
+   "texto": "Segundo as prévias, todo carro e moto tem marcador de combustível. E elétrico carrega no posto.",
+   "card": {
+    "tipo": "texto",
+    "texto": "marcador de gasolina"
+   },
+   "fundo": {
+    "oficial": "Vice_City_22"
+   }
+  },
+  {
+   "texto": "Mas calma: o tanque dura bastante e encher é rápido. Só não vacila no meio da fuga.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 46
+   }
+  },
+  {
+   "texto": "Você gostou disso ou acha chato? Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "rz1B4B2yBZY",
+    "ini": 66
+   }
+  }
+ ]
+}
