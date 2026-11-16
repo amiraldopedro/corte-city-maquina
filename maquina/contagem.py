@@ -101,13 +101,25 @@ def montar(roteiro: dict, fontes: list[Path], pasta: Path, log=print) -> Path:
         ps = falar(c["texto"], voz, taxa, audio)
         dur = (ps[-1]["f"] if ps else 3) + 0.25
         palavras += [{**p, "i": p["i"] + relogio, "f": p["f"] + relogio} for p in ps]
-        src, ini = fundos.trecho(dur)
+        f = c.get("fundo") or {}
+        img = None
+        if f.get("oficial"):
+            from .narrado import oficial_por_nome
+            img = oficial_por_nome(f["oficial"], pasta.parent / "oficiais")
+        src = fundos.por_nome(f["arquivo"]) if f.get("arquivo") else None
+        ini = float(f.get("ini", 0))
+        if img is None and src is None:
+            src, ini = fundos.trecho(dur)
         cd = card(c.get("card", {}), pasta / f"c{i:02d}.png")
-        entradas = ["-ss", f"{ini:.2f}", "-t", f"{dur:.2f}", "-i", str(src), "-i", str(audio), "-i", str(s)]
+        if img is not None:
+            entradas = ["-loop", "1", "-framerate", str(FPS), "-t", f"{dur:.2f}", "-i", str(img),
+                        "-i", str(audio), "-i", str(s)]
+        else:
+            entradas = ["-ss", f"{ini:.2f}", "-t", f"{dur:.2f}", "-i", str(src), "-i", str(audio), "-i", str(s)]
         lado = 1 if i % 2 else -1
         x = f"(iw-ow)*t/{dur:.2f}" if lado > 0 else f"(iw-ow)*(1-t/{dur:.2f})"
         fil = [f"[0:v]scale=-2:{H + 120},crop={W + 160}:{H + 120},setsar=1,fps={FPS},"
-               f"crop={W}:{H}:x='{x}':y='(ih-oh)/2',eq=brightness=-0.16:saturation=1.1[b0]",
+               f"crop={W}:{H}:x='{x}':y='(ih-oh)/2',eq=brightness={-0.16 if cd else -0.06}:saturation=1.1[b0]",
                "[2:v]format=rgba[s]", "[b0][s]overlay=x=(W-w)/2:y=170[b1]"]
         atual, n = "b1", 3
         if cd:

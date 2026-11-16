@@ -1,0 +1,81 @@
+{
+ "id": "8_mapa_pequeno",
+ "selo": "MAPA DO GTA 6",
+ "publicar": "2026-11-17T15:00",
+ "titulo": "Ainda acha o mapa do GTA 6 pequeno? 🤯 #gta6 #shorts",
+ "descricao": "Segundo a revista Edge, a Rockstar disse que o mapa de Leonida é quase do tamanho do GTA 4, do GTA 5 e do Red Dead 2 juntos.\n\nImagens: Rockstar Games.\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "mapa gta 6",
+  "leonida",
+  "gta vi",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Ainda acha o mapa do GTA 6 pequeno?",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Leonida_Keys_01"
+   }
+  },
+  {
+   "texto": "Segundo a revista Edge, a Rockstar disse que Leonida é quase do tamanho de três mapas juntos.",
+   "card": {
+    "tipo": "dado",
+    "numero": "3 em 1",
+    "texto": "segundo a revista Edge"
+   },
+   "fundo": {
+    "oficial": "Vice_City_27"
+   }
+  },
+  {
+   "texto": "O mapa do GTA 4.",
+   "card": {
+    "tipo": "texto",
+    "texto": "GTA 4"
+   },
+   "fundo": {
+    "oficial": "Vice_City_10"
+   }
+  },
+  {
+   "texto": "Mais o mapa do GTA 5.",
+   "card": {
+    "tipo": "texto",
+    "texto": "+ GTA 5"
+   },
+   "fundo": {
+    "oficial": "Grassrivers_05"
+   }
+  },
+  {
+   "texto": "Mais o mapa do Red Dead 2.",
+   "card": {
+    "tipo": "texto",
+    "texto": "+ RED DEAD 2"
+   },
+   "fundo": {
+    "oficial": "Mount_Kalaga_National_Park_04"
+   }
+  },
+  {
+   "texto": "Três mundos da Rockstar cabendo em um. E aí, ainda acha pequeno? Segue a Corte City.",
+   "card": {
+    "tipo": "lista",
+    "itens": [
+     "Vice City",
+     "Pântanos",
+     "Ilhas",
+     "Florestas"
+    ]
+   },
+   "fundo": {
+    "oficial": "Port_Gellhorn_06"
+   }
+  }
+ ]
+}

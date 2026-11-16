@@ -1,0 +1,64 @@
+{
+ "id": "7_danca",
+ "selo": "OLHA ISSO",
+ "publicar": "2026-11-16T20:00",
+ "titulo": "A dança no GTA 6 parece real demais 😳 #gta6 #shorts",
+ "descricao": "Repara nas baladas do GTA 6: cada pessoa dança de um jeito, suada, com luz de balada de verdade. Dia 19 a gente vê rodando.\n\nImagens: Rockstar Games (trailers e screenshots oficiais).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "gta 6 dança",
+  "gta 6 balada",
+  "gta vi",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Repara na dança no GTA 6.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "VQRLujxTm3c",
+    "ini": 100
+   }
+  },
+  {
+   "texto": "Não é aquela animação repetida de sempre. Cada pessoa na balada dança de um jeito diferente.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Vice_City_13"
+   }
+  },
+  {
+   "texto": "Olha o suor, a luz batendo, o povo se mexendo junto com a música.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "oficial": "Jason_and_Lucia_14"
+   }
+  },
+  {
+   "texto": "E isso é só a balada. Imagina o resto do jogo.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "VQRLujxTm3c",
+    "ini": 125
+   }
+  },
+  {
+   "texto": "Dia dezenove a gente vê rodando. Segue a Corte City.",
+   "card": {
+    "tipo": "texto",
+    "texto": "Dia 19 tá aí"
+   },
+   "fundo": {
+    "oficial": "Vice_City_25"
+   }
+  }
+ ]
+}
