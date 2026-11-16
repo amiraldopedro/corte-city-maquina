@@ -326,6 +326,22 @@
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:35:40+00:00",
    "atualizado_em": "2026-11-16T08:35:40+00:00"
+  },
+  "QkkoHAzjnUs": {
+   "id": "QkkoHAzjnUs",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=QkkoHAzjnUs",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-16T08:53:59+00:00",
+   "atualizado_em": "2026-11-16T08:53:59+00:00"
+  },
+  "N-xHcvug3WI": {
+   "id": "N-xHcvug3WI",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-16T08:53:59+00:00",
+   "atualizado_em": "2026-11-16T08:53:59+00:00"
   }
  },
  "clipes_vistos": [],
