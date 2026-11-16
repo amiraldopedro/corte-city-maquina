@@ -295,9 +295,11 @@
    "id": "an_Ce-MmkmbGMA",
    "modo": "analise",
    "link": "https://www.youtube.com/watch?v=Ce-MmkmbGMA",
-   "status": "analise_pendente",
+   "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T07:19:33+00:00"
+   "atualizado_em": "2026-11-16T08:49:51+00:00",
+   "asset_id": 754119207,
+   "titulo": "Still Think GTA 6's Map Is Small? Think Again"
   },
   "an_XoCFl2wxuTs": {
    "id": "an_XoCFl2wxuTs",
