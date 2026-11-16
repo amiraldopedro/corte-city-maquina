@@ -370,6 +370,16 @@ def main():
     if not shutil.which("yt-dlp", path=PATH_EXTRA + ":" + os.environ.get("PATH", "")):
         log("yt-dlp não encontrado. Rode o instalador de novo.")
         return
+    # o YouTube muda toda semana; yt-dlp velho é o motivo nº 1 de "sign in to confirm you're not a bot"
+    marca = LOCAL / ".ytdlp_atualizado"
+    if not marca.exists() or time.time() - marca.stat().st_mtime > 12 * 3600:
+        try:
+            env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
+            r = subprocess.run(["yt-dlp", "-U", "--update-to", "nightly"], capture_output=True, text=True, env=env, timeout=180)
+            log("  yt-dlp: " + (r.stdout.strip().splitlines() or ["ok"])[-1][:100])
+            marca.touch()
+        except Exception as e:
+            log(f"  yt-dlp: não consegui atualizar ({str(e)[:80]})")
     _, fila = ler_fila()
     pendentes = {k: v for k, v in fila.get("momentos", {}).items()
                  if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente", "analise_pendente")}
