@@ -1,0 +1,807 @@
+{
+ "id": "009",
+ "titulo": "GTA 6: as 39 screenshots novas e TUDO que elas revelam",
+ "titulos_extra": [
+  "GTA 6: a revelação final antes do lançamento",
+  "O que a Rockstar escondeu nas screenshots novas do GTA 6",
+  "GTA 6: um rapper de verdade no jogo (e mais detalhes)"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+8%",
+ "gancho_thumb": "39 FOTOS",
+ "tags": [
+  "gta 6",
+  "gta 6 screenshots",
+  "gta vi",
+  "gta 6 kodak black",
+  "gta 6 detalhes",
+  "gta 6 novidades",
+  "corte city"
+ ],
+ "fontes": [
+  "Galeria de lançamento da Rockstar Games (5 nov 2026)",
+  "RockstarINTEL",
+  "Revista Edge"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "A Rockstar soltou trinta e nove screenshots novas do GTA 6, a duas semanas do lançamento. E elas escondem muito mais do que parece: um rapper de verdade dentro do jogo, ponte que levanta pra barco passar, assalto na rua estilo Red Dead e até como vai ser o dinheiro do jogo. Bora ver uma por uma.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_16",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_25",
+     "foco": [
+      0.5,
+      0.4
+     ],
+     "de": 1.15,
+     "ate": 1.4,
+     "na": "rapper"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_17",
+     "foco": [
+      0.2,
+      0.7
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "ponte"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_14",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "assalto"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_18",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "dinheiro"
+    },
+    {
+     "tipo": "numero",
+     "numero": "39",
+     "texto": "screenshots novas",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "uma"
+    }
+   ]
+  },
+  {
+   "capitulo": "O assalto de moto",
+   "texto": "Começando por essa: um assalto bem no estilo GTA 5, com a turma de capacete fugindo de moto de dentro de um prédio, e a polícia entrando atirando logo atrás. Tem cara de missão grande da história.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_13",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_13",
+     "foco": [
+      0.6,
+      0.6
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "polícia"
+    },
+    {
+     "tipo": "numero",
+     "numero": "MISSÃO",
+     "texto": "de assalto da história",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 32,
+     "na": "missão"
+    }
+   ]
+  },
+  {
+   "capitulo": "O bar das ilhas",
+   "texto": "Depois, Jason e Lucia dançando num bar das ilhas, o Rusty Anchor, que já apareceu nos trailers e fica perto da casa do Jason. Repara no povo: a turma de óculos de coração brindando, gente sentada nas mesas, e embaixo da mesa um cachorrinho de laço rosa. Cada pessoa ali parece ter a sua própria vida.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_18",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "Rusty"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_18",
+     "foco": [
+      0.5,
+      0.6
+     ],
+     "de": 1.15,
+     "ate": 1.3,
+     "na": "povo"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_18",
+     "foco": [
+      0.05,
+      0.95
+     ],
+     "de": 1.15,
+     "ate": 1.8,
+     "na": "cachorrinho"
+    }
+   ]
+  },
+  {
+   "capitulo": "O rapper",
+   "texto": "E a revelação mais louca: um rapper de verdade no jogo. Nessa foto dentro da balada Jack of Hearts, a imprensa de games apontou o Kodak Black, que é da Flórida e já tinha dito que estaria no GTA. E se ele frequenta a Jack of Hearts, dá pra imaginar mais rapper aparecendo por lá.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_25",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_25",
+     "foco": [
+      0.5,
+      0.35
+     ],
+     "de": 1.15,
+     "ate": 1.45,
+     "na": "Kodak"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Boobie_Ike_04",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "Jack"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_23",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "rapper"
+    }
+   ]
+  },
+  {
+   "capitulo": "A gangue",
+   "texto": "Essa aqui mostra uma gangue nova, com cara de muito perigosa: tatuagem no rosto, no peito, nas mãos. O visual lembra as facções mais pesadas da vida real. Pelo visto vão ser um dos grupos mais perigosos de Vice City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_21",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_21",
+     "foco": [
+      0.5,
+      0.45
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "tatuagens"
+    },
+    {
+     "tipo": "numero",
+     "numero": "GANGUE NOVA",
+     "texto": "das mais perigosas",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 64,
+     "na": "Pelo"
+    }
+   ]
+  },
+  {
+   "capitulo": "Assalto e polícia",
+   "texto": "E aqui o Jason e a Lucia assaltando uma agência pequena de banco. É a primeira vez que a gente vê isso no marketing: até agora era posto, joalheria ou o banco grande da missão. Ou seja, dá pra assaltar agência de bairro. E nessa outra, a polícia invadindo uma mansão, gente atirando, e os dois fugindo de barco.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_15",
+     "foco": [
+      0.6,
+      0.4
+     ],
+     "de": 1.15,
+     "ate": 1.4,
+     "na": "primeira"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_17",
+     "foco": [
+      0.5,
+      0.6
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "mansão"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_17",
+     "foco": [
+      0.4,
+      0.85
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "barco"
+    }
+   ]
+  },
+  {
+   "capitulo": "O posto",
+   "texto": "E uma das minhas favoritas: o Jason abastecendo o carro, com sangue no braço, o para-brisa furado de bala, e a polícia chegando bem atrás dele. Ou seja: mesmo depois de despistar, se você estiver com cara de suspeito, a polícia pode vir te abordar.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_18",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_18",
+     "foco": [
+      0.42,
+      0.6
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "sangue"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_18",
+     "foco": [
+      0.05,
+      0.35
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "para"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_18",
+     "foco": [
+      0.2,
+      0.75
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "polícia"
+    }
+   ]
+  },
+  {
+   "capitulo": "A cidade",
+   "texto": "Agora Vice City de noite: e repara nas pontes. Elas funcionam e levantam pra barco passar, segurando o trânsito. Ou seja: podem fechar a sua rota de fuga da polícia. E o nível de detalhe tá absurdo: olha esse integrante de gangue fazendo trança no cabelo, com uma arma toda dourada na mão.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_27",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_17",
+     "foco": [
+      0.1,
+      0.7
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "pontes"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_20",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "detalhe"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_20",
+     "foco": [
+      0.75,
+      0.85
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "arma"
+    }
+   ]
+  },
+  {
+   "capitulo": "Perigo na rua",
+   "texto": "E não é só gangue grande. No mundo aberto parece que você pode ser alvo de assalto na rua, tipo no Red Dead 2. Aqui, três caras com faca cercando o Jason. A pergunta é: quanto isso vai acontecer? Se for no padrão Red Dead, mais do que a gente imagina.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_14",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_14",
+     "foco": [
+      0.15,
+      0.65
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "faca"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "na": "pergunta"
+    }
+   ]
+  },
+  {
+   "capitulo": "Marina e moto",
+   "texto": "A marina de Vice City, com todo tipo de barco e um avião passando no céu. E logo depois, o Jason fugindo da polícia de moto, deitado quase no chão, igual piloto profissional. E o colete dele pode ser a nossa primeira olhada no colete leve do GTA 6.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_11",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "moto"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_11",
+     "foco": [
+      0.55,
+      0.4
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "colete"
+    }
+   ]
+  },
+  {
+   "capitulo": "O pântano",
+   "texto": "Em Grassrivers, os caçadores de répteis: esses caras em volta da fogueira, com pele de cobra pendurada no teto. E não é só cobra: na foto do pântano dá pra ver os jacarés.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_07",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_07",
+     "foco": [
+      0.5,
+      0.15
+     ],
+     "de": 1.15,
+     "ate": 1.4,
+     "na": "cobra"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_01",
+     "foco": [
+      0.4,
+      0.85
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "jacarés"
+    }
+   ]
+  },
+  {
+   "capitulo": "O posto de noite",
+   "texto": "Vice City de noite, num posto cheio de carro rebaixado. Duas moças passeando de touca e roupa de noite, o que mostra que as pessoas se vestem conforme a hora do dia. Uma mulher segurando o cachorro que quer pular num cara. E um comboio de motos passando no fundo.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_22",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_22",
+     "foco": [
+      0.85,
+      0.85
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "roupa"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_22",
+     "foco": [
+      0.8,
+      0.9
+     ],
+     "de": 1.15,
+     "ate": 1.7,
+     "na": "cachorro"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_22",
+     "foco": [
+      0.95,
+      0.75
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "motos"
+    }
+   ]
+  },
+  {
+   "capitulo": "Ilhas e resort",
+   "texto": "Das ilhas, só uma screenshot nova: mais mergulho, e na frente um peixe-leão, muito comum na Flórida. E um resort lotado de gente: na piscina, nas espreguiçadeiras, tudo acontecendo ao mesmo tempo. E o centro de Vice City, com trânsito na avenida e gente na praia.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_07",
+     "foco": [
+      0.7,
+      0.7
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_26",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "resort"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_26",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "piscina"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_10",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "centro"
+    }
+   ]
+  },
+  {
+   "capitulo": "O dinheiro",
+   "texto": "E essa aqui é a visão mais clara do dinheiro do GTA 6, uma mulher numa chuva de notas. Ninguém sabe ainda quem é o presidente estampado. E nessa outra, um integrante de gangue com o pitbull usando uma coleira personalizada. Ou seja: a personalização pode ir bem mais fundo do que a gente achava.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_18",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_18",
+     "foco": [
+      0.5,
+      0.6
+     ],
+     "de": 1.15,
+     "ate": 1.8,
+     "na": "Ninguém"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_19",
+     "foco": [
+      0.3,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "pitbull"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_19",
+     "foco": [
+      0.3,
+      0.8
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "coleira"
+    }
+   ]
+  },
+  {
+   "capitulo": "A dupla",
+   "texto": "E finalmente a Lucia: dirigindo com um cara no carro, perto de um motel, com a pistola na mão. Os dois juntos de arma pronta, descendo a avenida de Vice City. E a Lucia de noite, num barco, dá pra ver cada gota de chuva caindo. A Rockstar também falou de um sistema de suor, e dá pra ver nessa foto dos dois dançando.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Lucia_Caminos_12",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_20",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "juntos"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Lucia_Caminos_11",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "noite"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Lucia_Caminos_11",
+     "foco": [
+      0.4,
+      0.3
+     ],
+     "de": 1.15,
+     "ate": 1.5,
+     "na": "chuva"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_14",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "suor"
+    }
+   ]
+  },
+  {
+   "capitulo": "Fim",
+   "texto": "E pra fechar, os dois olhando o horizonte de Vice City do alto de um morro, com a luz igualzinha à do Red Dead. Qual dessas foi a sua favorita? Comenta aí. Dia dezenove a gente vê tudo isso rodando. Se inscreve na Corte City.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve pro dia 19"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_16",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.08
+    },
+    {
+     "tipo": "numero",
+     "numero": "QUAL A SUA?",
+     "texto": "comenta aí",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 62,
+     "na": "favorita"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 66,
+     "na": "inscreve"
+    }
+   ]
+  }
+ ]
+}
