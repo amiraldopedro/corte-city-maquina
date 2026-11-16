@@ -3304,6 +3304,19 @@
     "horario_fixo": false
    },
    "atualizado_em": "2026-11-16T10:48:20+00:00"
+  },
+  "x_2121142026985230443": {
+   "id": "x_2121142026985230443",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "noticia",
+   "quadro": "comunidade",
+   "origem": "x",
+   "fonte": "Dirk (@Dirk_mp4)",
+   "link": "https://x.com/Dirk_mp4/status/2121142026985230443",
+   "criado_em": "2026-11-16T10:49:18+00:00",
+   "status": "descartado",
+   "motivo": "fala de vazamento e traz imagem/vídeo (pode ser o material vazado)"
   }
  },
  "clipes_vistos": [
