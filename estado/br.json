@@ -2940,6 +2940,35 @@
    "postado_em": "2026-11-16T09:56:21+00:00",
    "envio_pendente": null,
    "atualizado_em": "2026-11-16T09:56:21+00:00"
+  },
+  "contagem_8_mapa_pequeno": {
+   "id": "contagem_8_mapa_pequeno",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "short",
+   "quadro": "contagem",
+   "status": "postado",
+   "titulo": "Ainda acha o mapa do GTA 6 pequeno? 🤯 #gta6 #shorts",
+   "descricao": "Segundo a revista Edge, a Rockstar disse que o mapa de Leonida é quase do tamanho do GTA 4, do GTA 5 e do Red Dead 2 juntos.\n\nImagens: Rockstar Games.\n#gta6 #gtavi #gta",
+   "tags": [
+    "gta 6",
+    "mapa gta 6",
+    "leonida",
+    "gta vi",
+    "shorts"
+   ],
+   "duracao": 20.5,
+   "feito_em": "2026-11-16T09:57:29+00:00",
+   "criado_em": "2026-11-16T09:57:29+00:00",
+   "publicar_em": "2026-11-17T18:00:00Z",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_8_mapa_pequeno.mp4",
+   "video_asset": 754323432,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_8_mapa_pequeno.jpg",
+   "thumb_asset": 754323524,
+   "youtube_id": "-ymCLsiNOb4",
+   "postado_em": "2026-11-16T09:57:33+00:00",
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-16T09:57:33+00:00"
   }
  },
  "clipes_vistos": [
@@ -2972,6 +3001,6 @@
   "2026-11-13": 8702,
   "2026-11-14": 8500,
   "2026-11-15": 8702,
-  "2026-11-16": 6800
+  "2026-11-16": 8500
  }
 }
