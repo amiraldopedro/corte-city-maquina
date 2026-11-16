@@ -2637,7 +2637,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "pronto",
+   "status": "descartado",
    "titulo": "8 cenas do trailer do GTA 6 que aconteceram de verdade",
    "titulos_extra": [
     "O trailer do GTA 6 copiou a vida real (e eu provo)",
@@ -2664,7 +2664,9 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_003.jpg",
    "thumb_asset": 752016980,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_003_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_003_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_003_kit.zip",
+   "motivo": "descartado no painel",
+   "atualizado_em": "2026-11-16T08:33:09+00:00"
   },
   "top10_20261115": {
    "id": "top10_20261115",
