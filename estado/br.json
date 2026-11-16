@@ -1226,7 +1226,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "pronto",
+   "status": "descartado",
    "titulo": "GTA 6: tudo que você precisa saber antes de jogar",
    "titulos_extra": [
     "GTA 6 chega dia 19: horário no Brasil, preço, tamanho e tudo que você precisa saber",
@@ -1256,7 +1256,9 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001.jpg",
    "thumb_asset": 742618942,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_001_kit.zip",
+   "motivo": "descartado no painel",
+   "atualizado_em": "2026-11-16T08:20:13+00:00"
   },
   "x_2115517589669486882": {
    "id": "x_2115517589669486882",
