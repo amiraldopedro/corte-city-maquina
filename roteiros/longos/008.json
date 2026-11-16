@@ -1,0 +1,1083 @@
+{
+ "id": "008",
+ "titulo": "GTA 6: guia COMPLETO do mapa (assista antes do dia 19)",
+ "titulos_extra": [
+  "O mapa do GTA 6 explicado região por região",
+  "Leonida: tudo sobre o mapa do GTA 6",
+  "GTA 6: o mapa é a Flórida (e isso muda tudo)"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+8%",
+ "gancho_thumb": "O MAPA",
+ "tags": [
+  "gta 6",
+  "mapa gta 6",
+  "leonida",
+  "vice city",
+  "gta 6 mapa",
+  "gta vi map",
+  "guia gta 6",
+  "corte city"
+ ],
+ "fontes": [
+  "Site oficial da Rockstar (descrições das regiões)",
+  "Game Informer, Edge, Famitsu e IGN (entrevistas com Rob Nelson e Aaron Garbut)",
+  "Mapa dos fãs State of Leonida",
+  "Trailers da Rockstar Games"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "Daqui a três dias, você vai acordar numa casinha nas ilhas de Leonida. Vai abrir o mapa e ver quase nada. E isso não é bug: no GTA 6, o mapa só aparece onde você já foi. E ele tem mais ou menos o dobro do tamanho do mapa do GTA 5. Então, antes de você cair lá, bora fazer o tour.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 18,
+     "na": "casinha"
+    },
+    {
+     "tipo": "numero",
+     "numero": "MAPA EM BRANCO",
+     "texto": "só aparece onde você já foi",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "bug"
+    },
+    {
+     "tipo": "numero",
+     "numero": "2x",
+     "texto": "o mapa do GTA 5",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "dobro"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 36,
+     "na": "tour"
+    }
+   ]
+  },
+  {
+   "capitulo": "Começo",
+   "texto": "Onde moram os jacarés, qual região é dominada por uma gangue de motoqueiros, como o mapa te mostra quanto dinheiro uma gangue tem guardado, e por que eu não andaria na floresta do norte sem um rifle. Eu juntei tudo que a Rockstar mostrou, as entrevistas dos desenvolvedores e um mapa feito por fãs com mais de três mil locais marcados. E no final tem a minha lista do que fazer no primeiro dia.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.6
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 66.6,
+     "na": "motoqueiros"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 32,
+     "na": "dinheiro"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "floresta"
+    },
+    {
+     "tipo": "numero",
+     "numero": "3.000+",
+     "texto": "locais no mapa dos fãs",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "três"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 62,
+     "na": "final"
+    }
+   ]
+  },
+  {
+   "capitulo": "O mapa",
+   "texto": "Leonida é a versão da Rockstar pra Flórida, e ela é dividida em seis regiões. Do lado do Atlântico, Vice City, que é Miami. Embaixo, uma fileira de ilhas: Leonida Keys. Grassrivers, um pântano enorme que é claramente o Everglades. Port Gellhorn no litoral do golfo. Ambrosia bem no meio. E o parque nacional do Monte Kalaga, lá no norte.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "mapa",
+     "titulo": "Leonida = Flórida",
+     "pinos": [
+      {
+       "nome": "Vice City",
+       "lat": 25.77,
+       "lon": -80.19
+      }
+     ]
+    },
+    {
+     "tipo": "mapa",
+     "titulo": "Seis regiões",
+     "pinos": [
+      {
+       "nome": "Vice City",
+       "lat": 25.77,
+       "lon": -80.19
+      },
+      {
+       "nome": "Leonida Keys",
+       "lat": 24.9,
+       "lon": -80.6
+      }
+     ],
+     "na": "ilhas"
+    },
+    {
+     "tipo": "mapa",
+     "titulo": "Seis regiões",
+     "pinos": [
+      {
+       "nome": "Vice City",
+       "lat": 25.77,
+       "lon": -80.19
+      },
+      {
+       "nome": "Leonida Keys",
+       "lat": 24.9,
+       "lon": -80.6
+      },
+      {
+       "nome": "Grassrivers",
+       "lat": 25.9,
+       "lon": -80.9
+      }
+     ],
+     "na": "Grassrivers"
+    },
+    {
+     "tipo": "mapa",
+     "titulo": "Seis regiões",
+     "pinos": [
+      {
+       "nome": "Vice City",
+       "lat": 25.77,
+       "lon": -80.19
+      },
+      {
+       "nome": "Leonida Keys",
+       "lat": 24.9,
+       "lon": -80.6
+      },
+      {
+       "nome": "Grassrivers",
+       "lat": 25.9,
+       "lon": -80.9
+      },
+      {
+       "nome": "Port Gellhorn",
+       "lat": 30.0,
+       "lon": -85.6
+      },
+      {
+       "nome": "Ambrosia",
+       "lat": 26.75,
+       "lon": -80.93
+      },
+      {
+       "nome": "Mount Kalaga",
+       "lat": 29.9,
+       "lon": -82.4
+      }
+     ],
+     "na": "Port"
+    }
+   ]
+  },
+  {
+   "capitulo": "O mapa",
+   "texto": "Sobre o tamanho: o Aaron Garbut, da Rockstar North, disse à Game Informer que é cerca de duas vezes o GTA 5, o maior mapa que eles já fizeram. Mas número exato, ninguém da Rockstar deu. E vai parecer ainda maior: as ruas estão mais estreitas, com mais trânsito, e segundo a Edge o dia no jogo dura bem mais que em Los Santos.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "etiqueta": [
+      "Aaron Garbut",
+      "diretor de arte da Rockstar North"
+     ]
+    },
+    {
+     "tipo": "numero",
+     "numero": "O MAIOR",
+     "texto": "mapa que a Rockstar já fez",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "maior"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "na": "ruas"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 62,
+     "na": "dia"
+    }
+   ]
+  },
+  {
+   "capitulo": "O mapa",
+   "texto": "E o detalhe que muda como você vai jogar: os lugares que você não explorou só aparecem no mapa depois que você passar por lá. E o chefe de narrativa da Rockstar disse que a história simplesmente não tem tempo de te levar pra todo canto. Ou seja: se você só fizer missão, um pedaço enorme do mapa fica vazio. Então bora preencher.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "etiqueta": [
+      "Rob Nelson",
+      "co-chefe da Rockstar North"
+     ]
+    },
+    {
+     "tipo": "numero",
+     "numero": "SÓ MISSÃO?",
+     "texto": "metade do mapa fica vazia",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "história"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "preencher"
+    }
+   ]
+  },
+  {
+   "capitulo": "As ilhas",
+   "texto": "Começando por onde o jogo começa: as ilhas. A Rockstar vende como a porta de entrada do paraíso, com bar cheio e algumas das águas mais bonitas e perigosas dos Estados Unidos. E é aqui que começa a história: a primeira casa é a do Jason, aquela casinha dos trailers.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 0,
+     "lista": [
+      "Leonida Keys",
+      "Vice City",
+      "Grassrivers",
+      "Port Gellhorn",
+      "Ambrosia",
+      "Mount Kalaga"
+     ],
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "Rockstar"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 84,
+     "na": "bar"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 8,
+     "na": "casa"
+    }
+   ]
+  },
+  {
+   "capitulo": "As ilhas",
+   "texto": "Só que a casa nem é dele. Ela é do Brian, um traficante da época de ouro do contrabando, que ainda mexe com isso pelo estaleiro dele. O Jason mora de graça, desde que ajude numa extorsão de vez em quando. Pros padrões de Leonida, até que é um bom negócio. No mapa dos fãs, essa ilha fica onde é Key Largo de verdade, e o bar das screenshots, o Rusty Anchor, fica ali perto.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 10
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 12,
+     "na": "Jason"
+    },
+    {
+     "tipo": "comparar",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "busca": "Key Largo marina Florida",
+     "rotulos": [
+      "GTA 6",
+      "KEY LARGO"
+     ],
+     "na": "mapa"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 90,
+     "na": "bar"
+    }
+   ]
+  },
+  {
+   "capitulo": "As ilhas",
+   "texto": "E sobre as águas perigosas: uma screenshot mostra um tubarão-martelo no recife, e o trailer tem uma placa com tubarão desenhado. Mas tem motivo pra pular na água: as prévias falam em mergulho atrás de tesouro e naufrágio. Tem dinheiro lá embaixo. E tem um tubarão-martelo. E acostuma com as iguanas: a Rockstar colocou até as espécies invasoras da Flórida, de iguana a macaco. Guarda os macacos, eles voltam.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "foto",
+     "busca": "hammerhead shark"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 140,
+     "na": "mergulho"
+    },
+    {
+     "tipo": "numero",
+     "numero": "TESOURO",
+     "texto": "e um tubarão-martelo",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 140,
+     "na": "dinheiro"
+    },
+    {
+     "tipo": "comparar",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 20,
+     "busca": "green iguana Florida",
+     "rotulos": [
+      "GTA 6",
+      "FLÓRIDA"
+     ],
+     "na": "iguanas"
+    }
+   ]
+  },
+  {
+   "capitulo": "Vice City",
+   "texto": "Pra sair das ilhas, é uma estrada longa pulando de ilha em ilha com água dos dois lados. E aí vem a cidade. A Rockstar diz que a gente tá bem longe dos anos oitenta, mas Vice City continua sendo a capital do sol e da diversão. E segundo uma entrevista, só Vice City já teria o dobro de Los Santos. Mas isso eu só vi num lugar, então não tatua ainda.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 1,
+     "lista": [
+      "Leonida Keys",
+      "Vice City",
+      "Grassrivers",
+      "Port Gellhorn",
+      "Ambrosia",
+      "Mount Kalaga"
+     ],
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 36
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 36,
+     "na": "estrada"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 2,
+     "na": "cidade"
+    },
+    {
+     "tipo": "numero",
+     "numero": "2x LOS SANTOS?",
+     "texto": "só Vice City (ainda não confirmado)",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 4,
+     "na": "dobro"
+    }
+   ]
+  },
+  {
+   "capitulo": "Vice City",
+   "texto": "Ocean Beach é o cartão-postal: hotéis art déco em tom pastel e areia branquinha. É a South Beach de Miami. Little Cuba é a Little Havana, até com as padarias cubanas. E o porto de Vice City é o Porto de Miami, a capital mundial dos cruzeiros.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "comparar",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22,
+     "busca": "Ocean Drive Miami Beach art deco",
+     "rotulos": [
+      "OCEAN BEACH",
+      "SOUTH BEACH"
+     ]
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22,
+     "na": "cartão"
+    },
+    {
+     "tipo": "foto",
+     "busca": "Little Havana Miami Calle Ocho",
+     "na": "Little"
+    },
+    {
+     "tipo": "foto",
+     "busca": "PortMiami cruise ships",
+     "na": "porto"
+    }
+   ]
+  },
+  {
+   "capitulo": "Vice City",
+   "texto": "Os trailers mostram o resto: o centro, com os prédios onde Jason e Lucia chegam no gameplay; a arena com a roda-gigante e a marina do lado; o encontro de carros do primeiro trailer; e a balada Jack of Hearts. É aqui que fica a maioria das lojas, baladas, academias e coisas pra roubar. E segundo a Rockstar, dá pra roubar praticamente qualquer coisa.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 2
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 4,
+     "na": "arena"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 30,
+     "na": "carros"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 100,
+     "na": "balada"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 32,
+     "na": "roubar"
+    }
+   ]
+  },
+  {
+   "capitulo": "Vice City",
+   "texto": "O problema é que a cidade é lotada de gente. E no GTA 6, cada pessoa é uma testemunha em potencial. Já já eu explico por que isso importa.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 46.4,
+     "na": "testemunha"
+    },
+    {
+     "tipo": "numero",
+     "numero": "TESTEMUNHAS",
+     "texto": "em todo lugar",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 22,
+     "na": "importa"
+    }
+   ]
+  },
+  {
+   "capitulo": "Grassrivers",
+   "texto": "Sai da cidade e logo o concreto acaba. Bem-vindo a Grassrivers. A Rockstar chama de a joia indomável de Leonida, e avisa: os jacarés podem ser a atração mais famosa, mas tem predadores bem mais perigosos e descobertas mais estranhas no meio do mangue.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 2,
+     "lista": [
+      "Leonida Keys",
+      "Vice City",
+      "Grassrivers",
+      "Port Gellhorn",
+      "Ambrosia",
+      "Mount Kalaga"
+     ],
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20,
+     "na": "concreto"
+    },
+    {
+     "tipo": "comparar",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20.2,
+     "busca": "Everglades National Park",
+     "rotulos": [
+      "GRASSRIVERS",
+      "EVERGLADES"
+     ],
+     "na": "Rockstar"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 42.6,
+     "na": "jacarés"
+    }
+   ]
+  },
+  {
+   "capitulo": "Grassrivers",
+   "texto": "Que predadores? A Rockstar não fala. A minha aposta é a píton birmanesa, o pesadelo real do Everglades, mas aí é palpite meu. Se você levar uma coisa dessa região, que seja essa: fica longe da água e arruma um aerobarco. Ele desliza por cima da água rasa e do mato, onde barco normal encalha. Por isso tem um em quase toda cena de pântano.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "foto",
+     "busca": "Burmese python Everglades"
+    },
+    {
+     "tipo": "numero",
+     "numero": "PALPITE",
+     "texto": "não confirmado pela Rockstar",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 20,
+     "na": "palpite"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "aerobarco"
+    },
+    {
+     "tipo": "comparar",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "busca": "Everglades airboat",
+     "rotulos": [
+      "GTA 6",
+      "EVERGLADES"
+     ],
+     "na": "Por"
+    }
+   ]
+  },
+  {
+   "capitulo": "Port Gellhorn",
+   "texto": "Subindo o litoral do golfo, Port Gellhorn. E talvez seja o melhor texto do site da Rockstar: a costa esquecida de Leonida. Motel barato, atração fechada, shopping vazio. E o conselho pra quem visita: sobe numa moto e segura a carteira. O engraçado é que a costa esquecida existe: é um pedaço do litoral da Flórida perto de Panama City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 3,
+     "lista": [
+      "Leonida Keys",
+      "Vice City",
+      "Grassrivers",
+      "Port Gellhorn",
+      "Ambrosia",
+      "Mount Kalaga"
+     ],
+     "arquivo": "VQRLujxTm3c",
+     "ini": 52
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 50,
+     "na": "golfo"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 62,
+     "na": "Motel"
+    },
+    {
+     "tipo": "numero",
+     "numero": "SEGURA A CARTEIRA",
+     "texto": "conselho oficial da Rockstar",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 62,
+     "na": "carteira"
+    },
+    {
+     "tipo": "mapa",
+     "titulo": "A costa esquecida",
+     "pinos": [
+      {
+       "nome": "Port Gellhorn",
+       "lat": 30.0,
+       "lon": -85.6
+      }
+     ],
+     "na": "existe"
+    }
+   ]
+  },
+  {
+   "capitulo": "Port Gellhorn",
+   "texto": "E a lanchonete de waffle que é assaltada no gameplay fica lá, segundo o mapa dos fãs. Fora da cidade tem o autódromo, aquele das corridas do gameplay. E segundo o Rob Nelson, os seus esconderijos mudam a cada capítulo, então você pode acabar morando num motel desses.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 114
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "autódromo"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 62,
+     "etiqueta": [
+      "Rob Nelson",
+      "co-chefe da Rockstar North"
+     ],
+     "na": "esconderijos"
+    }
+   ]
+  },
+  {
+   "capitulo": "Ambrosia",
+   "texto": "No meio do estado fica Ambrosia. Segundo a Rockstar, a refinaria de açúcar dá os empregos, e a gangue de motoqueiros da região dá todo o resto. Então se você tava se perguntando onde estão os motoqueiros, tá aí. A cidade real por trás é Clewiston, que se chama de a cidade mais doce dos Estados Unidos por causa da usina de açúcar.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 4,
+     "lista": [
+      "Leonida Keys",
+      "Vice City",
+      "Grassrivers",
+      "Port Gellhorn",
+      "Ambrosia",
+      "Mount Kalaga"
+     ],
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 66.6
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 66.6,
+     "na": "refinaria"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 66.8,
+     "na": "motoqueiros"
+    },
+    {
+     "tipo": "comparar",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 55,
+     "busca": "Clewiston Florida sugar mill",
+     "rotulos": [
+      "AMBROSIA",
+      "CLEWISTON"
+     ],
+     "na": "real"
+    }
+   ]
+  },
+  {
+   "capitulo": "Ambrosia",
+   "texto": "Em volta tem coisa boa: o clube de lama, que é exatamente o que parece, e um avião agrícola sobre as fazendas de laranja. E guarda Ambrosia pra depois: região dominada por gangue é região com esconderijo de gangue. E nesse jogo, o mapa te mostra o que tem dentro.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 55
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 54,
+     "na": "avião"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 66.6,
+     "na": "gangue"
+    }
+   ]
+  },
+  {
+   "capitulo": "Monte Kalaga",
+   "texto": "Lá no norte, o estado finalmente se abre. O parque do Monte Kalaga tem caça, pesca e trilha de off-road. E segundo a Rockstar, no mato em volta vivem místicos caipiras e radicais paranoicos, longe dos olhos do governo. Ou seja: a floresta não tá vazia. Tá cheia de gente que preferia que você não estivesse lá.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "capitulo",
+     "atual": 5,
+     "lista": [
+      "Leonida Keys",
+      "Vice City",
+      "Grassrivers",
+      "Port Gellhorn",
+      "Ambrosia",
+      "Mount Kalaga"
+     ],
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "parque"
+    },
+    {
+     "tipo": "numero",
+     "numero": "CUIDADO",
+     "texto": "gente que não quer visita",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "místicos"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "na": "floresta"
+    }
+   ]
+  },
+  {
+   "capitulo": "Monte Kalaga",
+   "texto": "E numa screenshot oficial, uns cervos tranquilos num riacho. Aí você repara no que tá chegando na frente da imagem: uma pantera. A pantera da Flórida é o animal oficial do estado. E aqui no norte, nem sempre é você que tá caçando. Ah, e os macacos: os macacos selvagens reais da Flórida vivem perto de Ocala. Se eu fosse procurar macaco em Leonida, começava por aqui. Teoria minha.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "foto",
+     "busca": "Florida panther"
+    },
+    {
+     "tipo": "numero",
+     "numero": "PANTERA",
+     "texto": "o animal oficial da Flórida",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "pantera"
+    },
+    {
+     "tipo": "foto",
+     "busca": "rhesus macaque Silver Springs Florida",
+     "na": "macacos"
+    },
+    {
+     "tipo": "numero",
+     "numero": "TEORIA",
+     "texto": "não é confirmado",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "Teoria"
+    }
+   ]
+  },
+  {
+   "capitulo": "Como funciona",
+   "texto": "Agora, como esse mundo funciona. Pra se locomover, você marca o destino direto no jogo, sem abrir o mapa. Tem o Ride Me, que é basicamente um Uber, e o Rob Nelson disse que é um bom jeito de viagem rápida. Ônibus e trem funcionam com horário. E o app Scooter Bros traz o seu carro, e o entregador vai embora de patinete.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 34,
+     "etiqueta": [
+      "Rob Nelson",
+      "co-chefe da Rockstar North"
+     ],
+     "na": "Ride"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 120,
+     "na": "Ônibus"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 18,
+     "na": "Scooter"
+    }
+   ]
+  },
+  {
+   "capitulo": "Como funciona",
+   "texto": "Um limite pra saber logo: você começa com espaço pra só três carros. Dá pra comprar garagem, mas carro roubado que você não guardou some quando você carregar o jogo. E dinheiro: você tem conta no banco, e o dinheiro no bolso você perde se morrer ou for preso. O conselho do Nelson é simples: guarda num lugar seguro.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "3 CARROS",
+     "texto": "é o que cabe no começo",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "três"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "roubado"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 42,
+     "na": "banco"
+    },
+    {
+     "tipo": "numero",
+     "numero": "GUARDA",
+     "texto": "o dinheiro no banco",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 42,
+     "na": "conselho"
+    }
+   ]
+  },
+  {
+   "capitulo": "Como funciona",
+   "texto": "A polícia: você só ganha estrela se alguém te vir fazendo algo. Com duas estrelas, ainda dá pra escapar: tira a máscara, guarda a arma, pega um carro velho. Com três, esquece o carro: sai da rua e despista a pé pelos becos. E tem o calor: a polícia sabe sua roupa, seu rosto e seu carro, mas não onde você tá. Sai da área, troca de roupa ou pinta o carro.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "procurado",
+     "estrelas": 2,
+     "total": 6,
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 70
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 136,
+     "na": "máscara"
+    },
+    {
+     "tipo": "procurado",
+     "na": "três",
+     "estrelas": 3,
+     "total": 6,
+     "riscar": [
+      "ROUPA",
+      "CARRO"
+     ],
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "na": "calor"
+    }
+   ]
+  },
+  {
+   "capitulo": "Como funciona",
+   "texto": "E a minha parte favorita do mapa: segundo o Nelson, dá pra espiar esconderijos de gangue, entrar escondido e sair com o dinheiro ou a droga. E o próprio mapa mostra quanto dinheiro e quanta droga tem guardado em cada um. E isso não é atividade extra: o Nelson disse que só fazendo missão você não ganha dinheiro suficiente pra história andar.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 32,
+     "etiqueta": [
+      "Rob Nelson",
+      "co-chefe da Rockstar North"
+     ]
+    },
+    {
+     "tipo": "numero",
+     "numero": "$$$",
+     "texto": "o mapa mostra o que tem guardado",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 34,
+     "na": "mapa"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 34,
+     "na": "isso"
+    }
+   ]
+  },
+  {
+   "capitulo": "Lista do dia 1",
+   "texto": "E a lista do primeiro dia. Um: explora, porque o mapa só aparece onde você vai. Dois: banco antes de fazer besteira. Três: compra um aerobarco antes de entrar no pântano. Quatro: rifle e moto pra ir pro norte. Cinco: de olho no céu, porque furacão é confirmado e o clima muda de região pra região.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "1",
+     "texto": "explora o mapa",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6
+    },
+    {
+     "tipo": "numero",
+     "numero": "2",
+     "texto": "banco antes de besteira",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 42,
+     "na": "Dois"
+    },
+    {
+     "tipo": "numero",
+     "numero": "3",
+     "texto": "aerobarco no pântano",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 138,
+     "na": "Três"
+    },
+    {
+     "tipo": "numero",
+     "numero": "4",
+     "texto": "rifle e moto no norte",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "na": "Quatro"
+    },
+    {
+     "tipo": "numero",
+     "numero": "5",
+     "texto": "de olho no furacão",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 70,
+     "na": "Cinco"
+    }
+   ]
+  },
+  {
+   "capitulo": "Fim",
+   "texto": "Leonida é a Flórida com o volume no máximo: das ilhas com tubarão ao norte com pantera. E qual região você vai visitar primeiro? Comenta aí. Dia dezenove a gente se vê em Leonida. Se inscreve na Corte City.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve pro dia 19"
+   },
+   "batidas": [
+    {
+     "tipo": "trailer",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 154
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 62,
+     "na": "região"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 66,
+     "na": "inscreve"
+    }
+   ]
+  }
+ ]
+}
