@@ -195,9 +195,13 @@
    "link": "https://www.youtube.com/watch?v=IML3jU_yyGs",
    "ini": 0,
    "fim": 41,
-   "status": "fonte_pendente",
+   "status": "fonte_ok",
    "pedido_em": "2026-11-16T07:04:40+00:00",
-   "atualizado_em": "2026-11-16T07:04:40+00:00"
+   "atualizado_em": "2026-11-16T08:25:43+00:00",
+   "asset_id": 754051302,
+   "titulo": "Florida Man Makes Beer Run With Gator In Hand",
+   "canal_nome": "CBS Miami",
+   "url_final": "https://www.youtube.com/watch?v=IML3jU_yyGs"
   },
   "f004_piscina": {
    "id": "f004_piscina",
