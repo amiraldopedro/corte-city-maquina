@@ -997,6 +997,11 @@ def fazer_narrado(cfg: Config, rid: str):
     if os.environ.get("POSTAR", "sim") != "sim" or canal.postar != "automatico" or not canal.refresh_token:
         log("     (não foi postado: baixe no painel e poste você)")
         return
+    _postar_narrado(cfg, canal, est, cid, final, capa, roteiro, desc)
+
+
+def _postar_narrado(cfg: Config, canal, est, cid: str, final: Path, capa: Path, roteiro: dict, desc: str):
+    """Agenda o vídeo narrado: no horário do roteiro ("publicar") ou no próximo 19h livre."""
     # postagem automática: no horário do roteiro ("publicar": "2026-11-17T19:00") ou no próximo 19h livre
     from zoneinfo import ZoneInfo
     from maquina.publicar import publicar
@@ -1019,6 +1024,32 @@ def fazer_narrado(cfg: Config, rid: str):
     est.salvar()
     if vid:
         log(f"  ✅ agendado pra {quando_dt:%d/%m %H:%M}: https://youtu.be/{vid}")
+
+
+def postar_narrado(cfg: Config, rid: str):
+    """Posta um narrado já montado (o vídeo e a thumb que estão nos downloads), sem montar de novo."""
+    import json as _json
+    import requests
+    roteiro = _json.loads((RAIZ / "roteiros" / "longos" / f"{rid}.json").read_text(encoding="utf-8"))
+    canal = next((c for c in cfg.canais_ativos() if c.idioma == "pt"), None) or cfg.canais_ativos()[0]
+    est = Estado(canal.id)
+    cid = f"narrado_{rid}"
+    m = est.momentos.get(cid)
+    if not m:
+        log(f"  {cid} ainda não foi montado"); return
+    if m.get("youtube_id"):
+        log(f"  já está no YouTube: https://youtu.be/{m['youtube_id']}"); return
+    pasta = PASTA_PRONTOS / cid
+    pasta.mkdir(parents=True, exist_ok=True)
+    cab = {"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Accept": "application/octet-stream"}
+    repo = os.environ["GITHUB_REPOSITORY"]
+    arqs = {}
+    for chave, nome in (("video_asset", "final.mp4"), ("thumb_asset", "capa.jpg")):
+        r = requests.get(f"https://api.github.com/repos/{repo}/releases/assets/{m[chave]}", headers=cab, timeout=900)
+        r.raise_for_status()
+        (pasta / nome).write_bytes(r.content)
+        arqs[chave] = pasta / nome
+    _postar_narrado(cfg, canal, est, cid, arqs["video_asset"], arqs["thumb_asset"], roteiro, m["descricao"])
 
 
 def fazer_contagem(cfg: Config):
@@ -1206,7 +1237,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado", "contagem"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado", "postar_narrado", "contagem"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -1245,6 +1276,8 @@ def main():
         teste(cfg)
     elif a.comando == "narrado":
         fazer_narrado(cfg, a.alvo)
+    elif a.comando == "postar_narrado":
+        postar_narrado(cfg, a.alvo)
     elif a.comando == "youtube_pedir":
         from maquina import youtube_fonte
         youtube_fonte.pedir([l for l in re.split(r"[\s,]+", a.links) if l], a.evento or "cortes")

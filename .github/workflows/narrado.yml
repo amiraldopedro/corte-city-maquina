@@ -7,7 +7,7 @@ on:
         description: "Número do roteiro em roteiros/longos (ex.: 001)"
         default: "001"
       postar:
-        description: "Postar no YouTube (agendado)? sim/nao"
+        description: "sim = monta e agenda | nao = só monta | so_postar = agenda o que já foi montado"
         default: "sim"
 
 permissions:
@@ -40,7 +40,8 @@ jobs:
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
-        run: python main.py narrado "$ROTEIRO_ID"
+        run: |
+          if [ "$POSTAR" = "so_postar" ]; then python main.py postar_narrado "$ROTEIRO_ID"; else python main.py narrado "$ROTEIRO_ID"; fi
       - name: Salvar memória da máquina
         if: always()
         run: python main.py sincronizar "Narrado - estado atualizado"
