@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: narrado
+  group: narrado-${{ inputs.id }}
   cancel-in-progress: false
 
 jobs:
