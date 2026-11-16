@@ -83,6 +83,8 @@ cp "$AQUI/robo_youtube.py" "$PASTA/robo_youtube.py"                     # cópia
 echo "Robô instalado em: $SSD"
 
 # 4) Agenda para rodar a cada 15 minutos (enquanto o Mac estiver ligado)
+# o launchd chama o python direto (sem bash no meio): assim o Acesso Total ao Disco dado ao python vale
+PY="$(/usr/bin/python3 -c 'import sys; print(sys.executable)')"
 PLIST="$HOME/Library/LaunchAgents/com.cortecity.robo-youtube.plist"
 mkdir -p "$HOME/Library/LaunchAgents"
 cat > "$PLIST" <<EOF
@@ -90,7 +92,7 @@ cat > "$PLIST" <<EOF
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
   <key>Label</key><string>com.cortecity.robo-youtube</string>
-  <key>ProgramArguments</key><array><string>/bin/bash</string><string>-c</string><string>if [ -r "$SSD/robo_youtube.py" ]; then exec /usr/bin/python3 "$SSD/robo_youtube.py"; else exec /usr/bin/python3 "$PASTA/robo_youtube.py"; fi</string></array>
+  <key>ProgramArguments</key><array><string>$PY</string><string>$SSD/robo_youtube.py</string></array>
   <key>EnvironmentVariables</key><dict><key>CC_BASE</key><string>$SSD</string></dict>
   <key>StartInterval</key><integer>900</integer>
   <key>RunAtLoad</key><true/>
