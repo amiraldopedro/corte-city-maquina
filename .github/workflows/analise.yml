@@ -1,0 +1,68 @@
+name: Análise de vídeos de referência
+on:
+  workflow_dispatch:
+    inputs:
+      links: { description: "links separados por espaço", required: true }
+permissions: { contents: write }
+jobs:
+  analise:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q yt-dlp requests
+      - env: { GH_TOKEN: "${{ github.token }}", LINKS: "${{ inputs.links }}" }
+        run: |
+          mkdir -p out && cd out
+          python3 -u - <<'PY'
+          import json, os, subprocess, requests, re
+          links = os.environ["LINKS"].split()
+          resumo = []
+          for l in links:
+              r = subprocess.run(["yt-dlp", "-J", "--skip-download", "--flat-playlist" if "results?" in l else "--no-flat-playlist", l], capture_output=True, text=True)
+              if r.returncode:
+                  print("ERRO", l, r.stderr[-300:]); continue
+              info = json.loads(r.stdout)
+              if info.get("_type") == "playlist":
+                  for e in info.get("entries", [])[:40]:
+                      resumo.append({"lista": True, "id": e.get("id"), "titulo": e.get("title"), "canal": e.get("channel"), "views": e.get("view_count"), "dur": e.get("duration")})
+                  continue
+              vid = info["id"]
+              item = {k: info.get(k) for k in ("id", "title", "channel", "channel_follower_count", "view_count", "like_count", "duration", "upload_date", "description", "chapters", "tags")}
+              # legenda (manual ou automática) em inglês
+              subs = {**(info.get("automatic_captions") or {}), **(info.get("subtitles") or {})}
+              for lang in ("en", "en-orig", "en-US", "pt", "es"):
+                  fs = subs.get(lang)
+                  if fs:
+                      u = next((f["url"] for f in fs if f.get("ext") == "json3"), None)
+                      if u:
+                          try:
+                              j = requests.get(u, timeout=30).json()
+                              txt = []
+                              for ev in j.get("events", []):
+                                  t = "".join(s.get("utf8", "") for s in ev.get("segs", []) or []).strip()
+                                  if t: txt.append(f"[{ev.get('tStartMs', 0)/1000:.0f}] {t}")
+                              open(f"{vid}_legenda.txt", "w").write("\n".join(txt)); item["legenda"] = lang
+                          except Exception as e: item["legenda_erro"] = str(e)[:100]
+                      break
+              # storyboard (miniaturas ao longo do vídeo)
+              sbs = [f for f in info.get("formats", []) if f.get("format_id", "").startswith("sb")]
+              if sbs:
+                  sb = max(sbs, key=lambda f: (f.get("width") or 0))
+                  for k, frag in enumerate(sb.get("fragments", [])[:60]):
+                      u = frag.get("url") or (sb.get("fragment_base_url", "") + frag.get("path", ""))
+                      try:
+                          d = requests.get(u, timeout=30)
+                          if d.ok: open(f"{vid}_sb{k:02d}.jpg", "wb").write(d.content)
+                      except Exception: pass
+                  item["storyboard"] = {"cols": sb.get("columns"), "rows": sb.get("rows"), "w": sb.get("width"), "h": sb.get("height"), "fps": sb.get("fps")}
+              try:
+                  t = requests.get(info.get("thumbnail"), timeout=30)
+                  if t.ok: open(f"{vid}_thumb.jpg", "wb").write(t.content)
+              except Exception: pass
+              resumo.append(item); print("ok", vid, info.get("title"))
+          json.dump(resumo, open("resumo.json", "w"), ensure_ascii=False, indent=1)
+          PY
+          cd .. && zip -qr analise.zip out
+          gh release view analise >/dev/null 2>&1 || gh release create analise -t "Análise de referências" -n "temporário" 
+          gh release upload analise analise.zip --clobber
