@@ -2757,7 +2757,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "pronto",
+   "status": "descartado",
    "titulo": "GTA 6 em números: o jogo que pode faturar bilhões",
    "titulos_extra": [
     "Quanto dinheiro o GTA 6 vai fazer? Os números",
@@ -2784,7 +2784,9 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_005.jpg",
    "thumb_asset": 752439118,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_005_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_005_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_005_kit.zip",
+   "motivo": "descartado no painel",
+   "atualizado_em": "2026-11-16T08:27:59+00:00"
   }
  },
  "clipes_vistos": [
