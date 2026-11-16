@@ -78,12 +78,12 @@
   "tJbzMqJGH4k": {
    "id": "tJbzMqJGH4k",
    "link": "https://www.youtube.com/watch?v=tJbzMqJGH4k",
-   "status": "biblioteca_pendente",
+   "status": "erro",
    "modo": "biblioteca",
    "pedido_em": "2026-11-13T08:57:48+00:00",
-   "atualizado_em": "2026-11-16T23:51:15+00:00",
+   "atualizado_em": "2026-11-16T23:55:44+00:00",
    "tentativas": 1,
-   "erro": "ERROR: [youtube] tJbzMqJGH4k: Sorry, this content is age-restricted. This video is age-restricted and only available on YouTube"
+   "erro": "restrito por idade (a conta reserva não tem idade verificada)"
   },
   "T3c5qx_L5Bc": {
    "id": "T3c5qx_L5Bc",
@@ -347,11 +347,11 @@
    "id": "wSm9GTUttBs",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=wSm9GTUttBs",
-   "status": "biblioteca_pendente",
+   "status": "erro",
    "pedido_em": "2026-11-16T08:35:40+00:00",
-   "atualizado_em": "2026-11-16T23:52:07+00:00",
+   "atualizado_em": "2026-11-16T23:55:44+00:00",
    "tentativas": 1,
-   "erro": "ERROR: [youtube] wSm9GTUttBs: Sorry, this content is age-restricted. This video is age-restricted and only available on YouTube"
+   "erro": "restrito por idade (a conta reserva não tem idade verificada)"
   },
   "8L0CzL2V72c": {
    "id": "8L0CzL2V72c",
@@ -385,9 +385,25 @@
    "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-16T23:52:49+00:00",
-   "tentativas": 1,
+   "atualizado_em": "2026-11-16T23:55:44+00:00",
+   "tentativas": 0,
    "erro": "ERROR: [youtube] N-xHcvug3WI: Requested format is not available. Use --list-formats for a list of available formats"
+  },
+  "d9hMmy0t0pg": {
+   "id": "d9hMmy0t0pg",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=d9hMmy0t0pg",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-16T23:55:44+00:00",
+   "atualizado_em": "2026-11-16T23:55:44+00:00"
+  },
+  "xHm_RF0WBCg": {
+   "id": "xHm_RF0WBCg",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=xHm_RF0WBCg",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-16T23:55:44+00:00",
+   "atualizado_em": "2026-11-16T23:55:44+00:00"
   }
  },
  "clipes_vistos": [],

@@ -242,7 +242,7 @@ def biblioteca(vid: str, item: dict):
         if float(info.get("duration") or 0) > 30 * 60:
             raise RuntimeError("vídeo longo demais pra biblioteca (máximo 30 min)")
         arq = pasta / f"bib_{vid}.mp4"
-        ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/b", "--merge-output-format", "mp4",
+        ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/bv*+ba/b", "--merge-output-format", "mp4",
               "-o", str(arq), link)
         global TAG
         antigo, TAG = TAG, "biblioteca"
@@ -269,7 +269,7 @@ def fonte(vid: str, item: dict):
             link = info.get("webpage_url") or link
         ini, fim = float(item.get("ini", 0)), float(item.get("fim", 8))
         arq = pasta / f"{vid}.mp4"
-        ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/b", "--merge-output-format", "mp4",
+        ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/bv*+ba/b", "--merge-output-format", "mp4",
               "--download-sections", f"*{ini:.1f}-{fim:.1f}", "--force-keyframes-at-cuts", "-o", str(arq), link)
         global TAG
         antigo, TAG = TAG, "fontes"
@@ -295,7 +295,7 @@ def analise(vid: str, item: dict):
         info = json.loads(ytdlp("-J", link))
         rid = info["id"]
         arq = pasta / "v.mp4"
-        ytdlp("-f", "bv*[height<=480][ext=mp4]+ba[ext=m4a]/b[height<=480]/b", "--merge-output-format", "mp4",
+        ytdlp("-f", "bv*[height<=480][ext=mp4]+ba[ext=m4a]/b[height<=480]/bv*+ba/b", "--merge-output-format", "mp4",
               "-o", str(arq), link)
         try:
             ytdlp("--skip-download", "--write-auto-subs", "--write-subs", "--sub-langs", "en-orig,en", "--sleep-subtitles", "3",
@@ -365,7 +365,7 @@ def processar(vid: str, item: dict):
         segmentos = []
         for i, (ini, fim, forca) in enumerate(trechos):
             arq = pasta / f"yt_{vid}_{i}.mp4"
-            ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/b", "--merge-output-format", "mp4",
+            ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/bv*+ba/b", "--merge-output-format", "mp4",
                   "--download-sections", f"*{ini:.0f}-{fim:.0f}", "--force-keyframes-at-cuts", "-o", str(arq), link)
             aid = subir(arq, arq.name)
             segmentos.append({"asset_id": aid, "inicio": ini, "fim": fim, "duracao": fim - ini, "forca": forca})
@@ -374,7 +374,7 @@ def processar(vid: str, item: dict):
         jl = janela_longa(picos, duracao)
         if jl:
             arq = pasta / f"yt_{vid}_longo.mp4"
-            ytdlp("-f", "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720]/b", "--merge-output-format", "mp4",
+            ytdlp("-f", "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720]/bv*+ba/b", "--merge-output-format", "mp4",
                   "--download-sections", f"*{jl[0]:.0f}-{jl[1]:.0f}", "--force-keyframes-at-cuts", "-o", str(arq), link)
             longo = {"asset_id": subir(arq, arq.name), "inicio": jl[0], "fim": jl[1], "duracao": jl[1] - jl[0]}
             log(f"  trecho grande: {jl[0] / 60:.1f}-{jl[1] / 60:.1f} min enviado (vira corte longo)")
