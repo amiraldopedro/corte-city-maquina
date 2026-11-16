@@ -37,7 +37,7 @@
     {
      "tipo": "clipe",
      "fonte": "f004_cerveja",
-     "ini": 2,
+     "ini": 26,
      "credito": "CBS Miami (YouTube)",
      "reserva": {
       "tipo": "foto",
@@ -65,7 +65,7 @@
     {
      "tipo": "clipe",
      "fonte": "f004_piscina",
-     "ini": 12,
+     "ini": 33,
      "credito": "WPTV News (YouTube)",
      "reserva": {
       "tipo": "foto",
@@ -269,7 +269,7 @@
     {
      "tipo": "clipe",
      "fonte": "f004_shopping",
-     "ini": 1,
+     "ini": 6,
      "credito": "Gulf Coast News (YouTube)",
      "reserva": {
       "tipo": "broll",
@@ -338,7 +338,7 @@
      "arquivo": "QdBZY2fkU-0",
      "ini": 42.6,
      "fonte": "f004_piscina",
-     "fonte_ini": 12,
+     "fonte_ini": 64,
      "busca": "alligator swimming pool",
      "rotulos": [
       "GTA 6",
@@ -348,7 +348,7 @@
     {
      "tipo": "clipe",
      "fonte": "f004_piscina",
-     "ini": 20,
+     "ini": 46,
      "credito": "WPTV News (YouTube)",
      "reserva": {
       "tipo": "foto",
@@ -449,7 +449,7 @@
     {
      "tipo": "clipe",
      "fonte": "f004_cerveja",
-     "ini": 8,
+     "ini": 29,
      "credito": "CBS Miami (YouTube)",
      "reserva": {
       "tipo": "foto",
