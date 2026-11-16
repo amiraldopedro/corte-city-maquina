@@ -298,6 +298,22 @@
    "status": "analise_pendente",
    "pedido_em": "2026-11-16T07:19:33+00:00",
    "atualizado_em": "2026-11-16T07:19:33+00:00"
+  },
+  "wSm9GTUttBs": {
+   "id": "wSm9GTUttBs",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=wSm9GTUttBs",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-16T08:35:40+00:00",
+   "atualizado_em": "2026-11-16T08:35:40+00:00"
+  },
+  "8L0CzL2V72c": {
+   "id": "8L0CzL2V72c",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=8L0CzL2V72c",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-16T08:35:40+00:00",
+   "atualizado_em": "2026-11-16T08:35:40+00:00"
   }
  },
  "clipes_vistos": [],
