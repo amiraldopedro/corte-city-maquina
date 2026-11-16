@@ -1,0 +1,427 @@
+{
+ "id": "010",
+ "titulo": "GTA 6: TUDO que você precisa saber antes do dia 19",
+ "titulos_extra": [
+  "GTA 6: que horas libera no Brasil, preço e tamanho",
+  "GTA 6 em 3 dias: guia rápido antes de jogar",
+  "Não compre GTA 6 antes de ver isso"
+ ],
+ "voz": "pt-BR-AntonioNeural",
+ "taxa": "+8%",
+ "gancho_thumb": "ANTES DO DIA 19",
+ "publicar": "2026-11-17T12:00",
+ "tags": [
+  "gta 6",
+  "gta 6 lançamento",
+  "gta 6 preço brasil",
+  "gta 6 horário",
+  "gta 6 tamanho",
+  "gta 6 pré download",
+  "corte city"
+ ],
+ "fontes": [
+  "Rockstar Games",
+  "Tecnoblog e Omelete (preços no Brasil)",
+  "IBTimes (pré-download e espaço)",
+  "GTABase (pacote Vintage Vice City)"
+ ],
+ "cenas": [
+  {
+   "capitulo": "Começo",
+   "texto": "Faltam três dias pro GTA 6. E tem coisa que você precisa saber antes de quinta-feira: que horas libera no Brasil, quanto espaço precisa no console, o brinde que some pra sempre se você vacilar, e o que o jogo tem e não tem no lançamento. Bora, rapidinho.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "numero",
+     "numero": "3 DIAS",
+     "texto": "pro GTA 6",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "quinta"
+    },
+    {
+     "tipo": "numero",
+     "numero": "QUE HORAS?",
+     "texto": "libera no Brasil",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 82,
+     "na": "horas"
+    },
+    {
+     "tipo": "numero",
+     "numero": "212 GB",
+     "texto": "de espaço",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "espaço"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_16",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "brinde"
+    }
+   ]
+  },
+  {
+   "capitulo": "Data e hora",
+   "texto": "A data: dezenove de novembro, quinta-feira, no PlayStation 5 e no Xbox Series X e S. O jogo libera à meia-noite no horário local da loja da sua conta. Então, conta brasileira: meia-noite de quarta pra quinta. E quem tá na Nova Zelândia joga quase um dia antes de todo mundo, então cuidado com spoiler na internet.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "19/11",
+     "texto": "quinta-feira",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 82,
+     "na": "data"
+    },
+    {
+     "tipo": "numero",
+     "numero": "PS5 e XBOX",
+     "texto": "Series X e S",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "PlayStation"
+    },
+    {
+     "tipo": "numero",
+     "numero": "00:00",
+     "texto": "no horário da sua conta",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 82,
+     "na": "meia"
+    },
+    {
+     "tipo": "numero",
+     "numero": "SPOILER",
+     "texto": "a Nova Zelândia joga antes",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 154,
+     "na": "Zelândia"
+    }
+   ]
+  },
+  {
+   "capitulo": "Espaço",
+   "texto": "Espaço: segundo a Rockstar, o pré-download pede até duzentos e doze gigas, dependendo do console. Quem tem Xbox Series S de quinhentos e doze gigas, já pode ir apagando coisa. E o pré-download já tá liberado pra quem comprou, mas não adianta: o jogo só destrava no dia dezenove.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "ATÉ 212 GB",
+     "texto": "segundo a Rockstar",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "Espaço"
+    },
+    {
+     "tipo": "numero",
+     "numero": "SERIES S",
+     "texto": "vai apagando coisa",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 46,
+     "na": "Quem"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 4,
+     "na": "pré"
+    },
+    {
+     "tipo": "numero",
+     "numero": "TRAVADO",
+     "texto": "até o dia 19",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 82,
+     "na": "destrava"
+    }
+   ]
+  },
+  {
+   "capitulo": "Preço",
+   "texto": "Preço no Brasil: quatrocentos e quarenta e nove e noventa a edição padrão, e quinhentos e quarenta e nove e noventa a Ultimate, no PlayStation e no Xbox. E a caixa física não tem disco: dentro dela vem um código pra baixar o jogo. Em algumas lojas a versão física aparece mais barata, então vale comparar.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "R$ 449,90",
+     "texto": "edição padrão",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "quatrocentos"
+    },
+    {
+     "tipo": "numero",
+     "numero": "R$ 549,90",
+     "texto": "Ultimate",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "Ultimate"
+    },
+    {
+     "tipo": "numero",
+     "numero": "SEM DISCO",
+     "texto": "a caixa vem com um código",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "física"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_24",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "lojas"
+    }
+   ]
+  },
+  {
+   "capitulo": "O brinde",
+   "texto": "E o brinde que some pra sempre: o pacote Vintage Vice City. Quem comprar até o dia vinte de novembro ganha um carro clássico de mil novecentos e cinquenta e cinco, uma garagem em Ocean Beach, roupas retrô pro Jason e a Lucia e uma pintura de arma exclusiva. A Rockstar quase nunca vende esses pacotes depois.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "VINTAGE_VICE_CITY_PACK_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "VINTAGE_VICE_CITY_PACK_VAPID_STANIER_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "carro"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "VINTAGE_VICE_CITY_PACK_EXCLUSIVE_LOOKS_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "roupas"
+    },
+    {
+     "tipo": "numero",
+     "numero": "ATÉ 20/11",
+     "texto": "depois some",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "Rockstar"
+    }
+   ]
+  },
+  {
+   "capitulo": "O que tem",
+   "texto": "E o que te espera lá dentro: dois protagonistas, Jason e Lucia. Um mapa com cerca do dobro do tamanho do GTA 5, inspirado na Flórida. Seis estrelas de procurado, com a polícia lembrando da sua roupa. Gasolina no carro, academia de verdade e um mundo onde todo mundo tá filmando tudo.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "mapa"
+    },
+    {
+     "tipo": "procurado",
+     "na": "Seis",
+     "estrelas": 6,
+     "total": 6,
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 70
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_Duval_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "academia"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "QdBZY2fkU-0",
+     "ini": 46.4,
+     "na": "filmando"
+    }
+   ]
+  },
+  {
+   "capitulo": "O que não tem",
+   "texto": "E o que não tem no lançamento: o jogo é só pra um jogador no começo, sem GTA Online no dia um. Não tem versão de PC por enquanto. E segundo as prévias, não tem modo primeira pessoa e o alvo é trinta quadros por segundo nos consoles.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "SEM ONLINE",
+     "texto": "no dia um",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 60,
+     "na": "Online"
+    },
+    {
+     "tipo": "numero",
+     "numero": "SEM PC",
+     "texto": "por enquanto",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 24,
+     "na": "PC"
+    },
+    {
+     "tipo": "numero",
+     "numero": "30 FPS",
+     "texto": "meta nos consoles (prévias)",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 148,
+     "na": "primeira"
+    }
+   ]
+  },
+  {
+   "capitulo": "Dicas",
+   "texto": "Três dicas pro primeiro dia. Um: o mapa começa vazio e só aparece onde você vai, então explora. Dois: dinheiro no bolso você perde se morrer ou for preso, deposita no caixa eletrônico. Três: antes de cometer crime, põe a máscara. A câmera e a testemunha não guardam seu rosto.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "batidas": [
+    {
+     "tipo": "numero",
+     "numero": "1",
+     "texto": "explora o mapa",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 6,
+     "na": "Um"
+    },
+    {
+     "tipo": "numero",
+     "numero": "2",
+     "texto": "deposita o dinheiro",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 42,
+     "na": "Dois"
+    },
+    {
+     "tipo": "numero",
+     "numero": "3",
+     "texto": "põe a máscara antes",
+     "arquivo": "VQRLujxTm3c",
+     "ini": 136,
+     "na": "Três"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "câmera"
+    }
+   ]
+  },
+  {
+   "capitulo": "Fim",
+   "texto": "E pra se preparar de verdade, aqui no canal tem o guia completo do mapa e tudo que o GTA 6 faz que o GTA 5 nunca fez. Quinta-feira a gente se vê em Leonida. Se inscreve na Corte City e ativa o sininho, que no dia dezenove vai ter muito vídeo.",
+   "card": {
+    "tipo": "titulo",
+    "texto": "CORTE CITY",
+    "sub": "se inscreve pro dia 19"
+   },
+   "batidas": [
+    {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_27",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_16",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.1,
+     "na": "Quinta"
+    },
+    {
+     "tipo": "trailer",
+     "arquivo": "rz1B4B2yBZY",
+     "ini": 66,
+     "na": "inscreve"
+    }
+   ]
+  }
+ ]
+}
