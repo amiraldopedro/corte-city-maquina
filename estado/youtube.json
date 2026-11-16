@@ -78,11 +78,11 @@
   "tJbzMqJGH4k": {
    "id": "tJbzMqJGH4k",
    "link": "https://www.youtube.com/watch?v=tJbzMqJGH4k",
-   "status": "erro",
+   "status": "biblioteca_pendente",
    "modo": "biblioteca",
    "pedido_em": "2026-11-13T08:57:48+00:00",
-   "atualizado_em": "2026-11-16T07:30:10+00:00",
-   "tentativas": 3,
+   "atualizado_em": "2026-11-16T22:56:57+00:00",
+   "tentativas": 0,
    "erro": "-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
   },
   "T3c5qx_L5Bc": {
@@ -349,17 +349,17 @@
    "link": "https://www.youtube.com/watch?v=wSm9GTUttBs",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:35:40+00:00",
-   "atualizado_em": "2026-11-16T22:33:09+00:00",
-   "tentativas": 2,
+   "atualizado_em": "2026-11-16T22:56:57+00:00",
+   "tentativas": 0,
    "erro": "-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
   },
   "8L0CzL2V72c": {
    "id": "8L0CzL2V72c",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=8L0CzL2V72c",
-   "status": "biblioteca_ok",
+   "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:35:40+00:00",
-   "atualizado_em": "2026-11-16T22:44:31+00:00",
+   "atualizado_em": "2026-11-16T22:56:57+00:00",
    "tentativas": 0,
    "erro": "",
    "titulo": "Grand Theft Auto VI - Features Trailer | PS5 Games",
@@ -370,20 +370,20 @@
    "id": "QkkoHAzjnUs",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=QkkoHAzjnUs",
-   "status": "erro",
+   "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-16T10:12:31+00:00",
-   "tentativas": 3,
+   "atualizado_em": "2026-11-16T22:56:57+00:00",
+   "tentativas": 0,
    "erro": "-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
   },
   "N-xHcvug3WI": {
    "id": "N-xHcvug3WI",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
-   "status": "erro",
+   "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-16T10:13:02+00:00",
-   "tentativas": 3,
+   "atualizado_em": "2026-11-16T22:56:57+00:00",
+   "tentativas": 0,
    "erro": "-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
   }
  },

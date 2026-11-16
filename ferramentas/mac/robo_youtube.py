@@ -3,7 +3,7 @@
 
 A cada 15 minutos: olha a fila (estado/youtube.json no GitHub), e para cada vídeo pedido:
 1. lê o gráfico "mais repetidos" do YouTube (ou, se não tiver, os picos de volume do áudio);
-2. baixa SÓ os 3 melhores trechos (~1 minuto cada), sem login e sem cookies da sua conta;
+2. baixa SÓ os 3 melhores trechos (~1 minuto cada), com o login da conta reserva (nunca a do canal);
 3. sobe os trechos pro GitHub e avisa a máquina, que faz os Shorts.
 
 Só usa o que já vem no Mac (Python 3) + yt-dlp e ffmpeg (baixados prontos pelo instalador em ~/.corte-city/bin).
@@ -134,11 +134,35 @@ def subir(arquivo: Path, nome: str) -> int:
     return d["id"]
 
 
+# Conta reserva logada num perfil do Chrome (o Amiraldo escolheu): o robô usa o login dela pra
+# o YouTube não tratar a internet de casa como robô. Nunca a conta do canal.
+CONTA_RESERVA = "felipe"
+
+
+def _perfil_chrome() -> str | None:
+    """Pasta do perfil do Chrome onde a conta reserva está (lê o 'Local State' do Chrome)."""
+    estado = Path.home() / "Library/Application Support/Google/Chrome/Local State"
+    try:
+        perfis = json.loads(estado.read_text()).get("profile", {}).get("info_cache", {})
+    except Exception:
+        return None
+    for pasta, p in perfis.items():
+        nomes = " ".join(str(p.get(k, "")) for k in ("name", "gaia_name", "gaia_given_name")).lower()
+        if CONTA_RESERVA in nomes:
+            return pasta
+    return None
+
+
+_PERFIL = _perfil_chrome()
+
+
 def ytdlp(*args, capturar=False):
     env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
     longo = any(a in args for a in ("-o",))  # download pode demorar; leitura de informações não
+    login = ["--cookies-from-browser", f"chrome:{_PERFIL}"] if _PERFIL else []
+    calma = ["--sleep-requests", "1", "--sleep-interval", "2", "--max-sleep-interval", "5"] if _PERFIL else []
     r = subprocess.run(["yt-dlp", "--no-warnings", "--no-playlist", "--socket-timeout", "30",
-                        "--cache-dir", str(PASTA / "cache"), *args],
+                        "--cache-dir", str(PASTA / "cache"), *login, *calma, *args],
                        capture_output=True, text=True, env=env, timeout=3600 if longo else 240)
     if r.returncode != 0:
         raise RuntimeError(r.stderr.strip()[-300:])
@@ -380,6 +404,8 @@ def main():
             marca.touch()
         except Exception as e:
             log(f"  yt-dlp: não consegui atualizar ({str(e)[:80]})")
+    log(f"  login do YouTube: perfil do Chrome '{_PERFIL}' (conta reserva)" if _PERFIL
+        else "  login do YouTube: conta reserva não achada no Chrome, baixando sem login")
     _, fila = ler_fila()
     pendentes = {k: v for k, v in fila.get("momentos", {}).items()
                  if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente", "analise_pendente")}
