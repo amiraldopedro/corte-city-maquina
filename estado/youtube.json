@@ -255,9 +255,11 @@
    "id": "an_2J37vvHIFcU",
    "modo": "analise",
    "link": "https://www.youtube.com/watch?v=2J37vvHIFcU",
-   "status": "analise_pendente",
+   "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T07:19:33+00:00"
+   "atualizado_em": "2026-11-16T08:37:10+00:00",
+   "asset_id": 754084542,
+   "titulo": "GTA 6 Can Do Things We Never Imagined in GTA 5"
   },
   "an_n5U51oHhlpI": {
    "id": "an_n5U51oHhlpI",
