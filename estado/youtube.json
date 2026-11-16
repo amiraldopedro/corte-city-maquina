@@ -166,15 +166,47 @@
   "MsBw25KFZMI": {
    "id": "MsBw25KFZMI",
    "link": "https://www.youtube.com/watch?v=MsBw25KFZMI",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "pedido_em": "2026-11-15T19:20:12+00:00",
-   "atualizado_em": "2026-11-15T19:20:12+00:00",
+   "atualizado_em": "2026-11-16T09:04:10+00:00",
    "auto": true,
    "titulo": "Meu novo PC MONSTRO pro GTA 6",
    "canal_nome": "Gameplayrj",
    "isolar_voz": false,
-   "views_yt": 1618778
+   "views_yt": 1618778,
+   "longo": {
+    "asset_id": 754164167,
+    "inicio": 0.0,
+    "fim": 501.0,
+    "duracao": 501.0
+   },
+   "canal_handle": "Gameplayrj",
+   "canal_id": "UCJAbkIY17zAmCTNQHH0bQoQ",
+   "duracao": 501.0,
+   "segmentos": [
+    {
+     "asset_id": 754134101,
+     "inicio": 36.0,
+     "fim": 106.0,
+     "duracao": 70.0,
+     "forca": 1.028
+    },
+    {
+     "asset_id": 754140013,
+     "inicio": 211.0,
+     "fim": 281.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 754147419,
+     "inicio": 402.0,
+     "fim": 472.0,
+     "duracao": 70.0,
+     "forca": 1.002
+    }
+   ]
   },
   "IrHIQePmYDY": {
    "id": "IrHIQePmYDY",
