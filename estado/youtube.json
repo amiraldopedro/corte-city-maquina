@@ -81,8 +81,8 @@
    "status": "biblioteca_pendente",
    "modo": "biblioteca",
    "pedido_em": "2026-11-13T08:57:48+00:00",
-   "atualizado_em": "2026-11-16T23:00:03+00:00",
-   "tentativas": 1,
+   "atualizado_em": "2026-11-16T23:18:10+00:00",
+   "tentativas": 2,
    "erro": "-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies"
   },
   "T3c5qx_L5Bc": {
