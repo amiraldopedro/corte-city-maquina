@@ -235,9 +235,11 @@
    "id": "an_1gFAuc5CpaY",
    "modo": "analise",
    "link": "https://www.youtube.com/watch?v=1gFAuc5CpaY",
-   "status": "analise_pendente",
+   "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T07:19:33+00:00"
+   "atualizado_em": "2026-11-16T08:31:25+00:00",
+   "asset_id": 754067847,
+   "titulo": "GTA 6 - THE FINAL REVEAL!"
   },
   "an_o4nNjj44d4M": {
    "id": "an_o4nNjj44d4M",
