@@ -136,7 +136,7 @@ def subir(arquivo: Path, nome: str) -> int:
 
 # Conta reserva logada num perfil do Chrome (o Amiraldo escolheu): o robô usa o login dela pra
 # o YouTube não tratar a internet de casa como robô. Nunca a conta do canal.
-CONTA_RESERVA = "felipe"
+CONTA_RESERVA = ("felipe", "rezende", "resende")
 
 
 def _perfil_chrome() -> str | None:
@@ -144,12 +144,14 @@ def _perfil_chrome() -> str | None:
     estado = Path.home() / "Library/Application Support/Google/Chrome/Local State"
     try:
         perfis = json.loads(estado.read_text()).get("profile", {}).get("info_cache", {})
-    except Exception:
+    except Exception as e:
+        log(f"  (não consegui ler os perfis do Chrome: {str(e)[:80]})")
         return None
     for pasta, p in perfis.items():
-        nomes = " ".join(str(p.get(k, "")) for k in ("name", "gaia_name", "gaia_given_name")).lower()
-        if CONTA_RESERVA in nomes:
+        nomes = " ".join(str(p.get(k, "")) for k in ("name", "gaia_name", "gaia_given_name", "user_name")).lower()
+        if any(n in nomes for n in CONTA_RESERVA):
             return pasta
+    log("  perfis do Chrome encontrados: " + ", ".join(f"{k}={v.get('name', '')}" for k, v in perfis.items()))
     return None
 
 
