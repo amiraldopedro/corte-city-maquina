@@ -3159,7 +3159,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "pronto",
+   "status": "aguardando_cota",
    "titulo": "GTA 6: guia COMPLETO do mapa (assista antes do dia 19)",
    "titulos_extra": [
     "O mapa do GTA 6 explicado região por região",
@@ -3185,7 +3185,27 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_008.jpg",
    "thumb_asset": 754443151,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_008_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_008_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_008_kit.zip",
+   "publicar_em": "2026-11-17T22:00:00Z",
+   "envio_pendente": {
+    "titulo": "GTA 6: guia COMPLETO do mapa (assista antes do dia 19)",
+    "descricao": "GTA 6: guia COMPLETO do mapa (assista antes do dia 19)\nDaqui a três dias, você vai acordar numa casinha nas ilhas de Leonida. Vai abrir o mapa e ver quase nada. E isso não é bug: no GTA 6, o mapa só aparece onde você já foi. E ele tem mais ou menos o dobro do tamanho do mapa do GTA 5. Então, antes de você cair lá, bora fazer o tour.\n\n⏱️ Capítulos\n00:00 Começo\n00:20 Começo\n00:42 O mapa\n01:07 O mapa\n01:28 O mapa\n01:49 As ilhas\n02:05 As ilhas\n02:30 As ilhas\n02:56 Vice City\n03:19 Vice City\n03:35 Vice City\n03:57 Vice City\n04:07 Grassrivers\n04:23 Grassrivers\n04:46 Port Gellhorn\n05:09 Port Gellhorn\n05:26 Ambrosia\n05:47 Ambrosia\n06:03 Monte Kalaga\n06:24 Monte Kalaga\n06:50 Como funciona\n07:12 Como funciona\n07:32 Como funciona\n07:56 Como funciona\n08:16 Lista do dia 1\n08:38 Fim\n\n📚 Fontes\n• Site oficial e screenshots oficiais da Rockstar Games\n• Game Informer, Edge, Famitsu e IGN (entrevistas com Rob Nelson e Aaron Garbut)\n• Mapa dos fãs State of Leonida\n• Trailers da Rockstar Games\n\nImagens: trailers e materiais oficiais de divulgação da Rockstar Games, usados para comentário e notícia.\nFotos, matérias e trechos citados (para comentário, com crédito aos autores):\n• Screenshots oficiais: Rockstar Games\n• A Key Largo marina at dusk.jpg — Baron Maddock (CC BY 4.0), via Wikimedia Commons\n• Panorama of a green iguana (06643p).jpg — Rhododendrites (CC BY-SA 4.0), via Wikimedia Commons\n• Boulevard Hotel (Neon sign), Miami Beach.jpg — Photograph:  Radomianin (Public domain), via Wikimedia Commons\n• Calle Ocho, Little Havana, Miami, Florida 2021 - Gallo de Calle Ocho.jpg — Sharon Hahn Darlin (CC BY 2.0), via Wikimedia Commons\n• Everglades Pa-Hay-Oke Swamp.jpg — Daniel Kraft (CC BY-SA 3.0), via Wikimedia Commons\n• Burmese python (6887388927).jpg — U.S. Fish and Wildlife Service Headquarters (Public domain), via Wikimedia Commons\n• Puma concolor coryi cropped.jpg — George Gentry (Public domain), via Wikimedia Commons\n• Rhesus macaque monkey 3.jpg — Joseph Gage (CC BY-SA 2.0), via Wikimedia Commons\n\n#gta6 #gtavi #gta",
+    "tags": [
+     "gta 6",
+     "mapa gta 6",
+     "leonida",
+     "vice city",
+     "gta 6 mapa",
+     "gta vi map",
+     "guia gta 6",
+     "corte city"
+    ],
+    "idioma": "pt",
+    "playlist": "GTA 6: Reações e Primeiros Momentos",
+    "publicar_em": "2026-11-17T22:00:00Z",
+    "horario_fixo": true
+   },
+   "atualizado_em": "2026-11-16T10:45:13+00:00"
   },
   "x_2120521628664656154": {
    "id": "x_2120521628664656154",
