@@ -209,9 +209,13 @@
    "link": "https://www.youtube.com/watch?v=h0xdXQdDfo8",
    "ini": 0,
    "fim": 70,
-   "status": "fonte_pendente",
+   "status": "fonte_ok",
    "pedido_em": "2026-11-16T07:04:40+00:00",
-   "atualizado_em": "2026-11-16T07:04:40+00:00"
+   "atualizado_em": "2026-11-16T08:27:29+00:00",
+   "asset_id": 754056292,
+   "titulo": "Huge gator removed from Palm Beach Gardens swimming pool",
+   "canal_nome": "WPTV News - FL Palm Beaches and Treasure Coast",
+   "url_final": "https://www.youtube.com/watch?v=h0xdXQdDfo8"
   },
   "f004_shopping": {
    "id": "f004_shopping",
