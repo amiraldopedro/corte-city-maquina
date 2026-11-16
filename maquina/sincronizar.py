@@ -23,7 +23,7 @@ def _quando(m: dict) -> str:
 
 
 # ordem natural de um momento: um status "mais adiante" nunca volta para trás por causa de um merge
-ORDEM = {"novo": 0, "erro": 1, "pronto": 2, "aguardando_cota": 2, "descartado": 3, "postado": 4, "removido": 5, "manual": 5}
+ORDEM = {"novo": 0, "erro": 1, "pronto": 2, "aguardando_cota": 2, "descartado": 3, "postado": 4, "removido": 5, "manual": 2}
 LISTAS = ("usado_em", "clipe_ids", "titulos_chat")
 
 
