@@ -1026,6 +1026,24 @@ def _postar_narrado(cfg: Config, canal, est, cid: str, final: Path, capa: Path, 
         log(f"  ✅ agendado pra {quando_dt:%d/%m %H:%M}: https://youtu.be/{vid}")
 
 
+def so_pendentes(cfg: Config):
+    """Só sobe o que ficou esperando cota (roda logo depois que a cota do YouTube renova)."""
+    from maquina.publicar import enviar_pendentes
+    from maquina.youtube import YouTube, proximo_horario
+    for canal in cfg.canais_ativos():
+        if canal.postar != "automatico" or not canal.refresh_token:
+            continue
+        est = Estado(canal.id)
+        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+
+        def horario_livre():
+            ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+            return proximo_horario(canal.horarios, canal.fuso, ocupados)
+        n = enviar_pendentes(est, canal, yt, PASTA_PRONTOS / "pendentes", horario_livre, log)
+        est.salvar()
+        log(f"  {canal.id}: {n} envio(s) pendente(s) subiram")
+
+
 def postar_narrado(cfg: Config, rid: str):
     """Posta um narrado já montado (o vídeo e a thumb que estão nos downloads), sem montar de novo."""
     import json as _json
@@ -1237,7 +1255,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado", "postar_narrado", "contagem"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado", "postar_narrado", "pendentes", "contagem"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -1278,6 +1296,8 @@ def main():
         fazer_narrado(cfg, a.alvo)
     elif a.comando == "postar_narrado":
         postar_narrado(cfg, a.alvo)
+    elif a.comando == "pendentes":
+        so_pendentes(cfg)
     elif a.comando == "youtube_pedir":
         from maquina import youtube_fonte
         youtube_fonte.pedir([l for l in re.split(r"[\s,]+", a.links) if l], a.evento or "cortes")
