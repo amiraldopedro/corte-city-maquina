@@ -32,7 +32,7 @@ JANELA_LONGA = 600   # trecho grande (vira corte longo / react completo): 10 min
 LONGO_A_PARTIR = 8 * 60   # vídeo com mais de 8 min também ganha o trecho grande
 # Arquivos temporários e registro ficam no SSD (CC_BASE). Se o SSD estiver desconectado ou o macOS
 # não deixar escrever nele, usa a pasta do próprio robô no Mac, pra nunca parar.
-LOCAL = Path(__file__).resolve().parent
+LOCAL = Path.home() / ".corte-city"  # nunca o SSD (senão o teste de SSD conectado se engana)
 
 
 def _base() -> Path:
@@ -114,7 +114,7 @@ def release_id() -> int:
     st, d = api("GET", f"releases/tags/{TAG}")
     if st == 200:
         return d["id"]
-    st, d = api("POST", "releases", {"tag_name": TAG, "name": {"biblioteca": "Biblioteca de imagens", "fontes": "Fontes citadas nos vídeos narrados"}.get(TAG, "Trechos do YouTube (robô do Mac)"),
+    st, d = api("POST", "releases", {"tag_name": TAG, "name": {"biblioteca": "Biblioteca de imagens", "fontes": "Fontes citadas nos vídeos narrados", "analise": "Análise de referências"}.get(TAG, "Trechos do YouTube (robô do Mac)"),
                                      "body": "Arquivos temporários do robô do YouTube.", "prerelease": True})
     if st not in (200, 201):
         raise RuntimeError(f"não criei a área de arquivos ({st}): {d}")
@@ -257,7 +257,63 @@ def fonte(vid: str, item: dict):
         shutil.rmtree(pasta, ignore_errors=True)
 
 
+def analise(vid: str, item: dict):
+    """Estuda um vídeo de referência: legenda, cortes por minuto e folhas de quadros (a cada 2 s)."""
+    import zipfile
+    link = item["link"]
+    TEMP.mkdir(exist_ok=True)
+    pasta = Path(tempfile.mkdtemp(prefix="cc_analise_", dir=TEMP))
+    try:
+        info = json.loads(ytdlp("-J", link))
+        rid = info["id"]
+        arq = pasta / "v.mp4"
+        ytdlp("-f", "bv*[height<=480][ext=mp4]+ba[ext=m4a]/b[height<=480]/b", "--merge-output-format", "mp4",
+              "-o", str(arq), link)
+        try:
+            ytdlp("--skip-download", "--write-auto-subs", "--write-subs", "--sub-langs", "en.*,en,pt.*",
+                  "--sub-format", "json3", "-o", str(pasta / "leg"), link)
+        except Exception as e:
+            log(f"  (sem legenda: {str(e)[:80]})")
+        env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
+        (pasta / "folhas").mkdir()
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(arq), "-vf",
+                        "fps=1/2,scale=320:-2,drawtext=text='%{pts\\:hms}':fontcolor=yellow:fontsize=18:x=4:y=4,tile=6x8",
+                        str(pasta / "folhas" / "f%03d.jpg")], env=env, check=False)
+        if not list((pasta / "folhas").glob("*.jpg")):  # ffmpeg sem fonte pro drawtext
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(arq), "-vf", "fps=1/2,scale=320:-2,tile=6x8",
+                            str(pasta / "folhas" / "f%03d.jpg")], env=env, check=False)
+        cortes = subprocess.run(["ffmpeg", "-i", str(arq), "-vf", "select='gt(scene,0.32)',showinfo", "-f", "null", "-"],
+                                capture_output=True, text=True, env=env).stderr
+        tempos = [float(m) for m in re.findall(r"pts_time:([0-9.]+)", cortes)]
+        resumo = {k: info.get(k) for k in ("id", "title", "channel", "channel_follower_count", "view_count", "like_count",
+                                           "comment_count", "duration", "upload_date", "description", "chapters", "tags",
+                                           "heatmap")}
+        resumo["cortes"] = tempos
+        destino = pasta / f"analise_{rid}.zip"
+        with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
+            z.writestr("info.json", json.dumps(resumo, ensure_ascii=False, indent=1))
+            for f in list(pasta.glob("leg*")) + sorted((pasta / "folhas").glob("*.jpg")):
+                z.write(f, f.name if f.parent == pasta else f"folhas/{f.name}")
+            try:
+                t = urllib.request.urlopen(info.get("thumbnail"), timeout=30).read()
+                z.writestr("thumb.jpg", t)
+            except Exception:
+                pass
+        global TAG
+        antigo, TAG = TAG, "analise"
+        try:
+            aid = subir(destino, destino.name)
+        finally:
+            TAG = antigo
+        atualizar_item(vid, {"status": "analise_ok", "asset_id": aid, "titulo": info.get("title", "")})
+        log(f"  ✅ análise {rid}: {info.get('title', '')[:60]} ({len(tempos)} cortes)")
+    finally:
+        shutil.rmtree(pasta, ignore_errors=True)
+
+
 def processar(vid: str, item: dict):
+    if item.get("modo") == "analise":
+        return analise(vid, item)
     if item.get("modo") == "biblioteca":
         return biblioteca(vid, item)
     if item.get("modo") == "fonte":
@@ -314,7 +370,7 @@ def main():
         return
     _, fila = ler_fila()
     pendentes = {k: v for k, v in fila.get("momentos", {}).items()
-                 if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente")}
+                 if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente", "analise_pendente")}
     if not pendentes:
         return
     for vid, item in pendentes.items():
