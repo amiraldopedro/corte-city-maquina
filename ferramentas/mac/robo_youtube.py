@@ -136,8 +136,10 @@ def subir(arquivo: Path, nome: str) -> int:
 
 def ytdlp(*args, capturar=False):
     env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
-    r = subprocess.run(["yt-dlp", "--no-warnings", "--no-playlist", "--cache-dir", str(PASTA / "cache"), *args],
-                       capture_output=True, text=True, env=env)
+    longo = any(a in args for a in ("-o",))  # download pode demorar; leitura de informações não
+    r = subprocess.run(["yt-dlp", "--no-warnings", "--no-playlist", "--socket-timeout", "30",
+                        "--cache-dir", str(PASTA / "cache"), *args],
+                       capture_output=True, text=True, env=env, timeout=3600 if longo else 240)
     if r.returncode != 0:
         raise RuntimeError(r.stderr.strip()[-300:])
     return r.stdout
@@ -373,7 +375,8 @@ def main():
                  if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente", "analise_pendente")}
     if not pendentes:
         return
-    for vid, item in pendentes.items():
+    prioridade = {"fonte": 0, "analise": 1, "biblioteca": 2}  # rápidos primeiro, reacts longos por último
+    for vid, item in sorted(pendentes.items(), key=lambda kv: prioridade.get(kv[1].get("modo"), 3)):
         try:
             processar(vid, item)
         except Exception as e:
