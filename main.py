@@ -954,7 +954,7 @@ def fundo_gameplay(cfg: Config, pasta: Path, baixar_trecho) -> Path:
 
 # ====================================================================== vídeo longo narrado (você posta)
 def fazer_narrado(cfg: Config, rid: str):
-    """Roteiro roteiros/longos/<rid>.json -> vídeo 16:9 narrado nos downloads do painel. Não posta."""
+    """Roteiro roteiros/longos/<rid>.json -> vídeo 16:9 narrado; posta agendado (POSTAR=nao só entrega)."""
     import json as _json
     from maquina import editar, kit, narrado, thumb
     from maquina.baixar import baixar_trecho
@@ -982,13 +982,43 @@ def fazer_narrado(cfg: Config, rid: str):
                               roteiro.get("gancho_thumb", "GTA 6"), "GTA 6", "Grand Theft Auto VI", canal, cid,
                               vertical=False))
     est = Estado(canal.id)
+    ja_postado = (est.momentos.get(cid) or {}).get("youtube_id")
+    if ja_postado:
+        log(f"  este roteiro já está no YouTube (https://youtu.be/{ja_postado}): não reenvio, só atualizo os downloads")
+        est.momentos[cid].update(arquivos)
+        est.salvar()
+        return
     est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": "narrado", "status": "pronto",
                          "titulo": roteiro["titulo"], "titulos_extra": roteiro.get("titulos_extra", []),
                          "descricao": desc, "tags": roteiro.get("tags", []), "duracao": dur,
                          "feito_em": agora(), "criado_em": agora(), **arquivos}
     est.salvar()
     log(f"  ✅ vídeo narrado pronto ({dur / 60:.1f} min): {arquivos.get('video_url')}")
-    log("     (não foi postado: baixe no painel e poste você)")
+    if os.environ.get("POSTAR", "sim") != "sim" or canal.postar != "automatico" or not canal.refresh_token:
+        log("     (não foi postado: baixe no painel e poste você)")
+        return
+    # postagem automática: no horário do roteiro ("publicar": "2026-11-17T19:00") ou no próximo 19h livre
+    from zoneinfo import ZoneInfo
+    from maquina.publicar import publicar
+    from maquina.youtube import YouTube
+    fuso = ZoneInfo(canal.fuso)
+    if roteiro.get("publicar"):
+        quando_dt = datetime.fromisoformat(roteiro["publicar"]).replace(tzinfo=fuso)
+    else:
+        ocupados = {str(m.get("publicar_em", ""))[:13] for m in est.momentos.values()
+                    if m.get("tipo") == "narrado" and m.get("publicar_em")}
+        quando_dt = datetime.now(fuso).replace(hour=19, minute=0, second=0, microsecond=0)
+        while quando_dt < datetime.now(fuso) + timedelta(hours=1) or \
+                quando_dt.astimezone(timezone.utc).isoformat()[:13] in ocupados:
+            quando_dt += timedelta(days=1)
+    quando = quando_dt.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+    est.momentos[cid]["publicar_em"] = quando
+    yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+    vid = publicar(est, cid, yt, final, roteiro["titulo"], desc, roteiro.get("tags", []), canal.idioma, quando, capa,
+                   canal.playlists.get("gta6", ""), log, horario_fixo=True)
+    est.salvar()
+    if vid:
+        log(f"  ✅ agendado pra {quando_dt:%d/%m %H:%M}: https://youtu.be/{vid}")
 
 
 def fazer_contagem(cfg: Config):

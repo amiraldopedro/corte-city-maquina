@@ -1,4 +1,4 @@
-name: Vídeo longo narrado (vai pros downloads, você posta)
+name: Vídeo longo narrado (posta agendado no YouTube)
 
 on:
   workflow_dispatch:
@@ -6,6 +6,9 @@ on:
       id:
         description: "Número do roteiro em roteiros/longos (ex.: 001)"
         default: "001"
+      postar:
+        description: "Postar no YouTube (agendado)? sim/nao"
+        default: "sim"
 
 permissions:
   contents: write
@@ -33,6 +36,10 @@ jobs:
           TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
           TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
           ROTEIRO_ID: ${{ inputs.id }}
+          POSTAR: ${{ inputs.postar }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
         run: python main.py narrado "$ROTEIRO_ID"
       - name: Salvar memória da máquina
         if: always()
