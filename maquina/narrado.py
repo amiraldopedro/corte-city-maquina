@@ -212,6 +212,46 @@ def fontes_citadas(pasta: Path, prefixo: str) -> dict[str, Path]:
     return saida
 
 
+_OFICIAIS: list | None = None
+
+
+def oficial_por_nome(nome: str, pasta: Path) -> Path | None:
+    """Screenshot oficial da Rockstar (Releases, tag oficiais), baixada só quando usada. Ex.: 'Vice_City_05'."""
+    import os
+    global _OFICIAIS
+    repo, token = os.environ.get("GITHUB_REPOSITORY"), os.environ.get("GITHUB_TOKEN")
+    pasta.mkdir(parents=True, exist_ok=True)
+    local = [p for p in pasta.glob("of_*") if f"_{nome}." in p.name]
+    if local:
+        return local[0]
+    if not (repo and token and nome):
+        return None
+    cab = {"Authorization": f"Bearer {token}"}
+    if _OFICIAIS is None:
+        _OFICIAIS, pagina = [], 1
+        while True:
+            r = requests.get(f"https://api.github.com/repos/{repo}/releases/tags/oficiais", headers=cab, timeout=30)
+            if r.status_code != 200:
+                break
+            rid = r.json()["id"]
+            while True:
+                a = requests.get(f"https://api.github.com/repos/{repo}/releases/{rid}/assets?per_page=100&page={pagina}",
+                                 headers=cab, timeout=30).json()
+                if not a:
+                    break
+                _OFICIAIS += a
+                pagina += 1
+            break
+    alvo = next((a for a in _OFICIAIS if f"_{nome}." in a["name"]), None)
+    if not alvo:
+        return None
+    d = requests.get(alvo["url"], headers={**cab, "Accept": "application/octet-stream"}, timeout=300)
+    d.raise_for_status()
+    destino = pasta / alvo["name"]
+    destino.write_bytes(d.content)
+    return destino
+
+
 def _info_fonte(chave: str) -> dict:
     try:
         from .config import PASTA_ESTADO
@@ -309,6 +349,14 @@ def _batida(b: dict, k: int, i: int, dur: float, fundos: Fundos, pasta: Path, cr
             return E.numero(b, dur, destino, src, float(b.get("ini", 20)))
         src, ini = fundos.trecho(dur)
         return E.numero(b, dur, destino, src, ini)
+    if tipo == "oficial":
+        img = oficial_por_nome(b.get("arquivo", ""), pasta.parent / "oficiais")
+        if img:
+            creditos.append("Screenshots oficiais: Rockstar Games")
+            foco = tuple(b.get("foco", (0.5, 0.5)))
+            return E.oficial(img, dur, destino, foco, float(b.get("de", 1.0)), float(b.get("ate", 1.12)))
+        print(f"  (imagem oficial '{b.get('arquivo')}' não achada, vai trailer)")
+        tipo = "trailer"
     if tipo in ("capitulo", "procurado"):
         src = fundos.por_nome(b.get("arquivo", "")) if b.get("arquivo") else None
         ini = float(b.get("ini", 20))

@@ -20,7 +20,7 @@
   "corte city"
  ],
  "fontes": [
-  "Site oficial da Rockstar (descrições das regiões)",
+  "Site oficial e screenshots oficiais da Rockstar Games",
   "Game Informer, Edge, Famitsu e IGN (entrevistas com Rob Nelson e Aaron Garbut)",
   "Mapa dos fãs State of Leonida",
   "Trailers da Rockstar Games"
@@ -34,9 +34,14 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 6
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
      "tipo": "trailer",
@@ -61,9 +66,14 @@
      "na": "dobro"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 36,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_27",
+     "foco": [
+      0.5,
+      0.4
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "tour"
     }
    ]
@@ -76,14 +86,24 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 42.6
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_01",
+     "foco": [
+      0.4,
+      0.8
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 66.6,
+     "tipo": "oficial",
+     "arquivo": "Ambrosia_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "motoqueiros"
     },
     {
@@ -93,9 +113,14 @@
      "na": "dinheiro"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 138,
+     "tipo": "oficial",
+     "arquivo": "Mount_Kalaga_National_Park_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "floresta"
     },
     {
@@ -107,9 +132,14 @@
      "na": "três"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 62,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "final"
     }
    ]
@@ -235,15 +265,25 @@
      "na": "maior"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 34,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_09",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "ruas"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 62,
+     "tipo": "oficial",
+     "arquivo": "Port_Gellhorn_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "dia"
     }
    ]
@@ -302,15 +342,25 @@
      "ini": 6
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 6,
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_01",
+     "foco": [
+      0.6,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Rockstar"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 84,
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "bar"
     },
     {
@@ -329,14 +379,24 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 10
+     "tipo": "oficial",
+     "arquivo": "Brian_Heder_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 12,
+     "tipo": "oficial",
+     "arquivo": "Brian_Heder_04",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Jason"
     },
     {
@@ -351,9 +411,14 @@
      "na": "mapa"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 90,
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_03",
+     "foco": [
+      0.5,
+      0.3
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "bar"
     }
    ]
@@ -366,13 +431,24 @@
    },
    "batidas": [
     {
-     "tipo": "foto",
-     "busca": "hammerhead shark"
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_07",
+     "foco": [
+      0.3,
+      0.4
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 140,
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_04",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "mergulho"
     },
     {
@@ -393,6 +469,17 @@
       "FLÓRIDA"
      ],
      "na": "iguanas"
+    },
+    {
+     "tipo": "oficial",
+     "arquivo": "Leonida_Keys_06",
+     "foco": [
+      0.4,
+      0.6
+     ],
+     "de": 1.0,
+     "ate": 1.12,
+     "na": "macacos"
     }
    ]
   },
@@ -424,9 +511,14 @@
      "na": "estrada"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 2,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_10",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "cidade"
     },
     {
@@ -447,6 +539,16 @@
    },
    "batidas": [
     {
+     "tipo": "oficial",
+     "arquivo": "Vice_City_05",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
+    },
+    {
      "tipo": "comparar",
      "arquivo": "QdBZY2fkU-0",
      "ini": 22,
@@ -454,13 +556,8 @@
      "rotulos": [
       "OCEAN BEACH",
       "SOUTH BEACH"
-     ]
-    },
-    {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 22,
-     "na": "cartão"
+     ],
+     "na": "South"
     },
     {
      "tipo": "foto",
@@ -468,8 +565,14 @@
      "na": "Little"
     },
     {
-     "tipo": "foto",
-     "busca": "PortMiami cruise ships",
+     "tipo": "oficial",
+     "arquivo": "Vice_City_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "porto"
     }
    ]
@@ -482,32 +585,57 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 2
+     "tipo": "oficial",
+     "arquivo": "Vice_City_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 4,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_08",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "arena"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 30,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_24",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "carros"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 100,
+     "tipo": "oficial",
+     "arquivo": "Boobie_Ike_04",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "balada"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 32,
+     "tipo": "oficial",
+     "arquivo": "Jason_and_Lucia_15",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "roubar"
     }
    ]
@@ -520,9 +648,14 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 22
+     "tipo": "oficial",
+     "arquivo": "Vice_City_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
      "tipo": "trailer",
@@ -562,9 +695,14 @@
      "ini": 20
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 20,
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_05",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "concreto"
     },
     {
@@ -579,9 +717,14 @@
      "na": "Rockstar"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 42.6,
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_01",
+     "foco": [
+      0.4,
+      0.85
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "jacarés"
     }
    ]
@@ -606,20 +749,25 @@
      "na": "palpite"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 138,
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "aerobarco"
     },
     {
-     "tipo": "comparar",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 138,
-     "busca": "Everglades airboat",
-     "rotulos": [
-      "GTA 6",
-      "EVERGLADES"
+     "tipo": "oficial",
+     "arquivo": "Grassrivers_04",
+     "foco": [
+      0.5,
+      0.5
      ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Por"
     }
    ]
@@ -646,15 +794,25 @@
      "ini": 52
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 50,
+     "tipo": "oficial",
+     "arquivo": "Port_Gellhorn_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "golfo"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 62,
+     "tipo": "oficial",
+     "arquivo": "Port_Gellhorn_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "Motel"
     },
     {
@@ -687,9 +845,14 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 114
+     "tipo": "oficial",
+     "arquivo": "Port_Gellhorn_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
      "tipo": "trailer",
@@ -698,13 +861,14 @@
      "na": "autódromo"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 62,
-     "etiqueta": [
-      "Rob Nelson",
-      "co-chefe da Rockstar North"
+     "tipo": "oficial",
+     "arquivo": "Port_Gellhorn_04",
+     "foco": [
+      0.5,
+      0.5
      ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "esconderijos"
     }
    ]
@@ -731,15 +895,25 @@
      "ini": 66.6
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 66.6,
+     "tipo": "oficial",
+     "arquivo": "Ambrosia_04",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "refinaria"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 66.8,
+     "tipo": "oficial",
+     "arquivo": "Ambrosia_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "motoqueiros"
     },
     {
@@ -763,9 +937,14 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 55
+     "tipo": "oficial",
+     "arquivo": "Ambrosia_06",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
      "tipo": "trailer",
@@ -774,9 +953,14 @@
      "na": "avião"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "QdBZY2fkU-0",
-     "ini": 66.6,
+     "tipo": "oficial",
+     "arquivo": "Ambrosia_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "gangue"
     }
    ]
@@ -803,9 +987,14 @@
      "ini": 138
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 138,
+     "tipo": "oficial",
+     "arquivo": "Mount_Kalaga_National_Park_04",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "parque"
     },
     {
@@ -817,9 +1006,14 @@
      "na": "místicos"
     },
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 148,
+     "tipo": "oficial",
+     "arquivo": "Mount_Kalaga_National_Park_03",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "floresta"
     }
    ]
@@ -832,16 +1026,36 @@
    },
    "batidas": [
     {
-     "tipo": "foto",
-     "busca": "Florida panther"
+     "tipo": "oficial",
+     "arquivo": "Mount_Kalaga_National_Park_05",
+     "foco": [
+      0.5,
+      0.4
+     ],
+     "de": 1.0,
+     "ate": 1.05
     },
     {
-     "tipo": "numero",
-     "numero": "PANTERA",
-     "texto": "o animal oficial da Flórida",
+     "tipo": "oficial",
+     "arquivo": "Mount_Kalaga_National_Park_05",
+     "foco": [
+      0.15,
+      0.85
+     ],
+     "de": 1.15,
+     "ate": 1.6,
+     "na": "repara"
+    },
+    {
+     "tipo": "comparar",
      "arquivo": "VQRLujxTm3c",
      "ini": 138,
-     "na": "pantera"
+     "busca": "Florida panther",
+     "rotulos": [
+      "GTA 6",
+      "PANTERA REAL"
+     ],
+     "na": "oficial"
     },
     {
      "tipo": "foto",
@@ -1061,14 +1275,24 @@
    },
    "batidas": [
     {
-     "tipo": "trailer",
-     "arquivo": "VQRLujxTm3c",
-     "ini": 154
+     "tipo": "oficial",
+     "arquivo": "Vice_City_01",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12
     },
     {
-     "tipo": "trailer",
-     "arquivo": "rz1B4B2yBZY",
-     "ini": 62,
+     "tipo": "oficial",
+     "arquivo": "Vice_City_02",
+     "foco": [
+      0.5,
+      0.5
+     ],
+     "de": 1.0,
+     "ate": 1.12,
      "na": "região"
     },
     {

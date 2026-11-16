@@ -459,3 +459,15 @@ def etiqueta(nome: str, cargo: str, destino: Path) -> Path:
     d.text((x + 20, y + 109), cargo.upper(), font=f_c, fill=M.NOITE, anchor="lm")
     img.save(destino)
     return destino
+
+
+# ------------------------------------------------------------------ screenshot oficial em 4K (tela cheia, com movimento)
+def oficial(img: Path, dur: float, destino: Path, foco: tuple = (0.5, 0.5), de: float = 1.0, ate: float = 1.12) -> Path:
+    """Imagem oficial em tela cheia, empurrando devagar na direção do foco (x, y de 0 a 1)."""
+    fx, fy = foco
+    n = int(dur * FPS) + 1
+    z = f"{de}+({ate}-{de})*on/{n}"
+    fil = [f"[0:v]scale={W * 2}:{H * 2}:force_original_aspect_ratio=increase,crop={W * 2}:{H * 2},setsar=1,"
+           f"zoompan=z='{z}':x='(iw-iw/zoom)*{fx}':y='(ih-ih/zoom)*{fy}':d={n}:s={W}x{H}:fps={FPS},format=yuv420p[v]",
+           _whoosh(dur, forte=False).replace("[w]", "[a]")]
+    return _encode(["-loop", "1", "-framerate", str(FPS), "-t", f"{dur:.3f}", "-i", str(img)], fil, dur, destino)
