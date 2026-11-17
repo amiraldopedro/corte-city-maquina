@@ -425,7 +425,9 @@
    "link": "https://www.youtube.com/watch?v=_OECwb8j9U4",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-17T00:15:10+00:00",
-   "atualizado_em": "2026-11-17T00:15:10+00:00"
+   "atualizado_em": "2026-11-17T00:31:01+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] _OECwb8j9U4: The page needs to be reloaded."
   }
  },
  "clipes_vistos": [],
