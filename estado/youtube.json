@@ -403,11 +403,14 @@
    "id": "xHm_RF0WBCg",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=xHm_RF0WBCg",
-   "status": "biblioteca_pendente",
+   "status": "biblioteca_ok",
    "pedido_em": "2026-11-16T23:55:44+00:00",
-   "atualizado_em": "2026-11-17T00:32:16+00:00",
+   "atualizado_em": "2026-11-17T00:51:58+00:00",
    "tentativas": 0,
-   "erro": "ERROR: [youtube] xHm_RF0WBCg: The page needs to be reloaded."
+   "erro": "ERROR: [youtube] xHm_RF0WBCg: The page needs to be reloaded.",
+   "titulo": "GTA 6 FULL NETFLIX Extended Look (New Gameplay Trailer)",
+   "asset_id": 757060567,
+   "duracao": 1628
   },
   "XAgXfddQSwY": {
    "id": "XAgXfddQSwY",
