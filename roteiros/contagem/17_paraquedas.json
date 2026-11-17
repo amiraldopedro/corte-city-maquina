@@ -1,0 +1,59 @@
+{
+ "id": "17_paraquedas",
+ "selo": "GAMEPLAY GTA 6",
+ "publicar": "2026-11-20T20:00",
+ "titulo": "Pular de paraquedas em Vice City no GTA 6 🪂 #gta6 #shorts",
+ "descricao": "No gameplay estendido do GTA 6, dá pra ver um salto de paraquedas por cima de Vice City, com a cidade inteira lá embaixo.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "paraquedas gta 6",
+  "vice city",
+  "gameplay gta 6",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Isso aqui é Vice City vista de cima, no GTA 6.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1129
+   }
+  },
+  {
+   "texto": "Salto de paraquedas por cima da cidade inteira: as ilhas, os prédios, o mar.",
+   "card": {
+    "tipo": "texto",
+    "texto": "vista de Vice City"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1131
+   }
+  },
+  {
+   "texto": "E o mapa todo tem o dobro do tamanho do GTA 5.",
+   "card": {
+    "tipo": "dado",
+    "numero": "2x",
+    "texto": "o mapa do GTA 5"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1134
+   }
+  },
+  {
+   "texto": "Onde você pularia primeiro? Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1136
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "id": "22_dirigindo_vice",
+ "selo": "GAMEPLAY GTA 6",
+ "publicar": "2026-11-23T15:00",
+ "titulo": "Dirigir por Vice City no GTA 6 parece filme 🌅 #gta6 #shorts",
+ "descricao": "Jason dirigindo um conversível vermelho por Vice City em pleno dia e depois a estrada no pôr do sol, direto do gameplay estendido do GTA 6.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "vice city",
+  "dirigir gta 6",
+  "gameplay gta 6",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Isso é dirigir por Vice City no GTA 6.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 505
+   }
+  },
+  {
+   "texto": "Conversível vermelho, trânsito de verdade, gente na calçada.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 520
+   }
+  },
+  {
+   "texto": "E quando o sol baixa na estrada, parece filme.",
+   "card": {
+    "tipo": "texto",
+    "texto": "pôr do sol"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 760
+   }
+  },
+  {
+   "texto": "Qual carro você roubaria primeiro? Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 775
+   }
+  }
+ ]
+}

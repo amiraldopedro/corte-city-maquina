@@ -1,0 +1,57 @@
+{
+ "id": "16_academia",
+ "selo": "GAMEPLAY GTA 6",
+ "publicar": "2026-11-20T15:00",
+ "titulo": "A Lucia malhando no GTA 6 💪 a academia é de verdade #gta6 #shorts",
+ "descricao": "No gameplay do GTA 6, a Lucia aparece no supino. Segundo as prévias, a academia tem matrícula, minigame de tempo e o músculo vai embora se você parar.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "academia gta 6",
+  "lucia gta 6",
+  "gameplay gta 6",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Olha a Lucia no supino. Isso é gameplay do GTA 6.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1040
+   }
+  },
+  {
+   "texto": "Segundo as prévias, a academia é de verdade: matrícula, whey na máquina e cada exercício é um minigame de tempo.",
+   "card": {
+    "tipo": "texto",
+    "texto": "academia de verdade"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1041
+   }
+  },
+  {
+   "texto": "Treinou uns dias seguidos, ganha força. Parou, o músculo vai embora.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1042
+   }
+  },
+  {
+   "texto": "A Rockstar inventou o pular o dia de perna. Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1043
+   }
+  }
+ ]
+}

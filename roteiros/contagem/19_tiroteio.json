@@ -1,0 +1,59 @@
+{
+ "id": "19_tiroteio",
+ "selo": "GAMEPLAY GTA 6",
+ "publicar": "2026-11-21T20:00",
+ "titulo": "O tiroteio do GTA 6 até capota carro 🚓💥 #gta6 #shorts",
+ "descricao": "No gameplay estendido, um tiroteio com a polícia nas ruas de Vice City termina com viatura capotando. E a polícia agora vai até seis estrelas.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "polícia gta 6",
+  "tiroteio gta 6",
+  "gameplay gta 6",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Tiroteio com a polícia no GTA 6.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 841
+   }
+  },
+  {
+   "texto": "Repara na física: a viatura bate e capota no meio da rua.",
+   "card": {
+    "tipo": "texto",
+    "texto": "olha a física"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 855
+   }
+  },
+  {
+   "texto": "E a fuga continua de carro pelas ruas de Vice City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 925
+   }
+  },
+  {
+   "texto": "Agora são seis estrelas de procurado. Boa sorte. Segue a Corte City.",
+   "card": {
+    "tipo": "dado",
+    "numero": "6",
+    "texto": "estrelas de procurado"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 940
+   }
+  }
+ ]
+}

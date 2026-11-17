@@ -1,0 +1,57 @@
+{
+ "id": "21_tv_do_jogo",
+ "selo": "DETALHE GTA 6",
+ "publicar": "2026-11-22T20:00",
+ "titulo": "Até a TV do GTA 6 tem programação 📺 #gta6 #shorts",
+ "descricao": "No gameplay estendido, o Jason passa pela sala e a TV está passando desenho, documentário de natureza e propaganda de hambúrguer. Tudo dentro do jogo.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "detalhes gta 6",
+  "tv gta 6",
+  "gameplay gta 6",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Repara na TV dentro do GTA 6.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 445
+   }
+  },
+  {
+   "texto": "Tem desenho, tem documentário de natureza...",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 455
+   }
+  },
+  {
+   "texto": "...e até propaganda de hambúrguer gigante.",
+   "card": {
+    "tipo": "texto",
+    "texto": "até propaganda"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 474
+   }
+  },
+  {
+   "texto": "A Rockstar pensou até no que passa na TV. Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 478
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "id": "18_assalto_loja",
+ "selo": "GAMEPLAY GTA 6",
+ "publicar": "2026-11-21T15:00",
+ "titulo": "Assalto à loja no GTA 6 ficou MUITO diferente 😳 #gta6 #shorts",
+ "descricao": "No gameplay do GTA 6, Jason e Lucia assaltam uma loja de conveniência de lenço no rosto. Segundo as prévias, agora dá pra apagar câmera, pegar a chave do fundo e escolher como abrir o cofre.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "assalto gta 6",
+  "roubar loja gta 6",
+  "gameplay gta 6",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Assalto no GTA 6: lenço no rosto e bora.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 717
+   }
+  },
+  {
+   "texto": "Segundo as prévias, dá pra arrombar a fechadura, apagar a câmera e pegar a chave do fundo com o caixa que fugiu.",
+   "card": {
+    "tipo": "texto",
+    "texto": "assalto planejado"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 705
+   }
+  },
+  {
+   "texto": "E o cofre: explode e estraga parte do dinheiro, ou acha a senha enquanto a polícia chega.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 712
+   }
+  },
+  {
+   "texto": "Máscara antes do crime: a câmera não pega seu rosto. Segue a Corte City.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 721
+   }
+  }
+ ]
+}

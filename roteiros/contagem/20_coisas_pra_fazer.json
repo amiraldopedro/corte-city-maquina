@@ -1,0 +1,62 @@
+{
+ "id": "20_coisas_pra_fazer",
+ "selo": "GAMEPLAY GTA 6",
+ "publicar": "2026-11-22T15:00",
+ "titulo": "3 coisas pra fazer em Leonida que não tinha no GTA 5 🌴 #gta6 #shorts",
+ "descricao": "Aerobarco no pântano, mergulho em caverna e jet ski no pôr do sol: tudo aparece no gameplay estendido do GTA 6.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
+ "tags": [
+  "gta 6",
+  "leonida",
+  "aerobarco gta 6",
+  "gameplay gta 6",
+  "shorts"
+ ],
+ "cenas": [
+  {
+   "texto": "Três coisas pra fazer em Leonida.",
+   "card": {
+    "tipo": "nenhum"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1030
+   }
+  },
+  {
+   "texto": "Um: aerobarco no meio do pântano.",
+   "card": {
+    "tipo": "dado",
+    "numero": "1",
+    "texto": "aerobarco"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1031
+   }
+  },
+  {
+   "texto": "Dois: mergulho em caverna embaixo d'água.",
+   "card": {
+    "tipo": "dado",
+    "numero": "2",
+    "texto": "mergulho"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1036
+   }
+  },
+  {
+   "texto": "Três: jet ski no pôr do sol. Qual você faz primeiro? Segue a Corte City.",
+   "card": {
+    "tipo": "dado",
+    "numero": "3",
+    "texto": "jet ski"
+   },
+   "fundo": {
+    "arquivo": "_OECwb8j9U4",
+    "ini": 1045
+   }
+  }
+ ]
+}
