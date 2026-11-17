@@ -102,9 +102,15 @@ def _baixar_asset(url: str, destino: Path) -> Path:
 
 
 def enviar_pendentes(est, canal, yt, pasta: Path, horario, log=print) -> int:
-    """Sobe os vídeos que ficaram esperando cota (mais antigos primeiro). Devolve quantos subiram."""
-    fila = sorted((m for m in est.momentos.values() if m.get("status") == "aguardando_cota"),
-                  key=lambda m: m.get("atualizado_em", ""))
+    """Sobe os vídeos que ficaram esperando cota. Primeiro os de horário marcado, pelo horário mais
+    próximo (pra nenhum perder a hora); depois os outros, mais antigos primeiro. Devolve quantos subiram."""
+    agora_txt = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    def ordem(m):
+        p = m.get("envio_pendente") or {}
+        fixo = bool(p.get("horario_fixo")) and (p.get("publicar_em") or "") > agora_txt
+        return (0, p.get("publicar_em", "")) if fixo else (1, m.get("atualizado_em", ""))
+    fila = sorted((m for m in est.momentos.values() if m.get("status") == "aguardando_cota"), key=ordem)
     feitos = 0
     for m in fila:
         if not tem_cota(est):
