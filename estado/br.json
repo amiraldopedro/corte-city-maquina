@@ -3651,7 +3651,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "Vai dar pra jogar GTA 6 no Xbox One? 😱 #gta6 #shorts",
    "descricao": "A Rockstar confirmou: o GTA 6 roda no Xbox One pelo Xbox Cloud Gaming, com gráficos do Series S. No PS4 não tem.\n\nFontes: Rockstar Games, Xbox Wire, Windows Central.\nImagens: Rockstar Games.\n#gta6 #gtavi #xbox",
    "tags": [
@@ -3669,22 +3669,10 @@
    "video_asset": 756588211,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_9_xbox_one.jpg",
    "thumb_asset": 756588290,
-   "envio_pendente": {
-    "titulo": "Vai dar pra jogar GTA 6 no Xbox One? 😱 #gta6 #shorts",
-    "descricao": "A Rockstar confirmou: o GTA 6 roda no Xbox One pelo Xbox Cloud Gaming, com gráficos do Series S. No PS4 não tem.\n\nFontes: Rockstar Games, Xbox Wire, Windows Central.\nImagens: Rockstar Games.\n#gta6 #gtavi #xbox",
-    "tags": [
-     "gta 6",
-     "gta 6 xbox one",
-     "gta 6 ps4",
-     "xbox cloud gaming",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-18T18:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-16T21:53:14+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-17T10:04:01+00:00",
+   "youtube_id": "efP5B3d_63Q",
+   "postado_em": "2026-11-17T10:04:01+00:00"
   },
   "contagem_16_academia": {
    "id": "contagem_16_academia",
@@ -4039,6 +4027,6 @@
   "2026-11-14": 8500,
   "2026-11-15": 8702,
   "2026-11-16": 8500,
-  "2026-11-17": 5100
+  "2026-11-17": 6800
  }
 }
