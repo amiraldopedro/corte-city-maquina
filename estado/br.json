@@ -3077,7 +3077,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "narrado",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "GTA 6 faz coisas que o GTA 5 NUNCA fez (e tirou algumas)",
    "titulos_extra": [
     "Tudo que o GTA 6 faz e o GTA 5 nunca fez",
@@ -3105,25 +3105,10 @@
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_007_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/narrado_007_kit.zip",
    "publicar_em": "2026-11-18T22:00:00Z",
-   "envio_pendente": {
-    "titulo": "GTA 6 faz coisas que o GTA 5 NUNCA fez (e tirou algumas)",
-    "descricao": "GTA 6 faz coisas que o GTA 5 NUNCA fez (e tirou algumas)\nNo GTA 5, você assalta uma loja, dá uma volta no quarteirão e a polícia esquece que você existe. No GTA 6, ela lembra da sua camisa. O carro fica sem gasolina. O personagem engorda. O dono do carro que você tá roubando pode estar armado. E se você encarar um desconhecido por tempo demais, ele solta o cachorro em você. E isso aconteceu na demonstração da própria Rockstar.\n\n⏱️ Capítulos\n00:00 Começo\n00:25 Começo\n00:48 A polícia\n01:09 A polícia\n01:35 A polícia\n01:58 A polícia\n02:22 A polícia\n02:54 O corpo\n03:16 O corpo\n03:43 O corpo\n04:04 A dupla\n04:27 A dupla\n04:53 As armas\n05:12 As armas\n05:30 As armas\n05:57 As armas\n06:16 Os carros\n06:37 Os carros\n07:04 Os carros\n07:22 O dinheiro\n07:45 O dinheiro\n08:05 As pessoas\n08:29 As pessoas\n08:51 O mundo\n09:18 O mundo\n09:44 O que saiu\n10:09 O que saiu\n10:28 Fim\n\n📚 Fontes\n• Prévias da Edge e Game Informer\n• TGG e criadores convidados pela Rockstar\n• Bloomberg (Jason Schreier) sobre a roda de armas\n• Dazed\n• Trailers e Extended Look da Rockstar Games\n\nImagens: trailers e materiais oficiais de divulgação da Rockstar Games, usados para comentário e notícia.\nFotos, matérias e trechos citados (para comentário, com crédito aos autores):\n• Screenshots oficiais: Rockstar Games\n• Matéria: Dazed, 6 set 2026\n\n#gta6 #gtavi #gta",
-    "tags": [
-     "gta 6",
-     "gta 6 vs gta 5",
-     "gta vi",
-     "novidades gta 6",
-     "gta 6 gameplay",
-     "gta 6 polícia",
-     "gta 6 lucia",
-     "corte city"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-18T22:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-17T02:41:42+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-17T10:04:19+00:00",
+   "youtube_id": "QrVCv0wD8FE",
+   "postado_em": "2026-11-17T10:04:19+00:00"
   },
   "x_2121416009043108272": {
    "id": "x_2121416009043108272",
@@ -4027,6 +4012,6 @@
   "2026-11-14": 8500,
   "2026-11-15": 8702,
   "2026-11-16": 8500,
-  "2026-11-17": 6800
+  "2026-11-17": 8500
  }
 }
