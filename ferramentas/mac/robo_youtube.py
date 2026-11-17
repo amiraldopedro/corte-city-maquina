@@ -159,19 +159,25 @@ _PERFIL = _perfil_chrome()
 
 
 def ytdlp(*args, capturar=False):
+    """Tenta sem login; se o YouTube pedir login, tenta de novo com a conta reserva (clientes que funcionam com login)."""
     env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
     longo = any(a in args for a in ("-o",))  # download pode demorar; leitura de informações não
-    login = ["--cookies-from-browser", f"chrome:{_PERFIL}"] if _PERFIL else []
-    calma = ["--sleep-requests", "1", "--sleep-interval", "2", "--max-sleep-interval", "5"] if _PERFIL else []
-    # com login, o cliente "web" pede um token extra e só devolve miniaturas; o da TV e o do Safari entregam o vídeo
+    base = ["yt-dlp", "--no-warnings", "--no-playlist", "--socket-timeout", "30", "--cache-dir", str(PASTA / "cache")]
+    tentativas = [[]]
     if _PERFIL:
-        calma += ["--extractor-args", "youtube:player_client=tv,web_safari,mweb"]
-    r = subprocess.run(["yt-dlp", "--no-warnings", "--no-playlist", "--socket-timeout", "30",
-                        "--cache-dir", str(PASTA / "cache"), *login, *calma, *args],
-                       capture_output=True, text=True, env=env, timeout=3600 if longo else 240)
-    if r.returncode != 0:
-        raise RuntimeError(r.stderr.strip()[-300:])
-    return r.stdout
+        for cliente in ("web_safari,mweb", "tv,web_safari", "default"):
+            tentativas.append(["--cookies-from-browser", f"chrome:{_PERFIL}", "--sleep-requests", "1",
+                               "--extractor-args", f"youtube:player_client={cliente}"])
+    erro = ""
+    for extra in tentativas:
+        r = subprocess.run([*base, *extra, *args], capture_output=True, text=True, env=env,
+                           timeout=3600 if longo else 240)
+        if r.returncode == 0:
+            return r.stdout
+        erro = r.stderr.strip()[-300:]
+        if not any(k in erro for k in ("Sign in", "cookies", "age-restricted", "not available", "reloaded", "bot")):
+            break  # erro que login não resolve (vídeo bloqueado no país, removido...)
+    raise RuntimeError(erro)
 
 
 def picos_heatmap(info: dict) -> list[tuple[float, float]]:
