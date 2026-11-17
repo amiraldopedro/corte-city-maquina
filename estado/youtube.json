@@ -415,7 +415,9 @@
    "link": "https://www.youtube.com/watch?v=XAgXfddQSwY",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-17T00:15:10+00:00",
-   "atualizado_em": "2026-11-17T00:15:10+00:00"
+   "atualizado_em": "2026-11-17T00:29:53+00:00",
+   "tentativas": 1,
+   "erro": "obago, Taiwan, Province of China, Tanzania, United Republic of, Ukraine, Uganda, United States, Uruguay, Uzbekistan, Holy See (Vatican City State), Venezuela, Bolivarian Republic of, Viet Nam, South Africa, Zambia, Zimbabwe.\nYou might want to use a VPN or a proxy server (with --proxy) to workaround."
   },
   "_OECwb8j9U4": {
    "id": "_OECwb8j9U4",
