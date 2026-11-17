@@ -3746,13 +3746,13 @@
     "shorts"
    ],
    "duracao": 20.2,
-   "feito_em": "2026-11-17T02:48:18+00:00",
-   "criado_em": "2026-11-17T02:48:18+00:00",
+   "feito_em": "2026-11-17T02:56:26+00:00",
+   "criado_em": "2026-11-17T02:56:26+00:00",
    "publicar_em": "2026-11-20T18:00:00Z",
    "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_16_academia.mp4",
-   "video_asset": 757354347,
+   "video_asset": 757377955,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_16_academia.jpg",
-   "thumb_asset": 757354472,
+   "thumb_asset": 757378021,
    "envio_pendente": {
     "titulo": "A Lucia malhando no GTA 6 💪 a academia é de verdade #gta6 #shorts",
     "descricao": "No gameplay do GTA 6, a Lucia aparece no supino. Segundo as prévias, a academia tem matrícula, minigame de tempo e o músculo vai embora se você parar.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
@@ -3768,7 +3768,8 @@
     "publicar_em": "2026-11-20T18:00:00Z",
     "horario_fixo": true
    },
-   "atualizado_em": "2026-11-17T02:48:18+00:00"
+   "atualizado_em": "2026-11-17T02:56:26+00:00",
+   "versao": 2
   },
   "contagem_17_paraquedas": {
    "id": "contagem_17_paraquedas",
