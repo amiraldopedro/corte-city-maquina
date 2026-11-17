@@ -395,7 +395,9 @@
    "link": "https://www.youtube.com/watch?v=d9hMmy0t0pg",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T23:55:44+00:00",
-   "atualizado_em": "2026-11-16T23:55:44+00:00"
+   "atualizado_em": "2026-11-17T00:10:02+00:00",
+   "tentativas": 1,
+   "erro": "Tunisia, Turkey, Trinidad and Tobago, Taiwan, Province of China, Tanzania, United Republic of, Ukraine, Uganda, United States, Uruguay, Uzbekistan, Venezuela, Bolivarian Republic of, Viet Nam, South Africa, Zambia, Zimbabwe.\nYou might want to use a VPN or a proxy server (with --proxy) to workaround."
   },
   "xHm_RF0WBCg": {
    "id": "xHm_RF0WBCg",
