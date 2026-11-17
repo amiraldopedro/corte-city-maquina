@@ -385,9 +385,9 @@
    "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-17T00:15:10+00:00",
-   "tentativas": 0,
-   "erro": "ERROR: [youtube] N-xHcvug3WI: Requested format is not available. Use --list-formats for a list of available formats"
+   "atualizado_em": "2026-11-17T00:27:15+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] N-xHcvug3WI: The page needs to be reloaded."
   },
   "d9hMmy0t0pg": {
    "id": "d9hMmy0t0pg",
