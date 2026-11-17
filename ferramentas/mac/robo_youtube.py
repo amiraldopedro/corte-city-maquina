@@ -163,6 +163,9 @@ def ytdlp(*args, capturar=False):
     longo = any(a in args for a in ("-o",))  # download pode demorar; leitura de informações não
     login = ["--cookies-from-browser", f"chrome:{_PERFIL}"] if _PERFIL else []
     calma = ["--sleep-requests", "1", "--sleep-interval", "2", "--max-sleep-interval", "5"] if _PERFIL else []
+    # com login, o cliente "web" pede um token extra e só devolve miniaturas; o da TV e o do Safari entregam o vídeo
+    if _PERFIL:
+        calma += ["--extractor-args", "youtube:player_client=tv,web_safari,mweb"]
     r = subprocess.run(["yt-dlp", "--no-warnings", "--no-playlist", "--socket-timeout", "30",
                         "--cache-dir", str(PASTA / "cache"), *login, *calma, *args],
                        capture_output=True, text=True, env=env, timeout=3600 if longo else 240)

@@ -385,19 +385,19 @@
    "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-17T00:08:54+00:00",
-   "tentativas": 1,
+   "atualizado_em": "2026-11-17T00:15:10+00:00",
+   "tentativas": 0,
    "erro": "ERROR: [youtube] N-xHcvug3WI: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "d9hMmy0t0pg": {
    "id": "d9hMmy0t0pg",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=d9hMmy0t0pg",
-   "status": "biblioteca_pendente",
+   "status": "erro",
    "pedido_em": "2026-11-16T23:55:44+00:00",
    "atualizado_em": "2026-11-17T00:10:02+00:00",
    "tentativas": 1,
-   "erro": "Tunisia, Turkey, Trinidad and Tobago, Taiwan, Province of China, Tanzania, United Republic of, Ukraine, Uganda, United States, Uruguay, Uzbekistan, Venezuela, Bolivarian Republic of, Viet Nam, South Africa, Zambia, Zimbabwe.\nYou might want to use a VPN or a proxy server (with --proxy) to workaround."
+   "erro": "bloqueado no Brasil"
   },
   "xHm_RF0WBCg": {
    "id": "xHm_RF0WBCg",
@@ -405,9 +405,25 @@
    "link": "https://www.youtube.com/watch?v=xHm_RF0WBCg",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T23:55:44+00:00",
-   "atualizado_em": "2026-11-17T00:11:00+00:00",
-   "tentativas": 1,
+   "atualizado_em": "2026-11-17T00:15:10+00:00",
+   "tentativas": 0,
    "erro": "ERROR: [youtube] xHm_RF0WBCg: Requested format is not available. Use --list-formats for a list of available formats"
+  },
+  "XAgXfddQSwY": {
+   "id": "XAgXfddQSwY",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=XAgXfddQSwY",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-17T00:15:10+00:00",
+   "atualizado_em": "2026-11-17T00:15:10+00:00"
+  },
+  "_OECwb8j9U4": {
+   "id": "_OECwb8j9U4",
+   "modo": "biblioteca",
+   "link": "https://www.youtube.com/watch?v=_OECwb8j9U4",
+   "status": "biblioteca_pendente",
+   "pedido_em": "2026-11-17T00:15:10+00:00",
+   "atualizado_em": "2026-11-17T00:15:10+00:00"
   }
  },
  "clipes_vistos": [],
