@@ -260,6 +260,10 @@ def _info_fonte(chave: str) -> dict:
         return {}
 
 
+# cópia repetida do Extended Look (a usada é _OECwb8j9U4): não baixar
+IGNORAR_BIBLIOTECA = {"bib_xHm_RF0WBCg.mp4"}
+
+
 def biblioteca(pasta: Path) -> list[Path]:
     """Baixa os vídeos da biblioteca (Releases, tag biblioteca)."""
     import os
@@ -273,7 +277,7 @@ def biblioteca(pasta: Path) -> list[Path]:
     pasta.mkdir(parents=True, exist_ok=True)
     saida = []
     for a in r.json().get("assets", []):
-        if not a["name"].endswith(".mp4"):
+        if not a["name"].endswith(".mp4") or a["name"] in IGNORAR_BIBLIOTECA:
             continue
         destino = pasta / a["name"]
         if not destino.exists():
