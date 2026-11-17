@@ -405,7 +405,9 @@
    "link": "https://www.youtube.com/watch?v=xHm_RF0WBCg",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T23:55:44+00:00",
-   "atualizado_em": "2026-11-16T23:55:44+00:00"
+   "atualizado_em": "2026-11-17T00:11:00+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] xHm_RF0WBCg: Requested format is not available. Use --list-formats for a list of available formats"
   }
  },
  "clipes_vistos": [],
