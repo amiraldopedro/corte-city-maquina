@@ -30,7 +30,7 @@
    },
    "fundo": {
     "arquivo": "_OECwb8j9U4",
-    "ini": 1041
+    "ini": 1040
    }
   },
   {
@@ -40,7 +40,7 @@
    },
    "fundo": {
     "arquivo": "_OECwb8j9U4",
-    "ini": 1042
+    "ini": 1044
    }
   },
   {
@@ -50,8 +50,9 @@
    },
    "fundo": {
     "arquivo": "_OECwb8j9U4",
-    "ini": 1043
+    "ini": 1040.5
    }
   }
- ]
+ ],
+ "versao": 2
 }

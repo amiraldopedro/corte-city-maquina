@@ -1086,7 +1086,8 @@ def fazer_contagem(cfg: Config):
         cid = f"contagem_{r['id']}"
         quando_dt = datetime.fromisoformat(r["publicar"]).replace(tzinfo=ZoneInfo(canal.fuso)).astimezone(timezone.utc)
         x = est.momentos.get(cid, {})
-        if x.get("youtube_id") or x.get("status") in ("aguardando_cota", "postado"):
+        refazer = not x.get("youtube_id") and r.get("versao", 1) > x.get("versao", 1)
+        if not refazer and (x.get("youtube_id") or x.get("status") in ("aguardando_cota", "postado")):
             continue
         if quando_dt < agora_utc + timedelta(minutes=30):
             log(f"  {r['id']}: o dia já passou, pulei")
@@ -1120,7 +1121,7 @@ def fazer_contagem(cfg: Config):
             est.momentos[cid] = {"id": cid, "streamer": "*", "canal": canal.id, "tipo": "short", "quadro": "contagem",
                                  "status": "pronto", "titulo": r["titulo"], "descricao": r["descricao"],
                                  "tags": r["tags"], "duracao": round(dur, 1), "feito_em": agora(), "criado_em": agora(),
-                                 "publicar_em": quando, **arquivos}
+                                 "publicar_em": quando, "versao": r.get("versao", 1), **arquivos}
             est.salvar()
             if yt:
                 vid = publicar(est, cid, yt, final, r["titulo"], r["descricao"], r["tags"], canal.idioma, quando, capa,
