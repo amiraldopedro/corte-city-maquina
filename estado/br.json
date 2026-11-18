@@ -3414,7 +3414,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "A jaqueta do GTA 6 custa mais que 3 PS5 Pro 💀 #gta6 #shorts",
    "descricao": "A loja Selfridges, em Londres, está vendendo uma jaqueta oficial do GTA 6 por 2.500 libras. Três PS5 Pro saem mais barato.\n\nFonte: Push Square / Selfridges.\nImagens: Rockstar Games.\n#gta6 #gtavi",
    "tags": [
@@ -3432,22 +3432,10 @@
    "video_asset": 756571957,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_10_jaqueta.jpg",
    "thumb_asset": 756572011,
-   "envio_pendente": {
-    "titulo": "A jaqueta do GTA 6 custa mais que 3 PS5 Pro 💀 #gta6 #shorts",
-    "descricao": "A loja Selfridges, em Londres, está vendendo uma jaqueta oficial do GTA 6 por 2.500 libras. Três PS5 Pro saem mais barato.\n\nFonte: Push Square / Selfridges.\nImagens: Rockstar Games.\n#gta6 #gtavi",
-    "tags": [
-     "gta 6",
-     "jaqueta gta 6",
-     "merch gta 6",
-     "gta vi",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-18T23:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-16T21:47:48+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:35:07+00:00",
+   "youtube_id": "62Z5Aqw_Uew",
+   "postado_em": "2026-11-18T11:35:07+00:00"
   },
   "contagem_11_60fps": {
    "id": "contagem_11_60fps",
@@ -4157,6 +4145,10 @@
   "2026-11-14": 8500,
   "2026-11-15": 8702,
   "2026-11-16": 8500,
-  "2026-11-17": 8500
+  "2026-11-17": 8500,
+  "2026-11-18": 100
+ },
+ "envios": {
+  "2026-11-18": 1
  }
 }
