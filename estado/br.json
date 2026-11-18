@@ -3559,7 +3559,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "A mídia física do GTA 6 não tem disco 😳 #gta6 #shorts",
    "descricao": "A caixa física do GTA 6 vem com um código pra baixar o jogo, não com disco. Vale comparar o preço nas lojas.\n\nImagens: Rockstar Games.\n#gta6 #gtavi",
    "tags": [
@@ -3577,22 +3577,10 @@
    "video_asset": 756584870,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_15_midia_fisica.jpg",
    "thumb_asset": 756584920,
-   "envio_pendente": {
-    "titulo": "A mídia física do GTA 6 não tem disco 😳 #gta6 #shorts",
-    "descricao": "A caixa física do GTA 6 vem com um código pra baixar o jogo, não com disco. Vale comparar o preço nas lojas.\n\nImagens: Rockstar Games.\n#gta6 #gtavi",
-    "tags": [
-     "gta 6",
-     "mídia física gta 6",
-     "gta 6 caixa",
-     "gta vi",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-20T15:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-16T21:52:06+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:36:04+00:00",
+   "youtube_id": "oqH_qK78Hx4",
+   "postado_em": "2026-11-18T11:36:04+00:00"
   },
   "contagem_9_xbox_one": {
    "id": "contagem_9_xbox_one",
@@ -4098,9 +4086,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 500
+  "2026-11-18": 600
  },
  "envios": {
-  "2026-11-18": 5
+  "2026-11-18": 6
  }
 }
