@@ -3798,7 +3798,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "Dirigir por Vice City no GTA 6 parece filme 🌅 #gta6 #shorts",
    "descricao": "Jason dirigindo um conversível vermelho por Vice City em pleno dia e depois a estrada no pôr do sol, direto do gameplay estendido do GTA 6.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
    "tags": [
@@ -3816,22 +3816,10 @@
    "video_asset": 757367510,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_22_dirigindo_vice.jpg",
    "thumb_asset": 757367565,
-   "envio_pendente": {
-    "titulo": "Dirigir por Vice City no GTA 6 parece filme 🌅 #gta6 #shorts",
-    "descricao": "Jason dirigindo um conversível vermelho por Vice City em pleno dia e depois a estrada no pôr do sol, direto do gameplay estendido do GTA 6.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
-    "tags": [
-     "gta 6",
-     "vice city",
-     "dirigir gta 6",
-     "gameplay gta 6",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-23T18:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-17T02:52:36+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:37:20+00:00",
+   "youtube_id": "Fsuf014Hcnk",
+   "postado_em": "2026-11-18T11:37:20+00:00"
   },
   "2928916826_36845": {
    "id": "2928916826_36845",
@@ -4014,9 +4002,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 1200
+  "2026-11-18": 1300
  },
  "envios": {
-  "2026-11-18": 12
+  "2026-11-18": 13
  }
 }
