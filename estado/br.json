@@ -3443,7 +3443,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "GTA 6 vai rodar a 60 FPS no PS5 Pro? 🤔 #gta6 #shorts",
    "descricao": "Os rumores dizem que o GTA 6 roda a 60 FPS no PS5 Pro, mas a Rockstar nunca confirmou. O trailer 2 rodava a 30 FPS num PS5 normal, segundo a Digital Foundry.\n\nFontes: Digital Foundry, Notebookcheck, Dexerto.\nImagens: Rockstar Games.\n#gta6 #ps5pro",
    "tags": [
@@ -3461,22 +3461,10 @@
    "video_asset": 756574709,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_11_60fps.jpg",
    "thumb_asset": 756574790,
-   "envio_pendente": {
-    "titulo": "GTA 6 vai rodar a 60 FPS no PS5 Pro? 🤔 #gta6 #shorts",
-    "descricao": "Os rumores dizem que o GTA 6 roda a 60 FPS no PS5 Pro, mas a Rockstar nunca confirmou. O trailer 2 rodava a 30 FPS num PS5 normal, segundo a Digital Foundry.\n\nFontes: Digital Foundry, Notebookcheck, Dexerto.\nImagens: Rockstar Games.\n#gta6 #ps5pro",
-    "tags": [
-     "gta 6",
-     "gta 6 60 fps",
-     "gta 6 ps5 pro",
-     "gta vi",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-19T16:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-16T21:48:45+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:35:30+00:00",
+   "youtube_id": "6g67j4_m4-0",
+   "postado_em": "2026-11-18T11:35:30+00:00"
   },
   "contagem_12_estrela": {
    "id": "contagem_12_estrela",
@@ -4134,9 +4122,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 200
+  "2026-11-18": 300
  },
  "envios": {
-  "2026-11-18": 2
+  "2026-11-18": 3
  }
 }
