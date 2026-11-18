@@ -3769,7 +3769,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "Até a TV do GTA 6 tem programação 📺 #gta6 #shorts",
    "descricao": "No gameplay estendido, o Jason passa pela sala e a TV está passando desenho, documentário de natureza e propaganda de hambúrguer. Tudo dentro do jogo.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
    "tags": [
@@ -3787,22 +3787,10 @@
    "video_asset": 757365827,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_21_tv_do_jogo.jpg",
    "thumb_asset": 757365873,
-   "envio_pendente": {
-    "titulo": "Até a TV do GTA 6 tem programação 📺 #gta6 #shorts",
-    "descricao": "No gameplay estendido, o Jason passa pela sala e a TV está passando desenho, documentário de natureza e propaganda de hambúrguer. Tudo dentro do jogo.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
-    "tags": [
-     "gta 6",
-     "detalhes gta 6",
-     "tv gta 6",
-     "gameplay gta 6",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-22T23:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-17T02:51:55+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:37:11+00:00",
+   "youtube_id": "PimQ1W9eDWo",
+   "postado_em": "2026-11-18T11:37:11+00:00"
   },
   "contagem_22_dirigindo_vice": {
    "id": "contagem_22_dirigindo_vice",
@@ -4026,9 +4014,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 1100
+  "2026-11-18": 1200
  },
  "envios": {
-  "2026-11-18": 11
+  "2026-11-18": 12
  }
 }
