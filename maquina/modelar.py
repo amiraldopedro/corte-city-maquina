@@ -25,6 +25,19 @@ from .youtube_fonte import _baixar_asset, agora, fila
 
 PALAVRAS_GTA = re.compile(r"gta|grand theft|vice city|leonida|rockstar|lucia|jason", re.I)
 
+
+def _parece_slop(titulo: str, canal: str, evitar: list[str]) -> bool:
+    """Barra os canais de "GTA 6" falso que entopem a busca: título só de hashtag,
+    título quase todo em chinês/japonês/coreano (quase sempre vídeo de IA) e nomes da lista `evitar`."""
+    texto = f"{titulo} {canal}".lower()
+    if any(e in texto for e in evitar):
+        return True
+    sem_tags = re.sub(r"#\w+", "", titulo).strip()
+    if len(re.sub(r"[\W_]", "", sem_tags)) < 8:   # título é só hashtag/emoji: sem contexto nenhum
+        return True
+    cjk = sum(1 for ch in titulo if "一" <= ch <= "鿿" or "぀" <= ch <= "ヿ" or "가" <= ch <= "힯")
+    return cjk > 0.2 * max(1, len(titulo.strip()))
+
 PROMPT = """Você escreve narrações de Shorts em português do Brasil para o canal Corte City (cortes de GTA 6).
 Abaixo está a transcrição de um Short gringo que viralizou. Reescreva em português do Brasil:
 - NÃO traduza ao pé da letra: adapte como um brasileiro contaria, mas mantenha o gancho da primeira frase,
@@ -85,6 +98,8 @@ def cacar(cfg) -> int:
         views = int(st.get("viewCount") or 0)
         texto_busca = " ".join([s.get("title", ""), s.get("description", "")[:200], " ".join(s.get("tags", [])[:10])])
         if OFICIAIS.search(s.get("channelTitle", "")) or s.get("channelId") in recentes:
+            continue
+        if _parece_slop(s.get("title", ""), s.get("channelTitle", ""), [e.lower() for e in conf.get("evitar", ["stories"])]):
             continue
         if not (8 <= dur <= int(conf.get("max_seg", 75))) or views < int(conf.get("min_views", 150000)):
             continue
