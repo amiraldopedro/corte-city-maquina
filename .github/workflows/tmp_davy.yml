@@ -1,0 +1,25 @@
+name: tmp davy (transcrever e separar voz)
+on:
+  push:
+    branches: [tmp-davy]
+    paths: ["tmp_davy/processar.py"]
+permissions:
+  contents: write
+jobs:
+  davy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      WHISPER_CACHE: ${{ github.workspace }}/.cache/whisper
+      TORCH_HOME: ${{ github.workspace }}/.cache/torch
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+      - run: pip install -q faster-whisper numpy torch torchaudio --extra-index-url https://download.pytorch.org/whl/cpu && pip install -q demucs
+      - run: python tmp_davy/processar.py
+      - run: |
+          git config user.name "corte-city-bot"; git config user.email "bot@users.noreply.github.com"
+          git add tmp_davy/*.json tmp_davy/*.jogo.flac tmp_davy/*.voz.flac
+          git commit -m "resultado davy [skip ci]" && git push
