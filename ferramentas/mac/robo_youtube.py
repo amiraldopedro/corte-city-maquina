@@ -24,6 +24,8 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+VERSAO = "2026-11-18b"
+
 REPO = "amiraldopedro/corte-city-maquina"
 TAG = "youtube-brutos"
 TRECHOS = 3
@@ -158,24 +160,34 @@ def _perfil_chrome() -> str | None:
 _PERFIL = _perfil_chrome()
 
 
-def ytdlp(*args, capturar=False):
-    """Tenta sem login; se o YouTube pedir login, tenta de novo com a conta reserva (clientes que funcionam com login)."""
+def ytdlp(*args, capturar=False, limite=None):
+    """Tenta sem login; se o YouTube pedir login (ou travar), tenta de novo com a conta reserva.
+    `limite` = segundos máximos por tentativa. Sem isso: 3 min pra ler informações, 15 min pra baixar."""
     env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
-    longo = any(a in args for a in ("-o",))  # download pode demorar; leitura de informações não
-    base = ["yt-dlp", "--no-warnings", "--no-playlist", "--socket-timeout", "30", "--cache-dir", str(PASTA / "cache")]
+    baixando = "-o" in args
+    limite = limite or (900 if baixando else 180)
+    # --retries/--fragment-retries baixos: quando o YouTube recusa os pedaços (403), o padrão do yt-dlp
+    # (10 tentativas por pedaço) fazia um Short de 50 s ficar 1 hora travado.
+    base = ["yt-dlp", "--no-warnings", "--no-playlist", "--socket-timeout", "20", "--retries", "3",
+            "--fragment-retries", "3", "--abort-on-unavailable-fragments", "--cache-dir", str(PASTA / "cache")]
     tentativas = [[]]
     if _PERFIL:
         for cliente in ("web_safari,mweb", "tv,web_safari", "default"):
             tentativas.append(["--cookies-from-browser", f"chrome:{_PERFIL}", "--sleep-requests", "1",
                                "--extractor-args", f"youtube:player_client={cliente}"])
     erro = ""
-    for extra in tentativas:
-        r = subprocess.run([*base, *extra, *args], capture_output=True, text=True, env=env,
-                           timeout=3600 if longo else 240)
+    for n, extra in enumerate(tentativas):
+        try:
+            r = subprocess.run([*base, *extra, *args], capture_output=True, text=True, env=env, timeout=limite)
+        except subprocess.TimeoutExpired:
+            erro = f"travou mais de {limite // 60} min ({'sem login' if not extra else 'com a conta reserva'})"
+            log(f"    yt-dlp {erro}: tentando de outro jeito")
+            continue  # travar quase sempre é o YouTube segurando o vídeo: outro cliente/login costuma resolver
         if r.returncode == 0:
             return r.stdout
-        erro = r.stderr.strip()[-300:]
-        if not any(k in erro for k in ("Sign in", "cookies", "age-restricted", "not available", "reloaded", "bot", "login", "rate-limit")):
+        erro = r.stderr.strip()[-300:] or f"yt-dlp saiu com código {r.returncode}"
+        if not any(k in erro for k in ("Sign in", "cookies", "age-restricted", "not available", "reloaded", "bot",
+                                       "login", "rate-limit", "403", "Forbidden", "fragment")):
             break  # erro que login não resolve (vídeo bloqueado no país, removido...)
     raise RuntimeError(erro)
 
@@ -188,7 +200,7 @@ def picos_heatmap(info: dict) -> list[tuple[float, float]]:
 def picos_volume(link: str, pasta: Path) -> list[tuple[float, float]]:
     """Sem gráfico: baixa só o áudio (leve) e mede o volume segundo a segundo."""
     audio = pasta / "audio.m4a"
-    ytdlp("-f", "worstaudio/bestaudio", "-o", str(audio), link)
+    ytdlp("-f", "worstaudio/bestaudio", "-o", str(audio), link, limite=2400)  # áudio de live de 4 h
     env = {**os.environ, "PATH": PATH_EXTRA + ":" + os.environ.get("PATH", "")}
     r = subprocess.run(["ffmpeg", "-i", str(audio), "-af",
                         "aresample=8000,asetnsamples=n=8000,astats=metadata=1:reset=1,"
@@ -252,7 +264,7 @@ def biblioteca(vid: str, item: dict):
             raise RuntimeError("vídeo longo demais pra biblioteca (máximo 30 min)")
         arq = pasta / f"bib_{vid}.mp4"
         ytdlp("-f", "bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]/bv*+ba/b", "--merge-output-format", "mp4",
-              "-o", str(arq), link)
+              "-o", str(arq), link, limite=3600)
         global TAG
         antigo, TAG = TAG, "biblioteca"
         try:
@@ -366,7 +378,7 @@ def modelo(vid: str, item: dict):
         info = json.loads(ytdlp("-J", link))
         arq = pasta / f"modelo_{vid}.mp4"
         ytdlp("-f", "bv*[height<=1920][ext=mp4]+ba[ext=m4a]/b[height<=1920]/bv*+ba/b",
-              "--merge-output-format", "mp4", "-o", str(arq), link)
+              "--merge-output-format", "mp4", "-o", str(arq), link, limite=300)  # é um Short: 5 min sobra
         aid = subir(arq, arq.name)
         atualizar_item(vid, {"status": "modelo_baixado", "asset_id": aid,
                              "titulo": info.get("title") or item.get("titulo", ""),
@@ -470,7 +482,7 @@ def processar(vid: str, item: dict):
         if jl:
             arq = pasta / f"yt_{vid}_longo.mp4"
             ytdlp("-f", "bv*[height<=720][ext=mp4]+ba[ext=m4a]/b[height<=720]/bv*+ba/b", "--merge-output-format", "mp4",
-                  "--download-sections", f"*{jl[0]:.0f}-{jl[1]:.0f}", "--force-keyframes-at-cuts", "-o", str(arq), link)
+                  "--download-sections", f"*{jl[0]:.0f}-{jl[1]:.0f}", "--force-keyframes-at-cuts", "-o", str(arq), link, limite=1800)
             longo = {"asset_id": subir(arq, arq.name), "inicio": jl[0], "fim": jl[1], "duracao": jl[1] - jl[0]}
             log(f"  trecho grande: {jl[0] / 60:.1f}-{jl[1] / 60:.1f} min enviado (vira corte longo)")
         atualizar_item(vid, {"status": "baixado", "longo": longo, "titulo": info.get("title", ""),
@@ -504,6 +516,7 @@ def main():
     log(f"  login do YouTube: perfil do Chrome '{_PERFIL}' (conta reserva)" if _PERFIL
         else "  login do YouTube: conta reserva não achada no Chrome, baixando sem login")
     _, fila = ler_fila()
+    sinal_de_vida(fila)
     try:
         tiktok_cacar(fila)
         _, fila = ler_fila()  # a caça pode ter posto itens novos
@@ -514,14 +527,46 @@ def main():
     if not pendentes:
         return
     prioridade = {"fonte": 0, "modelo": 1, "analise": 2, "biblioteca": 3}  # rápidos primeiro, reacts longos por último
-    for vid, item in sorted(pendentes.items(), key=lambda kv: prioridade.get(kv[1].get("modo"), 3)):
+    # quem já falhou vai pro fim da fila: um vídeo problemático não pode segurar todos os outros
+    ordem = sorted(pendentes.items(), key=lambda kv: (int(kv[1].get("tentativas", 0)),
+                                                      prioridade.get(kv[1].get("modo"), 3),
+                                                      kv[1].get("pedido_em") or ""))
+    inicio = time.time()
+    for n, (vid, item) in enumerate(ordem):
+        if n and time.time() - inicio > ORCAMENTO:
+            log(f"  rodada passou de {ORCAMENTO // 60} min: os outros {len(ordem) - n} ficam pra próxima (15 min)")
+            break
         try:
             processar(vid, item)
         except Exception as e:
             log(f"  ❌ {vid}: {e}")
             tentativas = int(item.get("tentativas", 0)) + 1
-            atualizar_item(vid, {"tentativas": tentativas, "erro": str(e)[:300],
+            atualizar_item(vid, {"tentativas": tentativas, "erro": str(e)[-300:],
                                  "status": "erro" if tentativas >= 3 else item.get("status", "esperando")})
+
+
+ORCAMENTO = 50 * 60  # segundos por rodada; o launchd chama de novo 15 min depois
+
+
+def sinal_de_vida(fila: dict):
+    """Marca na fila quando o robô passou (o Studio mostra isso). No máximo 1 vez por hora."""
+    marca = LOCAL / ".sinal_de_vida"
+    if marca.exists() and time.time() - marca.stat().st_mtime < 3600:
+        return
+    try:
+        for _ in range(4):
+            sha, f = ler_fila()
+            f["robo"] = {"visto_em": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                         "login": bool(_PERFIL), "versao": VERSAO}
+            corpo = {"message": "Robô do YouTube: sinal de vida [skip ci]", "sha": sha,
+                     "content": base64.b64encode(json.dumps(f, ensure_ascii=False, indent=1).encode()).decode()}
+            st, _ = api("PUT", "contents/estado/youtube.json", corpo)
+            if st in (200, 201):
+                marca.touch()
+                return
+            time.sleep(3)
+    except Exception as e:
+        log(f"  sinal de vida não foi ({str(e)[:60]})")
 
 
 def atualizar_sozinho():

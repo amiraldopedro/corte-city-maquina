@@ -383,11 +383,10 @@
    "id": "N-xHcvug3WI",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
-   "status": "erro",
+   "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:53:59+00:00",
    "atualizado_em": "2026-11-17T01:32:47+00:00",
-   "tentativas": 3,
-   "erro": "ERROR: [youtube] N-xHcvug3WI: Requested format is not available. Use --list-formats for a list of available formats"
+   "tentativas": 0
   },
   "d9hMmy0t0pg": {
    "id": "d9hMmy0t0pg",
@@ -512,8 +511,7 @@
    "dur": 29,
    "pedido_em": "2026-11-18T16:26:59+00:00",
    "atualizado_em": "2026-11-18T17:35:17+00:00",
-   "tentativas": 1,
-   "erro": "Command '['yt-dlp', '--no-warnings', '--no-playlist', '--socket-timeout', '30', '--cache-dir', '/Volumes/PortableSSD/CorteCity/cache', '-f', 'bv*[height<=1920][ext=mp4]+ba[ext=m4a]/b[height<=1920]/bv*+ba/b', '--merge-output-format', 'mp4', '-o', '/Volumes/PortableSSD/CorteCity/temporarios/cc_modelo_"
+   "tentativas": 0
   },
   "oTAEYTyTKeE": {
    "id": "oTAEYTyTKeE",
