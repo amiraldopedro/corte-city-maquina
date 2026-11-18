@@ -179,7 +179,10 @@ def lives_gringos(yt, canal, est_canal, est_fila, hoje: str) -> int:
     from .publicar import _gastar, tem_cota
     g = canal.gringos or {}
     handles = g.get("youtube") or []
-    if not g.get("ligado", True) or not handles or not tem_cota(est_canal, envios=2):
+    if not g.get("ligado", True) or not handles:
+        return 0
+    if not tem_cota(est_canal, envios=2):
+        print("  gringos: cota do YouTube apertada agora")
         return 0
     feitas = sum(1 for m in est_fila.momentos.values() if m.get("origem") == "gringo" and (m.get("pedido_em") or "")[:10] == hoje)
     if feitas >= 2:  # live de gringo rende vários cortes: 2 lives por dia já enchem o quadro
@@ -201,13 +204,16 @@ def lives_gringos(yt, canal, est_canal, est_fila, hoje: str) -> int:
         _gastar(est_canal, 101)
         ids = [it["id"]["videoId"] for it in r.get("items", []) if it["id"]["videoId"] not in est_fila.momentos]
         if not ids:
+            print(f"  gringos: {h} sem live nova encerrada nas últimas 36 h")
             continue
         info = yt.videos().list(part="snippet,statistics,liveStreamingDetails", id=",".join(ids)).execute()
         for v in info.get("items", []):
             sn = v["snippet"]
             if not (v.get("liveStreamingDetails") or {}).get("actualEndTime"):
+                print(f"  gringos: {h} ainda ao vivo ({sn.get('title', '')[:50]}): pego quando acabar")
                 continue
             if not re.search(r"gta|grand theft|vice city|leonida", sn.get("title", ""), re.I):
+                print(f"  gringos: {h} live sem GTA no título ({sn.get('title', '')[:50]})")
                 continue
             achadas.append({"id": v["id"], "titulo": sn["title"], "canal": sn["channelTitle"], "handle": h.lstrip("@"),
                             "views": int(v.get("statistics", {}).get("viewCount") or 0)})
