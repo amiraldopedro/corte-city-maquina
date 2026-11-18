@@ -66,6 +66,11 @@ def cacar(cfg) -> int:
     from .publicar import _gastar, tem_cota
     est_canal = Estado(canal.id)
     est_fila = fila()
+    tk = conf.get("tiktok") or {}
+    est_fila.dados["modelar_tiktok"] = {   # o robô do Mac lê isso da fila (ele não enxerga o config.yaml)
+        "ligado": bool(tk.get("ligado", True)), "por_dia": int(tk.get("por_dia", 2)),
+        "dias": int(tk.get("dias", 5)), "min_views": int(tk.get("min_views", 500000)),
+        "tags": list(tk.get("tags", ["gta6"])), "contas": list(tk.get("contas", []))}
     hoje = datetime.now(timezone.utc).date().isoformat()
     feitos = sum(1 for m in est_fila.momentos.values()
                  if m.get("modo") == "modelo" and (m.get("pedido_em") or "")[:10] == hoje)

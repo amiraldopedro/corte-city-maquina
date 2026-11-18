@@ -175,7 +175,7 @@ def ytdlp(*args, capturar=False):
         if r.returncode == 0:
             return r.stdout
         erro = r.stderr.strip()[-300:]
-        if not any(k in erro for k in ("Sign in", "cookies", "age-restricted", "not available", "reloaded", "bot")):
+        if not any(k in erro for k in ("Sign in", "cookies", "age-restricted", "not available", "reloaded", "bot", "login", "rate-limit")):
             break  # erro que login não resolve (vídeo bloqueado no país, removido...)
     raise RuntimeError(erro)
 
@@ -292,6 +292,69 @@ def fonte(vid: str, item: dict):
         log(f"  ✅ fonte {vid}: {info.get('title', '')[:60]}")
     finally:
         shutil.rmtree(pasta, ignore_errors=True)
+
+
+def tiktok_cacar(fila: dict):
+    """Acha TikToks de GTA 6 estourados e põe na fila como modelo (a máquina traduz e remonta).
+    Fontes: páginas de tag (quando o yt-dlp estiver com o extrator de tag funcionando — ele se
+    atualiza toda noite) e os perfis da lista `contas` (funciona hoje). Roda a cada 6 h."""
+    conf = fila.get("modelar_tiktok") or {}
+    if not conf.get("ligado"):
+        return
+    marca = LOCAL / ".tiktok_cacado"
+    if marca.exists() and time.time() - marca.stat().st_mtime < 6 * 3600:
+        return
+    marca.touch()
+    hoje = datetime.now(timezone.utc).date().isoformat()
+    feitos = sum(1 for m in fila.get("momentos", {}).values() if m.get("plataforma") == "tiktok"
+                 and m.get("modo") == "modelo" and (m.get("pedido_em") or "")[:10] == hoje)
+    vagas = int(conf.get("por_dia", 2)) - feitos
+    if vagas <= 0:
+        return
+    fontes = ([f"https://www.tiktok.com/tag/{t}" for t in conf.get("tags", [])]
+              + [f"https://www.tiktok.com/@{c.lstrip('@')}" for c in conf.get("contas", [])])
+    candidatos = []
+    for fonte in fontes:
+        try:
+            bruto = json.loads(ytdlp("--flat-playlist", "--playlist-items", "1:15", "-J", fonte))
+        except Exception as e:
+            log(f"  tiktok: {fonte.rsplit('/', 1)[-1]} não deu ({str(e)[:70]})")
+            continue
+        for e in (bruto.get("entries") or [])[:15]:
+            tid = str(e.get("id") or "")
+            if not tid or f"tk_{tid}" in fila.get("momentos", {}):
+                continue
+            url = e.get("url") or e.get("webpage_url") or ""
+            views, ts = e.get("view_count"), e.get("timestamp")
+            if views is None or ts is None:  # lista rasa sem números: pergunta do vídeo
+                try:
+                    i = json.loads(ytdlp("-J", url))
+                    views, ts = i.get("view_count") or 0, i.get("timestamp") or 0
+                    e["description"] = i.get("description") or e.get("title") or ""
+                    e["uploader"] = i.get("uploader") or i.get("channel") or ""
+                except Exception:
+                    continue
+            texto = f"{e.get('title') or ''} {e.get('description') or ''}"
+            idade_dias = (time.time() - (ts or 0)) / 86400
+            if (views or 0) < int(conf.get("min_views", 500000)) or idade_dias > int(conf.get("dias", 5)):
+                continue
+            if not re.search(r"gta|grand theft|vice city|leonida", texto, re.I):
+                continue
+            candidatos.append({"id": tid, "url": url, "views": views, "texto": texto.strip()[:120],
+                               "autor": e.get("uploader") or e.get("channel") or ""})
+    candidatos.sort(key=lambda c: -c["views"])
+    vistos = set()
+    for c in candidatos:
+        if vagas <= 0:
+            break
+        if c["autor"] in vistos:
+            continue
+        vistos.add(c["autor"])
+        atualizar_item(f"tk_{c['id']}", {"modo": "modelo", "status": "modelo_pendente", "plataforma": "tiktok",
+                                         "link": c["url"], "titulo": c["texto"], "canal_nome": c["autor"],
+                                         "views_yt": c["views"], "pedido_em": datetime.now(timezone.utc).isoformat(timespec="seconds")})
+        log(f"  🔥 tiktok na fila: {c['texto'][:60]} ({c['autor']}, {c['views']:,} views)")
+        vagas -= 1
 
 
 def modelo(vid: str, item: dict):
@@ -441,6 +504,11 @@ def main():
     log(f"  login do YouTube: perfil do Chrome '{_PERFIL}' (conta reserva)" if _PERFIL
         else "  login do YouTube: conta reserva não achada no Chrome, baixando sem login")
     _, fila = ler_fila()
+    try:
+        tiktok_cacar(fila)
+        _, fila = ler_fila()  # a caça pode ter posto itens novos
+    except Exception as e:
+        log(f"  tiktok: caça falhou ({str(e)[:100]})")
     pendentes = {k: v for k, v in fila.get("momentos", {}).items()
                  if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente", "analise_pendente", "modelo_pendente")}
     if not pendentes:

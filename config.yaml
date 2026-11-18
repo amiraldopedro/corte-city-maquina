@@ -52,6 +52,14 @@ modelar:
   max_seg: 75
   termos: ["GTA 6", "GTA 6 gameplay"]
   voz: "pt-BR-AntonioNeural"
+  # TikToks estourados tambem viram modelo (o robô do Mac caça e baixa; Reels/X entram por link manual)
+  tiktok:
+    ligado: true
+    por_dia: 2
+    dias: 5
+    min_views: 500000
+    tags: ["gta6", "gta6brasil"]   # a caça por tag liga sozinha quando o yt-dlp consertar o extrator
+    contas: []                     # @perfis de clipes de GTA 6 pra varrer todo dia (manda que eu adiciono)
 
 # Série de reacts: a máquina busca, nos dias de cada evento, clipes com estas palavras no título
 # (dos streamers da lista e de qualquer streamer do idioma do canal). Clipes da Twitch não expiram.

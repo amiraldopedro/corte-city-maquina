@@ -34,21 +34,33 @@ def fila() -> Estado:
     return Estado("youtube")
 
 
+REDES = {"tiktok.com": ("tk", "tiktok"), "vm.tiktok": ("tk", "tiktok"), "instagram.com": ("ig", "reels"),
+         "x.com": ("x", "x"), "twitter.com": ("x", "x"), "kick.com": ("kick", "kick"),
+         "facebook.com": ("fb", "facebook"), "fb.watch": ("fb", "facebook")}
+
+
 def pedir(links: list[str], modo: str = "cortes") -> int:
+    import hashlib
     est = fila()
     novos = 0
     for link in links:
         vid = id_do_video(link)
+        rede = next((v for d, v in REDES.items() if d in link), None)
+        if not vid and rede and modo == "modelo":  # TikTok/Reels/X/Kick: só no modo modelo
+            vid = f"{rede[0]}_{hashlib.md5(link.encode()).hexdigest()[:10]}"
         if not vid:
-            print(f"  link do YouTube inválido: {link}")
+            print(f"  link inválido para esse modo: {link}")
             continue
         if vid in est.momentos and est.momentos[vid].get("status") not in ("erro",):
             print(f"  já está na fila: {vid}")
             continue
-        est.momentos[vid] = {"id": vid, "link": f"https://www.youtube.com/watch?v={vid}",
-                             "status": "biblioteca_pendente" if modo == "biblioteca" else "esperando", "modo": modo, "pedido_em": agora(), "atualizado_em": agora()}
+        url = link if rede else f"https://www.youtube.com/watch?v={vid}"
+        status = {"biblioteca": "biblioteca_pendente", "modelo": "modelo_pendente"}.get(modo, "esperando")
+        est.momentos[vid] = {"id": vid, "link": url, "status": status, "modo": modo,
+                             "plataforma": (rede[1] if rede else "youtube"),
+                             "pedido_em": agora(), "atualizado_em": agora()}
         novos += 1
-        print(f"  ✅ na fila do robô do Mac: https://youtu.be/{vid}")
+        print(f"  ✅ na fila do robô do Mac ({modo}): {url}")
     est.salvar()
     return novos
 
