@@ -438,15 +438,47 @@
   "GSoOHnDOMKI": {
    "id": "GSoOHnDOMKI",
    "link": "https://www.youtube.com/watch?v=GSoOHnDOMKI",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:13+00:00",
-   "atualizado_em": "2026-11-18T16:24:13+00:00",
+   "atualizado_em": "2026-11-18T22:17:59+00:00",
    "auto": true,
    "titulo": "A MELHOR ANÁLISE que VOCÊ VAI VER das NOVAS IMAGENS de GTA 6",
    "canal_nome": "Cortes do Davy Jones [OFICIAL]",
    "isolar_voz": false,
-   "views_yt": 241341
+   "views_yt": 241341,
+   "longo": {
+    "asset_id": 765216549,
+    "inicio": 930.0,
+    "fim": 1530.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "CortesdoDavyJones",
+   "canal_id": "UCUTMBmYeeK1S-wZ6Jo9WbWg",
+   "duracao": 1542.0,
+   "segmentos": [
+    {
+     "asset_id": 765127555,
+     "inicio": 41.0,
+     "fim": 111.0,
+     "duracao": 70.0,
+     "forca": 1.011
+    },
+    {
+     "asset_id": 765140667,
+     "inicio": 764.0,
+     "fim": 834.0,
+     "duracao": 70.0,
+     "forca": 1.035
+    },
+    {
+     "asset_id": 765154084,
+     "inicio": 1385.0,
+     "fim": 1455.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "LCNP8-RqI0g": {
    "id": "LCNP8-RqI0g",
