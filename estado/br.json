@@ -3623,7 +3623,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "A Lucia malhando no GTA 6 💪 a academia é de verdade #gta6 #shorts",
    "descricao": "No gameplay do GTA 6, a Lucia aparece no supino. Segundo as prévias, a academia tem matrícula, minigame de tempo e o músculo vai embora se você parar.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
    "tags": [
@@ -3641,23 +3641,11 @@
    "video_asset": 757377955,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_16_academia.jpg",
    "thumb_asset": 757378021,
-   "envio_pendente": {
-    "titulo": "A Lucia malhando no GTA 6 💪 a academia é de verdade #gta6 #shorts",
-    "descricao": "No gameplay do GTA 6, a Lucia aparece no supino. Segundo as prévias, a academia tem matrícula, minigame de tempo e o músculo vai embora se você parar.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
-    "tags": [
-     "gta 6",
-     "academia gta 6",
-     "lucia gta 6",
-     "gameplay gta 6",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-20T18:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-17T02:56:26+00:00",
-   "versao": 2
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:36:16+00:00",
+   "versao": 2,
+   "youtube_id": "iGuoXQEXLjw",
+   "postado_em": "2026-11-18T11:36:16+00:00"
   },
   "contagem_17_paraquedas": {
    "id": "contagem_17_paraquedas",
@@ -4086,9 +4074,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 600
+  "2026-11-18": 700
  },
  "envios": {
-  "2026-11-18": 6
+  "2026-11-18": 7
  }
 }
