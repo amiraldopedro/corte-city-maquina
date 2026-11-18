@@ -7771,8 +7771,50 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "novo",
-   "criado_em": "2026-11-18T21:01:57+00:00"
+   "status": "postado",
+   "criado_em": "2026-11-18T21:01:57+00:00",
+   "youtube_id": "PJiH8IZHgbo",
+   "publicar_em": "2026-11-19T12:30:00Z",
+   "postado_em": "2026-11-18T21:19:31+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Calango no GTA 6 tentou buzinar e pulou do carro sem querer",
+   "gancho": "SOCORRO",
+   "descricao": "Calango no GTA 6 tentou buzinar e pulou do carro sem querer\nNo GTA 6, o Calango tentou buzinar, acabou pulando da picape em movimento e foi parar no mato. Sem carro, ele roubou uma van de um motorista na rua. Cortes e momentos engraçados da reação do Calango jogando GTA 6.\n\n🎮 Live original: https://twitch.tv/calango\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "calango gta 6",
+    "calango cortes",
+    "pulou do carro gta 6",
+    "buzinar gta 6",
+    "roubar carro gta 6",
+    "momentos engraçados gta 6",
+    "reação gta 6",
+    "gta 6 gameplay",
+    "gta 6",
+    "cortes gta",
+    "cortes de live gta",
+    "calango",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-18T21:19:23+00:00",
+   "corte": [
+    6.0,
+    31.6
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 8,
+   "duracao": 25.6,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932202970_6272.mp4",
+   "video_asset": 765042339,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932202970_6272.jpg",
+   "thumb_asset": 765042437,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932202970_6272_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932202970_6272_kit.zip",
+   "atualizado_em": "2026-11-18T21:19:31+00:00"
   },
   "2932201544_10511": {
    "id": "2932201544_10511",
@@ -8604,9 +8646,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 3508
+  "2026-11-18": 3608
  },
  "envios": {
-  "2026-11-18": 28
+  "2026-11-18": 29
  }
 }
