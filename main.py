@@ -99,6 +99,8 @@ def cacar_gringos(cfg: Config, canal: Canal, est: Estado, tw) -> int:
     if vagas <= 0:
         return 0
     jogos = tw.ids_jogos(["Grand Theft Auto VI"])
+    # antes do jogo sair (e nas reações), o gringo está em "Just Chatting" falando de GTA: vale com palavra-chave
+    conversa = tw.ids_jogos(cfg.jogos_com_palavra) if cfg.jogos_com_palavra else {}
     usuarios = tw.usuarios([x["login"].lower() for x in lista])
     candidatos = []
     for x in lista:
@@ -110,17 +112,22 @@ def cacar_gringos(cfg: Config, canal: Canal, est: Estado, tw) -> int:
         except Exception as e:
             log(f"  gringo {x['nome']}: Twitch falhou ({str(e)[:80]})")
             continue
-        ms = agrupar(clipes, jogos, x["login"].lower(), canal.id, 2, int(g.get("min_views", 1500)), None, None,
+        ms = agrupar(clipes, jogos, x["login"].lower(), canal.id, 2, int(g.get("min_views", 1500)), conversa,
+                     list(cfg.palavras) + ["gta 6", "gta vi", "gta6", "vice city", "leonida"],
                      int(g.get("um_clipe_views", 6000)), int(g.get("quentes", 12)))
         for m in ms:
             m.update(gringo=True, quadro="gringos", nome=x["nome"], isolar_voz=False)
             candidatos.append(m)
-        est.marcar_clipes([c["id"] for c in clipes])
         if clipes:
-            log(f"  gringo {x['nome']}: {len(clipes)} clipes novos, {len(ms)} momentos de GTA 6")
+            from collections import Counter
+            top = Counter(c.get("game_id") or "?" for c in clipes).most_common(2)
+            nomes = {**conversa, **jogos}
+            log(f"  gringo {x['nome']}: {len(clipes)} clipes novos, {len(ms)} momentos de GTA"
+                + ("" if ms else " (jogando: " + ", ".join(f"{nomes.get(gid, 'outro jogo')}={n}" for gid, n in top) + ")"))
     candidatos.sort(key=lambda m: -m.get("score", 0))
     novos = 0
     for m in candidatos[:vagas]:
+        est.marcar_clipes(m["clipe_ids"])  # só os usados: clipe de GTA que ainda vai crescer pode voltar depois
         m = priorizar(m)
         m["quadro"] = "gringos"          # priorizar() recalcula o quadro: aqui ele é sempre "gringos"
         m["score"] = m.get("score", 0) * 0.35  # clipe gringo tem 10x mais view: sem isso ele tomaria a fila toda
@@ -515,7 +522,10 @@ def produzir(cfg: Config):
         est = Estado(canal.id)
         try:
             yt = None
-            if canal.postar == "automatico" and not TESTE:
+            if canal.postar == "automatico" and not TESTE and not canal.refresh_token:
+                log(f"  {canal.nome}: sem a chave do YouTube (YT_REFRESH_TOKEN_{canal.id.upper()} nos Secrets): "
+                    "os vídeos ficam prontos no Studio pra postar à mão")
+            elif canal.postar == "automatico" and not TESTE:
                 from maquina.youtube import YouTube
                 yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
                 from maquina.publicar import enviar_pendentes
