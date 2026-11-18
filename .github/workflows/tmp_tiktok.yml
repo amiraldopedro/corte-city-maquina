@@ -1,0 +1,18 @@
+name: tmp teste tiktok
+on:
+  push:
+    branches: [tmp-tiktok]
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: |
+          echo "== tikwm =="
+          curl -sS -m 20 "https://www.tikwm.com/api/feed/search?keywords=gta6&count=12" -H "User-Agent: Mozilla/5.0" | head -c 1200 || true
+          echo; echo "== tiktok tag =="
+          curl -sS -m 20 -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15" "https://www.tiktok.com/tag/gta6" -o pg.html -w "http %{http_code} bytes %{size_download}\n" || true
+          grep -o "UNIVERSAL_DATA_FOR_REHYDRATION" pg.html | head -1 || echo "sem json embutido"
+          echo "== yt-dlp tiktok =="
+          pip install -q yt-dlp
+          yt-dlp -J --no-warnings "https://www.tiktok.com/@gta/video/7304823445380729119" 2>&1 | head -c 300 || true
