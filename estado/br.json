@@ -5792,6 +5792,52 @@
    "publicar_em": "2026-11-18T19:30:00Z",
    "postado_em": "2026-11-18T14:56:25+00:00",
    "envio_pendente": null
+  },
+  "manual_dava_fimmapa_longo": {
+   "id": "manual_dava_fimmapa_longo",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-18T14:56:59+00:00",
+   "manual": true,
+   "views": 0,
+   "n_clipes": 0,
+   "score": 0,
+   "prioridade": false,
+   "tipo": "longo",
+   "streamer": "davyjones",
+   "nome": "DavyJones",
+   "plataforma": "kick",
+   "jogo": "Grand Theft Auto VI",
+   "quadro": "gta6",
+   "titulo": "O que tem no FIM DO MAPA do GTA 6? O Dava foi até o limite e deu ruim",
+   "gancho": "FIM DO MAPA",
+   "descricao": "O que tem no FIM DO MAPA do GTA 6? O Dava foi até o limite e deu ruim\nAo vivo na Kick, com quase 200 mil pessoas assistindo, o Dava pegou uma lancha no GTA 6 e acelerou reto pelo Oceano Atlântico pra descobrir onde o mapa termina. Ele chegou no limite, continuou... e o oceano tinha outros planos. No final, um bônus: a animação da cervejinha do Jason.\n\n00:00 O fim do mapa\n00:18 Parte 1 - Rumo ao oceano\n01:48 Parte 2 - O limite do mapa\n02:27 Parte 3 - Além do limite\n04:03 Parte 4 - O fim do mundo?\n05:11 Bônus - A cervejinha do Jason\n\nGameplay: DavyJones (Kick). Narração e edição: Corte City.\n\n#gta6 #gtavi",
+   "tags": [
+    "fim do mapa gta 6",
+    "o que tem no fim do mapa do gta 6",
+    "limite do mapa gta 6",
+    "gta 6 oceano",
+    "gta 6 lancha",
+    "dava gta 6",
+    "davyjones gta 6",
+    "gta 6 mapa",
+    "gta 6 gameplay",
+    "gta 6",
+    "gta vi",
+    "gta 6 curiosidades",
+    "gta 6 detalhes",
+    "corte city"
+   ],
+   "feito_em": "2026-11-18T14:56:59+00:00",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/manual_dava_fimmapa_longo.mp4",
+   "video_asset": 763805735,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/manual_dava_fimmapa_longo.jpg",
+   "thumb_asset": 763807266,
+   "atualizado_em": "2026-11-18T14:58:37+00:00",
+   "youtube_id": "frVPAm78H_o",
+   "publicar_em": "2026-11-19T00:30:00Z",
+   "postado_em": "2026-11-18T14:58:37+00:00",
+   "envio_pendente": null
   }
  },
  "clipes_vistos": [
@@ -6331,9 +6377,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 2400
+  "2026-11-18": 2500
  },
  "envios": {
-  "2026-11-18": 24
+  "2026-11-18": 25
  }
 }
