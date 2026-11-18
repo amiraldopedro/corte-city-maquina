@@ -3653,7 +3653,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "Pular de paraquedas em Vice City no GTA 6 🪂 #gta6 #shorts",
    "descricao": "No gameplay estendido do GTA 6, dá pra ver um salto de paraquedas por cima de Vice City, com a cidade inteira lá embaixo.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
    "tags": [
@@ -3671,22 +3671,10 @@
    "video_asset": 757357193,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_17_paraquedas.jpg",
    "thumb_asset": 757357246,
-   "envio_pendente": {
-    "titulo": "Pular de paraquedas em Vice City no GTA 6 🪂 #gta6 #shorts",
-    "descricao": "No gameplay estendido do GTA 6, dá pra ver um salto de paraquedas por cima de Vice City, com a cidade inteira lá embaixo.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
-    "tags": [
-     "gta 6",
-     "paraquedas gta 6",
-     "vice city",
-     "gameplay gta 6",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-20T23:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-17T02:49:01+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:36:29+00:00",
+   "youtube_id": "NY36DIg50wE",
+   "postado_em": "2026-11-18T11:36:29+00:00"
   },
   "contagem_18_assalto_loja": {
    "id": "contagem_18_assalto_loja",
@@ -4074,9 +4062,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 700
+  "2026-11-18": 800
  },
  "envios": {
-  "2026-11-18": 7
+  "2026-11-18": 8
  }
 }
