@@ -71,6 +71,7 @@ def cacar(cfg) -> int:
         "ligado": bool(tk.get("ligado", True)), "por_dia": int(tk.get("por_dia", 2)),
         "dias": int(tk.get("dias", 5)), "min_views": int(tk.get("min_views", 500000)),
         "tags": list(tk.get("tags", ["gta6"])), "contas": list(tk.get("contas", []))}
+    est_fila.salvar()  # mesmo sem vaga hoje: o robô do Mac precisa dessa config pra caçar sozinho
     hoje = datetime.now(timezone.utc).date().isoformat()
     feitos = sum(1 for m in est_fila.momentos.values()
                  if m.get("modo") == "modelo" and (m.get("pedido_em") or "")[:10] == hoje)
