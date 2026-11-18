@@ -8,11 +8,41 @@ jobs:
     timeout-minutes: 5
     steps:
       - run: |
-          echo "== tikwm =="
-          curl -sS -m 20 "https://www.tikwm.com/api/feed/search?keywords=gta6&count=12" -H "User-Agent: Mozilla/5.0" | head -c 1200 || true
-          echo; echo "== tiktok tag =="
-          curl -sS -m 20 -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15" "https://www.tiktok.com/tag/gta6" -o pg.html -w "http %{http_code} bytes %{size_download}\n" || true
-          grep -o "UNIVERSAL_DATA_FOR_REHYDRATION" pg.html | head -1 || echo "sem json embutido"
-          echo "== yt-dlp tiktok =="
-          pip install -q yt-dlp
-          yt-dlp -J --no-warnings "https://www.tiktok.com/@gta/video/7304823445380729119" 2>&1 | head -c 300 || true
+          UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15"
+          curl -sS -m 20 -A "$UA" "https://www.tiktok.com/tag/gta6" -o pg.html -w "tag http %{http_code} bytes %{size_download}\n"
+          curl -sS -m 20 -A "$UA" "https://www.tiktok.com/search?q=gta%206" -o busca.html -w "busca http %{http_code} bytes %{size_download}\n" || true
+          python3 - <<'P'
+          import json, re
+          for nome in ("pg.html", "busca.html"):
+              try:
+                  h = open(nome, encoding="utf-8", errors="ignore").read()
+              except Exception:
+                  continue
+              m = re.search(r'id="__UNIVERSAL_DATA_FOR_REHYDRATION__"[^>]*>(.*?)</script>', h, re.S)
+              print("==", nome, "json:", bool(m))
+              if not m:
+                  continue
+              d = json.loads(m.group(1))
+              escopo = d.get("__DEFAULT_SCOPE__", {})
+              print(" chaves:", [k for k in escopo if "webapp" in k][:12])
+              def acha_itens(o, prof=0):
+                  if prof > 6: return None
+                  if isinstance(o, dict):
+                      for k, v in o.items():
+                          if k in ("itemList", "item_list", "videoList") and isinstance(v, list) and v:
+                              return v
+                          r = acha_itens(v, prof + 1)
+                          if r: return r
+                  elif isinstance(o, list):
+                      for v in o[:8]:
+                          r = acha_itens(v, prof + 1)
+                          if r: return r
+              itens = acha_itens(escopo)
+              print(" itens:", len(itens) if itens else 0)
+              if itens:
+                  i = itens[0]
+                  print(" exemplo:", json.dumps({"id": i.get("id"), "desc": (i.get("desc") or "")[:60],
+                        "autor": (i.get("author") or {}).get("uniqueId"),
+                        "views": (i.get("stats") or {}).get("playCount"),
+                        "t": i.get("createTime")}, ensure_ascii=False))
+          P
