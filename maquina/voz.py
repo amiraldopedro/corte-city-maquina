@@ -73,6 +73,33 @@ def isolar_voz(entrada: Path, saida: Path) -> Path:
     return saida
 
 
+def tirar_voz(entrada: Path, saida: Path) -> Path:
+    """O contrário do isolar: gera um áudio (flac) SEM a voz — só o som do jogo/música.
+    Usado nos Shorts modelados: a fala original sai e a narração nova entra por cima."""
+    _garantir()
+    import torch
+    from demucs.apply import apply_model
+    modelo = _modelo()
+    r = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(entrada), "-vn", "-ac", "2", "-ar", str(SR),
+                        "-f", "f32le", "-"], capture_output=True, timeout=900, check=True)
+    audio = np.frombuffer(r.stdout, dtype=np.float32).reshape(-1, 2).T.copy()
+    if audio.shape[1] < SR:
+        raise RuntimeError("áudio curto demais para separar")
+    wav = torch.from_numpy(audio)
+    ref = wav.mean(0)
+    media, desvio = ref.mean(), ref.std() + 1e-8
+    with torch.no_grad():
+        fontes = apply_model(modelo, ((wav - media) / desvio)[None], device="cpu", split=True,
+                             overlap=0.1, progress=False)[0]
+    jogo = sum(fontes[i] for i, nome in enumerate(modelo.sources) if nome != "vocals") * desvio + media
+    pcm = jogo.T.contiguous().numpy().astype(np.float32).tobytes()
+    pr = subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "f32le", "-ar", str(SR), "-ac", "2",
+                         "-i", "pipe:0", "-c:a", "flac", str(saida)], input=pcm, capture_output=True, timeout=900)
+    if pr.returncode != 0:
+        raise RuntimeError(f"ffmpeg (som do jogo): {pr.stderr.decode()[-400:]}")
+    return saida
+
+
 def tentar_isolar(bruto: Path) -> Path | None:
     """Versão com voz isolada ao lado do bruto (reaproveita se já existir). None se falhar."""
     destino = bruto.with_name(bruto.stem + ".voz.mp4")

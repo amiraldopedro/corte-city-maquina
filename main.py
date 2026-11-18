@@ -438,6 +438,11 @@ def tem_trabalho(cfg: Config) -> bool:
 def produzir(cfg: Config):
     """Etapa pesada: baixa, transcreve, edita e deixa pronto para postar (até a meta diária de cada canal)."""
     falhou = False
+    try:  # Shorts virais que o Mac baixou pra modelar: traduz, troca a voz e agenda
+        from maquina import modelar
+        modelar.montar(cfg)
+    except Exception as e:
+        log(f"  aviso: modelagem de Shorts falhou agora ({str(e)[:160]})")
     for canal in cfg.canais_ativos():
         log(f"== {canal.nome} ({canal.modo})")
         est = Estado(canal.id)
@@ -1263,7 +1268,7 @@ def acao_painel(cfg: Config, a):
 
 def main():
     p = argparse.ArgumentParser(description="Máquina de cortes GTA 6")
-    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado", "postar_narrado", "pendentes", "contagem"])
+    p.add_argument("comando", choices=["cacar", "reacts", "fila", "produzir", "numeros", "painel", "sincronizar", "compilado", "bloquear", "apagar", "teste", "simular", "noticias", "youtube_pedir", "youtube_processar", "youtube_auto", "narrado", "postar_narrado", "pendentes", "contagem", "modelar"])
     p.add_argument("alvo", nargs="?", default="")
     p.add_argument("--canal", default="br")
     p.add_argument("--sem-whisper", action="store_true")
@@ -1317,6 +1322,9 @@ def main():
     elif a.comando == "youtube_auto":
         from maquina import youtube_auto
         youtube_auto.rodar(cfg)
+    elif a.comando == "modelar":
+        from maquina import modelar
+        modelar.cacar(cfg)
     elif a.comando == "noticias":
         fazer_noticias(cfg, [l for l in re.split(r"[\s,]+", a.links) if re.search(r"(x|twitter)\.com/.+/status/\d+", l)])
     elif a.comando == "simular":

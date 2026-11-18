@@ -57,6 +57,44 @@ def buscar(yt, conf: dict, ja: set[str]) -> list[dict]:
     return bons
 
 
+def buscar_lives(yt, conf: dict, ja: set[str]) -> list[dict]:
+    """Lives de GTA 6 que acabaram de terminar, de QUALQUER canal BR (não só os streamers da lista).
+    O robô do Mac acha os melhores trechos sozinho (gráfico de mais repetidos + picos de volume)."""
+    lv = conf.get("lives") or {}
+    desde = (datetime.now(timezone.utc) - timedelta(hours=int(lv.get("horas", 48)))).isoformat(timespec="seconds").replace("+00:00", "Z")
+    ids = []
+    for termo in lv.get("termos", ["GTA 6"]):
+        r = yt.search().list(q=termo, part="id", type="video", eventType="completed", order="viewCount",
+                             maxResults=25, publishedAfter=desde, regionCode="BR",
+                             relevanceLanguage="pt").execute()
+        ids += [it["id"]["videoId"] for it in r.get("items", []) if it["id"]["videoId"] not in ja]
+    ids = list(dict.fromkeys(ids))
+    videos = []
+    for i in range(0, len(ids), 50):
+        r = yt.videos().list(part="snippet,statistics,contentDetails,liveStreamingDetails",
+                             id=",".join(ids[i:i + 50])).execute()
+        videos += r.get("items", [])
+    bons = []
+    for v in videos:
+        s, st = v["snippet"], v.get("statistics", {})
+        live = v.get("liveStreamingDetails") or {}
+        dur = _segundos(v["contentDetails"].get("duration"))
+        views = int(st.get("viewCount") or 0)
+        lingua = (s.get("defaultAudioLanguage") or s.get("defaultLanguage") or "pt")[:2]
+        if not live.get("actualEndTime"):   # ainda no ar (ou nunca foi live): o download travaria
+            continue
+        if OFICIAIS.search(s.get("channelTitle", "")) or lingua not in ("pt", ""):
+            continue
+        if not (1200 <= dur <= 12 * 3600) or views < int(lv.get("min_views", 20000)):
+            continue
+        if not re.search(r"gta|grand theft", s.get("title", ""), re.I):
+            continue
+        bons.append({"id": v["id"], "titulo": s["title"], "canal": s["channelTitle"], "views": views,
+                     "duracao": dur, "react": False})
+    bons.sort(key=lambda x: -x["views"])
+    return bons
+
+
 def rodar(cfg) -> int:
     """Põe os melhores vídeos novos do dia na fila do robô do Mac. Devolve quantos entraram."""
     conf = cfg.youtube_auto
@@ -97,4 +135,29 @@ def rodar(cfg) -> int:
                                               isolar_voz=v["react"], views_yt=v["views"])
             print(f"  🤖 {v['titulo'][:70]} ({v['canal']}, {v['views']:,} views)")
     est_fila.salvar()
-    return len(escolhidos)
+    total = len(escolhidos)
+
+    # ---- lives encerradas de GTA 6 (qualquer canal BR) ----
+    lv = conf.get("lives") or {}
+    if lv.get("ligado", True):
+        feitas_hoje = sum(1 for m in est_fila.momentos.values()
+                          if m.get("origem") == "live" and (m.get("pedido_em") or "")[:10] == hoje)
+        vagas_lives = int(lv.get("por_dia", 3)) - feitas_hoje
+        if vagas_lives > 0 and tem_cota(est_canal, envios=2):
+            lives = buscar_lives(yt, conf, set(est_fila.momentos))
+            _gastar(est_canal, 100 * len(lv.get("termos", [1])) + 2)
+            est_canal.salvar()
+            escolhidas = lives[:vagas_lives]
+            if escolhidas:
+                pedir([f"https://www.youtube.com/watch?v={v['id']}" for v in escolhidas])
+                est_fila = fila()
+                for v in escolhidas:
+                    if v["id"] in est_fila.momentos:
+                        est_fila.momentos[v["id"]].update(auto=True, origem="live", titulo=v["titulo"],
+                                                          canal_nome=v["canal"], views_yt=v["views"])
+                        print(f"  📡 live: {v['titulo'][:66]} ({v['canal']}, {v['views']:,} views, {v['duracao'] // 3600}h{v['duracao'] % 3600 // 60:02d})")
+                est_fila.salvar()
+                total += len(escolhidas)
+            else:
+                print("  nenhuma live encerrada de GTA 6 passou no filtro agora")
+    return total

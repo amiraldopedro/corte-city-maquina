@@ -71,6 +71,7 @@ class Config:
     lancado: bool = False
     noticias: dict = field(default_factory=dict)
     youtube_auto: dict = field(default_factory=dict)
+    modelar: dict = field(default_factory=dict)
     twitch_client_id: str = ""
     twitch_client_secret: str = ""
     yt_client_id: str = ""
@@ -151,6 +152,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
         janela_busca_horas=int(bruto.get("janela_busca_horas", 24)),
         noticias=dict(bruto.get("noticias") or {}),
         youtube_auto=dict(bruto.get("youtube_auto") or {}),
+        modelar=dict(bruto.get("modelar") or {}),
         minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
         um_clipe_views=int(mm.get("um_clipe_views", 3 * int(mm.get("views", 150)))), lancado=lancado,
         clipes_quentes=int(mm.get("quentes", 6)),

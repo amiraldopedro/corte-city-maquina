@@ -294,6 +294,27 @@ def fonte(vid: str, item: dict):
         shutil.rmtree(pasta, ignore_errors=True)
 
 
+def modelo(vid: str, item: dict):
+    """Short viral de referência: baixa o vídeo INTEIRO (é curto) pra máquina traduzir e remontar."""
+    link = item.get("link") or f"https://www.youtube.com/watch?v={vid}"
+    TEMP.mkdir(exist_ok=True)
+    pasta = Path(tempfile.mkdtemp(prefix="cc_modelo_", dir=TEMP))
+    try:
+        info = json.loads(ytdlp("-J", link))
+        arq = pasta / f"modelo_{vid}.mp4"
+        ytdlp("-f", "bv*[height<=1920][ext=mp4]+ba[ext=m4a]/b[height<=1920]/bv*+ba/b",
+              "--merge-output-format", "mp4", "-o", str(arq), link)
+        aid = subir(arq, arq.name)
+        atualizar_item(vid, {"status": "modelo_baixado", "asset_id": aid,
+                             "titulo": info.get("title") or item.get("titulo", ""),
+                             "canal_nome": info.get("channel") or info.get("uploader") or item.get("canal_nome", ""),
+                             "idioma_falado": info.get("language") or "",
+                             "url_final": info.get("webpage_url") or link})
+        log(f"  ✅ modelo {vid}: {(info.get('title') or '')[:60]}")
+    finally:
+        shutil.rmtree(pasta, ignore_errors=True)
+
+
 def analise(vid: str, item: dict):
     """Estuda um vídeo de referência: legenda, cortes por minuto e folhas de quadros (a cada 2 s)."""
     import zipfile
@@ -353,6 +374,8 @@ def processar(vid: str, item: dict):
         return analise(vid, item)
     if item.get("modo") == "biblioteca":
         return biblioteca(vid, item)
+    if item.get("modo") == "modelo":
+        return modelo(vid, item)
     if item.get("modo") == "fonte":
         return fonte(vid, item)
     link = item.get("link") or f"https://www.youtube.com/watch?v={vid}"
@@ -419,10 +442,10 @@ def main():
         else "  login do YouTube: conta reserva não achada no Chrome, baixando sem login")
     _, fila = ler_fila()
     pendentes = {k: v for k, v in fila.get("momentos", {}).items()
-                 if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente", "analise_pendente")}
+                 if v.get("status") in ("esperando", "biblioteca_pendente", "fonte_pendente", "analise_pendente", "modelo_pendente")}
     if not pendentes:
         return
-    prioridade = {"fonte": 0, "analise": 1, "biblioteca": 2}  # rápidos primeiro, reacts longos por último
+    prioridade = {"fonte": 0, "modelo": 1, "analise": 2, "biblioteca": 3}  # rápidos primeiro, reacts longos por último
     for vid, item in sorted(pendentes.items(), key=lambda kv: prioridade.get(kv[1].get("modo"), 3)):
         try:
             processar(vid, item)
