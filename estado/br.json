@@ -4461,8 +4461,51 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "novo",
-   "criado_em": "2026-11-18T12:29:23+00:00"
+   "status": "postado",
+   "criado_em": "2026-11-18T12:29:23+00:00",
+   "youtube_id": "ZOnx1fW8oXs",
+   "publicar_em": "2026-11-19T03:30:00Z",
+   "postado_em": "2026-11-18T21:14:59+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Paulinho O Loko contando os segundos pro GTA 6 liberar",
+   "gancho": "É HOJE",
+   "descricao": "Paulinho O Loko contando os segundos pro GTA 6 liberar\nPaulinho O Loko faz a contagem regressiva dos últimos segundos para o GTA 6 liberar, e a tela chega no zero. Veja a reação dele quando o jogo libera, nos melhores cortes e momentos do GTA 6.\n\n🎮 Live original: https://twitch.tv/paulinholokobr\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "paulinho o loko gta 6",
+    "paulinho o loko",
+    "contagem regressiva gta 6",
+    "gta 6 liberou",
+    "lançamento gta 6",
+    "reação gta 6",
+    "gta 6",
+    "cortes gta 6",
+    "momentos engraçados gta",
+    "cortes de live",
+    "gta 6 ao vivo",
+    "gta rp",
+    "cortes",
+    "cortes gta",
+    "shorts"
+   ],
+   "feito_em": "2026-11-18T21:14:54+00:00",
+   "corte": [
+    63.44,
+    86.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nome": "Paulinho O Loko",
+   "nota": 7,
+   "duracao": 23.1,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932209117_895.mp4",
+   "video_asset": 765031106,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932209117_895.jpg",
+   "thumb_asset": 765031177,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932209117_895_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932209117_895_kit.zip",
+   "atualizado_em": "2026-11-18T21:14:59+00:00"
   },
   "2932209117_1571": {
    "id": "2932209117_1571",
@@ -7322,13 +7365,11 @@
    "clipe_ids": [
     "ObedientAbnegateSkirretPermaSmug-dQHDSovi8Mvh8v1y",
     "ConsiderateEsteemedWolfKippa-Tyr6urHp0oABqWYv",
-    "ConsiderateEsteemedWolfKippa-Tyr6urHp0oABqWYv",
     "GlutenFreeLivelyMooseNerfRedBlaster-HukqAIfrJRXkblvW"
    ],
    "titulos_chat": [
     "emoção",
     "gta6",
-    "paulinho agradecendo a rockstar",
     "paulinho agradecendo a rockstar"
    ],
    "views": 28,
@@ -7591,12 +7632,10 @@
     "SlickUnusualOysterWOOP-41GQfqz0k5h85B7i",
     "ObedientSeductiveLouseDatSheffy-F_ra5IVDxcxdeGeu",
     "AlluringDarlingChamoisJonCarnage-mgv-Nt-4PNPoMzcJ",
-    "BrainyScrumptiousTriangleAllenHuhu-rAuQSi2Ip4gl3HSK",
     "BrainyScrumptiousTriangleAllenHuhu-rAuQSi2Ip4gl3HSK"
    ],
    "titulos_chat": [
     "bem legal...",
-    "Jogo na moral",
     "Jogo na moral",
     "imersão gamer",
     "To jogando com a imersão gamer, não atropelo ninguém"
@@ -8565,9 +8604,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 3408
+  "2026-11-18": 3508
  },
  "envios": {
-  "2026-11-18": 27
+  "2026-11-18": 28
  }
 }
