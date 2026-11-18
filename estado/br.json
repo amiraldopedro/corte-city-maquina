@@ -5747,6 +5747,51 @@
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_ColdHilariousWombatDxCat-RJOhI_-hZQ_snbrt_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_ColdHilariousWombatDxCat-RJOhI_-hZQ_snbrt_kit.zip",
    "atualizado_em": "2026-11-18T12:48:14+00:00"
+  },
+  "manual_dava_fimmapa_short": {
+   "id": "manual_dava_fimmapa_short",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-18T14:56:19+00:00",
+   "manual": true,
+   "views": 0,
+   "n_clipes": 0,
+   "score": 0,
+   "prioridade": false,
+   "tipo": "short",
+   "streamer": "davyjones",
+   "nome": "DavyJones",
+   "plataforma": "kick",
+   "jogo": "Grand Theft Auto VI",
+   "quadro": "gta6",
+   "titulo": "Dava foi até o fim do mapa do GTA 6 e o oceano não perdoou",
+   "gancho": "MOTOR QUEBROU",
+   "descricao": "Dava foi até o fim do mapa do GTA 6 e o oceano não perdoou\nO Dava pegou uma lancha no GTA 6 e foi reto pelo Oceano Atlântico até o limite do mapa. Aí o motor quebrou, a lancha virou e... bom, assiste até o final.\n\nCorte da live do DavyJones na Kick. Créditos: DavyJones.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "dava gta 6",
+    "davyjones gta 6",
+    "fim do mapa gta 6",
+    "limite do mapa gta 6",
+    "o que tem no fim do mapa do gta 6",
+    "gta 6 oceano",
+    "gta 6 lancha",
+    "gta 6 motor quebrou",
+    "gta 6",
+    "gta vi",
+    "cortes gta 6",
+    "cortes dava",
+    "momentos engraçados gta 6"
+   ],
+   "feito_em": "2026-11-18T14:56:19+00:00",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/manual_dava_fimmapa_short.mp4",
+   "video_asset": 763804851,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/manual_dava_fimmapa_short.jpg",
+   "thumb_asset": 763805035,
+   "atualizado_em": "2026-11-18T14:56:25+00:00",
+   "youtube_id": "6f09vUyl9Ks",
+   "publicar_em": "2026-11-18T19:30:00Z",
+   "postado_em": "2026-11-18T14:56:25+00:00",
+   "envio_pendente": null
   }
  },
  "clipes_vistos": [
@@ -6286,9 +6331,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 2300
+  "2026-11-18": 2400
  },
  "envios": {
-  "2026-11-18": 23
+  "2026-11-18": 24
  }
 }
