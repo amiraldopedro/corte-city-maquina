@@ -5703,8 +5703,50 @@
    "quadro": "rp",
    "_priorizado": true,
    "score_v": 2,
-   "status": "novo",
-   "criado_em": "2026-11-18T12:29:26+00:00"
+   "status": "postado",
+   "criado_em": "2026-11-18T12:29:26+00:00",
+   "youtube_id": "fOA1UHPFf-E",
+   "publicar_em": "2026-11-18T18:30:00Z",
+   "postado_em": "2026-11-18T12:48:14+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "jogo": "",
+   "titulo": "Joao01doturno no GTA San Andreas: o CJ pulou no caminhão e deu nisso",
+   "gancho": "INSANO",
+   "descricao": "Joao01doturno no GTA San Andreas: o CJ pulou no caminhão e deu nisso\nJoao01doturno joga GTA San Andreas e mostra o CJ de moto na pista, tentando pular no caminhão-tanque em alta velocidade. Um dos momentos de ação mais loucos dos cortes de GTA, enquanto o GTA 6 não chega.\n\n🎮 Live original: https://twitch.tv/joao01doturno\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "joao01doturno gta",
+    "joao01doturno",
+    "gta san andreas",
+    "cj moto caminhão gta san andreas",
+    "missão caminhão gta san andreas",
+    "gta san andreas definitive edition",
+    "momentos engraçados gta",
+    "cortes gta",
+    "gta 6",
+    "gta brasil",
+    "gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-18T12:47:31+00:00",
+   "corte": [
+    5.0,
+    34.0
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 6,
+   "duracao": 29.0,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_ColdHilariousWombatDxCat-RJOhI_-hZQ_snbrt.mp4",
+   "video_asset": 763381114,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_ColdHilariousWombatDxCat-RJOhI_-hZQ_snbrt.jpg",
+   "thumb_asset": 763381235,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_ColdHilariousWombatDxCat-RJOhI_-hZQ_snbrt_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/clip_ColdHilariousWombatDxCat-RJOhI_-hZQ_snbrt_kit.zip",
+   "atualizado_em": "2026-11-18T12:48:14+00:00"
   }
  },
  "clipes_vistos": [
@@ -6244,9 +6286,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 2200
+  "2026-11-18": 2300
  },
  "envios": {
-  "2026-11-18": 22
+  "2026-11-18": 23
  }
 }
