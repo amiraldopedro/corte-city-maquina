@@ -3252,7 +3252,7 @@
    "fonte": "République (@republiqueBRA)",
    "link": "https://x.com/republiqueBRA/status/2122146620716302707",
    "criado_em": "2026-11-16T10:46:17+00:00",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "GTA 6: Alanzoka vai jogar no lançamento da Nova Zelândia e leva críticas",
    "descricao": "GTA 6: Alanzoka vai jogar no lançamento da Nova Zelândia e leva críticas\n\n“🎮 ⏰ Streamer Alanzoka anuncia que fará uma transmissão ao vivo no dia 18 de novembro, às 8h, para jogar GTA 6 no lançamento na Nova Zelândia, e vira alvo de críticas, sendo acusado estragar a experiência de outros jogadores, que só terão acesso ao game no dia 19.”\n— République (@republiqueBRA)\n\nPost original: https://x.com/republiqueBRA/status/2122146620716302707\n\n#gta6 #gtavi #shorts",
    "tags": [
@@ -3271,25 +3271,11 @@
    "video_asset": 754474697,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/x_2122146620716302707.jpg",
    "thumb_asset": 754474794,
-   "envio_pendente": {
-    "titulo": "GTA 6: Alanzoka vai jogar no lançamento da Nova Zelândia e leva críticas",
-    "descricao": "GTA 6: Alanzoka vai jogar no lançamento da Nova Zelândia e leva críticas\n\n“🎮 ⏰ Streamer Alanzoka anuncia que fará uma transmissão ao vivo no dia 18 de novembro, às 8h, para jogar GTA 6 no lançamento na Nova Zelândia, e vira alvo de críticas, sendo acusado estragar a experiência de outros jogadores, que só terão acesso ao game no dia 19.”\n— République (@republiqueBRA)\n\nPost original: https://x.com/republiqueBRA/status/2122146620716302707\n\n#gta6 #gtavi #shorts",
-    "tags": [
-     "république",
-     "republiquebra",
-     "gta 6",
-     "gta vi",
-     "gta 6 memes",
-     "comunidade gta 6",
-     "gta 6 novidades",
-     "rockstar games"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: O Que a Comunidade Tá Postando",
-    "publicar_em": "2026-11-16T13:30:00Z",
-    "horario_fixo": false
-   },
-   "atualizado_em": "2026-11-16T10:48:20+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:37:54+00:00",
+   "youtube_id": "d7AkVQWF4zo",
+   "publicar_em": "2026-11-18T20:00:00Z",
+   "postado_em": "2026-11-18T11:37:54+00:00"
   },
   "x_2121142026985230443": {
    "id": "x_2121142026985230443",
@@ -3974,9 +3960,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 1500
+  "2026-11-18": 1600
  },
  "envios": {
-  "2026-11-18": 15
+  "2026-11-18": 16
  }
 }
