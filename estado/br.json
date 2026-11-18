@@ -3566,7 +3566,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "Qual jogo você vai apagar pro GTA 6? 😭 #gta6 #shorts",
    "descricao": "Segundo a Rockstar, o GTA 6 pede até 212 GB, dependendo do console. Hora de escolher quem sai do HD.\n\nFonte: Rockstar Games / IBTimes.\nImagens: Rockstar Games.\n#gta6 #gtavi",
    "tags": [
@@ -3584,22 +3584,10 @@
    "video_asset": 756582601,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_14_apagar_jogo.jpg",
    "thumb_asset": 756582653,
-   "envio_pendente": {
-    "titulo": "Qual jogo você vai apagar pro GTA 6? 😭 #gta6 #shorts",
-    "descricao": "Segundo a Rockstar, o GTA 6 pede até 212 GB, dependendo do console. Hora de escolher quem sai do HD.\n\nFonte: Rockstar Games / IBTimes.\nImagens: Rockstar Games.\n#gta6 #gtavi",
-    "tags": [
-     "gta 6",
-     "gta 6 tamanho",
-     "212 gb",
-     "gta vi",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-19T01:30:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-16T21:51:18+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:35:18+00:00",
+   "youtube_id": "o8WeHdNu2To",
+   "postado_em": "2026-11-18T11:35:18+00:00"
   },
   "contagem_15_midia_fisica": {
    "id": "contagem_15_midia_fisica",
@@ -4146,9 +4134,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 100
+  "2026-11-18": 200
  },
  "envios": {
-  "2026-11-18": 1
+  "2026-11-18": 2
  }
 }
