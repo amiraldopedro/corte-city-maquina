@@ -3740,7 +3740,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "3 coisas pra fazer em Leonida que não tinha no GTA 5 🌴 #gta6 #shorts",
    "descricao": "Aerobarco no pântano, mergulho em caverna e jet ski no pôr do sol: tudo aparece no gameplay estendido do GTA 6.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
    "tags": [
@@ -3758,22 +3758,10 @@
    "video_asset": 757364551,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_20_coisas_pra_fazer.jpg",
    "thumb_asset": 757364603,
-   "envio_pendente": {
-    "titulo": "3 coisas pra fazer em Leonida que não tinha no GTA 5 🌴 #gta6 #shorts",
-    "descricao": "Aerobarco no pântano, mergulho em caverna e jet ski no pôr do sol: tudo aparece no gameplay estendido do GTA 6.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
-    "tags": [
-     "gta 6",
-     "leonida",
-     "aerobarco gta 6",
-     "gameplay gta 6",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-22T18:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-17T02:51:23+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:37:01+00:00",
+   "youtube_id": "M2dHEDWwnR0",
+   "postado_em": "2026-11-18T11:37:01+00:00"
   },
   "contagem_21_tv_do_jogo": {
    "id": "contagem_21_tv_do_jogo",
@@ -4038,9 +4026,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 1000
+  "2026-11-18": 1100
  },
  "envios": {
-  "2026-11-18": 10
+  "2026-11-18": 11
  }
 }
