@@ -65,6 +65,7 @@ class Config:
     bloqueados: set[str]
 
     um_clipe_views: int = 300
+    clipes_quentes: int = 6
     nota_minima: int = 5
     max_por_streamer_dia: int = 2
     lancado: bool = False
@@ -152,6 +153,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
         youtube_auto=dict(bruto.get("youtube_auto") or {}),
         minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
         um_clipe_views=int(mm.get("um_clipe_views", 3 * int(mm.get("views", 150)))), lancado=lancado,
+        clipes_quentes=int(mm.get("quentes", 6)),
         nota_minima=int(bruto.get("nota_minima", 5)), max_por_streamer_dia=int(bruto.get("max_por_streamer_dia", 2)),
         duracao_min=int(du.get("minimo", 15)), duracao_max=int(du.get("maximo", 58)),
         max_por_rodada=int(bruto.get("max_por_rodada", 1)),

@@ -66,13 +66,13 @@ lancamento:
   data: "2026-11-18"             # antecipado: a galera já está em live de GTA 6
   janela_busca_horas: 24
   max_por_rodada: 4
-  momento_minimo: { clipes: 2, views: 150, um_clipe_views: 400 }
+  momento_minimo: { clipes: 2, views: 25, um_clipe_views: 120, quentes: 5 }   # live no ar: clipe novo tem pouca view; 5+ pessoas clipando = momento forte
   nota_minima: 4                 # mais material bom no lançamento: aceita nota um pouco menor
   max_por_streamer_dia: 3
   jogos: ["Grand Theft Auto VI"]   # no lançamento é só GTA 6
   canais:
     br:
-      horarios: ["09:00", "11:00", "13:00", "15:00", "17:00", "19:00", "21:00", "23:00"]   # 8 Shorts por dia
+      horarios: ["08:00", "09:30", "11:00", "12:30", "14:00", "15:30", "17:00", "18:30", "20:00", "21:30", "23:00", "00:30"]   # 12 Shorts por dia na semana do lançamento
       descobrir_min_views: 300   # com muita gente jogando, só os clipes mais vistos
       descobrir_jogos: ["Grand Theft Auto VI"]
 

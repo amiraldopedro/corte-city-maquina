@@ -48,7 +48,8 @@ def _vale(c: dict, jogos_ok: dict, jogos_palavra: dict, palavras: list[str]) -> 
 
 def agrupar(clipes: list[dict], jogos_ok: dict[str, str], streamer: str, canal: str,
             minimo_clipes: int, minimo_views: int, jogos_palavra: dict | None = None,
-            palavras: list[str] | None = None, um_clipe_views: int | None = None) -> list[dict]:
+            palavras: list[str] | None = None, um_clipe_views: int | None = None,
+            quentes: int = 6) -> list[dict]:
     com_vod: dict[str, list[dict]] = {}
     sem_vod: list[dict] = []
 
@@ -87,9 +88,12 @@ def agrupar(clipes: list[dict], jogos_ok: dict[str, str], streamer: str, canal: 
             "score": _score(c.get("view_count", 0), 1) * 0.7,  # penaliza: sem contexto
         })
 
+    # Momento "quente": muita gente clipando o mesmo trecho da live = algo forte aconteceu, mesmo com poucas
+    # views (na live acontecendo agora os clipes acabaram de nascer e ainda não têm views).
     return [m for m in momentos
-            if m["n_clipes"] >= minimo_clipes or m["views"] >= (um_clipe_views or minimo_views * 3)
-            if m["views"] >= minimo_views]
+            if (m.get("clipadores", 1) >= quentes)
+            or ((m["n_clipes"] >= minimo_clipes or m["views"] >= (um_clipe_views or minimo_views * 3))
+                and m["views"] >= minimo_views)]
 
 
 def _fechar(grupo: list[dict], video_id: str, streamer: str, canal: str) -> dict:

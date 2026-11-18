@@ -59,7 +59,7 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
             log(f"  {s.nome}: Twitch falhou ({str(e)[:100]}), sigo com os outros")
             continue
         momentos = agrupar(clipes, jogos, s.login, canal.id, cfg.minimo_clipes, cfg.minimo_views,
-                           jogos_palavra, cfg.palavras, cfg.um_clipe_views)
+                           jogos_palavra, cfg.palavras, cfg.um_clipe_views, cfg.clipes_quentes)
         for m in momentos:
             if TESTE:
                 m["teste"] = True

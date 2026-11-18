@@ -12,11 +12,14 @@ from pathlib import Path
 from .config import PASTA_BRUTOS
 
 
-def _yt_dlp(args: list[str]) -> None:
+def _yt_dlp(args: list[str], timeout: int = 1800) -> None:
     cmd = [sys.executable, "-m", "yt_dlp", "--no-warnings", "--no-progress",
            "-f", "bv*[height<=1080]+ba/b[height<=1080]/b", "--merge-output-format", "mp4",
            "--retries", "5", "--fragment-retries", "10", *args]
-    r = subprocess.run(cmd, capture_output=True, text=True, timeout=1800)
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        raise RuntimeError(f"yt-dlp demorou mais de {timeout // 60} min (live ainda no ar ou Twitch lenta)")
     if r.returncode != 0:
         raise RuntimeError(f"yt-dlp falhou: {r.stderr.strip()[-600:]}")
 
@@ -40,15 +43,20 @@ def baixar_trecho(video_id: str | None, inicio: float, fim: float, clipe_url: st
     if video_id:
         try:
             _yt_dlp(["--download-sections", f"*{inicio:.1f}-{fim:.1f}", "--force-keyframes-at-cuts",
-                     "-o", str(destino), f"https://www.twitch.tv/videos/{video_id}"])
+                     "-o", str(destino), f"https://www.twitch.tv/videos/{video_id}"],
+                    timeout=480)  # trecho de 1 a 2 min: se passar de 8 min, a VOD está travada (live no ar)
             if destino.exists():
                 if volume_maximo(destino) > MUDO_DB or not clipe_url:
                     return destino
                 print(f"  trecho da live está mudo (silenciado pela Twitch) — usando o clipe do público")
                 destino.unlink()
-        except RuntimeError:
+        except RuntimeError as e:
             if not clipe_url:
                 raise
+            print(f"  VOD não veio ({str(e)[:80]}) — usando o clipe mais visto do momento")
+            for sobra in destino.parent.glob(destino.stem + "*"):
+                if sobra.suffix in (".part", ".ytdl") or sobra.name.endswith(".part"):
+                    sobra.unlink(missing_ok=True)
     if not clipe_url:
         raise RuntimeError("sem VOD e sem clipe para baixar")
     _yt_dlp(["-o", str(destino), clipe_url])
