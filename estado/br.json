@@ -3711,7 +3711,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "O tiroteio do GTA 6 até capota carro 🚓💥 #gta6 #shorts",
    "descricao": "No gameplay estendido, um tiroteio com a polícia nas ruas de Vice City termina com viatura capotando. E a polícia agora vai até seis estrelas.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
    "tags": [
@@ -3729,22 +3729,10 @@
    "video_asset": 757362687,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_19_tiroteio.jpg",
    "thumb_asset": 757362764,
-   "envio_pendente": {
-    "titulo": "O tiroteio do GTA 6 até capota carro 🚓💥 #gta6 #shorts",
-    "descricao": "No gameplay estendido, um tiroteio com a polícia nas ruas de Vice City termina com viatura capotando. E a polícia agora vai até seis estrelas.\n\nImagens: Rockstar Games (Grand Theft Auto VI: An Extended Look).\n#gta6 #gtavi #gta",
-    "tags": [
-     "gta 6",
-     "polícia gta 6",
-     "tiroteio gta 6",
-     "gameplay gta 6",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-21T23:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-17T02:50:46+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:36:49+00:00",
+   "youtube_id": "cBYjK3IK4Y4",
+   "postado_em": "2026-11-18T11:36:49+00:00"
   },
   "contagem_20_coisas_pra_fazer": {
    "id": "contagem_20_coisas_pra_fazer",
@@ -4050,9 +4038,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 900
+  "2026-11-18": 1000
  },
  "envios": {
-  "2026-11-18": 9
+  "2026-11-18": 10
  }
 }
