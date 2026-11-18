@@ -4030,8 +4030,51 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "novo",
-   "criado_em": "2026-11-17T23:31:56+00:00"
+   "status": "postado",
+   "criado_em": "2026-11-17T23:31:56+00:00",
+   "youtube_id": "n6uZ50-zXFY",
+   "publicar_em": "2026-11-19T14:00:00Z",
+   "postado_em": "2026-11-18T12:25:40+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Alanzoka quer zerar o GTA 6 sem matar ninguém... só que tem um problema",
+   "gancho": "SEM MATAR",
+   "descricao": "Alanzoka quer zerar o GTA 6 sem matar ninguém... só que tem um problema\nAlanzoka diz na live que vai zerar o GTA 6 sem matar ninguém e só desabilitar os inimigos, atirando em ombro e joelho. Aí ele lembra que vai ser no controle, a 30 fps, e o chat não perdoa. Cortes e momentos engraçados com a reação do Alanzoka ao GTA 6.\n\n🎮 Live original: https://twitch.tv/alanzoka\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "alanzoka gta 6",
+    "alanzoka live",
+    "zerar gta 6 sem matar",
+    "gta 6 sem matar ninguém",
+    "gta 6 30 fps",
+    "gta 6 controle",
+    "reação gta 6",
+    "momentos engraçados gta 6",
+    "cortes alanzoka",
+    "cortes gta",
+    "gta 6",
+    "alanzoka",
+    "live",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-18T12:25:35+00:00",
+   "corte": [
+    2.44,
+    52.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nome": "Alanzoka",
+   "nota": 6,
+   "duracao": 49.6,
+   "prioridade": false,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2930784833_5992.mp4",
+   "video_asset": 763311932,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2930784833_5992.jpg",
+   "thumb_asset": 763312029,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2930784833_5992_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2930784833_5992_kit.zip",
+   "atualizado_em": "2026-11-18T12:25:40+00:00"
   },
   "2930682741_350": {
    "id": "2930682741_350",
@@ -4193,13 +4236,16 @@
    "n_clipes": 93,
    "clipadores": 76,
    "clipado_em": "2026-11-18T11:29:51Z",
-   "score": 24321.820322824107,
+   "score": 12160.910161412054,
    "jogo": "Grand Theft Auto VI",
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
    "status": "novo",
-   "criado_em": "2026-11-18T11:39:04+00:00"
+   "criado_em": "2026-11-18T11:39:04+00:00",
+   "falhas": 1,
+   "erro": "Command '['/opt/hostedtoolcache/Python/3.12.16/x64/bin/python', '-m', 'yt_dlp', '--no-warnings', '--no-progress', '-f', 'bv*[height<=1080]+ba/b[height<=1080]/b', '--merge-output-format', 'mp4', '--retries', '5', '--fragment-retries', '10', '--download-sections', '*2599.5-2694.5', '--force-keyframes-",
+   "atualizado_em": "2026-11-18T12:17:19+00:00"
   },
   "2932152204_2257": {
    "id": "2932152204_2257",
@@ -4219,7 +4265,7 @@
    "n_clipes": 1,
    "clipadores": 1,
    "clipado_em": "2026-11-18T08:56:51Z",
-   "score": 357.8182328604796,
+   "score": 178.9091164302398,
    "jogo": "Just Chatting",
    "nome": "RicFazeres",
    "descoberto": true,
@@ -4227,7 +4273,10 @@
    "_priorizado": true,
    "score_v": 2,
    "status": "novo",
-   "criado_em": "2026-11-18T11:39:08+00:00"
+   "criado_em": "2026-11-18T11:39:08+00:00",
+   "falhas": 1,
+   "erro": "[Errno 32] Broken pipe",
+   "atualizado_em": "2026-11-18T12:19:08+00:00"
   }
  },
  "clipes_vistos": [
@@ -4358,9 +4407,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 1900
+  "2026-11-18": 2000
  },
  "envios": {
-  "2026-11-18": 19
+  "2026-11-18": 20
  }
 }
