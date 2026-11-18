@@ -78,8 +78,7 @@ else
   SSD="${DISCOS[$((N-1))]}/CorteCity"
 fi
 mkdir -p "$SSD" "$PASTA"
-cp "$AQUI/robo_youtube.py" "$SSD/robo_youtube.py" 2>/dev/null || true   # cópia no SSD (como você pediu)
-cp "$AQUI/robo_youtube.py" "$PASTA/robo_youtube.py"                     # cópia de segurança no Mac
+cp "$AQUI/robo_youtube.py" "$PASTA/robo_youtube.py"   # o robô mora no Mac (30 KB); os vídeos vão pro SSD
 echo "Robô instalado em: $SSD"
 
 # 4) Agenda para rodar a cada 15 minutos (enquanto o Mac estiver ligado)
@@ -92,7 +91,7 @@ cat > "$PLIST" <<EOF
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
   <key>Label</key><string>com.cortecity.robo-youtube</string>
-  <key>ProgramArguments</key><array><string>$PY</string><string>$SSD/robo_youtube.py</string></array>
+  <key>ProgramArguments</key><array><string>$PY</string><string>$PASTA/robo_youtube.py</string></array>
   <key>EnvironmentVariables</key><dict><key>CC_BASE</key><string>$SSD</string></dict>
   <key>StartInterval</key><integer>900</integer>
   <key>RunAtLoad</key><true/>

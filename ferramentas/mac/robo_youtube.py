@@ -24,7 +24,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSAO = "2026-11-18b"
+VERSAO = "2026-11-18c"
 
 REPO = "amiraldopedro/corte-city-maquina"
 TAG = "youtube-brutos"
@@ -39,10 +39,10 @@ LOCAL = Path.home() / ".corte-city"  # nunca o SSD (senão o teste de SSD conect
 
 def _base() -> Path:
     ssd = os.environ.get("CC_BASE")
-    if ssd:
+    if ssd and Path(ssd).parent.is_dir():  # /Volumes/PortableSSD existe = SSD montado
         try:
             p = Path(ssd)
-            p.mkdir(parents=True, exist_ok=True)
+            p.mkdir(exist_ok=True)
             (p / ".teste").write_text("ok")
             return p
         except OSError:
@@ -59,8 +59,13 @@ PATH_EXTRA = f"{Path.home()}/.corte-city/bin:/opt/homebrew/bin:/usr/local/bin"
 def log(msg: str):
     linha = f"[{datetime.now():%d/%m %H:%M:%S}] {msg}"
     print(linha, flush=True)
-    with open(LOG, "a") as f:
-        f.write(linha + "\n")
+    for destino in (LOG, LOCAL / "robo_youtube.log"):
+        try:
+            with open(destino, "a") as f:
+                f.write(linha + "\n")
+            return
+        except OSError:
+            continue
 
 
 def token() -> str:
@@ -539,6 +544,9 @@ def main():
         try:
             processar(vid, item)
         except Exception as e:
+            if os.environ.get("CC_BASE") and not Path(os.environ["CC_BASE"]).is_dir():
+                log("  SSD desconectou no meio do download: paro aqui e continuo quando ele voltar (não conta como erro)")
+                return
             log(f"  ❌ {vid}: {e}")
             tentativas = int(item.get("tentativas", 0)) + 1
             atualizar_item(vid, {"tentativas": tentativas, "erro": str(e)[-300:],
@@ -585,7 +593,33 @@ def atualizar_sozinho():
         log(f"não consegui checar atualização ({str(e)[:80]})")
 
 
+def morar_no_mac():
+    """Antes o launchd rodava o robô direto do SSD: sem SSD, nada funcionava (nem o aviso).
+    Agora o robô (30 KB) mora em ~/.corte-city e só os vídeos vão pro SSD. Faz a mudança sozinho uma vez."""
+    if sys.platform != "darwin":
+        return
+    este = Path(__file__).resolve()
+    casa = LOCAL / "robo_youtube.py"
+    plist = Path.home() / "Library/LaunchAgents/com.cortecity.robo-youtube.plist"
+    try:
+        if este != casa.resolve():
+            LOCAL.mkdir(exist_ok=True)
+            casa.write_bytes(este.read_bytes())
+        if plist.exists() and str(casa) not in plist.read_text():
+            texto = plist.read_text()
+            antigo = re.search(r"<string>([^<]*robo_youtube\.py)</string>", texto)
+            if antigo:
+                plist.write_text(texto.replace(antigo.group(1), str(casa)))
+                # recarrega o agendamento num processo separado (descarregar mata este processo)
+                subprocess.Popen(["/bin/sh", "-c", f"sleep 20; launchctl unload '{plist}'; launchctl load '{plist}'"],
+                                 start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                log("robô agora mora no Mac (~/.corte-city); os downloads continuam só no SSD")
+    except Exception as e:
+        log(f"  não consegui mudar o robô pro Mac ({str(e)[:80]})")
+
+
 if __name__ == "__main__":
     TOKEN = token()
     atualizar_sozinho()
+    morar_no_mac()
     main()
