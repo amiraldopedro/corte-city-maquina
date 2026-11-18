@@ -2486,8 +2486,10 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "novo",
-   "criado_em": "2026-11-14T11:31:18+00:00"
+   "status": "descartado",
+   "criado_em": "2026-11-14T11:31:18+00:00",
+   "motivo": "Trecho de câmera IRL sem relação com GTA 6: ele derruba algo, o gato aparece e ele ri. O resto é câmera parada no teto e uma fala solta sobre a bunda, sem graça. Não serve para um canal de GTA 6, entã",
+   "atualizado_em": "2026-11-18T17:38:07+00:00"
   },
   "2926903009_1684": {
    "id": "2926903009_1684",
@@ -3424,8 +3426,10 @@
    "quadro": "rp",
    "_priorizado": true,
    "score_v": 2,
-   "status": "novo",
-   "criado_em": "2026-11-16T18:37:09+00:00"
+   "status": "descartado",
+   "criado_em": "2026-11-16T18:37:09+00:00",
+   "motivo": "Os primeiros 14 s são menu parado, com o streamer quieto e uma única fala curta. A ação só começa perto dos 15 s, com efeitos aleatórios, e não tem desfecho nem reação clara. O momento é morno e sem c",
+   "atualizado_em": "2026-11-18T17:26:09+00:00"
   },
   "x_2122072152992264215": {
    "id": "x_2122072152992264215",
@@ -3984,8 +3988,10 @@
    "quadro": "rp",
    "_priorizado": true,
    "score_v": 2,
-   "status": "novo",
-   "criado_em": "2026-11-17T02:57:53+00:00"
+   "status": "descartado",
+   "criado_em": "2026-11-17T02:57:53+00:00",
+   "motivo": "A cena é morna: só aparecem efeitos vermelhos perto da estátua, a personagem na água e depois andando sozinha no escuro, sem desfecho claro. A transcrição tem uma única fala ('Eu fui proclamada') e ne",
+   "atualizado_em": "2026-11-18T17:29:33+00:00"
   },
   "2929133072_8454": {
    "id": "2929133072_8454",
@@ -4005,7 +4011,7 @@
    "n_clipes": 1,
    "clipadores": 1,
    "clipado_em": "2026-11-15T02:56:56Z",
-   "score": 251.0545010206612,
+   "score": 125.5272505103306,
    "jogo": "Grand Theft Auto V",
    "nome": "IcyCongelada",
    "descoberto": true,
@@ -4013,7 +4019,10 @@
    "_priorizado": true,
    "score_v": 2,
    "status": "novo",
-   "criado_em": "2026-11-17T13:30:12+00:00"
+   "criado_em": "2026-11-17T13:30:12+00:00",
+   "falhas": 1,
+   "erro": "[Errno 32] Broken pipe",
+   "atualizado_em": "2026-11-18T17:36:09+00:00"
   },
   "2930784833_5992": {
    "id": "2930784833_5992",
@@ -5887,20 +5896,16 @@
    "clipe_url": "https://www.twitch.tv/paulinholokobr/clip/ChillyHilariousHummingbirdNotATK-f2ZzWMQRt-0K7XQc",
    "clipe_ids": [
     "ColdbloodedPolishedTardigradeNerfBlueBlaster-pAUZaqEVllstINIe",
-    "ColdbloodedPolishedTardigradeNerfBlueBlaster-pAUZaqEVllstINIe",
     "ChillyHilariousHummingbirdNotATK-f2ZzWMQRt-0K7XQc",
     "AggressiveDistinctCaterpillarTTours-Zr3a0qIammRFWphC",
     "KindUgliestHeronKreygasm-NQP1lV2AraSuXUwc",
-    "DelightfulSavageKimchiKappaWealth-_R1XWkqZKrRVotgt",
     "DelightfulSavageKimchiKappaWealth-_R1XWkqZKrRVotgt"
    ],
    "titulos_chat": [
     "primeiros momentos paulo na cidade",
     "fugi",
-    "fugi",
     "COMO O CARRO CAPOTA",
     "ela é",
-    ".",
     "."
    ],
    "views": 15,
@@ -6023,7 +6028,6 @@
     "GoodCreativeEchidnaFailFish-12ByXEfj--PqVucw",
     "SplendidBetterRedpandaMingLee-ROEA_Jn8zZq91BY_",
     "SoftJollyGullYee-T1N_3FkoZLfmxSrr",
-    "SoftJollyGullYee-T1N_3FkoZLfmxSrr",
     "OddProductiveSangOneHand-qJ_LYfWfFqN3FIpz",
     "EnergeticAbrasiveOxDancingBaby-eUaQM50l0ols5wWN"
    ],
@@ -6031,7 +6035,6 @@
     "policia/ fuga",
     "primeira fuga pt1",
     "primeira perseguição",
-    "fuga pt2",
     "fuga pt2",
     "fuga"
    ],
@@ -6101,13 +6104,11 @@
     "HeartlessSavoryFriseeWutFace-W3TcrJvmFK7YGJXz",
     "BlatantBashfulChickpeaEleGiggle-igo-Eu_TlyC06xz7",
     "SolidPluckyPlumTheTarFu-NfCVdYCrvyYR2NS3",
-    "SolidPluckyPlumTheTarFu-NfCVdYCrvyYR2NS3",
     "WonderfulDarlingPonyCharlietheUnicorn-T0UxDpE-SNtEFAXN",
     "CallousPoisedKleeTheTarFu-cZwry8gW9Ce64Gof"
    ],
    "titulos_chat": [
     "Ganhou",
-    "primeira vitória",
     "primeira vitória",
     "PAULO",
     "cagao na sinuca",
@@ -6137,7 +6138,6 @@
     "FurryRoundTitanPastaThat-A-lxvmkVS0C4hhck",
     "NimbleHungryRabbitSSSsss-egt9w2arldT5frD-",
     "PlumpOpenAlmondTBTacoLeft-PmoKxP2mB5jeeaHx",
-    "PlumpOpenAlmondTBTacoLeft-PmoKxP2mB5jeeaHx",
     "EncouragingAnnoyingRedpandaKAPOW-QoXZayH4d3e2j52m",
     "MiniatureSlipperyBurritoBatChest-Y8FoORQm-wYQXTTP",
     "CourteousAntediluvianSageRalpherZ-MWgPE_oGzz8PKPFx",
@@ -6153,7 +6153,6 @@
     "PAULO PLÍNIO PSICOPATA NA SITUAÇÃO!",
     "paulinholokooooo",
     "paulinho",
-    "tentou roubar o paulinho e se deu mal",
     "tentou roubar o paulinho e se deu mal",
     "pauloloko",
     "paulo plínio voltou? KKKKKKK",
@@ -6228,7 +6227,6 @@
    "clipe_ids": [
     "WrongCrepuscularTermiteM4xHeh-NqZQBRH6fSMduoyC",
     "SmokyHelplessMelonPeanutButterJellyTime-HxlWoa4A4vItbOqI",
-    "ZealousOddAirGuitarRaccAttack-f0K9Nur7-_jaQkAn",
     "ZealousOddAirGuitarRaccAttack-f0K9Nur7-_jaQkAn",
     "SuaveExuberantWrenTheThing-PAEU7UiT2P0ceAcG",
     "RudePrettiestSalamanderHeyGirl-bYWrvCWDqBvQPx2r",
@@ -6339,8 +6337,6 @@
    "clipe_url": "https://www.twitch.tv/paulinholokobr/clip/ArborealExcitedSlothDBstyle-hYu8y8ubPJBg9UY5",
    "clipe_ids": [
     "SteamyDeafMarjoramRuleFive-TdjtWc-xa750ypEU",
-    "SteamyDeafMarjoramRuleFive-TdjtWc-xa750ypEU",
-    "SteamyDeafMarjoramRuleFive-TdjtWc-xa750ypEU",
     "ArborealExcitedSlothDBstyle-hYu8y8ubPJBg9UY5",
     "MushyTenuousRatDancingBanana-jlU8CyiCapd8bCqo",
     "ZanyKawaiiCormorantPoooound-B0DWkkpWg4mPUqC7",
@@ -6351,8 +6347,6 @@
     "titulo",
     "Paulinho avaliando Grafico",
     "olha a qualidade dessa agua🤩",
-    "Mergulho",
-    "Mergulho",
     "Mergulho",
     "abc",
     "missão parte3"
@@ -6568,7 +6562,6 @@
     "SmallDeterminedTrollBloodTrail-zazo4PfHTAYNhgZ7",
     "FaithfulProtectiveCobblerMVGame-AEhCYNV8UljOjk0u",
     "StrongPoorBunnyRickroll-cDAglb6nKxetyJU_",
-    "StrongPoorBunnyRickroll-cDAglb6nKxetyJU_",
     "InquisitiveTangentialVelociraptorNomNom-keoojKpFc-kfMH1a",
     "ColorfulGlutenFreeSowAllenHuhu-LRCo4X9LlbDfTfhZ",
     "ArbitraryInexpensiveMushroomTTours-Q5EjIX1ehRUuqE-A",
@@ -6624,8 +6617,7 @@
     "nextage estreando o GTA6",
     "jb",
     "justin",
-    "justin bieber with friends",
-    "jb"
+    "justin bieber with friends"
    ],
    "views": 210,
    "n_clipes": 8,
@@ -7136,12 +7128,10 @@
    "clipe_ids": [
     "IncredulousStrangeFungusWutFace-zUGk5ku5BWMem0JG",
     "SweetArbitraryMosquitoKevinTurtle-vFnZsVE1kIfSPCFj",
-    "SweetArbitraryMosquitoKevinTurtle-vFnZsVE1kIfSPCFj",
     "RelievedThankfulPlumberYouDontSay-kmhRD3Tf57OOPYsz"
    ],
    "titulos_chat": [
     "Jason capacitista K",
-    "Veia correndo atrás do scooter",
     "Veia correndo atrás do scooter",
     "moto"
    ],
