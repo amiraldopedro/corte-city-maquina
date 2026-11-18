@@ -3501,7 +3501,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "O carro no GTA 6 fica sem gasolina ⛽ #gta6 #shorts",
    "descricao": "Segundo as prévias, todo carro e moto do GTA 6 tem marcador de gasolina, e carro elétrico carrega no posto. Mas o tanque dura bastante.\n\nFontes: prévias da Edge.\nImagens: Rockstar Games.\n#gta6 #gtavi",
    "tags": [
@@ -3519,22 +3519,10 @@
    "video_asset": 756579871,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_13_gasolina.jpg",
    "thumb_asset": 756579949,
-   "envio_pendente": {
-    "titulo": "O carro no GTA 6 fica sem gasolina ⛽ #gta6 #shorts",
-    "descricao": "Segundo as prévias, todo carro e moto do GTA 6 tem marcador de gasolina, e carro elétrico carrega no posto. Mas o tanque dura bastante.\n\nFontes: prévias da Edge.\nImagens: Rockstar Games.\n#gta6 #gtavi",
-    "tags": [
-     "gta 6",
-     "gasolina gta 6",
-     "gta 6 carros",
-     "gta vi",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-19T23:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-16T21:50:25+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:35:53+00:00",
+   "youtube_id": "tRVwE3qFQwo",
+   "postado_em": "2026-11-18T11:35:53+00:00"
   },
   "contagem_14_apagar_jogo": {
    "id": "contagem_14_apagar_jogo",
@@ -4110,9 +4098,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 400
+  "2026-11-18": 500
  },
  "envios": {
-  "2026-11-18": 4
+  "2026-11-18": 5
  }
 }
