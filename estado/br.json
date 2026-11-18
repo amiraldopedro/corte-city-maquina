@@ -3327,7 +3327,7 @@
    "fonte": "No Context Tobey Maguire (@OocTobeyM)",
    "link": "https://x.com/OocTobeyM/status/2122072152992264215",
    "criado_em": "2026-11-16T19:36:17+00:00",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "GTA 6: No Context Tobey Maguire invade a comunidade",
    "descricao": "GTA 6: No Context Tobey Maguire invade a comunidade\n\n“”\n— No Context Tobey Maguire (@OocTobeyM)\n\nPost original: https://x.com/OocTobeyM/status/2122072152992264215\n\n#gta6 #gtavi #shorts",
    "tags": [
@@ -3346,25 +3346,11 @@
    "video_asset": 756174621,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/x_2122072152992264215.jpg",
    "thumb_asset": 756174736,
-   "envio_pendente": {
-    "titulo": "GTA 6: No Context Tobey Maguire invade a comunidade",
-    "descricao": "GTA 6: No Context Tobey Maguire invade a comunidade\n\n“”\n— No Context Tobey Maguire (@OocTobeyM)\n\nPost original: https://x.com/OocTobeyM/status/2122072152992264215\n\n#gta6 #gtavi #shorts",
-    "tags": [
-     "no context tobey maguire",
-     "ooctobeym",
-     "gta 6",
-     "gta vi",
-     "gta 6 memes",
-     "comunidade gta 6",
-     "gta 6 novidades",
-     "rockstar games"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: O Que a Comunidade Tá Postando",
-    "publicar_em": "2026-11-16T23:30:00Z",
-    "horario_fixo": false
-   },
-   "atualizado_em": "2026-11-16T19:36:48+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:38:06+00:00",
+   "youtube_id": "q3Za2ZK8xV4",
+   "publicar_em": "2026-11-19T00:00:00Z",
+   "postado_em": "2026-11-18T11:38:06+00:00"
   },
   "contagem_10_jaqueta": {
    "id": "contagem_10_jaqueta",
@@ -3960,9 +3946,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 1600
+  "2026-11-18": 1700
  },
  "envios": {
-  "2026-11-18": 16
+  "2026-11-18": 17
  }
 }
