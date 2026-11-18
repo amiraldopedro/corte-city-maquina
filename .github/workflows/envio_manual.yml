@@ -1,0 +1,48 @@
+name: Envio manual (vídeo editado fora da máquina)
+
+# Posta vídeos que chegaram no branch "envio-manual" (com envio/pedido.json) pelo mesmo caminho
+# dos vídeos da máquina, e depois apaga o branch.
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch com os arquivos (envio/pedido.json)"
+        default: "envio-manual"
+      apagar_branch:
+        description: "Apagar o branch depois de postar? (sim/nao)"
+        default: "sim"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: envio-manual
+  cancel-in-progress: false
+
+jobs:
+  envio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          path: _envio
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12", cache: "pip" }
+      - run: pip install -q -r requirements-leve.txt
+      - name: Guardar nos downloads e agendar no YouTube
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_BR: ${{ secrets.YT_REFRESH_TOKEN_BR }}
+          YT_REFRESH_TOKEN_EN: ${{ secrets.YT_REFRESH_TOKEN_EN }}
+        run: python ferramentas/envio_manual.py _envio
+      - name: Salvar memória da máquina
+        if: always()
+        run: python main.py sincronizar "Envio manual - estado atualizado"
+      - name: Apagar o branch temporário
+        if: success() && inputs.apagar_branch == 'sim'
+        run: git push origin --delete "${{ inputs.branch }}"
