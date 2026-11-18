@@ -511,7 +511,9 @@
    "views_yt": 6121260,
    "dur": 29,
    "pedido_em": "2026-11-18T16:26:59+00:00",
-   "atualizado_em": "2026-11-18T16:26:59+00:00"
+   "atualizado_em": "2026-11-18T17:35:17+00:00",
+   "tentativas": 1,
+   "erro": "Command '['yt-dlp', '--no-warnings', '--no-playlist', '--socket-timeout', '30', '--cache-dir', '/Volumes/PortableSSD/CorteCity/cache', '-f', 'bv*[height<=1920][ext=mp4]+ba[ext=m4a]/b[height<=1920]/bv*+ba/b', '--merge-output-format', 'mp4', '-o', '/Volumes/PortableSSD/CorteCity/temporarios/cc_modelo_"
   },
   "oTAEYTyTKeE": {
    "id": "oTAEYTyTKeE",
