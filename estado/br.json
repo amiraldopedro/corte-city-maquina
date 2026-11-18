@@ -3472,7 +3472,7 @@
    "canal": "br",
    "tipo": "short",
    "quadro": "contagem",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "A estrela do GTA 6 te entrega pra polícia 👮 #gta6 #shorts",
    "descricao": "No GTA 6, segundo as prévias, a estrela vazada quer dizer que a polícia sabe do crime mas ainda não sabe que foi você. E a polícia lembra da sua roupa, do seu rosto e do seu carro.\n\nFontes: prévias da Edge e Game Informer.\nImagens: Rockstar Games.\n#gta6 #gtavi",
    "tags": [
@@ -3490,22 +3490,10 @@
    "video_asset": 756577534,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/contagem_12_estrela.jpg",
    "thumb_asset": 756577610,
-   "envio_pendente": {
-    "titulo": "A estrela do GTA 6 te entrega pra polícia 👮 #gta6 #shorts",
-    "descricao": "No GTA 6, segundo as prévias, a estrela vazada quer dizer que a polícia sabe do crime mas ainda não sabe que foi você. E a polícia lembra da sua roupa, do seu rosto e do seu carro.\n\nFontes: prévias da Edge e Game Informer.\nImagens: Rockstar Games.\n#gta6 #gtavi",
-    "tags": [
-     "gta 6",
-     "gta 6 polícia",
-     "estrelas gta 6",
-     "gta vi",
-     "shorts"
-    ],
-    "idioma": "pt",
-    "playlist": "GTA 6: Reações e Primeiros Momentos",
-    "publicar_em": "2026-11-19T19:00:00Z",
-    "horario_fixo": true
-   },
-   "atualizado_em": "2026-11-16T21:49:35+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-18T11:35:42+00:00",
+   "youtube_id": "n6BRTcLJS4c",
+   "postado_em": "2026-11-18T11:35:42+00:00"
   },
   "contagem_13_gasolina": {
    "id": "contagem_13_gasolina",
@@ -4122,9 +4110,9 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 300
+  "2026-11-18": 400
  },
  "envios": {
-  "2026-11-18": 3
+  "2026-11-18": 4
  }
 }
