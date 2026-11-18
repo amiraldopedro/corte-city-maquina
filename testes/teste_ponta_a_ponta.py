@@ -78,7 +78,7 @@ assert len({p["publicar_em"] for p in post}) == 2, "dois vídeos no mesmo horár
 assert main.postados_hoje(est, cfg.canal("br")) == 2
 # cota: o 3º envio do dia em diante fica esperando quando a cota acaba
 from maquina import publicar as _pub
-assert _pub.cota_usada(est) == 2 * _pub.CUSTO_ENVIO, "a cota gasta não foi contada"
+assert _pub.cota_usada(est) == 2 * _pub.CUSTO_ENVIO and _pub.envios_hoje(est) == 2, "a cota gasta não foi contada"
 print("OK: ponta a ponta funcionando")
 
 # ---------- vídeos longos: compilado do dia e corte longo (voz isolada falsa) ----------

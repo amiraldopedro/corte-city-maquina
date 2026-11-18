@@ -67,6 +67,13 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
                 novos += 1
             est.marcar_clipes(m["clipe_ids"])
         log(f"  {s.nome}: {len(clipes)} clipes novos, {len(momentos)} momentos")
+        if clipes and not momentos:  # diagnóstico: de que jogo são os clipes e quantas views
+            from collections import Counter
+            por_jogo = Counter(c.get("game_id") or "?" for c in clipes)
+            nomes = {**(jogos_palavra or {}), **(jogos or {})}
+            top = max(clipes, key=lambda c: c.get("view_count", 0))
+            log("      jogos: " + ", ".join(f"{nomes.get(g, g)}={n}" for g, n in por_jogo.most_common(4))
+                + f" | mais visto: {top.get('view_count', 0)} views ({nomes.get(top.get('game_id'), top.get('game_id'))})")
     try:
         novos += descobrir(cfg, canal, est, tw, {s.login for s in streamers})
     except Exception as e:

@@ -1,7 +1,8 @@
 """Envio pro YouTube num lugar só: nunca posta o mesmo vídeo duas vezes e respeita a cota diária.
 
-- Cada envio custa ~1.700 unidades da cota (vídeo 1.600 + thumb 50 + playlist 50). A cota padrão é 10.000
-  por dia (o dia do YouTube vira à meia-noite do Pacífico). A máquina conta o que gastou em estado/<canal>.json.
+- Desde jun/2026 o upload (videos.insert) tem cota própria: ~100 envios por dia. O resto (thumb 50 + playlist 50)
+  sai das 10.000 unidades normais. O dia do YouTube vira à meia-noite do Pacífico. A máquina conta envios e
+  unidades em estado/<canal>.json, e se o YouTube disser que acabou, respeita o que ele disse.
 - Sem cota: o vídeo fica "aguardando_cota" com o arquivo guardado nos downloads (GitHub Releases) e sobe
   na próxima rodada que tiver cota, sem precisar montar de novo.
 - Assim que o YouTube devolve o ID, ele é gravado e a memória é salva no repositório na hora.
@@ -15,8 +16,9 @@ from zoneinfo import ZoneInfo
 
 from .estado import agora
 
-CUSTO_ENVIO = 1700
+CUSTO_ENVIO = 100                                         # thumb 50 + playlist 50 (o upload em si tem cota própria)
 COTA_DIA = int(os.getenv("YT_COTA_DIA", "10000"))
+ENVIOS_DIA = int(os.getenv("YT_ENVIOS_DIA", "40"))       # o YouTube deixa ~100; 40 é folga pra não parecer spam
 
 
 def _dia() -> str:
@@ -27,15 +29,24 @@ def cota_usada(est) -> int:
     return int((est.dados.get("cota") or {}).get(_dia(), 0))
 
 
+def envios_hoje(est) -> int:
+    return int((est.dados.get("envios") or {}).get(_dia(), 0))
+
+
 def tem_cota(est, envios: int = 1) -> bool:
-    return cota_usada(est) + CUSTO_ENVIO * envios <= COTA_DIA
+    return cota_usada(est) + CUSTO_ENVIO * envios <= COTA_DIA and envios_hoje(est) + envios <= ENVIOS_DIA
 
 
-def _gastar(est, unidades: int = CUSTO_ENVIO):
+def _gastar(est, unidades: int = CUSTO_ENVIO, envio: bool = False):
     c = est.dados.setdefault("cota", {})
     c[_dia()] = c.get(_dia(), 0) + unidades
     for d in sorted(c)[:-10]:  # guarda só os últimos dias
         c.pop(d, None)
+    if envio:
+        n = est.dados.setdefault("envios", {})
+        n[_dia()] = n.get(_dia(), 0) + 1
+        for d in sorted(n)[:-10]:
+            n.pop(d, None)
 
 
 def _cota_estourou(e: Exception) -> bool:
@@ -56,19 +67,24 @@ def publicar(est, mid: str, yt, video: Path, yt_titulo: str, yt_descricao: str, 
     if not tem_cota(est):
         est.atualizar(mid, status="aguardando_cota", envio_pendente=pendente, **extras)
         est.salvar()
-        log(f"    ⏸️  cota do YouTube de hoje acabou ({cota_usada(est)}/{COTA_DIA}): sobe na próxima rodada")
+        log(f"    ⏸️  cota do YouTube de hoje acabou ({envios_hoje(est)}/{ENVIOS_DIA} envios, "
+            f"{cota_usada(est)}/{COTA_DIA} unidades): sobe na próxima rodada")
         return None
     try:
         vid = yt.enviar(video, yt_titulo, yt_descricao, yt_tags, idioma, publicar_em, capa)
     except Exception as e:
         if _cota_estourou(e):
-            est.dados.setdefault("cota", {})[_dia()] = COTA_DIA
+            log(f"    YouTube: {str(e)[:160]}")
+            if "uploadLimitExceeded" in str(e) or "videos.insert" in str(e):
+                est.dados.setdefault("envios", {})[_dia()] = ENVIOS_DIA
+            else:
+                est.dados.setdefault("cota", {})[_dia()] = COTA_DIA
             est.atualizar(mid, status="aguardando_cota", envio_pendente=pendente, **extras)
             est.salvar()
             log("    ⏸️  o YouTube disse que a cota acabou: sobe na próxima rodada")
             return None
         raise
-    _gastar(est)
+    _gastar(est, envio=True)
     est.atualizar(mid, status="postado", youtube_id=vid, publicar_em=publicar_em, postado_em=agora(),
                   envio_pendente=None, **extras)
     est.salvar()

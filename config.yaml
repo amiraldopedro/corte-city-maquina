@@ -63,7 +63,7 @@ momento_minimo:
 #  Para testar antes: rode a "Rodada" com a opção "modo lançamento" ligada.
 # ------------------------------------------------------------
 lancamento:
-  data: "2026-11-19"
+  data: "2026-11-18"             # antecipado: a galera já está em live de GTA 6
   janela_busca_horas: 24
   max_por_rodada: 4
   momento_minimo: { clipes: 2, views: 150, um_clipe_views: 400 }

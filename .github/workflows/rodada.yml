@@ -5,7 +5,7 @@ name: Rodada (caçar + Shorts)
 on:
   schedule:
     - cron: "17 */4 * * *"
-    - cron: "17 2-23/4 19-30 11 *"   # semana do lançamento do GTA 6: rodada a cada 2 horas
+    - cron: "17 2-23/4 18-30 11 *"   # semana do lançamento do GTA 6: rodada a cada 2 horas
   workflow_dispatch:
     inputs:
       teste:
