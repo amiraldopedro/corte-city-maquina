@@ -199,17 +199,21 @@ def lives_gringos(yt, canal, est_canal, est_fila, hoje: str) -> int:
                 print(f"  gringos: canal {h} não encontrado")
                 continue
             cache[h] = cid
-        r = yt.search().list(channelId=cid, part="id", type="video", eventType="completed", order="date",
-                             maxResults=5, publishedAfter=desde).execute()
-        _gastar(est_canal, 101)
-        ids = [it["id"]["videoId"] for it in r.get("items", []) if it["id"]["videoId"] not in est_fila.momentos]
+        # lista de uploads do canal ("UU..."): mostra a live gravada na hora (a busca demora horas) e custa 1 unidade
+        r = yt.playlistItems().list(playlistId="UU" + cid[2:], part="contentDetails", maxResults=8).execute()
+        _gastar(est_canal, 2)
+        recentes = [it["contentDetails"] for it in r.get("items", [])
+                    if (it["contentDetails"].get("videoPublishedAt") or "") >= desde]
+        ids = [c["videoId"] for c in recentes if c["videoId"] not in est_fila.momentos]
         if not ids:
-            print(f"  gringos: {h} sem live nova encerrada nas últimas 36 h")
+            print(f"  gringos: {h} sem vídeo/live novo nas últimas 36 h")
             continue
         info = yt.videos().list(part="snippet,statistics,liveStreamingDetails", id=",".join(ids)).execute()
         for v in info.get("items", []):
             sn = v["snippet"]
-            if not (v.get("liveStreamingDetails") or {}).get("actualEndTime"):
+            if not v.get("liveStreamingDetails"):
+                continue  # vídeo normal (não foi live)
+            if not v["liveStreamingDetails"].get("actualEndTime"):
                 print(f"  gringos: {h} ainda ao vivo ({sn.get('title', '')[:50]}): pego quando acabar")
                 continue
             if not re.search(r"gta|grand theft|vice city|leonida", sn.get("title", ""), re.I):
