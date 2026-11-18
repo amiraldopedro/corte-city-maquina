@@ -153,9 +153,11 @@ def _escapar(caminho: Path) -> str:
 
 def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], destino: Path,
                  marca: Path | None, cor: str, chamada: str = "", pico: float | None = None,
-                 audio: Path | None = None, etiqueta: str = "") -> dict:
-    """`pico`: segundo (no arquivo) da reação, ganha um zoom rápido. `audio`: arquivo com a voz isolada."""
-    webcam = achar_webcam(bruto, inicio, fim)
+                 audio: Path | None = None, etiqueta: str = "", tela_inteira: bool = False) -> dict:
+    """`pico`: segundo (no arquivo) da reação, ganha um zoom rápido. `audio`: arquivo com a voz isolada.
+    `tela_inteira`: não separa a webcam (quadro dos gringos: o vídeo vai inteiro, com o card em cima)."""
+    webcam = None if tela_inteira else achar_webcam(bruto, inicio, fim)
+    topo_video = TOPO_H
     legenda = destino.with_suffix(".ass")
     largura, altura, _ = info_video(bruto)
 
@@ -181,6 +183,7 @@ def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], d
         )
         y_legenda, y_marca = (H + alt_fg) // 2 + 170, (H - alt_fg) // 2 + 24
         y_chamada = max(160, (H - alt_fg) // 2 - 150)
+        topo_video = (H - alt_fg) // 2
 
     gerar_legenda(palavras, inicio, fim, legenda, y_legenda, cor, chamada=chamada, y_chamada=y_chamada + 40,
                   etiqueta=etiqueta)
@@ -218,7 +221,7 @@ def editar_short(bruto: Path, inicio: float, fim: float, palavras: list[dict], d
            "-map", "[v]", "-map", mapa_audio, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
            "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-c:a", "aac", "-b:a", "160k",
            "-ar", "48000", "-movflags", "+faststart", str(destino)])
-    return {"layout": "webcam" if webcam else "fundo", "webcam": webcam}
+    return {"layout": "webcam" if webcam else "fundo", "webcam": webcam, "topo_video": topo_video}
 
 
 def momento_mais_alto(bruto: Path, inicio: float, fim: float) -> float:

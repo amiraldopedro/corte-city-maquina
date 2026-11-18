@@ -75,10 +75,57 @@ def cacar(cfg: Config, canal: Canal, est: Estado, tw) -> int:
             log("      jogos: " + ", ".join(f"{nomes.get(g, g)}={n}" for g, n in por_jogo.most_common(4))
                 + f" | mais visto: {top.get('view_count', 0)} views ({nomes.get(top.get('game_id'), top.get('game_id'))})")
     try:
+        novos += cacar_gringos(cfg, canal, est, tw)
+    except Exception as e:
+        log(f"  gringos: caça falhou ({str(e)[:100]})")
+    try:
         novos += descobrir(cfg, canal, est, tw, {s.login for s in streamers})
     except Exception as e:
         log(f"  descoberta por jogo falhou ({str(e)[:100]})")
     novos += cacar_kick(cfg, canal, est)
+    return novos
+
+
+def cacar_gringos(cfg: Config, canal: Canal, est: Estado, tw) -> int:
+    """Quadro "gringos": rage/reação dos streamers gringos no GTA 6 (Twitch). O vídeo sai com o áudio original,
+    legenda traduzida pro português e um card no estilo post do Twitter em cima."""
+    g = canal.gringos or {}
+    lista = [x for x in g.get("twitch", []) if x["login"].lower() not in cfg.bloqueados]
+    if TESTE or not g.get("ligado", True) or not lista:
+        return 0
+    hoje = datetime.now(ZoneInfo(canal.fuso)).date().isoformat()
+    ja_hoje = sum(1 for m in est.momentos.values() if m.get("quadro") == "gringos" and (m.get("criado_em") or "")[:10] == hoje)
+    vagas = int(g.get("por_dia", 4)) * 2 - ja_hoje   # o dobro: o cérebro descarta os fracos
+    if vagas <= 0:
+        return 0
+    jogos = tw.ids_jogos(["Grand Theft Auto VI"])
+    usuarios = tw.usuarios([x["login"].lower() for x in lista])
+    candidatos = []
+    for x in lista:
+        u = usuarios.get(x["login"].lower())
+        if not u:
+            continue
+        try:
+            clipes = [c for c in tw.clipes(u["id"], cfg.janela_busca_horas) if not est.clipe_visto(c["id"])]
+        except Exception as e:
+            log(f"  gringo {x['nome']}: Twitch falhou ({str(e)[:80]})")
+            continue
+        ms = agrupar(clipes, jogos, x["login"].lower(), canal.id, 2, int(g.get("min_views", 1500)), None, None,
+                     int(g.get("um_clipe_views", 6000)), int(g.get("quentes", 12)))
+        for m in ms:
+            m.update(gringo=True, quadro="gringos", nome=x["nome"], isolar_voz=False)
+            candidatos.append(m)
+        est.marcar_clipes([c["id"] for c in clipes])
+        if clipes:
+            log(f"  gringo {x['nome']}: {len(clipes)} clipes novos, {len(ms)} momentos de GTA 6")
+    candidatos.sort(key=lambda m: -m.get("score", 0))
+    novos = 0
+    for m in candidatos[:vagas]:
+        m = priorizar(m)
+        m["quadro"] = "gringos"          # priorizar() recalcula o quadro: aqui ele é sempre "gringos"
+        m["score"] = m.get("score", 0) * 0.35  # clipe gringo tem 10x mais view: sem isso ele tomaria a fila toda
+        if est.inserir(m):
+            novos += 1
     return novos
 
 
@@ -193,7 +240,7 @@ def etiqueta_do(m: dict) -> str:
     if m.get("evento"):
         return "REACT"
     return {"gta6": "GTA 6", "rp": "GTA RP", "classicos": "CLÁSSICO", "noticias": "NOTÍCIA",
-            "comunidade": "COMUNIDADE"}.get(m.get("quadro") or quadro(m), "GTA")
+            "comunidade": "COMUNIDADE", "gringos": "GRINGOS"}.get(m.get("quadro") or quadro(m), "GTA")
 
 
 def playlist_do(canal: Canal, m: dict) -> str:
@@ -247,7 +294,8 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
         bruto = baixar_momento(m)
     if bruto.with_suffix(".clipe").exists():  # usou o clipe do público: a janela é o clipe inteiro
         m = {**m, "inicio": 0.0, "fim": editar.info_video(bruto)[2], "video_id": None}
-    palavras = transcrever(bruto, canal.idioma, cfg.whisper)
+    gringo = bool(m.get("gringo"))
+    palavras = transcrever(bruto, "en" if gringo else canal.idioma, cfg.whisper)
     folhas = []
     if os.getenv("CLAUDE_CODE_OAUTH_TOKEN"):  # o Claude "vê" o vídeo por folhas de quadros
         try:
@@ -284,8 +332,15 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     pico = d.get("pico_visual")
     if pico is None or not (d["inicio"] + 0.5 < pico < d["fim"] - 0.5):
         pico = editar.momento_mais_alto(bruto, d["inicio"], d["fim"])
-    info = editar.editar_short(bruto, d["inicio"], d["fim"], palavras, final, RAIZ / canal.marca, canal.cor_destaque,
-                               chamada=d.get("chamada", ""), pico=pico, audio=voz, etiqueta=etiqueta_do(m))
+    legenda, chamada, etiqueta = palavras, d.get("chamada", ""), etiqueta_do(m)
+    if gringo:  # gringo: legenda traduzida, sem chamada/plaquinha (o card estilo Twitter faz esse papel)
+        from maquina import gringos
+        legenda = gringos.traduzir_legenda(palavras, d["inicio"], d["fim"], cfg.ia_endereco,
+                                           cfg.noticias.get("modelo", cfg.ia_modelo)) or palavras
+        chamada, etiqueta = "", ""
+        log(f"    gringo: legenda traduzida ({len(legenda)} palavras)")
+    info = editar.editar_short(bruto, d["inicio"], d["fim"], legenda, final, RAIZ / canal.marca, canal.cor_destaque,
+                               chamada=chamada, pico=pico, audio=voz, etiqueta=etiqueta, tela_inteira=gringo)
     pico_rel = pico - d["inicio"]
     try:
         novo = editar.cortar_silencios(final, palavras, d["inicio"], d["fim"])
@@ -298,6 +353,18 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
             log("    abertura no pico: o 1º segundo mostra o momento mais forte")
     except Exception as e:
         log(f"    aviso: abertura no pico falhou ({str(e)[:100]})")
+    if gringo:
+        try:
+            from maquina import gringos
+            png = final.with_suffix(".tweet.png")
+            texto = d.get("chamada") or d["titulo"]
+            _, alt = gringos.cartao_tweet(texto, png, canal.nome, "@cortecity" if canal.idioma == "pt" else "@theclipcit",
+                                          editar.M.MONOGRAMA if editar.M.MONOGRAMA.exists() else RAIZ / canal.marca)
+            gringos.aplicar_cartao(final, png, info.get("topo_video", 640) - alt - 36)
+            png.unlink(missing_ok=True)
+            log(f"    gringo: card estilo Twitter: {texto[:60]}")
+        except Exception as e:
+            log(f"    aviso: card estilo Twitter falhou ({str(e)[:100]})")
     from maquina.baixar import MUDO_DB, volume_maximo
     if volume_maximo(final) <= MUDO_DB:
         raise RuntimeError("o vídeo final ficou sem som — não vou entregar")

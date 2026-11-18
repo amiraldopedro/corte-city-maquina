@@ -115,27 +115,31 @@ def rodar(cfg) -> int:
     est_fila = fila()
     ja = set(est_fila.momentos)
     hoje = datetime.now(timezone.utc).date().isoformat()
-    feitos_hoje = sum(1 for m in est_fila.momentos.values() if m.get("auto") and (m.get("pedido_em") or "")[:10] == hoje)
+    total = 0
+
+    # ---- vídeos/reacts de GTA mais vistos ----
+    feitos_hoje = sum(1 for m in est_fila.momentos.values() if m.get("auto") and not m.get("origem")
+                      and (m.get("pedido_em") or "")[:10] == hoje)
     vagas = int(conf.get("por_dia", 2)) - feitos_hoje
     if vagas <= 0:
-        print("  o robô automático já pegou os vídeos de hoje")
-        return 0
-    bons = buscar(yt, conf, ja)
-    _gastar(est_canal, 100 * len(conf.get("termos", [1, 1])) + 2)
-    est_canal.salvar()
-    escolhidos = bons[:vagas]
-    if not escolhidos:
-        print("  nenhum vídeo novo de GTA passou no filtro hoje")
-        return 0
-    pedir([f"https://www.youtube.com/watch?v={v['id']}" for v in escolhidos])
-    est_fila = fila()
-    for v in escolhidos:
-        if v["id"] in est_fila.momentos:
-            est_fila.momentos[v["id"]].update(auto=True, titulo=v["titulo"], canal_nome=v["canal"],
-                                              isolar_voz=v["react"], views_yt=v["views"])
-            print(f"  🤖 {v['titulo'][:70]} ({v['canal']}, {v['views']:,} views)")
-    est_fila.salvar()
-    total = len(escolhidos)
+        print("  reacts: o robô automático já pegou os de hoje")
+    else:
+        bons = buscar(yt, conf, ja)
+        _gastar(est_canal, 100 * len(conf.get("termos", [1, 1])) + 2)
+        est_canal.salvar()
+        escolhidos = bons[:vagas]
+        if escolhidos:
+            pedir([f"https://www.youtube.com/watch?v={v['id']}" for v in escolhidos])
+            est_fila = fila()
+            for v in escolhidos:
+                if v["id"] in est_fila.momentos:
+                    est_fila.momentos[v["id"]].update(auto=True, titulo=v["titulo"], canal_nome=v["canal"],
+                                                      isolar_voz=v["react"], views_yt=v["views"])
+                    print(f"  🤖 {v['titulo'][:70]} ({v['canal']}, {v['views']:,} views)")
+            est_fila.salvar()
+            total += len(escolhidos)
+        else:
+            print("  reacts: nenhum vídeo novo de GTA passou no filtro agora")
 
     # ---- lives encerradas de GTA 6 (qualquer canal BR) ----
     lv = conf.get("lives") or {}
@@ -160,4 +164,63 @@ def rodar(cfg) -> int:
                 total += len(escolhidas)
             else:
                 print("  nenhuma live encerrada de GTA 6 passou no filtro agora")
+
+    # ---- lives de GTA dos gringos no YouTube (Speed etc.): viram cortes legendados ----
+    try:
+        total += lives_gringos(yt, canal, est_canal, est_fila, hoje)
+    except Exception as e:
+        print(f"  gringos no YouTube: falhou agora ({str(e)[:120]})")
     return total
+
+
+def lives_gringos(yt, canal, est_canal, est_fila, hoje: str) -> int:
+    """Lives encerradas de GTA dos canais gringos da lista (ex.: @IShowSpeed). O robô do Mac acha os picos
+    (gráfico de mais repetidos) e a máquina faz o corte com o áudio original + legenda em português."""
+    from .publicar import _gastar, tem_cota
+    g = canal.gringos or {}
+    handles = g.get("youtube") or []
+    if not g.get("ligado", True) or not handles or not tem_cota(est_canal, envios=2):
+        return 0
+    feitas = sum(1 for m in est_fila.momentos.values() if m.get("origem") == "gringo" and (m.get("pedido_em") or "")[:10] == hoje)
+    if feitas >= 2:  # live de gringo rende vários cortes: 2 lives por dia já enchem o quadro
+        return 0
+    cache = est_canal.dados.setdefault("canais_yt", {})
+    desde = (datetime.now(timezone.utc) - timedelta(hours=36)).isoformat(timespec="seconds").replace("+00:00", "Z")
+    achadas = []
+    for h in handles:
+        cid = cache.get(h)
+        if not cid:
+            r = yt.channels().list(part="id", forHandle=h.lstrip("@")).execute()
+            cid = (r.get("items") or [{}])[0].get("id")
+            if not cid:
+                print(f"  gringos: canal {h} não encontrado")
+                continue
+            cache[h] = cid
+        r = yt.search().list(channelId=cid, part="id", type="video", eventType="completed", order="date",
+                             maxResults=5, publishedAfter=desde).execute()
+        _gastar(est_canal, 101)
+        ids = [it["id"]["videoId"] for it in r.get("items", []) if it["id"]["videoId"] not in est_fila.momentos]
+        if not ids:
+            continue
+        info = yt.videos().list(part="snippet,statistics,liveStreamingDetails", id=",".join(ids)).execute()
+        for v in info.get("items", []):
+            sn = v["snippet"]
+            if not (v.get("liveStreamingDetails") or {}).get("actualEndTime"):
+                continue
+            if not re.search(r"gta|grand theft|vice city|leonida", sn.get("title", ""), re.I):
+                continue
+            achadas.append({"id": v["id"], "titulo": sn["title"], "canal": sn["channelTitle"], "handle": h.lstrip("@"),
+                            "views": int(v.get("statistics", {}).get("viewCount") or 0)})
+    est_canal.salvar()
+    achadas = sorted(achadas, key=lambda x: -x["views"])[: 2 - feitas]
+    if not achadas:
+        return 0
+    pedir([f"https://www.youtube.com/watch?v={v['id']}" for v in achadas])
+    f2 = fila()
+    for v in achadas:
+        if v["id"] in f2.momentos:
+            f2.momentos[v["id"]].update(auto=True, origem="gringo", gringo=True, titulo=v["titulo"], canal_nome=v["canal"],
+                                        canal_handle=v["handle"], views_yt=v["views"], isolar_voz=False)
+            print(f"  🌎 gringo: {v['titulo'][:66]} ({v['canal']}, {v['views']:,} views)")
+    f2.salvar()
+    return len(achadas)

@@ -103,8 +103,11 @@ def processar(cfg) -> int:
                 "status": "novo", "prioridade": True, "criado_em": agora(), "atualizado_em": agora(),
                 "isolar_voz": bool(item.get("isolar_voz")),
             }
+            if item.get("gringo"):  # live de gringo: áudio original + legenda em português, card estilo Twitter
+                est.momentos[mid].update(gringo=True, quadro="gringos", isolar_voz=False, prioridade=False,
+                                         score=3_000 - i, jogo="Grand Theft Auto VI")
             total += 1
-        longo = item.get("longo")
+        longo = None if item.get("gringo") else item.get("longo")  # gringo em inglês não vira corte longo
         if longo and f"yt_{vid}_longo" not in est.momentos:
             mid = f"yt_{vid}_longo"
             est.momentos[mid] = {

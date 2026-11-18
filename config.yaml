@@ -160,6 +160,7 @@ canais:
       comunidade: "GTA 6: O Que a Comunidade Tá Postando"
       compilado: "Melhores Momentos de GTA 6"
       top10: "Top 10 da Semana"
+      gringos: "Gringos no GTA 6 (legendado)"
     streamers:
       # login = nome na URL da Twitch (twitch.tv/LOGIN)
       - { login: coringa,        nome: "Coringa" }
@@ -173,10 +174,28 @@ canais:
     # Só funciona com a chave KICK_API_KEY nos Secrets do GitHub; sem ela, é ignorado.
     kick:
       - { login: coringa,        nome: "Coringa" }
+    # Quadro "gringos": rage e reação dos streamers gringos no GTA 6, com o áudio original e legenda em
+    # português, no estilo post do Twitter (texto em cima, vídeo embaixo). Twitch + lives do YouTube.
+    gringos:
+      ligado: true
+      por_dia: 4
+      twitch:
+        - { login: kaicenat,      nome: "Kai Cenat" }
+        - { login: xqc,           nome: "xQc" }
+        - { login: jasontheween,  nome: "JasonTheWeen" }
+        - { login: caseoh_,       nome: "CaseOh" }
+        - { login: jynxzi,        nome: "Jynxzi" }
+        - { login: stableronaldo, nome: "Stable Ronaldo" }
+        - { login: lacy,          nome: "Lacy" }
+        - { login: summit1g,      nome: "summit1g" }
+      youtube: ["@IShowSpeed"]   # lives encerradas de GTA desses canais (o robô do Mac acha os picos)
+      min_views: 1500            # clipe gringo tem muita view: régua mais alta que a dos BR
+      um_clipe_views: 6000
+      quentes: 12
 
   - id: en
     nome: "Clip City"
-    ativo: false               # Fase 2: troque para true quando o Corte City estiver redondo
+    ativo: true                # ligado em 18/11 (lançamento do GTA 6)
     modo: revisao
     idioma: en
     marca: assets/marca/marca_en.png

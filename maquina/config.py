@@ -41,6 +41,7 @@ class Canal:
     descobrir: dict = field(default_factory=dict)
     kick: list[Streamer] = field(default_factory=list)
     horario_longo: str = "15:00"
+    gringos: dict = field(default_factory=dict)
 
     @property
     def refresh_token(self) -> str:
@@ -111,6 +112,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
             horario_longo=c.get("horario_longo", "15:00"),
             hashtags=list(c.get("hashtags", [])), playlists=dict(c.get("playlists", {})),
             postar=c.get("postar", "manual"), descobrir=dict(c.get("descobrir") or {}),
+            gringos=dict(c.get("gringos") or {}),
         )
         for s in c.get("streamers", []):
             canal.streamers.append(Streamer(login=s["login"].lower(), nome=s.get("nome", s["login"]), canal_id=canal.id))
