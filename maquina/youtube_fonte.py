@@ -34,7 +34,7 @@ def fila() -> Estado:
     return Estado("youtube")
 
 
-REDES = {"tiktok.com": ("tk", "tiktok"), "vm.tiktok": ("tk", "tiktok"), "instagram.com": ("ig", "reels"),
+REDES = {"twitch.tv": ("tw", "twitch"), "tiktok.com": ("tk", "tiktok"), "vm.tiktok": ("tk", "tiktok"), "instagram.com": ("ig", "reels"),
          "x.com": ("x", "x"), "twitter.com": ("x", "x"), "kick.com": ("kick", "kick"),
          "facebook.com": ("fb", "facebook"), "fb.watch": ("fb", "facebook")}
 
@@ -43,10 +43,13 @@ def pedir(links: list[str], modo: str = "cortes") -> int:
     import hashlib
     est = fila()
     novos = 0
+    gringo = modo == "gringo"
+    if gringo:
+        modo = "modelo"  # baixa o vídeo inteiro igual ao modelo; na montagem ele segue o caminho dos gringos
     for link in links:
         vid = id_do_video(link)
         rede = next((v for d, v in REDES.items() if d in link), None)
-        if not vid and rede and modo == "modelo":  # TikTok/Reels/X/Kick: só no modo modelo
+        if not vid and rede and modo == "modelo":  # TikTok/Reels/X/Kick/Twitch: só no modo modelo
             vid = f"{rede[0]}_{hashlib.md5(link.encode()).hexdigest()[:10]}"
         if not vid:
             print(f"  link inválido para esse modo: {link}")
@@ -59,6 +62,8 @@ def pedir(links: list[str], modo: str = "cortes") -> int:
         est.momentos[vid] = {"id": vid, "link": url, "status": status, "modo": modo,
                              "plataforma": (rede[1] if rede else "youtube"),
                              "pedido_em": agora(), "atualizado_em": agora()}
+        if gringo:
+            est.momentos[vid]["gringo"] = True
         novos += 1
         print(f"  ✅ na fila do robô do Mac ({modo}): {url}")
     est.salvar()

@@ -167,6 +167,77 @@ def _adaptar(cfg, item: dict, palavras: list[dict], idioma: str, dur: float) -> 
             "gancho": (r.get("gancho") or "").strip()[:40]}
 
 
+PROMPT_GRINGO = """Você faz Shorts do canal Corte City (GTA 6, Brasil). Este é um clipe de streamer gringo (rage/reação).
+Título original: {titulo}
+Streamer/canal: {canal}
+Fala (inglês): {texto}
+
+Responda SÓ em JSON com:
+- "titulo": título do Short em português, chamativo, até 80 letras, dizendo o nome do streamer e o que rolou (ex.: "Speed foi roubar uma scooter no GTA 6 e acabou preso");
+- "tweet": a mesma ideia em tom de post do Twitter, até 110 letras, sem hashtag;
+- "inicio" e "fim": segundos do melhor trecho de 12 a {maximo} segundos (o vídeo tem {dur:.0f} s; se ele já for curto, use 0 e {dur:.0f})."""
+
+
+def _montar_gringo(cfg, canal, est, yt, item: dict, vid: str, mid: str, bruto: Path, dur: float) -> str:
+    from . import cerebro, editar, gringos, thumb
+    from .config import PASTA_PRONTOS, RAIZ
+    from .transcrever import transcrever
+    palavras = transcrever(bruto, "en", cfg.whisper)
+    texto = " ".join(w["p"] for w in palavras)[:2500]
+    maximo = float(cfg.duracao_max)
+    try:
+        r = cerebro._perguntar_ollama(cfg.ia_endereco, cfg.noticias.get("modelo", cfg.ia_modelo), PROMPT_GRINGO.format(
+            titulo=item.get("titulo", ""), canal=item.get("canal_nome", ""), texto=texto or "(sem fala)", maximo=maximo, dur=dur))
+    except Exception as e:
+        print(f"    IA não respondeu ({str(e)[:80]}): uso o título original")
+        r = {}
+    ini = max(0.0, float(r.get("inicio") or 0))
+    fim = min(dur, float(r.get("fim") or dur))
+    if fim - ini < 8:
+        ini, fim = 0.0, min(dur, maximo)
+    fim = min(fim, ini + maximo)
+    titulo = (r.get("titulo") or item.get("titulo") or "Gringo perdeu a cabeça no GTA 6")[:95]
+    tweet = r.get("tweet") or titulo
+    legenda = gringos.traduzir_legenda(palavras, ini, fim, cfg.ia_endereco, cfg.noticias.get("modelo", cfg.ia_modelo)) or palavras
+    PASTA_PRONTOS.mkdir(parents=True, exist_ok=True)
+    final = PASTA_PRONTOS / f"{mid}.mp4"
+    info = editar.editar_short(bruto, ini, fim, legenda, final, RAIZ / canal.marca, canal.cor_destaque,
+                               chamada="", etiqueta="", tela_inteira=True)
+    png = final.with_suffix(".tweet.png")
+    _, alt = gringos.cartao_tweet(tweet, png, canal.nome, "@cortecity",
+                                  editar.M.MONOGRAMA if editar.M.MONOGRAMA.exists() else RAIZ / canal.marca)
+    gringos.aplicar_cartao(final, png, info.get("topo_video", 640) - alt - 36)
+    png.unlink(missing_ok=True)
+    capa = thumb.gerar_thumb(editar.frame_em(bruto, ini + (fim - ini) / 2), final.with_suffix(".jpg"),
+                             tweet[:40], canal.cor_destaque, None)
+    credito = item.get("url_final") or item.get("link") or ""
+    descricao = (f"{titulo}\n\nClipe original: {item.get('canal_nome', '')} ({credito})\n"
+                 f"Legenda em português: Corte City.\n\n" + " ".join(canal.hashtags))
+    tags = ["gta 6", "gta vi", "gta 6 gameplay", "streamer gringo", "legendado", "shorts"]
+    from .entrega import entregar
+    try:
+        arquivos = entregar(final, capa, mid)
+    except Exception:
+        arquivos = {}
+    base = {"tipo": "short", "jogo": "Grand Theft Auto VI", "titulo": titulo, "gancho": tweet[:40], "descricao": descricao,
+            "tags": tags, "feito_em": agora(), "nome": item.get("canal_nome", ""), "streamer": item.get("canal_nome", "gringo"),
+            "plataforma": item.get("plataforma", "youtube"), "quadro": "gringos", "gringo": True,
+            "duracao": round(fim - ini, 1), "modelo_de": credito, **arquivos}
+    if yt is not None:
+        from .publicar import publicar
+        from .youtube import proximo_horario
+        ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+        quando = proximo_horario(canal.horarios, canal.fuso, ocupados)
+        est.momentos[mid] = {"id": mid, "canal": canal.id, "status": "novo", "criado_em": agora(), "atualizado_em": agora(), **base}
+        est.salvar()
+        publicar(est, mid, yt, final, titulo, descricao, tags, canal.idioma, quando, capa,
+                 canal.playlists.get("gringos") or canal.playlists.get("shorts", ""), print, **base)
+    else:
+        est.momentos[mid] = {"id": mid, "canal": canal.id, "status": "pronto", "criado_em": agora(), "atualizado_em": agora(), **base}
+        est.salvar()
+    return titulo
+
+
 def montar(cfg, maximo: int = 2) -> int:
     """Shorts que o Mac baixou viram vídeos do Corte City: voz original sai, narração nova entra."""
     import subprocess
@@ -200,6 +271,12 @@ def montar(cfg, maximo: int = 2) -> int:
         try:
             bruto = _baixar_asset(int(item["asset_id"]), pasta / "bruto.mp4")
             _, _, dur = editar.info_video(bruto)
+            if item.get("gringo"):  # gringo: áudio original + legenda PT + card estilo Twitter (sem trocar a voz)
+                titulo = _montar_gringo(cfg, canal, est, yt, item, vid, mid, bruto, dur)
+                item.update(status="modelado", atualizado_em=agora())
+                feitos += 1
+                print(f"    ✅ gringo legendado: {titulo[:70]}")
+                continue
             dur = min(dur, float(cfg.duracao_max))
             orig = transcrever(bruto, None, cfg.whisper)
             idioma = item.get("idioma_falado") or "auto"

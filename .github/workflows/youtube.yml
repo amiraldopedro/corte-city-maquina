@@ -8,7 +8,7 @@ on:
       acao:
         description: "pedir = links p/ cortes | modelo = links de Shorts/TikTok/Reels pra refazer com voz nossa | processar = trechos baixados viram cortes"
         type: choice
-        options: [pedir, biblioteca, modelo, processar, auto]
+        options: [pedir, biblioteca, modelo, gringo, processar, auto]
         default: pedir
       links:
         description: "Links de vídeos/lives do YouTube (separados por espaço)"
@@ -47,7 +47,7 @@ jobs:
           elif [ "$ACAO" = "processar" ]; then
             python main.py youtube_processar
           else
-            if [ "$ACAO" = "biblioteca" ] || [ "$ACAO" = "modelo" ]; then MODO=$ACAO; else MODO=cortes; fi
+            if [ "$ACAO" = "biblioteca" ] || [ "$ACAO" = "modelo" ] || [ "$ACAO" = "gringo" ]; then MODO=$ACAO; else MODO=cortes; fi
             python main.py youtube_pedir --links "$LINKS" --evento "$MODO"
           fi
       - name: Salvar memória da máquina
