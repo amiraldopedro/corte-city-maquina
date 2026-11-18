@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "41 20 19-26 11 *"   # semana do lançamento: todo dia 17:41 de Brasília -> Melhores do Dia
     - cron: "23 13 * * 0"   # domingo 10:23 de Brasília -> Top 10 da Semana
+    - cron: "37 11,16 18-30 11 *"   # lançamento: 08:37 e 13:37 de Brasília -> corte longo (um por execução)
   workflow_dispatch:
     inputs:
       tipo:
@@ -71,7 +72,9 @@ jobs:
         run: |
           TIPO="$TIPO_PEDIDO"
           if [ -z "$TIPO" ]; then
-            if [ "$AGENDA" = "23 13 * * 0" ]; then TIPO=top10; else TIPO=dia; fi
+            if [ "$AGENDA" = "23 13 * * 0" ]; then TIPO=top10
+            elif [ "$AGENDA" = "37 11,16 18-30 11 *" ]; then TIPO=longo
+            else TIPO=dia; fi
           fi
           for T in $TIPO; do
             python main.py compilado "$T" --evento "$EVENTO" || echo "::warning::$T falhou"

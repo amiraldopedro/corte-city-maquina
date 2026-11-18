@@ -99,7 +99,8 @@ lancamento:
   jogos: ["Grand Theft Auto VI"]   # no lançamento é só GTA 6
   canais:
     br:
-      horarios: ["08:00", "09:30", "11:00", "12:30", "14:00", "15:30", "17:00", "18:30", "20:00", "21:30", "23:00", "00:30"]   # 12 Shorts por dia na semana do lançamento
+      horarios: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:30", "18:00", "19:00", "20:00", "21:00", "22:30", "00:00"]   # 15 Shorts por dia na semana do lançamento
+      horarios_longos: ["12:30", "17:00"]   # cortes longos (o "Melhores do Dia" sai às 19:30)
       descobrir_min_views: 300   # com muita gente jogando, só os clipes mais vistos
       descobrir_jogos: ["Grand Theft Auto VI"]
 

@@ -628,8 +628,11 @@ def _postar_longo(cfg: Config, canal: Canal, est: Estado, saida: Path, capa: Pat
         from maquina.youtube import YouTube, proximo_horario
         yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
         ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
-        horario = canal.horario_longo if tipo == "longo" else canal.horario_compilado
-        publicar_em = proximo_horario([horario], canal.fuso, ocupados)
+        if tipo == "longo":
+            horarios = canal.horarios_longos or [canal.horario_longo]
+        else:
+            horarios = [canal.horario_compilado]
+        publicar_em = proximo_horario(horarios, canal.fuso, ocupados)
         envio = {"yt": yt, "publicar_em": publicar_em}
     anterior = est.momentos.get(cid, {})
     est.momentos[cid] = {**anterior, "id": cid, "streamer": "*", "canal": canal.id, "tipo": tipo,
