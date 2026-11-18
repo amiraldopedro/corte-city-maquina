@@ -543,5 +543,16 @@
   }
  },
  "clipes_vistos": [],
- "cota": {}
+ "cota": {},
+ "modelar_tiktok": {
+  "ligado": true,
+  "por_dia": 2,
+  "dias": 5,
+  "min_views": 500000,
+  "tags": [
+   "gta6",
+   "gta6brasil"
+  ],
+  "contas": []
+ }
 }
