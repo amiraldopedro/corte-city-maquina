@@ -11790,7 +11790,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "longo",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "Reacts LOUD Coringa e o plano pro lançamento do GTA 6",
    "descricao": "Reacts LOUD Coringa e o plano pro lançamento do GTA 6\nNeste corte, o Coringa conta como vai ser a agenda dele no lançamento do GTA 6: casamento dia 27, despedida de solteiro, viagem ao Japão e a meta de zerar o jogo até o dia 25. Ele também fala da passagem de 46 mil reais e das 27 horas de voo. Por fim, revela a ideia de fazer sorteios, metas e dinâmicas com o chat durante as lives de lançamento do GTA 6 para fugir dos spoilers.\n\n🎮 Live original: https://www.youtube.com/@ReactsLOUDCoringaOficial\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
    "tags": [
@@ -11825,32 +11825,11 @@
    "video_asset": 766282144,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_yt_LCNP8-RqI0g_longo.jpg",
    "thumb_asset": 766282278,
-   "envio_pendente": {
-    "titulo": "Reacts LOUD Coringa e o plano pro lançamento do GTA 6",
-    "descricao": "Reacts LOUD Coringa e o plano pro lançamento do GTA 6\nNeste corte, o Coringa conta como vai ser a agenda dele no lançamento do GTA 6: casamento dia 27, despedida de solteiro, viagem ao Japão e a meta de zerar o jogo até o dia 25. Ele também fala da passagem de 46 mil reais e das 27 horas de voo. Por fim, revela a ideia de fazer sorteios, metas e dinâmicas com o chat durante as lives de lançamento do GTA 6 para fugir dos spoilers.\n\n🎮 Live original: https://www.youtube.com/@ReactsLOUDCoringaOficial\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
-    "tags": [
-     "reacts loud coringa gta 6",
-     "loud coringa gta 6",
-     "coringa gta 6",
-     "lives de lançamento gta 6",
-     "lançamento do gta 6",
-     "zerar gta 6",
-     "coringa live gta 6",
-     "sorteio live gta 6",
-     "spoiler gta 6",
-     "coringa japão passagem",
-     "coringa casamento",
-     "cortes gta 6",
-     "reacts loud coringa ",
-     "reacts loud coringa  gta rp",
-     "gta rp"
-    ],
-    "idioma": "pt",
-    "playlist": "Melhores Momentos de GTA 6",
-    "publicar_em": "2026-11-20T15:30:00Z",
-    "horario_fixo": false
-   },
-   "atualizado_em": "2026-11-19T04:56:00+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-19T09:49:16+00:00",
+   "youtube_id": "1VNqfG9MG4c",
+   "publicar_em": "2026-11-20T12:00:00Z",
+   "postado_em": "2026-11-19T09:49:16+00:00"
   },
   "yt_cxuF5siTUQw_0": {
    "id": "yt_cxuF5siTUQw_0",
@@ -14676,11 +14655,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 500
+  "2026-11-19": 600
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 5
+  "2026-11-19": 6
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
