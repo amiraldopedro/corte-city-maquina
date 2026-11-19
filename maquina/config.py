@@ -150,6 +150,12 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
             if extra.get("descobrir_min_views"):
                 canal.descobrir["min_views"] = int(extra["descobrir_min_views"])
 
+    # canal sem a chave do YouTube (ex.: Clip City antes de autorizar): faz tudo, mas deixa pronto no Studio
+    # em vez de tentar postar e quebrar a rodada inteira
+    if os.getenv("GITHUB_ACTIONS"):
+        for canal in canais:
+            if canal.postar == "automatico" and not canal.refresh_token:
+                canal.postar = "revisao"
     mm, du, ia = bruto.get("momento_minimo", {}), bruto.get("duracao", {}), bruto.get("ia", {})
     return Config(
         jogos=list(bruto.get("jogos", ["Grand Theft Auto VI"])),
