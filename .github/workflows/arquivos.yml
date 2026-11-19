@@ -1,0 +1,38 @@
+name: Mudar vídeos pro repositório privado
+on:
+  workflow_dispatch:
+    inputs:
+      apagar_publico:
+        description: "Apagar a cópia pública depois de copiar (sim/nao)"
+        default: "sim"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: maquina
+  cancel-in-progress: false
+
+env:
+  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO }}
+  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN }}
+
+jobs:
+  mudar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q requests pyyaml
+      - name: Copiar, trocar os endereços e apagar a cópia pública
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          APAGAR_PUBLICO: ${{ inputs.apagar_publico }}
+        run: python ferramentas/mudar_arquivos.py
+      - name: Salvar memória da máquina
+        if: always()
+        run: |
+          pip install -q -r requirements-leve.txt 2>/dev/null || true
+          python main.py sincronizar "Vídeos mudaram pro repositório privado"

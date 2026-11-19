@@ -1169,14 +1169,10 @@ def postar_narrado(cfg: Config, rid: str):
         log(f"  já está no YouTube: https://youtu.be/{m['youtube_id']}"); return
     pasta = PASTA_PRONTOS / cid
     pasta.mkdir(parents=True, exist_ok=True)
-    cab = {"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Accept": "application/octet-stream"}
-    repo = os.environ["GITHUB_REPOSITORY"]
+    from maquina import arquivos
     arqs = {}
     for chave, nome in (("video_asset", "final.mp4"), ("thumb_asset", "capa.jpg")):
-        r = requests.get(f"https://api.github.com/repos/{repo}/releases/assets/{m[chave]}", headers=cab, timeout=900)
-        r.raise_for_status()
-        (pasta / nome).write_bytes(r.content)
-        arqs[chave] = pasta / nome
+        arqs[chave] = arquivos.baixar_asset(int(m[chave]), pasta / nome)
     _postar_narrado(cfg, canal, est, cid, arqs["video_asset"], arqs["thumb_asset"], roteiro, m["descricao"])
 
 

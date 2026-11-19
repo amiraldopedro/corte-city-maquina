@@ -15,11 +15,13 @@ API = "https://api.github.com"
 
 
 def _repo() -> str:
-    return os.environ["GITHUB_REPOSITORY"]
+    from . import arquivos
+    return arquivos.repo()  # repositório privado de arquivos (ou o da máquina, se ainda não configurado)
 
 
 def _cab() -> dict:
-    return {"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "Accept": "application/vnd.github+json"}
+    from . import arquivos
+    return arquivos.cab()
 
 
 def _release() -> dict:
@@ -27,7 +29,7 @@ def _release() -> dict:
     if r.status_code == 200:
         return r.json()
     r = requests.post(f"{API}/repos/{_repo()}/releases", headers=_cab(), timeout=30, json={
-        "tag_name": TAG, "name": "Vídeos prontos para postar", "target_commitish": "main",
+        "tag_name": TAG, "name": "Vídeos prontos para postar",
         "body": "A máquina coloca aqui cada Short e compilado pronto (vídeo + thumb). Baixe pelo painel ou por aqui e poste pelo app do YouTube.",
     })
     r.raise_for_status()

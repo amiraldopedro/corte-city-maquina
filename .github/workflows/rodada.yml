@@ -29,6 +29,11 @@ concurrency:
   group: maquina
   cancel-in-progress: false
 
+env:
+  # vídeos ficam no repositório privado de arquivos (se configurado); o código continua público
+  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO }}
+  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN }}
+
 jobs:
   rodada:
     runs-on: ubuntu-latest

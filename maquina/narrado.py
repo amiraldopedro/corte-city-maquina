@@ -188,10 +188,18 @@ class Fundos:
         return next((a for a, _ in self.fontes if nome and nome in a.name), None)
 
 
+def _repo_arquivos():
+    import os
+    if not os.environ.get("GITHUB_REPOSITORY"):
+        return None, None
+    from . import arquivos
+    return arquivos.repo(), arquivos.token()
+
+
 def fontes_citadas(pasta: Path, prefixo: str) -> dict[str, Path]:
     """Trechos de vídeos de terceiros que o robô do Mac subiu (Releases, tag fontes)."""
     import os
-    repo, token = os.environ.get("GITHUB_REPOSITORY"), os.environ.get("GITHUB_TOKEN")
+    repo, token = _repo_arquivos()
     if not (repo and token):
         return {p.stem: p for p in pasta.glob(f"{prefixo}*.mp4")} if pasta.exists() else {}
     cab = {"Authorization": f"Bearer {token}"}
@@ -219,7 +227,7 @@ def oficial_por_nome(nome: str, pasta: Path) -> Path | None:
     """Screenshot oficial da Rockstar (Releases, tag oficiais), baixada só quando usada. Ex.: 'Vice_City_05'."""
     import os
     global _OFICIAIS
-    repo, token = os.environ.get("GITHUB_REPOSITORY"), os.environ.get("GITHUB_TOKEN")
+    repo, token = _repo_arquivos()
     pasta.mkdir(parents=True, exist_ok=True)
     local = [p for p in pasta.glob("of_*") if f"_{nome}." in p.name]
     if local:
@@ -267,7 +275,7 @@ IGNORAR_BIBLIOTECA = {"bib_xHm_RF0WBCg.mp4"}
 def biblioteca(pasta: Path) -> list[Path]:
     """Baixa os vídeos da biblioteca (Releases, tag biblioteca)."""
     import os
-    repo, token = os.environ.get("GITHUB_REPOSITORY"), os.environ.get("GITHUB_TOKEN")
+    repo, token = _repo_arquivos()
     if not (repo and token):
         return []
     cab = {"Authorization": f"Bearer {token}"}

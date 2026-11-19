@@ -24,9 +24,10 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSAO = "2026-11-18c"
+VERSAO = "2026-11-19a"
 
-REPO = "amiraldopedro/corte-city-maquina"
+REPO = "amiraldopedro/corte-city-maquina"   # código + fila (público)
+REPO_ARQ = REPO                               # onde sobem os vídeos: troca pro privado se a fila mandar
 TAG = "youtube-brutos"
 TRECHOS = 3
 JANELA = 70          # segundos por trecho curto (vira Short)
@@ -117,11 +118,30 @@ def atualizar_item(vid: str, mudancas: dict):
     raise RuntimeError("não consegui salvar a fila")
 
 
+def escolher_repo_arquivos(fila: dict):
+    """A máquina avisa na fila qual é o repositório privado dos vídeos. Se esta chave não tiver acesso a ele,
+    continua subindo no repositório da máquina (e avisa no log o que falta)."""
+    global REPO_ARQ
+    alvo = fila.get("arquivos_repo") or REPO
+    if alvo == REPO_ARQ:
+        return
+    st, _ = api("GET", f"https://api.github.com/repos/{alvo}")
+    if st == 200:
+        REPO_ARQ = alvo
+        log(f"  vídeos agora sobem pro repositório privado {alvo}")
+    else:
+        marca = LOCAL / ".aviso_arquivos"
+        if not marca.exists() or time.time() - marca.stat().st_mtime > 6 * 3600:
+            marca.touch()
+            log(f"  a chave do robô não abre {alvo} ({st}): edite a chave no GitHub e dê acesso a esse repositório")
+
+
 def release_id() -> int:
-    st, d = api("GET", f"releases/tags/{TAG}")
+    base = f"https://api.github.com/repos/{REPO_ARQ}"
+    st, d = api("GET", f"{base}/releases/tags/{TAG}")
     if st == 200:
         return d["id"]
-    st, d = api("POST", "releases", {"tag_name": TAG, "name": {"biblioteca": "Biblioteca de imagens", "fontes": "Fontes citadas nos vídeos narrados", "analise": "Análise de referências"}.get(TAG, "Trechos do YouTube (robô do Mac)"),
+    st, d = api("POST", f"{base}/releases", {"tag_name": TAG, "name": {"biblioteca": "Biblioteca de imagens", "fontes": "Fontes citadas nos vídeos narrados", "analise": "Análise de referências"}.get(TAG, "Trechos do YouTube (robô do Mac)"),
                                      "body": "Arquivos temporários do robô do YouTube.", "prerelease": True})
     if st not in (200, 201):
         raise RuntimeError(f"não criei a área de arquivos ({st}): {d}")
@@ -130,11 +150,12 @@ def release_id() -> int:
 
 def subir(arquivo: Path, nome: str) -> int:
     rid = release_id()
-    st, rel = api("GET", f"releases/{rid}")
+    base = f"https://api.github.com/repos/{REPO_ARQ}"
+    st, rel = api("GET", f"{base}/releases/{rid}")
     for a in rel.get("assets", []):
         if a["name"] == nome:
-            api("DELETE", f"releases/assets/{a['id']}")
-    url = f"https://uploads.github.com/repos/{REPO}/releases/{rid}/assets?name={nome}"
+            api("DELETE", f"{base}/releases/assets/{a['id']}")
+    url = f"https://uploads.github.com/repos/{REPO_ARQ}/releases/{rid}/assets?name={nome}"
     st, d = api("POST", url, arquivo.read_bytes(), tipo="video/mp4")
     if st not in (200, 201):
         raise RuntimeError(f"upload falhou ({st}): {d}")
@@ -521,6 +542,7 @@ def main():
     log(f"  login do YouTube: perfil do Chrome '{_PERFIL}' (conta reserva)" if _PERFIL
         else "  login do YouTube: conta reserva não achada no Chrome, baixando sem login")
     _, fila = ler_fila()
+    escolher_repo_arquivos(fila)
     sinal_de_vida(fila)
     try:
         tiktok_cacar(fila)

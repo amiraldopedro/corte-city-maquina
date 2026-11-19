@@ -71,15 +71,9 @@ def pedir(links: list[str], modo: str = "cortes") -> int:
 
 
 def _baixar_asset(asset_id: int, destino: Path) -> Path:
-    repo, token = os.environ["GITHUB_REPOSITORY"], os.environ["GITHUB_TOKEN"]
-    r = requests.get(f"https://api.github.com/repos/{repo}/releases/assets/{asset_id}", stream=True, timeout=600,
-                     headers={"Authorization": f"Bearer {token}", "Accept": "application/octet-stream"})
-    r.raise_for_status()
+    from . import arquivos
     destino.parent.mkdir(parents=True, exist_ok=True)
-    with open(destino, "wb") as f:
-        for pedaco in r.iter_content(1 << 20):
-            f.write(pedaco)
-    return destino
+    return arquivos.baixar_asset(asset_id, destino, timeout=600)
 
 
 def processar(cfg) -> int:
