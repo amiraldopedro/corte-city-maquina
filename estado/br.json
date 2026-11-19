@@ -12306,7 +12306,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "longo",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "TecnoArt jogando GTA 6 no Series S: será que roda bem?",
    "descricao": "TecnoArt jogando GTA 6 no Series S: será que roda bem?\nTecnoArt testa o GTA 6 no Xbox Series S durante a live e fica surpreso com a qualidade gráfica, já que esperava muito serrilhado. No meio do corte rola a primeira vez que deu o ruim no jogo, além de reações engraçadas com o chat gringo e o cachorro. Se você quer saber como o GTA 6 roda no Xbox Series S, vale ver o teste completo.\n\n🎮 Live original: https://www.youtube.com/@tecnoart101\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
    "tags": [
@@ -12341,32 +12341,11 @@
    "video_asset": 766679725,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_yt_W6DIv7ayZ64_longo.jpg",
    "thumb_asset": 766680301,
-   "envio_pendente": {
-    "titulo": "TecnoArt jogando GTA 6 no Series S: será que roda bem?",
-    "descricao": "TecnoArt jogando GTA 6 no Series S: será que roda bem?\nTecnoArt testa o GTA 6 no Xbox Series S durante a live e fica surpreso com a qualidade gráfica, já que esperava muito serrilhado. No meio do corte rola a primeira vez que deu o ruim no jogo, além de reações engraçadas com o chat gringo e o cachorro. Se você quer saber como o GTA 6 roda no Xbox Series S, vale ver o teste completo.\n\n🎮 Live original: https://www.youtube.com/@tecnoart101\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
-    "tags": [
-     "tecnoart gta 6",
-     "tecnoart xbox series s",
-     "gta 6 xbox series s",
-     "gta 6 series s roda bem",
-     "gta 6 gameplay",
-     "teste gta 6 series s",
-     "gta 6 qualidade gráfica series s",
-     "gta 6 serrilhado",
-     "gta 6 performance xbox",
-     "gta 6 live",
-     "cortes gta 6",
-     "cortes tecnoart",
-     "tecnoart",
-     "tecnoart gta rp",
-     "gta rp"
-    ],
-    "idioma": "pt",
-    "playlist": "Melhores Momentos de GTA 6",
-    "publicar_em": "2026-11-19T15:30:00Z",
-    "horario_fixo": false
-   },
-   "atualizado_em": "2026-11-19T07:23:09+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-19T09:49:40+00:00",
+   "youtube_id": "LOfhjRtyqXo",
+   "publicar_em": "2026-11-20T14:00:00Z",
+   "postado_em": "2026-11-19T09:49:40+00:00"
   },
   "2932209117_0": {
    "id": "2932209117_0",
@@ -14634,11 +14613,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 700
+  "2026-11-19": 800
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 7
+  "2026-11-19": 8
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
