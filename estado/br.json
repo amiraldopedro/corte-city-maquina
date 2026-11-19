@@ -10353,11 +10353,9 @@
    "fim": 17192.0,
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/CrackyBillowingDiscPJSalt-J_4DO7T2kV9n_o9_",
    "clipe_ids": [
-    "CrackyBillowingDiscPJSalt-J_4DO7T2kV9n_o9_",
     "CrackyBillowingDiscPJSalt-J_4DO7T2kV9n_o9_"
    ],
    "titulos_chat": [
-    ".",
     "."
    ],
    "views": 40,
@@ -10799,6 +10797,40 @@
    "youtube_id": "ci1GrJBv0XU",
    "publicar_em": "2026-11-19T22:00:00Z",
    "postado_em": "2026-11-19T03:15:36+00:00",
+   "envio_pendente": null
+  },
+  "mod_wwvNOgt23YA": {
+   "id": "mod_wwvNOgt23YA",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-19T03:18:59+00:00",
+   "atualizado_em": "2026-11-19T03:19:05+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "O México joga GTA 6 por último e a Nova Zelândia 19 horas antes!",
+   "gancho": "QUEM JOGA GTA 6 PRIMEIRO",
+   "descricao": "O México joga GTA 6 por último e a Nova Zelândia 19 horas antes!\n\nIdeia e gameplay: Mente Clara (https://www.youtube.com/watch?v=wwvNOgt23YA)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-19T03:18:59+00:00",
+   "nome": "Mente Clara",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 52.1,
+   "modelo_de": "https://www.youtube.com/watch?v=wwvNOgt23YA",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_wwvNOgt23YA.mp4",
+   "video_asset": 766027138,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_wwvNOgt23YA.jpg",
+   "thumb_asset": 766027231,
+   "youtube_id": "5RZavW8WIuE",
+   "publicar_em": "2026-11-20T00:00:00Z",
+   "postado_em": "2026-11-19T03:19:05+00:00",
    "envio_pendente": null
   }
  },
@@ -12931,10 +12963,10 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 5220
+  "2026-11-18": 5320
  },
  "envios": {
-  "2026-11-18": 39
+  "2026-11-18": 40
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
