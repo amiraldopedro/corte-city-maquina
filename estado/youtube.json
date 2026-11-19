@@ -1211,11 +1211,45 @@
   "mdbipWhS74g": {
    "id": "mdbipWhS74g",
    "link": "https://www.youtube.com/watch?v=mdbipWhS74g",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T19:20:53+00:00"
+   "atualizado_em": "2026-11-19T21:52:13+00:00",
+   "longo": {
+    "asset_id": 769401055,
+    "inicio": 2580.0,
+    "fim": 3180.0,
+    "duracao": 600.0
+   },
+   "titulo": "CONHECENDO A VIDA NOTURNA DE VICE CITY | GTA VI #5",
+   "canal_nome": "BisteconeLive",
+   "canal_handle": "BisteconeLive",
+   "canal_id": "UCxu6ptkyCUoZj7rsrYYB0GA",
+   "duracao": 6352.0,
+   "segmentos": [
+    {
+     "asset_id": 769347831,
+     "inicio": 1870.0,
+     "fim": 1940.0,
+     "duracao": 70.0,
+     "forca": 1.104
+    },
+    {
+     "asset_id": 769354989,
+     "inicio": 2874.0,
+     "fim": 2944.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 769362660,
+     "inicio": 5132.0,
+     "fim": 5202.0,
+     "duracao": 70.0,
+     "forca": 1.196
+    }
+   ]
   },
   "upFrh84fBhc": {
    "id": "upFrh84fBhc",
