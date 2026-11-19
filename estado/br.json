@@ -12236,11 +12236,52 @@
    "views": 1094,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T06:18:39+00:00",
-   "atualizado_em": "2026-11-19T06:18:39+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T10:04:55+00:00",
+   "isolar_voz": false,
+   "youtube_id": "-FtALhSvMcs",
+   "publicar_em": "2026-11-20T21:00:00Z",
+   "postado_em": "2026-11-19T10:04:55+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "LipaoGamer pegou um caça no GTA 6 com 5 estrelas e deu nisso",
+   "gancho": "CAÇA!",
+   "descricao": "LipaoGamer pegou um caça no GTA 6 com 5 estrelas e deu nisso\nLipaoGamer corre pela base militar no GTA 6 com um pingo de vida, rouba um caça e decola com cinco estrelas da polícia. Reação e comemoração nos cortes da live, um dos momentos mais insanos do mundo aberto.\n\n🎮 Live original: https://www.youtube.com/@LipaoGamer\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "lipaogamer gta 6",
+    "lipaogamer",
+    "caça gta 6",
+    "roubar caça gta 6",
+    "cinco estrelas gta 6",
+    "base militar gta 6",
+    "gta 6 mundo aberto",
+    "gta 6 gameplay",
+    "gta 6",
+    "cortes gta 6",
+    "momentos engraçados gta",
+    "cortes gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-19T10:04:49+00:00",
+   "corte": [
+    15.73,
+    53.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 37.3,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_2.mp4",
+   "video_asset": 767161213,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_2.jpg",
+   "thumb_asset": 767161311,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_2_kit.zip"
   },
   "yt_lfqmnrTEu_4_longo": {
    "id": "yt_lfqmnrTEu_4_longo",
@@ -14919,11 +14960,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 1200
+  "2026-11-19": 1300
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 12
+  "2026-11-19": 13
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
