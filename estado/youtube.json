@@ -1042,11 +1042,40 @@
   "2xQGSIb61LM": {
    "id": "2xQGSIb61LM",
    "link": "https://www.youtube.com/watch?v=2xQGSIb61LM",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T09:59:59+00:00",
-   "atualizado_em": "2026-11-19T09:59:59+00:00"
+   "atualizado_em": "2026-11-19T10:20:39+00:00",
+   "longo": null,
+   "titulo": "4 Easy To Do GTA 6 Easter Eggs.. (Grand Theft Auto 6)",
+   "canal_nome": "CheezhOfficial",
+   "canal_handle": "CheezhOfficial",
+   "canal_id": "UCFliaxr8fcjdlSSHHdj4Nhw",
+   "duracao": 371.0,
+   "segmentos": [
+    {
+     "asset_id": 767198628,
+     "inicio": 53.0,
+     "fim": 123.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 767205372,
+     "inicio": 176.0,
+     "fim": 246.0,
+     "duracao": 70.0,
+     "forca": 1.014
+    },
+    {
+     "asset_id": 767212700,
+     "inicio": 314.0,
+     "fim": 371.0,
+     "duracao": 57.0,
+     "forca": 1.057
+    }
+   ]
   }
  },
  "clipes_vistos": [],
