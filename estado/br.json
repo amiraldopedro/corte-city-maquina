@@ -11136,9 +11136,9 @@
   "mod_BYjUW4BJ8Qc": {
    "id": "mod_BYjUW4BJ8Qc",
    "canal": "br",
-   "status": "aguardando_cota",
+   "status": "postado",
    "criado_em": "2026-11-19T03:50:28+00:00",
-   "atualizado_em": "2026-11-19T03:50:28+00:00",
+   "atualizado_em": "2026-11-19T09:48:37+00:00",
    "tipo": "short",
    "jogo": "Grand Theft Auto VI",
    "titulo": "Comprei o GTA 6 mais caro do mundo e olha o que veio dentro",
@@ -11162,21 +11162,10 @@
    "video_asset": 766117821,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_BYjUW4BJ8Qc.jpg",
    "thumb_asset": 766117978,
-   "envio_pendente": {
-    "titulo": "Comprei o GTA 6 mais caro do mundo e olha o que veio dentro",
-    "descricao": "Comprei o GTA 6 mais caro do mundo e olha o que veio dentro\n\nIdeia e gameplay: Diosdado Juarez (https://www.youtube.com/watch?v=BYjUW4BJ8Qc)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
-    "tags": [
-     "gta 6",
-     "gta vi",
-     "gta 6 gameplay",
-     "shorts",
-     "cortes gta"
-    ],
-    "idioma": "pt",
-    "playlist": "Melhores Momentos de GTA 6",
-    "publicar_em": "2026-11-20T01:00:00Z",
-    "horario_fixo": false
-   }
+   "envio_pendente": null,
+   "youtube_id": "40H59r600lQ",
+   "publicar_em": "2026-11-20T02:00:00Z",
+   "postado_em": "2026-11-19T09:48:37+00:00"
   },
   "mod_ecT3WZdRcBE": {
    "id": "mod_ecT3WZdRcBE",
@@ -12466,16 +12455,12 @@
     "TriangularPluckySparrowThisIsSparta-OAr5y6qJUERPVk_U",
     "ProudObedientSlothRlyTho-NZQEq41hbCUegGSr",
     "FitOnerousOrcaTBCheesePull-juBZ90hmwpMHPEfF",
-    "FitOnerousOrcaTBCheesePull-juBZ90hmwpMHPEfF",
-    "AlertEnergeticSquidHoneyBadger-jmWtTUCGOQXI2u-O",
     "AlertEnergeticSquidHoneyBadger-jmWtTUCGOQXI2u-O",
     "PricklyYummyEggStoneLightning-ZX5cDyHDP9jjfq3m"
    ],
    "titulos_chat": [
     "Paulinho Oloko GTA6",
     "1",
-    "1",
-    "gta6 1",
     "gta6 1",
     "começo",
     "gta6"
@@ -14724,11 +14709,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 100
+  "2026-11-19": 200
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 1
+  "2026-11-19": 2
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
