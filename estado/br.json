@@ -8391,11 +8391,52 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-18T22:18:19+00:00",
-   "atualizado_em": "2026-11-18T22:18:19+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T00:54:04+00:00",
+   "isolar_voz": false,
+   "youtube_id": "klWd3zM320k",
+   "publicar_em": "2026-11-19T21:00:00Z",
+   "postado_em": "2026-11-19T00:54:04+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Cortes do Davy Jones [OFICIAL]: Davy Jones imaginou um assassino à la Dexter no GTA 6 em M",
+   "gancho": "DEXTER",
+   "descricao": "Cortes do Davy Jones [OFICIAL]: Davy Jones imaginou um assassino à la Dexter no GTA 6 em M\nNo corte do Davy Jones, a conversa vai pro Dexter: ele joga corpos no mar, mas erra os lugares e mergulhadores acham tudo. A galera imagina isso como referência no GTA 6, com a polícia de Miami caçando o assassino. Reação e análise de GTA 6 nos cortes do Davy Jones.\n\n🎮 Live original: https://www.youtube.com/@CortesdoDavyJones\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "cortes do davy jones gta 6",
+    "davy jones gta 6",
+    "dexter no gta 6",
+    "assassino em série gta 6",
+    "polícia de miami gta 6",
+    "referência dexter gta",
+    "teoria gta 6",
+    "análise gta 6",
+    "gta 6 novas imagens",
+    "cortes gta 6",
+    "gta 6",
+    "cortes gta",
+    "cortes do davy jones [oficial]",
+    "cortes do davy jones [oficial] gta 6",
+    "gta rp"
+   ],
+   "feito_em": "2026-11-19T00:54:00+00:00",
+   "corte": [
+    35.62,
+    70.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 34.4,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_2.mp4",
+   "video_asset": 765644653,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_2.jpg",
+   "thumb_asset": 765644727,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_2_kit.zip"
   },
   "yt_GSoOHnDOMKI_longo": {
    "id": "yt_GSoOHnDOMKI_longo",
@@ -12044,10 +12085,10 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 5020
+  "2026-11-18": 5120
  },
  "envios": {
-  "2026-11-18": 37
+  "2026-11-18": 38
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
