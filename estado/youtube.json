@@ -836,16 +836,48 @@
   "lfqmnrTEu_4": {
    "id": "lfqmnrTEu_4",
    "link": "https://www.youtube.com/watch?v=lfqmnrTEu_4",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:17+00:00",
-   "atualizado_em": "2026-11-19T00:15:17+00:00",
+   "atualizado_em": "2026-11-19T06:18:24+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 - O INICIO do jogo AO VIVO (mundo aberto)",
    "canal_nome": "LipaoGamer",
-   "views_yt": 3587496
+   "views_yt": 3587496,
+   "longo": {
+    "asset_id": 766500845,
+    "inicio": 20520.0,
+    "fim": 21120.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "LipaoGamer",
+   "canal_id": "UCHuZmQ0lSW8TG81dVZZh5rw",
+   "duracao": 42896.0,
+   "segmentos": [
+    {
+     "asset_id": 766465277,
+     "inicio": 4489.0,
+     "fim": 4559.0,
+     "duracao": 70.0,
+     "forca": 1.069
+    },
+    {
+     "asset_id": 766472909,
+     "inicio": 7595.0,
+     "fim": 7665.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 766479274,
+     "inicio": 42491.0,
+     "fim": 42561.0,
+     "duracao": 70.0,
+     "forca": 1.094
+    }
+   ]
   },
   "LoYS75VOvg8": {
    "id": "LoYS75VOvg8",
