@@ -11763,11 +11763,51 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T04:41:46+00:00",
-   "atualizado_em": "2026-11-19T04:41:46+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-19T13:20:26+00:00",
+   "isolar_voz": true,
+   "youtube_id": "tIbXJ8zZDxA",
+   "publicar_em": "2026-11-21T11:00:00Z",
+   "postado_em": "2026-11-19T13:20:26+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj reage a missão do GTA 6 no Rio de Janeiro",
+   "gancho": "NO RIO?",
+   "descricao": "Gameplayrj reage a missão do GTA 6 no Rio de Janeiro\nGameplayrj lê a pergunta de um espectador sobre como reagiria a uma missão do GTA 6 passada no Rio de Janeiro. A reação dele é de empolgação, e ele ainda lembra de quando ficou louco ao chegar em Cuba no Red Dead 2. Veja mais cortes e reações sobre o GTA 6.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gameplayrj gta 6",
+    "gameplayrj reagindo",
+    "gta 6 no rio de janeiro",
+    "missão gta 6 rj",
+    "gta 6 brasil",
+    "reação gta 6",
+    "gta 6",
+    "red dead redemption 2 cuba",
+    "cortes gta 6",
+    "cortes gta",
+    "gameplayrj",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-19T13:20:22+00:00",
+   "corte": [
+    25.96,
+    49.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 23.5,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_y6ofjcTl5x0_0.mp4",
+   "video_asset": 767773054,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_y6ofjcTl5x0_0.jpg",
+   "thumb_asset": 767773154,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_y6ofjcTl5x0_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_y6ofjcTl5x0_0_kit.zip"
   },
   "yt_y6ofjcTl5x0_1": {
    "id": "yt_y6ofjcTl5x0_1",
@@ -15918,11 +15958,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 2102
+  "2026-11-19": 2202
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 10
+  "2026-11-19": 11
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
