@@ -11170,9 +11170,9 @@
   "mod_ecT3WZdRcBE": {
    "id": "mod_ecT3WZdRcBE",
    "canal": "br",
-   "status": "aguardando_cota",
+   "status": "postado",
    "criado_em": "2026-11-19T03:52:35+00:00",
-   "atualizado_em": "2026-11-19T03:52:35+00:00",
+   "atualizado_em": "2026-11-19T09:48:45+00:00",
    "tipo": "short",
    "jogo": "Grand Theft Auto VI",
    "titulo": "Professor cancela tarefas e adia prova por causa do lançamento do GTA 6",
@@ -11196,21 +11196,10 @@
    "video_asset": 766123613,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_ecT3WZdRcBE.jpg",
    "thumb_asset": 766123670,
-   "envio_pendente": {
-    "titulo": "Professor cancela tarefas e adia prova por causa do lançamento do GTA 6",
-    "descricao": "Professor cancela tarefas e adia prova por causa do lançamento do GTA 6\n\nIdeia e gameplay: John Casterline (https://www.youtube.com/watch?v=ecT3WZdRcBE)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
-    "tags": [
-     "gta 6",
-     "gta vi",
-     "gta 6 gameplay",
-     "shorts",
-     "cortes gta"
-    ],
-    "idioma": "pt",
-    "playlist": "Melhores Momentos de GTA 6",
-    "publicar_em": "2026-11-20T01:00:00Z",
-    "horario_fixo": false
-   }
+   "envio_pendente": null,
+   "youtube_id": "tYuKWnxbq0c",
+   "publicar_em": "2026-11-20T03:00:00Z",
+   "postado_em": "2026-11-19T09:48:45+00:00"
   },
   "mod_dLia73F52iQ": {
    "id": "mod_dLia73F52iQ",
@@ -14709,11 +14698,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 200
+  "2026-11-19": 300
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 2
+  "2026-11-19": 3
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
