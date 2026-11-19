@@ -46,7 +46,7 @@ youtube_auto:
 # tira a voz original, narra em português (adaptado, não literal) e credita o canal original.
 modelar:
   ligado: true
-  por_dia: 3
+  por_dia: 8
   dias: 4              # viralizou nos últimos X dias
   min_views: 150000
   max_seg: 75
@@ -55,7 +55,7 @@ modelar:
   # TikToks estourados tambem viram modelo (o robô do Mac caça e baixa; Reels/X entram por link manual)
   tiktok:
     ligado: true
-    por_dia: 2
+    por_dia: 4
     dias: 5
     min_views: 500000
     tags: ["gta6", "gta6brasil"]   # a caça por tag liga sozinha quando o yt-dlp consertar o extrator
@@ -99,7 +99,7 @@ lancamento:
   jogos: ["Grand Theft Auto VI"]   # no lançamento é só GTA 6
   canais:
     br:
-      horarios: ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:30", "18:00", "19:00", "20:00", "21:00", "22:30", "00:00"]   # 15 Shorts por dia na semana do lançamento
+      horarios: ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "00:00"]   # 18 Shorts por dia na semana do lançamento
       horarios_longos: ["12:30", "17:00"]   # cortes longos (o "Melhores do Dia" sai às 19:30)
       descobrir_min_views: 300   # com muita gente jogando, só os clipes mais vistos
       descobrir_jogos: ["Grand Theft Auto VI"]
@@ -190,9 +190,9 @@ canais:
         - { login: lacy,          nome: "Lacy" }
         - { login: summit1g,      nome: "summit1g" }
       youtube: ["@IShowSpeed"]   # lives encerradas de GTA desses canais (o robô do Mac acha os picos)
-      min_views: 1500            # clipe gringo tem muita view: régua mais alta que a dos BR
-      um_clipe_views: 6000
-      quentes: 12
+      min_views: 400             # clipe gringo tem mais view que BR, mas clipe recém-criado ainda está crescendo
+      um_clipe_views: 2500
+      quentes: 6
 
   - id: en
     nome: "Clip City"

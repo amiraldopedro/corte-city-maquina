@@ -536,7 +536,7 @@
    "id": "SIDg1TNrqTk",
    "link": "https://www.youtube.com/watch?v=SIDg1TNrqTk",
    "modo": "modelo",
-   "status": "modelo_erro",
+   "status": "modelo_baixado",
    "titulo": "Deciding which game to delete for GTA 6… #gaming #gta6",
    "canal_nome": "KingChris",
    "canal_id_yt": "UCu-pLexbz0lzAzwzXtd6v_Q",
@@ -547,14 +547,13 @@
    "tentativas": 0,
    "asset_id": 765072850,
    "idioma_falado": "en-US",
-   "url_final": "https://www.youtube.com/watch?v=SIDg1TNrqTk",
-   "erro": "'Resource' object has no attribute 'enviar'"
+   "url_final": "https://www.youtube.com/watch?v=SIDg1TNrqTk"
   },
   "oTAEYTyTKeE": {
    "id": "oTAEYTyTKeE",
    "link": "https://www.youtube.com/watch?v=oTAEYTyTKeE",
    "modo": "modelo",
-   "status": "modelo_erro",
+   "status": "modelo_baixado",
    "titulo": "GTA 6 codes aren’t working??",
    "canal_nome": "CarterPCs",
    "canal_id_yt": "UCi7wDE2ZTiR5QYYrUY5WhtA",
@@ -564,14 +563,13 @@
    "atualizado_em": "2026-11-18T21:58:50+00:00",
    "asset_id": 765088377,
    "idioma_falado": "en-US",
-   "url_final": "https://www.youtube.com/watch?v=oTAEYTyTKeE",
-   "erro": "'Resource' object has no attribute 'enviar'"
+   "url_final": "https://www.youtube.com/watch?v=oTAEYTyTKeE"
   },
   "M8yn2PbAgB8": {
    "id": "M8yn2PbAgB8",
    "link": "https://www.youtube.com/watch?v=M8yn2PbAgB8",
    "modo": "modelo",
-   "status": "modelo_erro",
+   "status": "modelo_baixado",
    "titulo": "Every GTA 6 Lover in India 😉🎮 | Kuldeep Singhaniaa #shorts",
    "canal_nome": "Kuldeep Singhania Shorts",
    "canal_id_yt": "UCnYKRFQRndE3Wq1eLRQLfWw",
@@ -581,8 +579,7 @@
    "atualizado_em": "2026-11-18T22:25:18+00:00",
    "asset_id": 765096779,
    "idioma_falado": "hi",
-   "url_final": "https://www.youtube.com/watch?v=M8yn2PbAgB8",
-   "erro": "'Resource' object has no attribute 'enviar'"
+   "url_final": "https://www.youtube.com/watch?v=M8yn2PbAgB8"
   },
   "_95rcfBuaCo": {
    "id": "_95rcfBuaCo",

@@ -258,7 +258,7 @@ def montar(cfg, maximo: int = 2) -> int:
     yt = None
     if canal.postar == "automatico" and canal.refresh_token:
         from .youtube import YouTube
-        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token).yt
+        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)  # o publicar() usa o objeto inteiro
     from .config import RAIZ
     feitos = 0
     for vid, item in list(pendentes.items())[:maximo]:
