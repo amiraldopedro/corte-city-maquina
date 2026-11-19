@@ -12056,11 +12056,51 @@
    "views": 1069,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T06:18:39+00:00",
-   "atualizado_em": "2026-11-19T06:18:39+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T09:55:05+00:00",
+   "isolar_voz": false,
+   "youtube_id": "JxNk8rtjnBg",
+   "publicar_em": "2026-11-20T19:00:00Z",
+   "postado_em": "2026-11-19T09:55:05+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "LipaoGamer a 15 minutos do GTA 6 e a pergunta sobre o Xbox 360",
+   "gancho": "XBOX 360?",
+   "descricao": "LipaoGamer a 15 minutos do GTA 6 e a pergunta sobre o Xbox 360\nLipaoGamer espera o GTA 6 com a contagem de 15 minutos na tela e lê a pergunta de um espectador: será que roda no Xbox 360? Cortes da live, com reação e momentos engraçados da espera pelo lançamento do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@LipaoGamer\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "lipaogamer gta 6",
+    "lipaogamer",
+    "gta 6 xbox 360",
+    "gta 6 roda no xbox 360",
+    "contagem regressiva gta 6",
+    "lançamento gta 6",
+    "reação gta 6",
+    "momentos engraçados gta 6",
+    "gta 6",
+    "cortes gta",
+    "cortes de live",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-19T09:54:58+00:00",
+   "corte": [
+    55.14,
+    70.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 14.9,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_0.mp4",
+   "video_asset": 767129620,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_0.jpg",
+   "thumb_asset": 767129718,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_lfqmnrTEu_4_0_kit.zip"
   },
   "yt_lfqmnrTEu_4_1": {
    "id": "yt_lfqmnrTEu_4_1",
@@ -14730,11 +14770,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 1000
+  "2026-11-19": 1100
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 10
+  "2026-11-19": 11
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
