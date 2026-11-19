@@ -483,15 +483,47 @@
   "LCNP8-RqI0g": {
    "id": "LCNP8-RqI0g",
    "link": "https://www.youtube.com/watch?v=LCNP8-RqI0g",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:13+00:00",
-   "atualizado_em": "2026-11-18T16:24:13+00:00",
+   "atualizado_em": "2026-11-19T03:07:26+00:00",
    "auto": true,
    "titulo": "COMO SERÁ AS LIVES DE LANÇAMENTO DO  GTA 6 | LOUD CORINGA",
    "canal_nome": "Reacts LOUD Coringa ",
    "isolar_voz": false,
-   "views_yt": 212396
+   "views_yt": 212396,
+   "longo": {
+    "asset_id": 765996096,
+    "inicio": 0.0,
+    "fim": 600.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "ReactsLOUDCoringaOficial",
+   "canal_id": "UC-kvnhmFchvOWWZqVdI5bWw",
+   "duracao": 814.0,
+   "segmentos": [
+    {
+     "asset_id": 765971431,
+     "inicio": 185.0,
+     "fim": 255.0,
+     "duracao": 70.0,
+     "forca": 1.067
+    },
+    {
+     "asset_id": 765975210,
+     "inicio": 361.0,
+     "fim": 431.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 765978837,
+     "inicio": 703.0,
+     "fim": 773.0,
+     "duracao": 70.0,
+     "forca": 1.005
+    }
+   ]
   },
   "vRU45jYUpL4": {
    "id": "vRU45jYUpL4",
