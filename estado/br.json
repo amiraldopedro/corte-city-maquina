@@ -8257,11 +8257,52 @@
    "views": 1010,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-18T22:18:19+00:00",
-   "atualizado_em": "2026-11-18T22:18:19+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T00:48:20+00:00",
+   "isolar_voz": false,
+   "youtube_id": "Bi-cPuedPFc",
+   "publicar_em": "2026-11-19T15:00:00Z",
+   "postado_em": "2026-11-19T00:48:20+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Cortes do Davy Jones [OFICIAL]: Davy Jones no GTA 6: e se o caminhão capotar na missão?",
+   "gancho": "SAQUEIO?",
+   "descricao": "Cortes do Davy Jones [OFICIAL]: Davy Jones no GTA 6: e se o caminhão capotar na missão?\nNo Cortes do Davy Jones, o pessoal reage às novas imagens do GTA 6 e imagina uma missão de fuga com carga em que o caminhão capota e a galera vem saquear. Um momento de reação e teoria com humor sobre eventos aleatórios no mapa do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@CortesdoDavyJones\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "davy jones gta 6",
+    "cortes do davy jones",
+    "gta 6 eventos aleatórios",
+    "gta 6 missão de fuga",
+    "gta 6 novas imagens",
+    "gta 6 reação",
+    "gta 6 análise",
+    "gta 6",
+    "novidades gta 6",
+    "momentos engraçados gta 6",
+    "cortes gta",
+    "gta 6 brasil",
+    "cortes do davy jones [oficial]",
+    "cortes do davy jones [oficial] gta 6",
+    "gta rp"
+   ],
+   "feito_em": "2026-11-19T00:48:15+00:00",
+   "corte": [
+    23.6,
+    51.8
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 4,
+   "quadro": null,
+   "duracao": 28.2,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_0.mp4",
+   "video_asset": 765630866,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_0.jpg",
+   "thumb_asset": 765630908,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_0_kit.zip"
   },
   "yt_GSoOHnDOMKI_1": {
    "id": "yt_GSoOHnDOMKI_1",
@@ -11962,10 +12003,10 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 4820
+  "2026-11-18": 4920
  },
  "envios": {
-  "2026-11-18": 35
+  "2026-11-18": 36
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
