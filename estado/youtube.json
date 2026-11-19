@@ -774,18 +774,50 @@
   "x50ONQrBPRM": {
    "id": "x50ONQrBPRM",
    "link": "https://www.youtube.com/watch?v=x50ONQrBPRM",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:17+00:00",
-   "atualizado_em": "2026-11-19T05:03:43+00:00",
+   "atualizado_em": "2026-11-19T06:53:57+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 É AGORA , O INICIO DA GAMEPLAY",
    "canal_nome": "Gameplayrj",
    "views_yt": 9841012,
    "tentativas": 1,
-   "erro": "ERROR: [youtube] x50ONQrBPRM: Requested format is not available. Use --list-formats for a list of available formats"
+   "erro": "ERROR: [youtube] x50ONQrBPRM: Requested format is not available. Use --list-formats for a list of available formats",
+   "longo": {
+    "asset_id": 766596267,
+    "inicio": 39570.0,
+    "fim": 40170.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "Gameplayrj",
+   "canal_id": "UCJAbkIY17zAmCTNQHH0bQoQ",
+   "duracao": 40815.0,
+   "segmentos": [
+    {
+     "asset_id": 766557397,
+     "inicio": 8878.0,
+     "fim": 8948.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 766565951,
+     "inicio": 39546.0,
+     "fim": 39616.0,
+     "duracao": 70.0,
+     "forca": 1.111
+    },
+    {
+     "asset_id": 766573394,
+     "inicio": 39703.0,
+     "fim": 39773.0,
+     "duracao": 70.0,
+     "forca": 1.076
+    }
+   ]
   },
   "cxuF5siTUQw": {
    "id": "cxuF5siTUQw",
