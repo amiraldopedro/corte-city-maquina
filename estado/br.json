@@ -9313,11 +9313,9 @@
    "fim": 7291.0,
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/SmilingVivaciousStingrayOpieOP-KH5xL3jYb8qBoYLQ",
    "clipe_ids": [
-    "SmilingVivaciousStingrayOpieOP-KH5xL3jYb8qBoYLQ",
     "SmilingVivaciousStingrayOpieOP-KH5xL3jYb8qBoYLQ"
    ],
    "titulos_chat": [
-    "Alan",
     "Alan"
    ],
    "views": 36,
@@ -9369,11 +9367,9 @@
    "fim": 15892.0,
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/KawaiiFancyChickpeaPermaSmug-6UY99mEbR41kTCEX",
    "clipe_ids": [
-    "KawaiiFancyChickpeaPermaSmug-6UY99mEbR41kTCEX",
     "KawaiiFancyChickpeaPermaSmug-6UY99mEbR41kTCEX"
    ],
    "titulos_chat": [
-    "Alanzinho",
     "Alanzinho"
    ],
    "views": 36,
@@ -9457,7 +9453,6 @@
    ],
    "titulos_chat": [
     "VIBE kkkkkkkkkkkkkkkk",
-    "que vibe mano",
     "que vibe mano"
    ],
    "views": 563,
@@ -9862,6 +9857,40 @@
    "youtube_id": "U5puebPN0LQ",
    "publicar_em": "2026-11-19T03:00:00Z",
    "postado_em": "2026-11-19T00:38:33+00:00",
+   "envio_pendente": null
+  },
+  "mod_oTAEYTyTKeE": {
+   "id": "mod_oTAEYTyTKeE",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-19T00:40:18+00:00",
+   "atualizado_em": "2026-11-19T00:40:27+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "GTA 6 físico vem com código que já foi usado e a Rockstar não resolve",
+   "gancho": "O CÓDIGO DO GTA 6 FALHOU",
+   "descricao": "GTA 6 físico vem com código que já foi usado e a Rockstar não resolve\n\nIdeia e gameplay: CarterPCs (https://www.youtube.com/watch?v=oTAEYTyTKeE)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-19T00:40:18+00:00",
+   "nome": "CarterPCs",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 25.9,
+   "modelo_de": "https://www.youtube.com/watch?v=oTAEYTyTKeE",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_oTAEYTyTKeE.mp4",
+   "video_asset": 765609301,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_oTAEYTyTKeE.jpg",
+   "thumb_asset": 765609449,
+   "youtube_id": "JDg-AGVkg7s",
+   "publicar_em": "2026-11-19T10:00:00Z",
+   "postado_em": "2026-11-19T00:40:27+00:00",
    "envio_pendente": null
   }
  },
@@ -11902,7 +11931,7 @@
   "2026-11-18": 4724
  },
  "envios": {
-  "2026-11-18": 33
+  "2026-11-18": 34
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
