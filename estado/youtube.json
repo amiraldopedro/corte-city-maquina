@@ -6,9 +6,9 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-13T07:11:23+00:00",
-   "atualizado_em": "2026-11-13T22:17:13+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "longo": {
-    "asset_id": 745380479,
+    "asset_id": 768907276,
     "inicio": 120.0,
     "fim": 720.0,
     "duracao": 600.0
@@ -20,21 +20,21 @@
    "duracao": 815.0,
    "segmentos": [
     {
-     "asset_id": 745355508,
+     "asset_id": 768906800,
      "inicio": 443.0,
      "fim": 513.0,
      "duracao": 70.0,
      "forca": 1.059
     },
     {
-     "asset_id": 745360600,
+     "asset_id": 768907004,
      "inicio": 558.0,
      "fim": 628.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 745364434,
+     "asset_id": 768907131,
      "inicio": 748.0,
      "fim": 815.0,
      "duracao": 67.0,
@@ -48,9 +48,9 @@
    "status": "biblioteca_ok",
    "modo": "biblioteca",
    "pedido_em": "2026-11-13T08:57:48+00:00",
-   "atualizado_em": "2026-11-13T22:18:41+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "titulo": "Grand Theft Auto VI Trailer 1",
-   "asset_id": 745385784,
+   "asset_id": 768914464,
    "duracao": 90
   },
   "VQRLujxTm3c": {
@@ -59,9 +59,9 @@
    "status": "biblioteca_ok",
    "modo": "biblioteca",
    "pedido_em": "2026-11-13T08:57:48+00:00",
-   "atualizado_em": "2026-11-13T22:20:13+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "titulo": "Grand Theft Auto VI Trailer 2",
-   "asset_id": 745390230,
+   "asset_id": 768914817,
    "duracao": 167
   },
   "rz1B4B2yBZY": {
@@ -70,9 +70,9 @@
    "status": "biblioteca_ok",
    "modo": "biblioteca",
    "pedido_em": "2026-11-13T08:57:48+00:00",
-   "atualizado_em": "2026-11-13T22:21:41+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "titulo": "Grand Theft Auto VI Launch Trailer",
-   "asset_id": 745394597,
+   "asset_id": 768914700,
    "duracao": 90
   },
   "tJbzMqJGH4k": {
@@ -91,7 +91,7 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-13T21:01:34+00:00",
-   "atualizado_em": "2026-11-13T22:27:35+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "titulo": "GTA 6 NOVO TRAILER DO NADA REACT",
    "canal_nome": "Gameplayrj",
@@ -103,14 +103,14 @@
    "duracao": 261.0,
    "segmentos": [
     {
-     "asset_id": 745405228,
+     "asset_id": 768910547,
      "inicio": 16.0,
      "fim": 86.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 745410329,
+     "asset_id": 768910686,
      "inicio": 131.0,
      "fim": 201.0,
      "duracao": 70.0,
@@ -124,14 +124,14 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-13T21:01:34+00:00",
-   "atualizado_em": "2026-11-13T22:42:44+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "titulo": "FRAME A FRAME DO NOVO TRAILER DE GTA 6",
    "canal_nome": "Davy Jones GTA 6",
    "isolar_voz": true,
    "views_yt": 346434,
    "longo": {
-    "asset_id": 745455991,
+    "asset_id": 768909265,
     "inicio": 0.0,
     "fim": 600.0,
     "duracao": 600.0
@@ -141,21 +141,21 @@
    "duracao": 3021.0,
    "segmentos": [
     {
-     "asset_id": 745429887,
+     "asset_id": 768908931,
      "inicio": 373.0,
      "fim": 443.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 745434647,
+     "asset_id": 768909028,
      "inicio": 1719.0,
      "fim": 1789.0,
      "duracao": 70.0,
      "forca": 1.01
     },
     {
-     "asset_id": 745439954,
+     "asset_id": 768909122,
      "inicio": 2724.0,
      "fim": 2794.0,
      "duracao": 70.0,
@@ -169,14 +169,14 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-15T19:20:12+00:00",
-   "atualizado_em": "2026-11-16T09:04:24+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "titulo": "Meu novo PC MONSTRO pro GTA 6",
    "canal_nome": "Gameplayrj",
    "isolar_voz": false,
    "views_yt": 1618778,
    "longo": {
-    "asset_id": 754164167,
+    "asset_id": 768910033,
     "inicio": 0.0,
     "fim": 501.0,
     "duracao": 501.0
@@ -186,21 +186,21 @@
    "duracao": 501.0,
    "segmentos": [
     {
-     "asset_id": 754134101,
+     "asset_id": 768909496,
      "inicio": 36.0,
      "fim": 106.0,
      "duracao": 70.0,
      "forca": 1.028
     },
     {
-     "asset_id": 754140013,
+     "asset_id": 768909629,
      "inicio": 211.0,
      "fim": 281.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 754147419,
+     "asset_id": 768909773,
      "inicio": 402.0,
      "fim": 472.0,
      "duracao": 70.0,
@@ -229,8 +229,8 @@
    "fim": 41,
    "status": "fonte_ok",
    "pedido_em": "2026-11-16T07:04:40+00:00",
-   "atualizado_em": "2026-11-16T08:25:43+00:00",
-   "asset_id": 754051302,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768902535,
    "titulo": "Florida Man Makes Beer Run With Gator In Hand",
    "canal_nome": "CBS Miami",
    "url_final": "https://www.youtube.com/watch?v=IML3jU_yyGs"
@@ -243,8 +243,8 @@
    "fim": 70,
    "status": "fonte_ok",
    "pedido_em": "2026-11-16T07:04:40+00:00",
-   "atualizado_em": "2026-11-16T08:27:29+00:00",
-   "asset_id": 754056292,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768902656,
    "titulo": "Huge gator removed from Palm Beach Gardens swimming pool",
    "canal_nome": "WPTV News - FL Palm Beaches and Treasure Coast",
    "url_final": "https://www.youtube.com/watch?v=h0xdXQdDfo8"
@@ -257,8 +257,8 @@
    "fim": 17,
    "status": "fonte_ok",
    "pedido_em": "2026-11-16T07:04:40+00:00",
-   "atualizado_em": "2026-11-16T08:29:03+00:00",
-   "asset_id": 754061037,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768902778,
    "titulo": "Massive 12-foot-long gator captured at Coconut Point Mall",
    "canal_nome": "Gulf Coast News",
    "url_final": "https://www.youtube.com/watch?v=VreEhqlNbgU"
@@ -269,8 +269,8 @@
    "link": "https://www.youtube.com/watch?v=1gFAuc5CpaY",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T08:31:25+00:00",
-   "asset_id": 754067847,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768901611,
    "titulo": "GTA 6 - THE FINAL REVEAL!"
   },
   "an_o4nNjj44d4M": {
@@ -279,8 +279,8 @@
    "link": "https://www.youtube.com/watch?v=o4nNjj44d4M",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T09:22:13+00:00",
-   "asset_id": 754216561,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768902027,
    "titulo": "15 CRAZY Features In GTA 6 That Were NOT In GTA 5"
   },
   "an_2J37vvHIFcU": {
@@ -289,8 +289,8 @@
    "link": "https://www.youtube.com/watch?v=2J37vvHIFcU",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T08:37:10+00:00",
-   "asset_id": 754084542,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768901703,
    "titulo": "GTA 6 Can Do Things We Never Imagined in GTA 5"
   },
   "an_n5U51oHhlpI": {
@@ -299,8 +299,8 @@
    "link": "https://www.youtube.com/watch?v=n5U51oHhlpI",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T08:38:35+00:00",
-   "asset_id": 754088230,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768901946,
    "titulo": "GTA 6 Dancing Looks TOO Real |  Nightclubs Will Blow Your Mind"
   },
   "an_wEGdTkRL-uI": {
@@ -309,8 +309,8 @@
    "link": "https://www.youtube.com/watch?v=wEGdTkRL-uI",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T09:28:15+00:00",
-   "asset_id": 754233272,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768902108,
    "titulo": "GTA 6: Everything You NEED To Know (3 Days Left)"
   },
   "an_LEXP66z1pyg": {
@@ -319,8 +319,8 @@
    "link": "https://www.youtube.com/watch?v=LEXP66z1pyg",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T09:33:12+00:00",
-   "asset_id": 754247302,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768901836,
    "titulo": "GTA 6 in 4 DAYS - EVERYTHING YOU NEED TO KNOW!"
   },
   "an_Ce-MmkmbGMA": {
@@ -329,8 +329,8 @@
    "link": "https://www.youtube.com/watch?v=Ce-MmkmbGMA",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T08:49:51+00:00",
-   "asset_id": 754119207,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768901775,
    "titulo": "Still Think GTA 6's Map Is Small? Think Again"
   },
   "an_XoCFl2wxuTs": {
@@ -339,8 +339,8 @@
    "link": "https://www.youtube.com/watch?v=XoCFl2wxuTs",
    "status": "analise_ok",
    "pedido_em": "2026-11-16T07:19:33+00:00",
-   "atualizado_em": "2026-11-16T09:36:23+00:00",
-   "asset_id": 754257953,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768902227,
    "titulo": "GTA 6: Full MAP GUIDE (Watch Before Launch Day)"
   },
   "wSm9GTUttBs": {
@@ -359,11 +359,11 @@
    "link": "https://www.youtube.com/watch?v=8L0CzL2V72c",
    "status": "biblioteca_ok",
    "pedido_em": "2026-11-16T08:35:40+00:00",
-   "atualizado_em": "2026-11-16T23:01:23+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "tentativas": 0,
    "erro": "",
    "titulo": "Grand Theft Auto VI - Features Trailer | PS5 Games",
-   "asset_id": 756777766,
+   "asset_id": 768914357,
    "duracao": 49
   },
   "QkkoHAzjnUs": {
@@ -372,11 +372,11 @@
    "link": "https://www.youtube.com/watch?v=QkkoHAzjnUs",
    "status": "biblioteca_ok",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-16T23:02:19+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "tentativas": 0,
    "erro": "-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies",
    "titulo": "Grand Theft Auto V Trailer",
-   "asset_id": 756780465,
+   "asset_id": 768914563,
    "duracao": 84
   },
   "N-xHcvug3WI": {
@@ -405,11 +405,11 @@
    "link": "https://www.youtube.com/watch?v=xHm_RF0WBCg",
    "status": "biblioteca_ok",
    "pedido_em": "2026-11-16T23:55:44+00:00",
-   "atualizado_em": "2026-11-17T00:51:58+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "tentativas": 0,
    "erro": "ERROR: [youtube] xHm_RF0WBCg: The page needs to be reloaded.",
    "titulo": "GTA 6 FULL NETFLIX Extended Look (New Gameplay Trailer)",
-   "asset_id": 757060567,
+   "asset_id": 768915104,
    "duracao": 1628
   },
   "XAgXfddQSwY": {
@@ -428,11 +428,11 @@
    "link": "https://www.youtube.com/watch?v=_OECwb8j9U4",
    "status": "biblioteca_ok",
    "pedido_em": "2026-11-17T00:15:10+00:00",
-   "atualizado_em": "2026-11-17T00:59:15+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "tentativas": 0,
    "erro": "ERROR: [youtube] _OECwb8j9U4: The page needs to be reloaded.",
    "titulo": "GTA 6 Gameplay Trailer FULL NETFLIX EXTENDED LOOK SHOWCASE / 1080p",
-   "asset_id": 757075444,
+   "asset_id": 768916048,
    "duracao": 1610
   },
   "GSoOHnDOMKI": {
@@ -441,14 +441,14 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:13+00:00",
-   "atualizado_em": "2026-11-18T22:18:19+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "titulo": "A MELHOR ANÁLISE que VOCÊ VAI VER das NOVAS IMAGENS de GTA 6",
    "canal_nome": "Cortes do Davy Jones [OFICIAL]",
    "isolar_voz": false,
    "views_yt": 241341,
    "longo": {
-    "asset_id": 765216549,
+    "asset_id": 768906643,
     "inicio": 930.0,
     "fim": 1530.0,
     "duracao": 600.0
@@ -458,21 +458,21 @@
    "duracao": 1542.0,
    "segmentos": [
     {
-     "asset_id": 765127555,
+     "asset_id": 768906175,
      "inicio": 41.0,
      "fim": 111.0,
      "duracao": 70.0,
      "forca": 1.011
     },
     {
-     "asset_id": 765140667,
+     "asset_id": 768906366,
      "inicio": 764.0,
      "fim": 834.0,
      "duracao": 70.0,
      "forca": 1.035
     },
     {
-     "asset_id": 765154084,
+     "asset_id": 768906503,
      "inicio": 1385.0,
      "fim": 1455.0,
      "duracao": 70.0,
@@ -486,14 +486,14 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:13+00:00",
-   "atualizado_em": "2026-11-19T03:07:43+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "titulo": "COMO SERÁ AS LIVES DE LANÇAMENTO DO  GTA 6 | LOUD CORINGA",
    "canal_nome": "Reacts LOUD Coringa ",
    "isolar_voz": false,
    "views_yt": 212396,
    "longo": {
-    "asset_id": 765996096,
+    "asset_id": 768907773,
     "inicio": 0.0,
     "fim": 600.0,
     "duracao": 600.0
@@ -503,21 +503,21 @@
    "duracao": 814.0,
    "segmentos": [
     {
-     "asset_id": 765971431,
+     "asset_id": 768907469,
      "inicio": 185.0,
      "fim": 255.0,
      "duracao": 70.0,
      "forca": 1.067
     },
     {
-     "asset_id": 765975210,
+     "asset_id": 768907597,
      "inicio": 361.0,
      "fim": 431.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 765978837,
+     "asset_id": 768907694,
      "inicio": 703.0,
      "fim": 773.0,
      "duracao": 70.0,
@@ -546,14 +546,14 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:14+00:00",
-   "atualizado_em": "2026-11-19T03:28:13+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "A ÚLTIMA LIVE ANTES DO GTA 6 , É ESSA SEMANA",
    "canal_nome": "Gameplayrj",
    "views_yt": 469245,
    "longo": {
-    "asset_id": 766053515,
+    "asset_id": 768911886,
     "inicio": 9960.0,
     "fim": 10560.0,
     "duracao": 600.0
@@ -563,21 +563,21 @@
    "duracao": 12739.0,
    "segmentos": [
     {
-     "asset_id": 766020482,
+     "asset_id": 768911697,
      "inicio": 2266.0,
      "fim": 2336.0,
      "duracao": 70.0,
      "forca": 1.015
     },
     {
-     "asset_id": 766026419,
+     "asset_id": 768911756,
      "inicio": 5947.0,
      "fim": 6017.0,
      "duracao": 70.0,
      "forca": 1.059
     },
     {
-     "asset_id": 766031302,
+     "asset_id": 768911809,
      "inicio": 7695.0,
      "fim": 7765.0,
      "duracao": 70.0,
@@ -591,14 +591,14 @@
    "status": "na_fila",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:14+00:00",
-   "atualizado_em": "2026-11-19T03:58:43+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6: TESTANDO NO XBOX SERIES S! RODA BEM?",
    "canal_nome": "TecnoArt",
    "views_yt": 246914,
    "longo": {
-    "asset_id": 766135990,
+    "asset_id": 768911405,
     "inicio": 4890.0,
     "fim": 5490.0,
     "duracao": 600.0
@@ -608,21 +608,21 @@
    "duracao": 17900.0,
    "segmentos": [
     {
-     "asset_id": 766090176,
+     "asset_id": 768910772,
      "inicio": 1001.0,
      "fim": 1071.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 766097827,
+     "asset_id": 768910871,
      "inicio": 16438.0,
      "fim": 16508.0,
      "duracao": 70.0,
      "forca": 1.162
     },
     {
-     "asset_id": 766106240,
+     "asset_id": 768911139,
      "inicio": 17539.0,
      "fim": 17609.0,
      "duracao": 70.0,
@@ -641,9 +641,9 @@
    "views_yt": 6121260,
    "dur": 29,
    "pedido_em": "2026-11-18T16:26:59+00:00",
-   "atualizado_em": "2026-11-19T00:38:35+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "tentativas": 0,
-   "asset_id": 765072850,
+   "asset_id": 768903703,
    "idioma_falado": "en-US",
    "url_final": "https://www.youtube.com/watch?v=SIDg1TNrqTk"
   },
@@ -658,8 +658,8 @@
    "views_yt": 4809868,
    "dur": 28,
    "pedido_em": "2026-11-18T16:26:59+00:00",
-   "atualizado_em": "2026-11-19T00:40:29+00:00",
-   "asset_id": 765088377,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903626,
    "idioma_falado": "en-US",
    "url_final": "https://www.youtube.com/watch?v=oTAEYTyTKeE"
   },
@@ -674,8 +674,8 @@
    "views_yt": 8762781,
    "dur": 52,
    "pedido_em": "2026-11-18T16:26:59+00:00",
-   "atualizado_em": "2026-11-19T00:45:21+00:00",
-   "asset_id": 765096779,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903549,
    "idioma_falado": "hi",
    "url_final": "https://www.youtube.com/watch?v=M8yn2PbAgB8"
   },
@@ -686,14 +686,14 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:16+00:00",
-   "atualizado_em": "2026-11-19T04:26:49+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "titulo": "ESTOURE O BALÃO OU ENCONTRE SEU AMOR! ESPECIAL GTA 6 | EP:79",
    "canal_nome": "PEIXE",
    "isolar_voz": false,
    "views_yt": 751479,
    "longo": {
-    "asset_id": 766208094,
+    "asset_id": 768913924,
     "inicio": 840.0,
     "fim": 1440.0,
     "duracao": 600.0
@@ -703,21 +703,21 @@
    "duracao": 2149.0,
    "segmentos": [
     {
-     "asset_id": 766185082,
+     "asset_id": 768913519,
      "inicio": 565.0,
      "fim": 635.0,
      "duracao": 70.0,
      "forca": 1.043
     },
     {
-     "asset_id": 766188959,
+     "asset_id": 768913652,
      "inicio": 857.0,
      "fim": 927.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 766192993,
+     "asset_id": 768913757,
      "inicio": 1800.0,
      "fim": 1870.0,
      "duracao": 70.0,
@@ -732,14 +732,14 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:16+00:00",
-   "atualizado_em": "2026-11-19T04:41:46+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "titulo": "GTA 6 NOVO TRAILER , TA CHEGANDO GALERAAAA!!!!!",
    "canal_nome": "Gameplayrj",
    "isolar_voz": true,
    "views_yt": 319542,
    "longo": {
-    "asset_id": 766245766,
+    "asset_id": 768913346,
     "inicio": 420.0,
     "fim": 1020.0,
     "duracao": 600.0
@@ -749,21 +749,21 @@
    "duracao": 7968.0,
    "segmentos": [
     {
-     "asset_id": 766221771,
+     "asset_id": 768913043,
      "inicio": 1695.0,
      "fim": 1765.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 766225430,
+     "asset_id": 768913139,
      "inicio": 2123.0,
      "fim": 2193.0,
      "duracao": 70.0,
      "forca": 1.022
     },
     {
-     "asset_id": 766230017,
+     "asset_id": 768913211,
      "inicio": 2585.0,
      "fim": 2655.0,
      "duracao": 70.0,
@@ -778,7 +778,7 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:17+00:00",
-   "atualizado_em": "2026-11-19T06:54:10+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 É AGORA , O INICIO DA GAMEPLAY",
@@ -787,7 +787,7 @@
    "tentativas": 1,
    "erro": "ERROR: [youtube] x50ONQrBPRM: Requested format is not available. Use --list-formats for a list of available formats",
    "longo": {
-    "asset_id": 766596267,
+    "asset_id": 768912533,
     "inicio": 39570.0,
     "fim": 40170.0,
     "duracao": 600.0
@@ -797,21 +797,21 @@
    "duracao": 40815.0,
    "segmentos": [
     {
-     "asset_id": 766557397,
+     "asset_id": 768912053,
      "inicio": 8878.0,
      "fim": 8948.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 766565951,
+     "asset_id": 768912140,
      "inicio": 39546.0,
      "fim": 39616.0,
      "duracao": 70.0,
      "forca": 1.111
     },
     {
-     "asset_id": 766573394,
+     "asset_id": 768912267,
      "inicio": 39703.0,
      "fim": 39773.0,
      "duracao": 70.0,
@@ -826,14 +826,14 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:17+00:00",
-   "atualizado_em": "2026-11-19T05:32:35+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 O ÍNICIO! 🔴 Paulinho o LOKO",
    "canal_nome": "PAULINHO O LOKO",
    "views_yt": 5747701,
    "longo": {
-    "asset_id": 766378898,
+    "asset_id": 768905290,
     "inicio": 4740.0,
     "fim": 5340.0,
     "duracao": 600.0
@@ -843,21 +843,21 @@
    "duracao": 26513.0,
    "segmentos": [
     {
-     "asset_id": 766336610,
+     "asset_id": 768904482,
      "inicio": 7061.0,
      "fim": 7131.0,
      "duracao": 70.0,
      "forca": 1.041
     },
     {
-     "asset_id": 766347983,
+     "asset_id": 768904636,
      "inicio": 11515.0,
      "fim": 11585.0,
      "duracao": 70.0,
      "forca": 1.037
     },
     {
-     "asset_id": 766353263,
+     "asset_id": 768904965,
      "inicio": 15547.0,
      "fim": 15617.0,
      "duracao": 70.0,
@@ -872,14 +872,14 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:17+00:00",
-   "atualizado_em": "2026-11-19T06:18:39+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 - O INICIO do jogo AO VIVO (mundo aberto)",
    "canal_nome": "LipaoGamer",
    "views_yt": 3587496,
    "longo": {
-    "asset_id": 766500845,
+    "asset_id": 768908638,
     "inicio": 20520.0,
     "fim": 21120.0,
     "duracao": 600.0
@@ -889,21 +889,21 @@
    "duracao": 42896.0,
    "segmentos": [
     {
-     "asset_id": 766465277,
+     "asset_id": 768907930,
      "inicio": 4489.0,
      "fim": 4559.0,
      "duracao": 70.0,
      "forca": 1.069
     },
     {
-     "asset_id": 766472909,
+     "asset_id": 768908202,
      "inicio": 7595.0,
      "fim": 7665.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 766479274,
+     "asset_id": 768908369,
      "inicio": 42491.0,
      "fim": 42561.0,
      "duracao": 70.0,
@@ -922,8 +922,8 @@
    "views_yt": 7804342,
    "dur": 8,
    "pedido_em": "2026-11-19T00:15:19+00:00",
-   "atualizado_em": "2026-11-19T03:09:20+00:00",
-   "asset_id": 765933986,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903458,
    "idioma_falado": "en-US",
    "url_final": "https://www.youtube.com/watch?v=LoYS75VOvg8"
   },
@@ -938,8 +938,8 @@
    "views_yt": 2867251,
    "dur": 57,
    "pedido_em": "2026-11-19T00:15:19+00:00",
-   "atualizado_em": "2026-11-19T03:15:38+00:00",
-   "asset_id": 765938072,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903187,
    "idioma_falado": "en-US",
    "url_final": "https://www.youtube.com/watch?v=C1uW8UalRCI"
   },
@@ -954,8 +954,8 @@
    "views_yt": 1901564,
    "dur": 62,
    "pedido_em": "2026-11-19T00:15:19+00:00",
-   "atualizado_em": "2026-11-19T03:19:08+00:00",
-   "asset_id": 765941654,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903884,
    "idioma_falado": "es-US",
    "url_final": "https://www.youtube.com/watch?v=wwvNOgt23YA"
   },
@@ -970,8 +970,8 @@
    "views_yt": 4034537,
    "dur": 15,
    "pedido_em": "2026-11-19T00:35:25+00:00",
-   "atualizado_em": "2026-11-19T03:20:37+00:00",
-   "asset_id": 765945234,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768902992,
    "idioma_falado": "en",
    "url_final": "https://www.youtube.com/watch?v=5l2gWK1iyps"
   },
@@ -986,8 +986,8 @@
    "views_yt": 3137010,
    "dur": 52,
    "pedido_em": "2026-11-19T00:35:25+00:00",
-   "atualizado_em": "2026-11-19T03:50:28+00:00",
-   "asset_id": 765948414,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903081,
    "idioma_falado": "es",
    "url_final": "https://www.youtube.com/watch?v=BYjUW4BJ8Qc"
   },
@@ -1002,8 +1002,8 @@
    "views_yt": 2925154,
    "dur": 41,
    "pedido_em": "2026-11-19T00:35:25+00:00",
-   "atualizado_em": "2026-11-19T03:52:35+00:00",
-   "asset_id": 765952118,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903360,
    "idioma_falado": "en-US",
    "url_final": "https://www.youtube.com/watch?v=ecT3WZdRcBE"
   },
@@ -1018,8 +1018,8 @@
    "views_yt": 2737168,
    "dur": 27,
    "pedido_em": "2026-11-19T00:35:25+00:00",
-   "atualizado_em": "2026-11-19T03:54:28+00:00",
-   "asset_id": 765956652,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903280,
    "idioma_falado": "pt-BR",
    "url_final": "https://www.youtube.com/watch?v=dLia73F52iQ"
   },
@@ -1034,8 +1034,8 @@
    "views_yt": 4260733,
    "dur": 66,
    "pedido_em": "2026-11-19T00:35:25+00:00",
-   "atualizado_em": "2026-11-19T04:00:23+00:00",
-   "asset_id": 765963923,
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "asset_id": 768903777,
    "idioma_falado": "hi",
    "url_final": "https://www.youtube.com/watch?v=uT_TlZgrJp8"
   },
@@ -1046,7 +1046,7 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T09:59:59+00:00",
-   "atualizado_em": "2026-11-19T10:20:54+00:00",
+   "atualizado_em": "2026-11-19T19:22:52+00:00",
    "longo": null,
    "titulo": "4 Easy To Do GTA 6 Easter Eggs.. (Grand Theft Auto 6)",
    "canal_nome": "CheezhOfficial",
@@ -1055,21 +1055,21 @@
    "duracao": 371.0,
    "segmentos": [
     {
-     "asset_id": 767198628,
+     "asset_id": 768904036,
      "inicio": 53.0,
      "fim": 123.0,
      "duracao": 70.0,
      "forca": 1.0
     },
     {
-     "asset_id": 767205372,
+     "asset_id": 768904164,
      "inicio": 176.0,
      "fim": 246.0,
      "duracao": 70.0,
      "forca": 1.014
     },
     {
-     "asset_id": 767212700,
+     "asset_id": 768904327,
      "inicio": 314.0,
      "fim": 371.0,
      "duracao": 57.0,
