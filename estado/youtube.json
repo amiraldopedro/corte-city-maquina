@@ -760,7 +760,7 @@
  "cota": {},
  "modelar_tiktok": {
   "ligado": true,
-  "por_dia": 4,
+  "por_dia": 2,
   "dias": 5,
   "min_views": 500000,
   "tags": [
