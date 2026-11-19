@@ -663,9 +663,20 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
                       and m["status"] in ("novo", "pronto", "postado") and not m.get("teste")
                       and m.get("tipo", "short") == "short" and m["streamer"] not in cfg.bloqueados
                       and tipo not in m.get("usado_em", [])]
+        # só corte de live em português: gringo (inglês), viral modelado e notícia ficam de fora
+        candidatos = [m for m in candidatos if not m.get("gringo")
+                      and m.get("quadro") not in ("modelado", "gringos", "noticia") and not m["id"].startswith("mod_")]
         candidatos.sort(key=lambda m: -m.get("score", 0))
         qtd = 10 if tipo == "top10" else 12
-        escolhidos = candidatos[:qtd + 4]  # sobra, caso algum trecho não baixe ou não isole a voz
+        # variedade: no máximo 3 momentos por streamer (senão quem fez a live mais longa domina o vídeo)
+        por_streamer, escolhidos = {}, []
+        for m in candidatos:
+            if por_streamer.get(m["streamer"], 0) >= 3:
+                continue
+            por_streamer[m["streamer"]] = por_streamer.get(m["streamer"], 0) + 1
+            escolhidos.append(m)
+            if len(escolhidos) >= qtd + 4:  # sobra, caso algum trecho não baixe ou não isole a voz
+                break
         log(f"== {canal.nome}: compilado {tipo} com até {min(len(escolhidos), qtd)} momentos")
         if len(escolhidos) < 3:
             log("  poucos momentos, fica para a próxima")
@@ -696,12 +707,12 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
                               nomes.get(melhor["streamer"], melhor["streamer"]), melhor.get("jogo", ""), canal, cid, vertical=False)
         plat = {m["streamer"]: m.get("plataforma", "") for m in usados}
         creditos = "\n".join(f"• {nomes.get(l, l)}: {link_live(l, p)}" for l, p in plat.items())
-        resumo = ("Os momentos mais engraçados e insanos das lives de GTA RP: " if canal.idioma == "pt"
-                  else "The funniest and craziest GTA RP stream moments: ") + ", ".join(ordem_nomes[:6]) + "."
+        resumo = ("Os momentos mais engraçados e insanos das lives de GTA 6: " if canal.idioma == "pt"
+                  else "The funniest and craziest GTA 6 stream moments: ") + ", ".join(ordem_nomes[:6]) + "."
         descricao = (f"{titulo}\n{resumo}\n\n{_capitulos(usados, nomes, canal.idioma)}\n\n"
-                     f"{LIVE[canal.idioma]}:\n{creditos}\n\n{AVISO[canal.idioma]}\n\n#gtarp #gta6 #cortes")
-        tags = list(dict.fromkeys([*(n.lower() for n in ordem_nomes[:6]), "gta rp", "gta rp brasil", "cortes gta rp",
-                                   "momentos engraçados gta", "gta 6", "melhores momentos gta rp",
+                     f"{LIVE[canal.idioma]}:\n{creditos}\n\n{AVISO[canal.idioma]}\n\n#gta6 #gtavi #cortes")
+        tags = list(dict.fromkeys([*(n.lower() for n in ordem_nomes[:6]), "gta 6", "gta vi", "melhores momentos gta 6",
+                                   "gta 6 lives", "cortes gta 6", "momentos engraçados gta",
                                    *([evento.lower(), "reagindo trailer gta 6"] if evento else [])]))[:15]
         for m in usados:
             est.atualizar(m["id"], usado_em=list(dict.fromkeys(est.momentos[m["id"]].get("usado_em", []) + [tipo])))

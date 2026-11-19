@@ -142,7 +142,7 @@ canais:
     cor_destaque: "#FF3D7F"   # rosa neon da identidade Vice
     fuso: "America/Sao_Paulo"
     horarios: ["12:00", "18:00", "21:30"]   # curadoria: 3 Shorts bons por dia (no lançamento vira 8)
-    horario_compilado: "19:30"   # Melhores do Dia (vídeo longo)
+    horario_compilado: "10:00"   # Melhores do Dia (vídeo longo)
     horario_longo: "15:00"       # Corte longo (um momento com a live inteira em volta)
     hashtags: ["#gta6", "#gtavi", "#shorts"]
     # postar: "manual" = a máquina deixa pronto e você posta | "automatico" = a máquina envia agendado nos horários

@@ -375,11 +375,11 @@ def titulo_compilado(idioma: str, tipo: str, nomes: list[str], data: str, evento
                 else f"GTA 6: streamers react to the trailers and delays ({destaque})")[:95]
     if idioma == "pt":
         if tipo == "top10":
-            return f"GTA RP: TOP {n} momentos mais insanos da semana ({destaque})"[:95]
-        return f"GTA RP: os momentos mais engraçados de {data} ({destaque})"[:95]
+            return f"GTA 6: TOP {n} momentos mais insanos da semana ({destaque})"[:95]
+        return f"GTA 6: os melhores momentos das lives de {data} ({destaque})"[:95]
     if tipo == "top10":
-        return f"GTA RP: TOP {n} craziest moments this week ({destaque})"[:95]
-    return f"GTA RP: funniest moments of {data} ({destaque})"[:95]
+        return f"GTA 6: TOP {n} craziest moments this week ({destaque})"[:95]
+    return f"GTA 6: best stream moments of {data} ({destaque})"[:95]
 
 
 PROMPT_LONGO = """Você é editor de um canal de cortes de GTA no YouTube. Este é um CORTE LONGO ({minutos:.0f} minutos) da live do {nome}.
