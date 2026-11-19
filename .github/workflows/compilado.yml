@@ -4,7 +4,6 @@ on:
   schedule:
     - cron: "17 2 19-30 11 *"   # lançamento: todo dia 23:17 de Brasília -> Melhores do Dia (posta às 10h do dia seguinte)
     - cron: "23 13 * * 0"   # domingo 10:23 de Brasília -> Top 10 da Semana
-    - cron: "37 11,16 18-30 11 *"   # lançamento: 08:37 e 13:37 de Brasília -> corte longo (um por execução)
   workflow_dispatch:
     inputs:
       tipo:
@@ -32,7 +31,7 @@ env:
 jobs:
   compilado:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -78,7 +77,6 @@ jobs:
           TIPO="$TIPO_PEDIDO"
           if [ -z "$TIPO" ]; then
             if [ "$AGENDA" = "23 13 * * 0" ]; then TIPO=top10
-            elif [ "$AGENDA" = "37 11,16 18-30 11 *" ]; then TIPO=longo
             else TIPO=dia; fi
           fi
           for T in $TIPO; do

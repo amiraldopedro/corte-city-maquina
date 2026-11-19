@@ -101,3 +101,40 @@ def montar(momentos: list[dict], nomes: dict[str, str], tipo: str, cor: str, mar
     rodar(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lista),
            "-c", "copy", "-movflags", "+faststart", str(saida)])
     return usados
+
+
+def preparar(m: dict) -> Path | None:
+    """Baixa o trecho de um momento e devolve a versão sem música (voz + jogo). None se não der."""
+    from .voz import tentar_isolar
+    try:
+        if m.get("yt_asset"):
+            from .youtube_fonte import preparar_bruto
+            bruto = preparar_bruto(m, PASTA_BRUTOS / f"{m['id']}.mp4")
+        else:
+            bruto = baixar_trecho(m.get("video_id"), m["inicio"], m["fim"], m.get("clipe_url"),
+                                  PASTA_BRUTOS / f"{m['id']}.mp4")
+        return tentar_isolar(bruto)
+    except Exception as e:
+        print(f"  pulei {m['id']} ({str(e)[:150]})")
+        return None
+
+
+def concatenar(itens: list[tuple[dict, Path]], nomes: dict, cor: str, marca: Path | None, saida: Path) -> list[dict]:
+    """itens = [(momento, arquivo sem música)] na ordem do vídeo. Devolve os momentos com `_cap` (capítulos)."""
+    pasta = PASTA_PRONTOS / f"comp_{saida.stem}"
+    pasta.mkdir(parents=True, exist_ok=True)
+    partes, usados, relogio = [], [], 0.0
+    for i, (m, voz) in enumerate(itens):
+        try:
+            parte = pasta / f"{i:02d}.mp4"
+            _segmento(voz, parte, nomes.get(m["streamer"], m.get("nome") or m["streamer"]), None, cor, marca)
+            partes.append(parte)
+            usados.append({**m, "_cap": relogio})
+            relogio += _duracao(parte)
+        except Exception as e:
+            print(f"  compilado: pulei {m['id']} ({str(e)[:150]})")
+    lista = pasta / "lista.txt"
+    lista.write_text("".join(f"file '{p.resolve()}'\n" for p in partes))
+    rodar(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lista),
+           "-c", "copy", "-movflags", "+faststart", str(saida)])
+    return usados

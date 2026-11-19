@@ -671,7 +671,7 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         candidatos = [m for m in candidatos if not m.get("gringo")
                       and m.get("quadro") not in ("modelado", "gringos", "noticia") and not m["id"].startswith("mod_")]
         candidatos.sort(key=lambda m: -m.get("score", 0))
-        qtd = 10 if tipo == "top10" else 12
+        qtd = 10 if tipo == "top10" else 30 if tipo == "dia" else 12  # o "dia" vai enchendo até passar de 15 min
         # variedade: no máximo 3 momentos por streamer (senão quem fez a live mais longa domina o vídeo)
         por_streamer, escolhidos = {}, []
         for m in candidatos:
@@ -692,8 +692,14 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
             agora_local -= timedelta(days=1)
         data = agora_local.strftime("%d/%m" if canal.idioma == "pt" else "%b %d")
         saida = PASTA_PRONTOS / f"{tipo}_{canal.id}_{datetime.now().strftime('%Y%m%d')}.mp4"
-        usados = compilado.montar(escolhidos, nomes, tipo, canal.cor_destaque, RAIZ / canal.marca, saida,
-                                  maximo=qtd)
+        if tipo == "dia":
+            usados = montar_dia_longo(cfg, canal, est, escolhidos, nomes, saida)
+            if not usados:
+                log("  não deu para montar o Melhores do Dia com 15+ min agora")
+                continue
+        else:
+            usados = compilado.montar(escolhidos, nomes, tipo, canal.cor_destaque, RAIZ / canal.marca, saida,
+                                      maximo=qtd)
         ordem_nomes = list(dict.fromkeys(nomes.get(m["streamer"], m["streamer"]) for m in reversed(usados)))
         reacts = sum(1 for m in usados if m.get("evento")) * 2 > len(usados)
         titulo = cerebro.titulo_compilado(canal.idioma, tipo, ordem_nomes, data, evento, reacts, n=len(usados))
@@ -726,6 +732,136 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         _postar_longo(cfg, canal, est, saida, capa, cid, tipo, titulo, descricao, tags,
                       canal.playlists.get("top10" if tipo == "top10" else "compilado", ""),
                       {"itens": [m["id"] for m in usados], "streamers": sorted({m["streamer"] for m in usados}), **kit_extra})
+
+
+MIN_DIA = 15 * 60   # o Melhores do Dia nunca sai com menos de 15 min
+ALVO_DIA = 18 * 60
+
+
+def _bloco_longo(cfg: Config, canal: Canal, m: dict) -> tuple[dict, Path] | None:
+    """Bloco longo de uma live: baixa uns 12 min em volta do momento, a IA lê a fala e escolhe onde o assunto
+    começa e fecha (sem tempo fixo: de 2,5 a 12 min). Devolve (momento, arquivo sem música) ou None."""
+    from maquina import cerebro, compilado, editar
+    from maquina.baixar import baixar_trecho
+    from maquina.transcrever import texto_com_tempos, transcrever
+    from maquina.voz import tentar_isolar
+    destino = compilado.PASTA_BRUTOS / f"bloco_{m['id']}.mp4"
+    try:
+        if m.get("yt_longo"):
+            bruto, _, _, _ = corte_longo_youtube(cfg, canal, m, destino)
+        else:
+            ini = max(0.0, m["inicio"] - 6 * 60)
+            bruto = baixar_trecho(m["video_id"], ini, m["fim"] + 6 * 60, None, destino)
+        voz = tentar_isolar(bruto)
+        if not voz:
+            return None
+        total = editar.info_video(voz)[2]
+        palavras = transcrever(voz, canal.idioma, cfg.whisper)
+        nome = cfg.nome_streamer(m["streamer"], m.get("nome", ""))
+        a, b = cerebro.janela_longa(nome, m, texto_com_tempos(palavras, 10.0), total, canal.idioma,
+                                    cfg.ia_endereco, cfg.ia_modelo, dmin=150, dmax=720)
+        fala = " ".join(w["p"] for w in palavras if a <= w["i"] <= b)
+        if cerebro.spoilers([fala], cfg.ia_endereco, cfg.ia_modelo):
+            log(f"  bloco de {nome}: parece missão da história, ficou de fora (sem spoiler)")
+            return None
+        corte = voz.with_name(voz.stem + ".bloco.mp4")
+        editar.rodar(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{a:.2f}", "-to", f"{b:.2f}", "-i", str(voz),
+                      "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-c:a", "aac", "-b:a", "160k", str(corte)])
+        log(f"  bloco longo: {nome}, {(b - a) / 60:.1f} min (a IA escolheu onde começa e onde fecha)")
+        return {**m, "_bloco": True, "_bloco_ini": a, "_bloco_fim": b}, corte
+    except Exception as e:
+        log(f"  bloco de {m['id']} não deu ({str(e)[:120]})")
+        return None
+
+
+def montar_dia_longo(cfg: Config, canal: Canal, est: Estado, pool: list[dict], nomes: dict, saida: Path) -> list[dict]:
+    """Melhores do Dia com 15+ min, no ritmo de um editor:
+    abertura com 2 momentos fortes -> bloco longo de uma live (com contexto) -> recheio com momentos de outros
+    streamers -> se ainda faltar tempo, um segundo bloco -> fecha com o momento mais forte do dia.
+    Tudo sem spoiler da história (a IA lê a fala de cada trecho e tira o que for missão/cutscene)."""
+    from maquina import cerebro, compilado, editar
+    from maquina.transcrever import transcrever
+    curtos = [m for m in pool if not m.get("_bloco")]
+    # blocos: momentos com a live gravada (Twitch VOD ou trecho grande do YouTube), um por streamer
+    com_live = [m for m in pool if m.get("video_id") or m.get("yt_longo")]
+    blocos, streamers_bloco = [], set()
+
+    def proximo_bloco():
+        ja = {x["id"] for x, _ in ordem[:2]} | {fecho[0]["id"]}  # abertura e fecho ficam como estão
+        for m in com_live:
+            if m["streamer"] in streamers_bloco or m.get("_tentado") or m["id"] in ja:
+                continue
+            m["_tentado"] = True
+            b = _bloco_longo(cfg, canal, m)
+            if b:
+                streamers_bloco.add(m["streamer"])
+                return b
+        return None
+
+    def por_bloco(b):
+        nonlocal total
+        for k, (x, v) in enumerate(ordem):  # o curto desse momento vira o bloco completo
+            if x["id"] == b[0]["id"] and not x.get("_bloco"):
+                total -= editar.info_video(v)[2]
+                ordem.pop(k)
+                break
+        ordem.append(b)
+        total += editar.info_video(b[1])[2]
+        blocos.append(b[0])
+
+    prontos = []  # (momento, voz, duração, fala)
+    for m in curtos:
+        voz = compilado.preparar(m)
+        if not voz:
+            continue
+        try:
+            fala = " ".join(w["p"] for w in transcrever(voz, canal.idioma, cfg.whisper))
+        except Exception:
+            fala = ""
+        prontos.append((m, voz, editar.info_video(voz)[2], fala))
+        if sum(d for _, _, d, _ in prontos) > ALVO_DIA:  # já tem curto suficiente pra encher qualquer buraco
+            break
+    tirar = cerebro.spoilers([f for *_, f in prontos], cfg.ia_endereco, cfg.ia_modelo)
+    if tirar:
+        log(f"  {len(tirar)} momento(s) com spoiler da história ficaram de fora")
+    prontos = [x for i, x in enumerate(prontos) if i not in tirar]
+    if len(prontos) < 3:
+        return []
+    fecho = prontos[0]          # o mais forte fecha o vídeo
+    resto = prontos[1:]
+    ordem: list[tuple[dict, Path]] = []
+    total = fecho[2]
+    for m, voz, d, _ in resto[:2]:                       # abertura
+        ordem.append((m, voz)); total += d
+    b1 = proximo_bloco()                                  # bloco principal
+    if b1:
+        por_bloco(b1)
+    fila = resto[2:]
+    meio = len(fila) // 2
+    for i, (m, voz, d, _) in enumerate(fila):            # recheio (e um 2º bloco no meio, se faltar tempo)
+        if total >= ALVO_DIA:
+            break
+        if b1 and i == meio and total + (len(fila) - i) * 40 < MIN_DIA:
+            b2 = proximo_bloco()
+            if b2:
+                por_bloco(b2)
+        if any(x["id"] == m["id"] for x in blocos):
+            continue  # é o próprio momento do bloco longo
+        if b1 and any(x.get("video_id") == m.get("video_id") and m.get("video_id") and
+                      x["_bloco_ini"] <= m["inicio"] - max(0.0, x["inicio"] - 360) <= x["_bloco_fim"] for x in blocos):
+            continue  # esse momento já aparece dentro do bloco longo
+        ordem.append((m, voz)); total += d
+    while total < MIN_DIA:                                # ainda curto: mais blocos até passar de 15 min
+        b = proximo_bloco()
+        if not b:
+            break
+        por_bloco(b)
+    ordem.append((fecho[0], fecho[1]))
+    if total < MIN_DIA:
+        log(f"  deu só {total / 60:.1f} min: o Melhores do Dia precisa de 15+ min, fica pra próxima")
+        return []
+    log(f"  Melhores do Dia: {total / 60:.1f} min, {len(ordem)} partes ({len(blocos)} bloco(s) longo(s))")
+    return compilado.concatenar(ordem, nomes, canal.cor_destaque, RAIZ / canal.marca, saida)
 
 
 def fazer_corte_longo(cfg: Config):

@@ -376,7 +376,8 @@ def titulo_compilado(idioma: str, tipo: str, nomes: list[str], data: str, evento
     if idioma == "pt":
         if tipo == "top10":
             return f"GTA 6: TOP {n} momentos mais insanos da semana ({destaque})"[:95]
-        return f"GTA 6: os melhores momentos das lives de {data} ({destaque})"[:95]
+        t = f"GTA 6 SEM SPOILER: os melhores momentos das lives de {data} ({destaque})"
+        return t if len(t) <= 95 else f"GTA 6 SEM SPOILER: melhores das lives de {data} ({destaque})"[:95]
     if tipo == "top10":
         return f"GTA 6: TOP {n} craziest moments this week ({destaque})"[:95]
     return f"GTA 6: best stream moments of {data} ({destaque})"[:95]
@@ -424,6 +425,30 @@ def textos_longo(nome: str, momento: dict, transcricao: str, idioma: str, endere
     return padrao
 
 
+PROMPT_SPOILER = """O GTA 6 acabou de lançar e o canal promete vídeos SEM SPOILER da história.
+Cada item abaixo é a fala de um trecho de live de GTA 6. Marque os que mostram ou contam a HISTÓRIA PRINCIPAL:
+missão da história, cutscene, revelação ou morte de personagem da trama, reviravolta, final, nome de missão.
+NÃO é spoiler: mundo aberto, caos, polícia, física, carros, assalto livre, bugs, piadas, reação ao mapa ou aos gráficos.
+Na dúvida, NÃO marque.
+
+{itens}
+
+Responda só com JSON: {{"spoiler": [números dos itens com spoiler]}}"""
+
+
+def spoilers(textos: list[str], endereco: str, modelo: str) -> set[int]:
+    """Índices (0, 1, 2...) dos trechos que entregam a história do GTA 6. Sem IA: nenhum."""
+    if not textos:
+        return set()
+    itens = "\n".join(f"{i + 1}. {(t or '(sem fala)')[:600]}" for i, t in enumerate(textos))
+    try:
+        r = _perguntar_ollama(endereco, modelo, PROMPT_SPOILER.format(itens=itens[:12000]))
+        return {int(x) - 1 for x in (r.get("spoiler") or []) if str(x).isdigit() and 0 < int(x) <= len(textos)}
+    except Exception as e:
+        print(f"  IA fora para checar spoiler ({str(e)[:100]}): sigo sem filtro")
+        return set()
+
+
 PROMPT_JANELA = """Você edita cortes longos de GTA para o YouTube. Abaixo está a transcrição (segundo: fala) de um trecho de {total:.0f} segundos
 do vídeo "{titulo}" de {nome}.
 
@@ -439,7 +464,8 @@ Responda só com JSON: {{"inicio": 30, "fim": 400, "motivo": "..."}}"""
 
 def janela_longa(nome: str, momento: dict, transcricao: str, total: float, idioma: str, endereco: str, modelo: str,
                  dmin: int = 180, dmax: int = 480) -> tuple[float, float]:
-    """Bloco de 3 a 8 min escolhido pela IA. Sem IA: o miolo do trecho."""
+    """Bloco contínuo escolhido pela IA (entre dmin e dmax segundos, onde o assunto começa e fecha).
+    Sem IA: o miolo do trecho."""
     if total <= dmax:
         return 0.0, total
     padrao = (max(0.0, total / 2 - dmax / 2), min(total, total / 2 + dmax / 2))
