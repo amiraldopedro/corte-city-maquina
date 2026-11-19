@@ -1323,8 +1323,8 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:27:22+00:00",
-   "atualizado_em": "2026-11-19T23:18:33+00:00",
-   "tentativas": 1,
+   "atualizado_em": "2026-11-19T23:59:54+00:00",
+   "tentativas": 2,
    "erro": "ERROR: [youtube] V9JgeA64VYE: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "qSyo5d-dVzA": {
