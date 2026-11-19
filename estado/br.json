@@ -11963,11 +11963,50 @@
    "views": 1037,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T05:32:35+00:00",
-   "atualizado_em": "2026-11-19T05:32:35+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T10:34:40+00:00",
+   "isolar_voz": false,
+   "youtube_id": "fDfTkMCL1aU",
+   "publicar_em": "2026-11-21T02:00:00Z",
+   "postado_em": "2026-11-19T10:34:40+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Paulinho O Loko no GTA 6 perseguiu os motoqueiros e a ponte",
+   "gancho": "INSANO",
+   "descricao": "Paulinho O Loko no GTA 6 perseguiu os motoqueiros e a ponte\nPaulinho O Loko persegue motoqueiros de caminhonete no GTA 6, bate no meio da correria e tenta furar o pneu deles. Termina com um salto absurdo na ponte que não conecta, nos cortes da live.\n\n🎮 Live original: https://www.youtube.com/@PaulinhoLOKOoficial\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "paulinho o loko gta 6",
+    "paulinho o loko",
+    "gta 6",
+    "gta 6 perseguição",
+    "gta 6 ponte",
+    "gta 6 gameplay",
+    "momentos engraçados gta 6",
+    "cortes gta 6",
+    "cortes de live",
+    "cortes gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-19T10:34:33+00:00",
+   "corte": [
+    36.0,
+    69.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 33.0,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_cxuF5siTUQw_1.mp4",
+   "video_asset": 767255258,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_cxuF5siTUQw_1.jpg",
+   "thumb_asset": 767255363,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_cxuF5siTUQw_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_cxuF5siTUQw_1_kit.zip"
   },
   "yt_cxuF5siTUQw_2": {
    "id": "yt_cxuF5siTUQw_2",
@@ -13016,11 +13055,12 @@
    "views": 1057,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
+   "status": "descartado",
    "prioridade": true,
    "criado_em": "2026-11-19T10:20:54+00:00",
-   "atualizado_em": "2026-11-19T10:20:54+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T10:32:46+00:00",
+   "isolar_voz": false,
+   "motivo": "A tela só mostra a Lucia correndo por estrada e mangue, sem batida, susto, reação ou desfecho. A transcrição está confusa e a legenda 'The fuck is that?' em 8s não leva a nada. O final tem tela de ins"
   },
   "x_2123203989864841396": {
    "id": "x_2123203989864841396",
@@ -15259,11 +15299,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 1600
+  "2026-11-19": 1700
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 9
+  "2026-11-19": 10
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
