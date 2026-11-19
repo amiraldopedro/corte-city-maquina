@@ -8324,11 +8324,52 @@
    "views": 1035,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-18T22:18:19+00:00",
-   "atualizado_em": "2026-11-18T22:18:19+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T00:51:23+00:00",
+   "isolar_voz": false,
+   "youtube_id": "7L3PnMovNDs",
+   "publicar_em": "2026-11-19T20:00:00Z",
+   "postado_em": "2026-11-19T00:51:23+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Era pra ser simples, mas o Cortes do Davy Jones [OFICIAL] tava no GTA 6",
+   "gancho": "SUSPEITO",
+   "descricao": "Era pra ser simples, mas o Cortes do Davy Jones [OFICIAL] tava no GTA 6\nNo corte do Davy Jones, a conversa é sobre o que acontece no GTA 6 se você andar com o carro todo cheio de bala. Eles lembram da funilaria do GTA clássico e imaginam um Los Santos Customs pra consertar. Reação e análise das novas imagens do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@CortesdoDavyJones\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "davy jones gta 6",
+    "cortes do davy jones",
+    "carro baleado gta 6",
+    "polícia gta 6",
+    "novas imagens gta 6",
+    "análise gta 6",
+    "gta 6 reagindo",
+    "gta 6",
+    "gta 6 notícias",
+    "cortes gta",
+    "cortes gta 6",
+    "cortes do davy jones [oficial]",
+    "cortes do davy jones [oficial] gta 6",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-19T00:51:17+00:00",
+   "corte": [
+    8.98,
+    56.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 47.0,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_1.mp4",
+   "video_asset": 765637987,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_1.jpg",
+   "thumb_asset": 765638057,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_GSoOHnDOMKI_1_kit.zip"
   },
   "yt_GSoOHnDOMKI_2": {
    "id": "yt_GSoOHnDOMKI_2",
@@ -12003,10 +12044,10 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 4920
+  "2026-11-18": 5020
  },
  "envios": {
-  "2026-11-18": 36
+  "2026-11-18": 37
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
