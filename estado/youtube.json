@@ -682,16 +682,48 @@
   "_95rcfBuaCo": {
    "id": "_95rcfBuaCo",
    "link": "https://www.youtube.com/watch?v=_95rcfBuaCo",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:16+00:00",
-   "atualizado_em": "2026-11-19T00:15:16+00:00",
+   "atualizado_em": "2026-11-19T04:26:32+00:00",
    "auto": true,
    "titulo": "ESTOURE O BALÃO OU ENCONTRE SEU AMOR! ESPECIAL GTA 6 | EP:79",
    "canal_nome": "PEIXE",
    "isolar_voz": false,
-   "views_yt": 751479
+   "views_yt": 751479,
+   "longo": {
+    "asset_id": 766208094,
+    "inicio": 840.0,
+    "fim": 1440.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "Peixe",
+   "canal_id": "UCOPS25AxMB9te9_-AHt3JEg",
+   "duracao": 2149.0,
+   "segmentos": [
+    {
+     "asset_id": 766185082,
+     "inicio": 565.0,
+     "fim": 635.0,
+     "duracao": 70.0,
+     "forca": 1.043
+    },
+    {
+     "asset_id": 766188959,
+     "inicio": 857.0,
+     "fim": 927.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 766192993,
+     "inicio": 1800.0,
+     "fim": 1870.0,
+     "duracao": 70.0,
+     "forca": 1.04
+    }
+   ]
   },
   "y6ofjcTl5x0": {
    "id": "y6ofjcTl5x0",
