@@ -1301,7 +1301,9 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T19:20:53+00:00"
+   "atualizado_em": "2026-11-19T22:58:02+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] QhKWnCPIhiU: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "BG_y4qpQA-g": {
    "id": "BG_y4qpQA-g",
