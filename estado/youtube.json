@@ -1127,7 +1127,9 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T19:20:53+00:00"
+   "atualizado_em": "2026-11-19T20:44:18+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] czLjal_UA9Q: This live event has ended."
   },
   "X2rtbJJEvVE": {
    "id": "X2rtbJJEvVE",
