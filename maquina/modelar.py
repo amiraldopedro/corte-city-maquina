@@ -238,7 +238,7 @@ def _montar_gringo(cfg, canal, est, yt, item: dict, vid: str, mid: str, bruto: P
     return titulo
 
 
-def montar(cfg, maximo: int = 2) -> int:
+def montar(cfg, maximo: int = 4) -> int:
     """Shorts que o Mac baixou viram vídeos do Corte City: voz original sai, narração nova entra."""
     import subprocess
     import tempfile
