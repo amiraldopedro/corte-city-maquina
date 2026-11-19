@@ -10092,11 +10092,9 @@
    "fim": 35593.2,
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/MuddyBlatantAnteaterOSsloth-6RHkNOv7PwtxzE01",
    "clipe_ids": [
-    "MuddyBlatantAnteaterOSsloth-6RHkNOv7PwtxzE01",
     "MuddyBlatantAnteaterOSsloth-6RHkNOv7PwtxzE01"
    ],
    "titulos_chat": [
-    "tava tao concentrado q caiu na agua",
     "tava tao concentrado q caiu na agua"
    ],
    "views": 38,
@@ -10138,6 +10136,109 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-19T01:53:29+00:00"
+  },
+  "yt_LCNP8-RqI0g_0": {
+   "id": "yt_LCNP8-RqI0g_0",
+   "plataforma": "youtube",
+   "streamer": "ReactsLOUDCoringaOficial",
+   "nome": "Reacts LOUD Coringa ",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 765971431,
+   "yt_video": "LCNP8-RqI0g",
+   "yt_link": "https://www.youtube.com/watch?v=LCNP8-RqI0g&t=185s",
+   "titulos_chat": [
+    "COMO SERÁ AS LIVES DE LANÇAMENTO DO  GTA 6 | LOUD CORINGA"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1067,
+   "n_clipes": 1,
+   "score": 10000,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T03:07:43+00:00",
+   "atualizado_em": "2026-11-19T03:07:43+00:00",
+   "isolar_voz": false
+  },
+  "yt_LCNP8-RqI0g_1": {
+   "id": "yt_LCNP8-RqI0g_1",
+   "plataforma": "youtube",
+   "streamer": "ReactsLOUDCoringaOficial",
+   "nome": "Reacts LOUD Coringa ",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 765975210,
+   "yt_video": "LCNP8-RqI0g",
+   "yt_link": "https://www.youtube.com/watch?v=LCNP8-RqI0g&t=361s",
+   "titulos_chat": [
+    "COMO SERÁ AS LIVES DE LANÇAMENTO DO  GTA 6 | LOUD CORINGA"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1000,
+   "n_clipes": 1,
+   "score": 9999,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T03:07:43+00:00",
+   "atualizado_em": "2026-11-19T03:07:43+00:00",
+   "isolar_voz": false
+  },
+  "yt_LCNP8-RqI0g_2": {
+   "id": "yt_LCNP8-RqI0g_2",
+   "plataforma": "youtube",
+   "streamer": "ReactsLOUDCoringaOficial",
+   "nome": "Reacts LOUD Coringa ",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 765978837,
+   "yt_video": "LCNP8-RqI0g",
+   "yt_link": "https://www.youtube.com/watch?v=LCNP8-RqI0g&t=703s",
+   "titulos_chat": [
+    "COMO SERÁ AS LIVES DE LANÇAMENTO DO  GTA 6 | LOUD CORINGA"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1004,
+   "n_clipes": 1,
+   "score": 9998,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T03:07:43+00:00",
+   "atualizado_em": "2026-11-19T03:07:43+00:00",
+   "isolar_voz": false
+  },
+  "yt_LCNP8-RqI0g_longo": {
+   "id": "yt_LCNP8-RqI0g_longo",
+   "plataforma": "youtube",
+   "streamer": "ReactsLOUDCoringaOficial",
+   "nome": "Reacts LOUD Coringa ",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 600.0,
+   "clipe_url": null,
+   "yt_asset": 765996096,
+   "yt_longo": true,
+   "yt_video": "LCNP8-RqI0g",
+   "yt_link": "https://www.youtube.com/watch?v=LCNP8-RqI0g&t=0s",
+   "titulos_chat": [
+    "COMO SERÁ AS LIVES DE LANÇAMENTO DO  GTA 6 | LOUD CORINGA"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 0,
+   "n_clipes": 1,
+   "score": 20000,
+   "status": "novo",
+   "criado_em": "2026-11-19T03:07:43+00:00",
+   "atualizado_em": "2026-11-19T03:07:43+00:00"
   }
  },
  "clipes_vistos": [
