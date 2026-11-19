@@ -12253,11 +12253,51 @@
    "views": 1076,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T06:54:10+00:00",
-   "atualizado_em": "2026-11-19T06:54:10+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T09:53:56+00:00",
+   "isolar_voz": false,
+   "youtube_id": "naRqFJb5nuE",
+   "publicar_em": "2026-11-20T17:00:00Z",
+   "postado_em": "2026-11-19T09:53:56+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj no GTA 6 correu em Vice City e tomou uma batida",
+   "gancho": "ME BATEU!",
+   "descricao": "Gameplayrj no GTA 6 correu em Vice City e tomou uma batida\nGameplayrj joga a gameplay do GTA 6 e entra num racha noturno por Vice City, até que outro carro bate nele e ele perde a paciência. Cortes e momentos engraçados da reação dele ao ver a física e o trânsito do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gameplayrj gta 6",
+    "gameplayrj",
+    "gta 6 gameplay",
+    "racha vice city gta 6",
+    "batida gta 6",
+    "gta 6 vice city",
+    "reação gta 6",
+    "momentos engraçados gta 6",
+    "cortes gameplayrj",
+    "gta 6",
+    "cortes gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-19T09:53:52+00:00",
+   "corte": [
+    30.7,
+    52.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 4,
+   "quadro": null,
+   "duracao": 21.8,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_2.mp4",
+   "video_asset": 767126238,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_2.jpg",
+   "thumb_asset": 767126352,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_2_kit.zip"
   },
   "yt_x50ONQrBPRM_longo": {
    "id": "yt_x50ONQrBPRM_longo",
@@ -14690,11 +14730,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 900
+  "2026-11-19": 1000
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 6
+  "2026-11-19": 10
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
