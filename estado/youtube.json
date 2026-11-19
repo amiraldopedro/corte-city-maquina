@@ -385,8 +385,8 @@
    "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
    "status": "biblioteca_pendente",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-18T21:40:46+00:00",
-   "tentativas": 1,
+   "atualizado_em": "2026-11-19T06:20:16+00:00",
+   "tentativas": 2,
    "erro": "ERROR: [youtube] N-xHcvug3WI: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "d9hMmy0t0pg": {
