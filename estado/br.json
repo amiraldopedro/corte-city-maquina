@@ -13236,6 +13236,41 @@
    "postado_em": "2026-11-19T10:50:47+00:00",
    "envio_pendente": null,
    "atualizado_em": "2026-11-19T10:50:47+00:00"
+  },
+  "x_2123188288316170383": {
+   "id": "x_2123188288316170383",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "noticia",
+   "quadro": "comunidade",
+   "origem": "x",
+   "fonte": "d (@Editslaid19)",
+   "link": "https://x.com/Editslaid19/status/2123188288316170383",
+   "criado_em": "2026-11-19T10:50:49+00:00",
+   "status": "postado",
+   "titulo": "GTA 6: confira o post da comunidade que está circulando no X",
+   "descricao": "GTA 6: confira o post da comunidade que está circulando no X\n\n“”\n— d (@Editslaid19)\n\nPost original: https://x.com/Editslaid19/status/2123188288316170383\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "d",
+    "editslaid19",
+    "gta 6",
+    "gta vi",
+    "gta 6 memes",
+    "comunidade gta 6",
+    "gta 6 novidades",
+    "rockstar games"
+   ],
+   "feito_em": "2026-11-19T10:51:39+00:00",
+   "duracao": 58.0,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/x_2123188288316170383.mp4",
+   "video_asset": 767311100,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/x_2123188288316170383.jpg",
+   "thumb_asset": 767311203,
+   "youtube_id": "TIaUvm1-fsM",
+   "publicar_em": "2026-11-21T03:00:00Z",
+   "postado_em": "2026-11-19T10:51:46+00:00",
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-19T10:51:46+00:00"
   }
  },
  "clipes_vistos": [
@@ -15439,11 +15474,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 1900
+  "2026-11-19": 2000
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 12
+  "2026-11-19": 13
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
