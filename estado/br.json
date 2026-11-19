@@ -10832,6 +10832,51 @@
    "publicar_em": "2026-11-20T00:00:00Z",
    "postado_em": "2026-11-19T03:19:05+00:00",
    "envio_pendente": null
+  },
+  "mod_5l2gWK1iyps": {
+   "id": "mod_5l2gWK1iyps",
+   "canal": "br",
+   "status": "aguardando_cota",
+   "criado_em": "2026-11-19T03:20:37+00:00",
+   "atualizado_em": "2026-11-19T03:20:37+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "N3on vaza o GTA 6 antes de todo mundo e o final é inesperado",
+   "gancho": "N3ON VAZOU O GTA 6?",
+   "descricao": "N3on vaza o GTA 6 antes de todo mundo e o final é inesperado\n\nIdeia e gameplay: RSCLIPS65 (https://www.youtube.com/watch?v=5l2gWK1iyps)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-19T03:20:37+00:00",
+   "nome": "RSCLIPS65",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 14.7,
+   "modelo_de": "https://www.youtube.com/watch?v=5l2gWK1iyps",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_5l2gWK1iyps.mp4",
+   "video_asset": 766031586,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_5l2gWK1iyps.jpg",
+   "thumb_asset": 766031699,
+   "envio_pendente": {
+    "titulo": "N3on vaza o GTA 6 antes de todo mundo e o final é inesperado",
+    "descricao": "N3on vaza o GTA 6 antes de todo mundo e o final é inesperado\n\nIdeia e gameplay: RSCLIPS65 (https://www.youtube.com/watch?v=5l2gWK1iyps)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+    "tags": [
+     "gta 6",
+     "gta vi",
+     "gta 6 gameplay",
+     "shorts",
+     "cortes gta"
+    ],
+    "idioma": "pt",
+    "playlist": "Melhores Momentos de GTA 6",
+    "publicar_em": "2026-11-20T01:00:00Z",
+    "horario_fixo": false
+   }
   }
  },
  "clipes_vistos": [
