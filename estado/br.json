@@ -12914,6 +12914,41 @@
    "criado_em": "2026-11-19T10:20:54+00:00",
    "atualizado_em": "2026-11-19T10:20:54+00:00",
    "isolar_voz": false
+  },
+  "x_2123203989864841396": {
+   "id": "x_2123203989864841396",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "noticia",
+   "quadro": "comunidade",
+   "origem": "x",
+   "fonte": "cellbit reactions (@cellbitreaction)",
+   "link": "https://x.com/cellbitreaction/status/2123203989864841396",
+   "criado_em": "2026-11-19T10:23:08+00:00",
+   "status": "postado",
+   "titulo": "GTA 6: A lore do Jason na gameplay do Cellbit",
+   "descricao": "GTA 6: A lore do Jason na gameplay do Cellbit\n\n“a lore do jason na gameplay do cellbit”\n— cellbit reactions (@cellbitreaction)\n\nOriginal (inglês): “a lore do jason na gameplay do cellbit”\n\nPost original: https://x.com/cellbitreaction/status/2123203989864841396\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "cellbit reactions",
+    "cellbitreaction",
+    "gta 6",
+    "gta vi",
+    "gta 6 memes",
+    "comunidade gta 6",
+    "gta 6 novidades",
+    "rockstar games"
+   ],
+   "feito_em": "2026-11-19T10:23:27+00:00",
+   "duracao": 19.9,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/x_2123203989864841396.mp4",
+   "video_asset": 767222826,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/x_2123203989864841396.jpg",
+   "thumb_asset": 767222908,
+   "youtube_id": "nCek3G_Iuxw",
+   "publicar_em": "2026-11-20T13:30:00Z",
+   "postado_em": "2026-11-19T10:23:37+00:00",
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-19T10:23:37+00:00"
   }
  },
  "clipes_vistos": [
@@ -15114,11 +15149,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 1400
+  "2026-11-19": 1500
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 7
+  "2026-11-19": 8
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
