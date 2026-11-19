@@ -1254,11 +1254,11 @@
   "upFrh84fBhc": {
    "id": "upFrh84fBhc",
    "link": "https://www.youtube.com/watch?v=upFrh84fBhc",
-   "status": "baixado",
+   "status": "na_fila",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T22:36:06+00:00",
+   "atualizado_em": "2026-11-19T22:36:22+00:00",
    "longo": {
     "asset_id": 769529589,
     "inicio": 1290.0,
