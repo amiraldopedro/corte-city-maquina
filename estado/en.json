@@ -1333,9 +1333,9 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "pronto",
+   "status": "descartado",
    "criado_em": "2026-11-18T22:21:24+00:00",
-   "atualizado_em": "2026-11-19T05:36:49+00:00",
+   "atualizado_em": "2026-11-19T12:53:29Z",
    "tipo": "short",
    "titulo": "Kai Cenat's GTA 6 girlfriend confronts him... then storms out",
    "gancho": "BUSTED",
@@ -1374,7 +1374,8 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932305259_10387.jpg",
    "thumb_asset": 766392307,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932305259_10387_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932305259_10387_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932305259_10387_kit.zip",
+   "motivo": "spoiler (mandy) - ficou em rascunho no Studio"
   },
   "2932305259_13221": {
    "id": "2932305259_13221",
@@ -2265,7 +2266,7 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "pronto",
+   "status": "postado",
    "criado_em": "2026-11-18T22:05:56+00:00",
    "tipo": "short",
    "titulo": "xQc in GTA 6 insults an NPC... then the NPC fires back",
@@ -2306,7 +2307,10 @@
    "thumb_asset": 765207947,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932113307_21347_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932113307_21347_kit.zip",
-   "atualizado_em": "2026-11-18T22:14:49+00:00"
+   "atualizado_em": "2026-11-19T12:53:29Z",
+   "postado_em": "2026-11-19T12:53:29Z",
+   "publicar_em": "2026-11-19T18:00:00Z",
+   "manual": true
   },
   "2932113307_21832": {
    "id": "2932113307_21832",
@@ -2505,7 +2509,7 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "pronto",
+   "status": "postado",
    "criado_em": "2026-11-18T22:21:25+00:00",
    "tipo": "short",
    "titulo": "xQc tunes the GTA 6 radio and wasn't ready for this",
@@ -2546,7 +2550,10 @@
    "thumb_asset": 765245748,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932113307_27988_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932113307_27988_kit.zip",
-   "atualizado_em": "2026-11-18T22:27:50+00:00"
+   "atualizado_em": "2026-11-19T12:53:29Z",
+   "postado_em": "2026-11-19T12:53:29Z",
+   "publicar_em": "2026-11-19T22:00:00Z",
+   "manual": true
   },
   "2932113307_31087": {
    "id": "2932113307_31087",
@@ -4081,9 +4088,9 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "pronto",
+   "status": "postado",
    "criado_em": "2026-11-18T22:21:25+00:00",
-   "atualizado_em": "2026-11-18T22:31:12+00:00",
+   "atualizado_em": "2026-11-19T12:53:29Z",
    "tipo": "short",
    "titulo": "JasonTheWeen sees his GTA 6 save at 1% and totally loses it",
    "gancho": "WRONG SAVE",
@@ -4122,7 +4129,11 @@
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932190650_40738.jpg",
    "thumb_asset": 765254468,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932190650_40738_kit.pdf",
-   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932190650_40738_kit.zip"
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932190650_40738_kit.zip",
+   "postado_em": "2026-11-19T12:53:29Z",
+   "publicar_em": "2026-11-20T18:00:00Z",
+   "manual": true,
+   "youtube_id": "3TY8AkUuKAQ"
   },
   "2932190650_40937": {
    "id": "2932190650_40937",
@@ -4568,7 +4579,7 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "pronto",
+   "status": "postado",
    "criado_em": "2026-11-18T22:21:27+00:00",
    "tipo": "short",
    "titulo": "Jynxzi's first GTA 6 observation had him shook, then this happened",
@@ -4609,7 +4620,10 @@
    "thumb_asset": 765249907,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932568279_7871_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932568279_7871_kit.zip",
-   "atualizado_em": "2026-11-18T22:29:21+00:00"
+   "atualizado_em": "2026-11-19T12:53:29Z",
+   "postado_em": "2026-11-19T12:53:29Z",
+   "publicar_em": "2026-11-20T01:00:00Z",
+   "manual": true
   },
   "2932568279_8897": {
    "id": "2932568279_8897",
@@ -6505,7 +6519,7 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "pronto",
+   "status": "postado",
    "criado_em": "2026-11-18T22:21:25+00:00",
    "tipo": "short",
    "titulo": "xQc spooks a guy by the water in GTA 6, then gets warned",
@@ -6546,7 +6560,11 @@
    "thumb_asset": 766428013,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932113307_21349_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932113307_21349_kit.zip",
-   "atualizado_em": "2026-11-19T05:51:41+00:00"
+   "atualizado_em": "2026-11-19T12:53:29Z",
+   "postado_em": "2026-11-19T12:53:29Z",
+   "publicar_em": "2026-11-20T22:00:00Z",
+   "manual": true,
+   "youtube_id": "ZQUd9ETESJM"
   },
   "2932113307_22409": {
    "id": "2932113307_22409",
@@ -9076,7 +9094,7 @@
    "quadro": "gta6",
    "_priorizado": true,
    "score_v": 2,
-   "status": "pronto",
+   "status": "descartado",
    "criado_em": "2026-11-19T01:53:38+00:00",
    "tipo": "short",
    "titulo": "Jynxzi pauses GTA 6 after seeing way too much realism",
@@ -9117,7 +9135,8 @@
    "thumb_asset": 766445866,
    "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932568279_21548_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/2932568279_21548_kit.zip",
-   "atualizado_em": "2026-11-19T05:58:07+00:00"
+   "atualizado_em": "2026-11-19T12:53:29Z",
+   "motivo": "nudez - ficou em rascunho no Studio"
   },
   "2932568279_21827": {
    "id": "2932568279_21827",
