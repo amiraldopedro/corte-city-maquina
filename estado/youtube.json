@@ -728,16 +728,48 @@
   "y6ofjcTl5x0": {
    "id": "y6ofjcTl5x0",
    "link": "https://www.youtube.com/watch?v=y6ofjcTl5x0",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:16+00:00",
-   "atualizado_em": "2026-11-19T00:15:16+00:00",
+   "atualizado_em": "2026-11-19T04:41:29+00:00",
    "auto": true,
    "titulo": "GTA 6 NOVO TRAILER , TA CHEGANDO GALERAAAA!!!!!",
    "canal_nome": "Gameplayrj",
    "isolar_voz": true,
-   "views_yt": 319542
+   "views_yt": 319542,
+   "longo": {
+    "asset_id": 766245766,
+    "inicio": 420.0,
+    "fim": 1020.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "Gameplayrj",
+   "canal_id": "UCJAbkIY17zAmCTNQHH0bQoQ",
+   "duracao": 7968.0,
+   "segmentos": [
+    {
+     "asset_id": 766221771,
+     "inicio": 1695.0,
+     "fim": 1765.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 766225430,
+     "inicio": 2123.0,
+     "fim": 2193.0,
+     "duracao": 70.0,
+     "forca": 1.022
+    },
+    {
+     "asset_id": 766230017,
+     "inicio": 2585.0,
+     "fim": 2655.0,
+     "duracao": 70.0,
+     "forca": 1.032
+    }
+   ]
   },
   "x50ONQrBPRM": {
    "id": "x50ONQrBPRM",
