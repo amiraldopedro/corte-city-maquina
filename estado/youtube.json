@@ -1182,7 +1182,9 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T19:20:53+00:00"
+   "atualizado_em": "2026-11-19T21:05:36+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] 9EHBgZuE9gI: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "6tnvowsIQ14": {
    "id": "6tnvowsIQ14",
