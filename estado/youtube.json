@@ -1138,8 +1138,8 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T21:00:11+00:00",
-   "tentativas": 1,
+   "atualizado_em": "2026-11-19T23:21:32+00:00",
+   "tentativas": 2,
    "erro": "ERROR: [youtube] X2rtbJJEvVE: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U"
   },
   "hOOiQagTyTA": {
