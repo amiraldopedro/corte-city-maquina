@@ -9892,6 +9892,40 @@
    "publicar_em": "2026-11-19T10:00:00Z",
    "postado_em": "2026-11-19T00:40:27+00:00",
    "envio_pendente": null
+  },
+  "mod_M8yn2PbAgB8": {
+   "id": "mod_M8yn2PbAgB8",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-19T00:45:11+00:00",
+   "atualizado_em": "2026-11-19T00:45:18+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "Eu provei pro meu pai que o GTA 6 sai mais barato que sair com os amigos",
+   "gancho": "A CONTA QUE CONVENCEU O PAI",
+   "descricao": "Eu provei pro meu pai que o GTA 6 sai mais barato que sair com os amigos\n\nIdeia e gameplay: Kuldeep Singhania Shorts (https://www.youtube.com/watch?v=M8yn2PbAgB8)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-19T00:45:11+00:00",
+   "nome": "Kuldeep Singhania Shorts",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 50.1,
+   "modelo_de": "https://www.youtube.com/watch?v=M8yn2PbAgB8",
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_M8yn2PbAgB8.mp4",
+   "video_asset": 765623672,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_M8yn2PbAgB8.jpg",
+   "thumb_asset": 765623796,
+   "youtube_id": "aVYQAW3IHOA",
+   "publicar_em": "2026-11-19T13:00:00Z",
+   "postado_em": "2026-11-19T00:45:18+00:00",
+   "envio_pendente": null
   }
  },
  "clipes_vistos": [
@@ -11928,10 +11962,10 @@
   "2026-11-15": 8702,
   "2026-11-16": 8500,
   "2026-11-17": 8500,
-  "2026-11-18": 4724
+  "2026-11-18": 4820
  },
  "envios": {
-  "2026-11-18": 34
+  "2026-11-18": 35
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
