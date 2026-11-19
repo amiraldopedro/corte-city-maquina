@@ -12013,11 +12013,9 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/SilkyCautiousFishDatSheffy-yqp1MCkO9IBpPu5L",
    "clipe_ids": [
     "LuckyBlushingFishMau5-V72-C-Y10ohtkaVY",
-    "SilkyCautiousFishDatSheffy-yqp1MCkO9IBpPu5L",
     "SilkyCautiousFishDatSheffy-yqp1MCkO9IBpPu5L"
    ],
    "titulos_chat": [
-    "LN",
     "LN",
     "lana"
    ],
@@ -12127,6 +12125,109 @@
     "horario_fixo": false
    },
    "atualizado_em": "2026-11-19T05:50:25+00:00"
+  },
+  "yt_lfqmnrTEu_4_0": {
+   "id": "yt_lfqmnrTEu_4_0",
+   "plataforma": "youtube",
+   "streamer": "LipaoGamer",
+   "nome": "LipaoGamer",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 766465277,
+   "yt_video": "lfqmnrTEu_4",
+   "yt_link": "https://www.youtube.com/watch?v=lfqmnrTEu_4&t=4489s",
+   "titulos_chat": [
+    "GTA 6 - O INICIO do jogo AO VIVO (mundo aberto)"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1069,
+   "n_clipes": 1,
+   "score": 10000,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T06:18:39+00:00",
+   "atualizado_em": "2026-11-19T06:18:39+00:00",
+   "isolar_voz": false
+  },
+  "yt_lfqmnrTEu_4_1": {
+   "id": "yt_lfqmnrTEu_4_1",
+   "plataforma": "youtube",
+   "streamer": "LipaoGamer",
+   "nome": "LipaoGamer",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 766472909,
+   "yt_video": "lfqmnrTEu_4",
+   "yt_link": "https://www.youtube.com/watch?v=lfqmnrTEu_4&t=7595s",
+   "titulos_chat": [
+    "GTA 6 - O INICIO do jogo AO VIVO (mundo aberto)"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1000,
+   "n_clipes": 1,
+   "score": 9999,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T06:18:39+00:00",
+   "atualizado_em": "2026-11-19T06:18:39+00:00",
+   "isolar_voz": false
+  },
+  "yt_lfqmnrTEu_4_2": {
+   "id": "yt_lfqmnrTEu_4_2",
+   "plataforma": "youtube",
+   "streamer": "LipaoGamer",
+   "nome": "LipaoGamer",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 766479274,
+   "yt_video": "lfqmnrTEu_4",
+   "yt_link": "https://www.youtube.com/watch?v=lfqmnrTEu_4&t=42491s",
+   "titulos_chat": [
+    "GTA 6 - O INICIO do jogo AO VIVO (mundo aberto)"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1094,
+   "n_clipes": 1,
+   "score": 9998,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T06:18:39+00:00",
+   "atualizado_em": "2026-11-19T06:18:39+00:00",
+   "isolar_voz": false
+  },
+  "yt_lfqmnrTEu_4_longo": {
+   "id": "yt_lfqmnrTEu_4_longo",
+   "plataforma": "youtube",
+   "streamer": "LipaoGamer",
+   "nome": "LipaoGamer",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 600.0,
+   "clipe_url": null,
+   "yt_asset": 766500845,
+   "yt_longo": true,
+   "yt_video": "lfqmnrTEu_4",
+   "yt_link": "https://www.youtube.com/watch?v=lfqmnrTEu_4&t=20520s",
+   "titulos_chat": [
+    "GTA 6 - O INICIO do jogo AO VIVO (mundo aberto)"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 0,
+   "n_clipes": 1,
+   "score": 20000,
+   "status": "novo",
+   "criado_em": "2026-11-19T06:18:39+00:00",
+   "atualizado_em": "2026-11-19T06:18:39+00:00"
   }
  },
  "clipes_vistos": [
