@@ -383,10 +383,10 @@
    "id": "N-xHcvug3WI",
    "modo": "biblioteca",
    "link": "https://www.youtube.com/watch?v=N-xHcvug3WI",
-   "status": "biblioteca_pendente",
+   "status": "erro",
    "pedido_em": "2026-11-16T08:53:59+00:00",
-   "atualizado_em": "2026-11-19T06:20:16+00:00",
-   "tentativas": 2,
+   "atualizado_em": "2026-11-19T07:10:40+00:00",
+   "tentativas": 3,
    "erro": "ERROR: [youtube] N-xHcvug3WI: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "d9hMmy0t0pg": {
