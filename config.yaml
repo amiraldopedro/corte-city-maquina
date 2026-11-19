@@ -165,7 +165,6 @@ canais:
       # login = nome na URL da Twitch (twitch.tv/LOGIN)
       - { login: coringa,        nome: "Coringa" }
       - { login: paulinholokobr, nome: "Paulinho O Loko" }
-      - { login: luquet4,        nome: "LuquEt4" }
       - { login: cerol,          nome: "Cerol" }
       - { login: alanzoka,       nome: "Alanzoka" }
       - { login: jonvlogs,       nome: "Jon Vlogs" }
