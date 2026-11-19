@@ -11003,12 +11003,10 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/DaintyMiniatureEmuTBTacoLeft-X7LviBc75FNuC6Tf",
    "clipe_ids": [
     "DaintyMiniatureEmuTBTacoLeft-X7LviBc75FNuC6Tf",
-    "BelovedBlightedAardvarkNotLikeThis-jYFKeBM320GI0iPG",
     "BelovedBlightedAardvarkNotLikeThis-jYFKeBM320GI0iPG"
    ],
    "titulos_chat": [
     "damn",
-    "gtavi",
     "gtavi"
    ],
    "views": 33,
@@ -11034,7 +11032,6 @@
    "clipe_ids": [
     "HungryGeniusWaspPanicVis-dLe7-KTVg58euLxE",
     "HardDignifiedPotFreakinStinkin-apxeZBEkhBGJrn8S",
-    "LaconicPricklyGalagoDxCat-_G6lJNlVBt8DFHPN",
     "LaconicPricklyGalagoDxCat-_G6lJNlVBt8DFHPN",
     "ExquisiteInnocentGaragePoooound-mLDj-ot7Fg9JJjLA",
     "GlamorousArtisticApeNotLikeThis-xRQTEp0ukkBvMjW_",
@@ -11274,6 +11271,109 @@
     "publicar_em": "2026-11-20T01:00:00Z",
     "horario_fixo": false
    }
+  },
+  "yt_W6DIv7ayZ64_0": {
+   "id": "yt_W6DIv7ayZ64_0",
+   "plataforma": "youtube",
+   "streamer": "tecnoart101",
+   "nome": "TecnoArt",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 766090176,
+   "yt_video": "W6DIv7ayZ64",
+   "yt_link": "https://www.youtube.com/watch?v=W6DIv7ayZ64&t=1001s",
+   "titulos_chat": [
+    "GTA 6: TESTANDO NO XBOX SERIES S! RODA BEM?"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1000,
+   "n_clipes": 1,
+   "score": 10000,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T03:58:43+00:00",
+   "atualizado_em": "2026-11-19T03:58:43+00:00",
+   "isolar_voz": false
+  },
+  "yt_W6DIv7ayZ64_1": {
+   "id": "yt_W6DIv7ayZ64_1",
+   "plataforma": "youtube",
+   "streamer": "tecnoart101",
+   "nome": "TecnoArt",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 766097827,
+   "yt_video": "W6DIv7ayZ64",
+   "yt_link": "https://www.youtube.com/watch?v=W6DIv7ayZ64&t=16438s",
+   "titulos_chat": [
+    "GTA 6: TESTANDO NO XBOX SERIES S! RODA BEM?"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1162,
+   "n_clipes": 1,
+   "score": 9999,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T03:58:43+00:00",
+   "atualizado_em": "2026-11-19T03:58:43+00:00",
+   "isolar_voz": false
+  },
+  "yt_W6DIv7ayZ64_2": {
+   "id": "yt_W6DIv7ayZ64_2",
+   "plataforma": "youtube",
+   "streamer": "tecnoart101",
+   "nome": "TecnoArt",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 766106240,
+   "yt_video": "W6DIv7ayZ64",
+   "yt_link": "https://www.youtube.com/watch?v=W6DIv7ayZ64&t=17539s",
+   "titulos_chat": [
+    "GTA 6: TESTANDO NO XBOX SERIES S! RODA BEM?"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1126,
+   "n_clipes": 1,
+   "score": 9998,
+   "status": "novo",
+   "prioridade": true,
+   "criado_em": "2026-11-19T03:58:43+00:00",
+   "atualizado_em": "2026-11-19T03:58:43+00:00",
+   "isolar_voz": false
+  },
+  "yt_W6DIv7ayZ64_longo": {
+   "id": "yt_W6DIv7ayZ64_longo",
+   "plataforma": "youtube",
+   "streamer": "tecnoart101",
+   "nome": "TecnoArt",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 600.0,
+   "clipe_url": null,
+   "yt_asset": 766135990,
+   "yt_longo": true,
+   "yt_video": "W6DIv7ayZ64",
+   "yt_link": "https://www.youtube.com/watch?v=W6DIv7ayZ64&t=4890s",
+   "titulos_chat": [
+    "GTA 6: TESTANDO NO XBOX SERIES S! RODA BEM?"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 0,
+   "n_clipes": 1,
+   "score": 20000,
+   "status": "novo",
+   "criado_em": "2026-11-19T03:58:43+00:00",
+   "atualizado_em": "2026-11-19T03:58:43+00:00"
   }
  },
  "clipes_vistos": [
