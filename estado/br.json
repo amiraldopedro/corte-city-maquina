@@ -11238,9 +11238,9 @@
   "mod_uT_TlZgrJp8": {
    "id": "mod_uT_TlZgrJp8",
    "canal": "br",
-   "status": "aguardando_cota",
+   "status": "postado",
    "criado_em": "2026-11-19T04:00:23+00:00",
-   "atualizado_em": "2026-11-19T04:00:23+00:00",
+   "atualizado_em": "2026-11-19T09:49:05+00:00",
    "tipo": "short",
    "jogo": "Grand Theft Auto VI",
    "titulo": "Ela comprou o GTA 6 no PS5 e deu tudo errado",
@@ -11264,21 +11264,10 @@
    "video_asset": 766141975,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_uT_TlZgrJp8.jpg",
    "thumb_asset": 766142063,
-   "envio_pendente": {
-    "titulo": "Ela comprou o GTA 6 no PS5 e deu tudo errado",
-    "descricao": "Ela comprou o GTA 6 no PS5 e deu tudo errado\n\nIdeia e gameplay: wittySpace (https://www.youtube.com/watch?v=uT_TlZgrJp8)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
-    "tags": [
-     "gta 6",
-     "gta vi",
-     "gta 6 gameplay",
-     "shorts",
-     "cortes gta"
-    ],
-    "idioma": "pt",
-    "playlist": "Melhores Momentos de GTA 6",
-    "publicar_em": "2026-11-20T01:00:00Z",
-    "horario_fixo": false
-   }
+   "envio_pendente": null,
+   "youtube_id": "wLc4klg3xXw",
+   "publicar_em": "2026-11-20T11:00:00Z",
+   "postado_em": "2026-11-19T09:49:05+00:00"
   },
   "yt_W6DIv7ayZ64_0": {
    "id": "yt_W6DIv7ayZ64_0",
@@ -14687,11 +14676,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 400
+  "2026-11-19": 500
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 4
+  "2026-11-19": 5
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
