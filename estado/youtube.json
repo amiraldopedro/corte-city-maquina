@@ -528,16 +528,16 @@
   "vRU45jYUpL4": {
    "id": "vRU45jYUpL4",
    "link": "https://www.youtube.com/watch?v=vRU45jYUpL4",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:14+00:00",
-   "atualizado_em": "2026-11-19T06:21:03+00:00",
+   "atualizado_em": "2026-11-19T07:11:26+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 CHEGOUUUUU! BISTECONE AO VIVO 🔴🔴",
    "canal_nome": "Bistecone",
    "views_yt": 735403,
-   "tentativas": 2,
+   "tentativas": 3,
    "erro": "ERROR: [youtube] vRU45jYUpL4: Video unavailable. This video is private"
   },
   "WCHf8vHLef4": {
