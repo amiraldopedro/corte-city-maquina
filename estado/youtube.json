@@ -1211,11 +1211,11 @@
   "mdbipWhS74g": {
    "id": "mdbipWhS74g",
    "link": "https://www.youtube.com/watch?v=mdbipWhS74g",
-   "status": "baixado",
+   "status": "na_fila",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T21:52:13+00:00",
+   "atualizado_em": "2026-11-19T21:52:26+00:00",
    "longo": {
     "asset_id": 769401055,
     "inicio": 2580.0,
