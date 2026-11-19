@@ -12159,11 +12159,12 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
+   "status": "descartado",
    "prioridade": true,
    "criado_em": "2026-11-19T06:54:10+00:00",
-   "atualizado_em": "2026-11-19T06:54:10+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T09:50:10+00:00",
+   "isolar_voz": false,
+   "motivo": "O personagem fica parado no mesmo quarto quase o tempo todo, e o streamer só agradece doações e lê mensagens. Não há ação, susto, piada nem desfecho, então o momento é morno e não vale postar. Se for "
   },
   "yt_x50ONQrBPRM_1": {
    "id": "yt_x50ONQrBPRM_1",
@@ -12185,11 +12186,52 @@
    "views": 1111,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T06:54:10+00:00",
-   "atualizado_em": "2026-11-19T06:54:10+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-19T09:52:20+00:00",
+   "isolar_voz": false,
+   "youtube_id": "398PTx0k914",
+   "publicar_em": "2026-11-20T16:00:00Z",
+   "postado_em": "2026-11-19T09:52:20+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj reagindo à festa no iate e à fuga no túnel do GTA 6",
+   "gancho": "INSANO",
+   "descricao": "Gameplayrj reagindo à festa no iate e à fuga no túnel do GTA 6\nGameplayrj reage ao início da gameplay do GTA 6: da festa no iate até a corrida de supercarro pelo túnel ao pôr do sol. Cortes com os momentos de reação do streamer vendo os gráficos e a velocidade do jogo.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gameplayrj gta 6",
+    "gameplayrj",
+    "gta 6 gameplay",
+    "início da gameplay gta 6",
+    "festa no iate gta 6",
+    "corrida no túnel gta 6",
+    "reagindo gta 6",
+    "reação gta 6",
+    "gta 6",
+    "cortes gta 6",
+    "cortes gta",
+    "momentos engraçados gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-19T09:52:14+00:00",
+   "corte": [
+    18.34,
+    47.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 28.7,
+   "video_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_1.mp4",
+   "video_asset": 767121264,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_1.jpg",
+   "thumb_asset": 767121365,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/yt_x50ONQrBPRM_1_kit.zip"
   },
   "yt_x50ONQrBPRM_2": {
    "id": "yt_x50ONQrBPRM_2",
@@ -14613,11 +14655,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 800
+  "2026-11-19": 900
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 8
+  "2026-11-19": 9
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
