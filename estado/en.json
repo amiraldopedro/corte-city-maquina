@@ -6669,11 +6669,14 @@
    "thumb_asset": 768919401,
    "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/2932113307_21349_kit.pdf",
    "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/2932113307_21349_kit.zip",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
+   "atualizado_em": "2026-11-19T22:10:34+00:00",
    "postado_em": "2026-11-19T12:53:29Z",
    "publicar_em": "2026-11-20T22:00:00Z",
    "manual": true,
-   "youtube_id": "ZQUd9ETESJM"
+   "youtube_id": "ZQUd9ETESJM",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2932113307_22409": {
    "id": "2932113307_22409",
@@ -19584,12 +19587,10 @@
    "clipe_url": "https://www.twitch.tv/kaicenat/clip/LazyCorrectSpiderCoolStoryBro-G8PJJArSK1OEfZ8v",
    "clipe_ids": [
     "PunchyGracefulDuckAMPEnergy-MbNV7jeFXeT443GH",
-    "PunchyGracefulDuckAMPEnergy-MbNV7jeFXeT443GH",
     "LazyCorrectSpiderCoolStoryBro-G8PJJArSK1OEfZ8v"
    ],
    "titulos_chat": [
     "l",
-    "gta6",
     "gta6"
    ],
    "views": 27,
@@ -19972,7 +19973,6 @@
    "clipe_url": "https://www.twitch.tv/xqc/clip/TiredPiliableHawkSSSsss-SygHGahVAQgrKzUG",
    "clipe_ids": [
     "SassyHelpfulPigBCouch-vY08-XCDdqQVPzu7",
-    "SassyHelpfulPigBCouch-vY08-XCDdqQVPzu7",
     "MistyShakingWallabyPermaSmug-rTA9hzZnEpxcsz7F",
     "TiredPiliableHawkSSSsss-SygHGahVAQgrKzUG",
     "PlumpSaltyTurtleSoBayed-H7vy0ObJXQ6YXR3F",
@@ -19981,7 +19981,6 @@
    "titulos_chat": [
     "day and night difference",
     "F",
-    "GTA 6 radio station is wild",
     "GTA 6 radio station is wild",
     "Take the L away",
     "stav"
@@ -20008,8 +20007,6 @@
    "clipe_url": "https://www.twitch.tv/xqc/clip/SweetAssiduousNoodleKlappa-8anH3OaoxuYBgydX",
    "clipe_ids": [
     "BeautifulStrongButterflySpicyBoy-8tUlhbOejzZZnodf",
-    "BeautifulStrongButterflySpicyBoy-8tUlhbOejzZZnodf",
-    "HomelyGiantDelicataKlappa-M48rslxLfnnV5zYE",
     "HomelyGiantDelicataKlappa-M48rslxLfnnV5zYE",
     "VivaciousHumbleBadgerSmoocherZ-qCTcxkdByhsYkEto",
     "SweetAssiduousNoodleKlappa-8anH3OaoxuYBgydX",
@@ -20021,8 +20018,6 @@
     "gta radio peak",
     "LOL",
     "we can see now",
-    "we can see now",
-    "🌴LIVE🌴GTA 6🌴 AT 6AM EST🌴STUFF BEFORE🌴ALERT🌴NOT A DRILL🌴NZ FLIGHT TAKEN🌴LIVE🌴QUICK🌴DONT MISS IT🌴ONESHOTTING THE GAME?🌴",
     "🌴LIVE🌴GTA 6🌴 AT 6AM EST🌴STUFF BEFORE🌴ALERT🌴NOT A DRILL🌴NZ FLIGHT TAKEN🌴LIVE🌴QUICK🌴DONT MISS IT🌴ONESHOTTING THE GAME?🌴",
     "...",
     "LMAO"
@@ -20258,13 +20253,11 @@
     "FlirtyFurryPonyMcaT-SRzX4F1HV9d_Cpno",
     "RefinedSillyDootSeemsGood-m1pcGUjJ6Fqau0-F",
     "MoistOnerousLasagnaPrimeMe-GfEEnpoiTiPPBetw",
-    "MoistOnerousLasagnaPrimeMe-GfEEnpoiTiPPBetw",
     "BlightedBrightWrenchSoonerLater-YABegXHt-DYJm0HB"
    ],
    "titulos_chat": [
     "got me messed up",
     "111",
-    "daaaamnn",
     "daaaamnn",
     "lord have MERCY",
     "self defense"
@@ -20380,12 +20373,10 @@
    "clipe_url": "https://www.twitch.tv/jynxzi/clip/ColorfulTangentialLyrebirdEagleEye-QYnir5NfuQmv48-u",
    "clipe_ids": [
     "ColorfulTangentialLyrebirdEagleEye-QYnir5NfuQmv48-u",
-    "BoldStupidPanDatBoi-uZwh4kfIdFmklWp4",
     "BoldStupidPanDatBoi-uZwh4kfIdFmklWp4"
    ],
    "titulos_chat": [
     "Jynxzi parachutes and dies from falling in GTA 6",
-    "JYNXZI FALLS",
     "JYNXZI FALLS"
    ],
    "views": 59,
@@ -20595,6 +20586,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-19T21:52:56+00:00"
+  },
+  "longo_2932113307_21349": {
+   "id": "longo_2932113307_21349",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "xQc in GTA 6: gets called the same word he just said to an NPC",
+   "descricao": "xQc in GTA 6: gets called the same word he just said to an NPC\nIn this xQc GTA 6 funny moment, the streamer calls an NPC a bad word and gets the exact same insult thrown right back at him. Then he fights the low FPS, gets a mission about a grow house with 20 pounds of weed stuck in a police impound, and decides to jump the fence and drive it out. Watch xQc react to GTA 6 gameplay, NPC drama and a wild impound heist setup.\n\n🎮 Original stream: https://twitch.tv/xqc\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "xqc",
+    "xqc gta 6",
+    "gta 6",
+    "gta 6 gameplay",
+    "xqc reacts",
+    "xqc funny moments",
+    "gta 6 funny moments",
+    "gta 6 npc",
+    "gta 6 npc insult",
+    "xqc live",
+    "gta 6 impound mission",
+    "gta 6 fps",
+    "xqc gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-19T22:13:00+00:00",
+   "criado_em": "2026-11-19T22:13:00+00:00",
+   "itens": [
+    "2932113307_21349"
+   ],
+   "streamers": [
+    "xqc"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_21349_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_21349_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_21349.mp4",
+   "video_asset": 769464894,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_21349.jpg",
+   "thumb_asset": 769465283
   }
  },
  "clipes_vistos": [
