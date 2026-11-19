@@ -11995,7 +11995,7 @@
    "streamer": "*",
    "canal": "br",
    "tipo": "longo",
-   "status": "aguardando_cota",
+   "status": "postado",
    "titulo": "Gameplayrj e GTA 6: a pergunta sobre o mês antes do jogo",
    "descricao": "Gameplayrj e GTA 6: a pergunta sobre o mês antes do jogo\nGameplayrj faz a primeira live na Kik e responde perguntas do chat sobre o GTA 6: dá para zerar e aproveitar o jogo em um mês e meio com o videogame emprestado? Ele também fala sobre o modo online, DLC, preço do PS5 e se vale a pena fazer live de lançamento. Confira esse corte com as dúvidas de quem está ansioso pelo GTA 6.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
    "tags": [
@@ -12030,32 +12030,11 @@
    "video_asset": 766425841,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/longo_yt_WCHf8vHLef4_longo.jpg",
    "thumb_asset": 766425919,
-   "envio_pendente": {
-    "titulo": "Gameplayrj e GTA 6: a pergunta sobre o mês antes do jogo",
-    "descricao": "Gameplayrj e GTA 6: a pergunta sobre o mês antes do jogo\nGameplayrj faz a primeira live na Kik e responde perguntas do chat sobre o GTA 6: dá para zerar e aproveitar o jogo em um mês e meio com o videogame emprestado? Ele também fala sobre o modo online, DLC, preço do PS5 e se vale a pena fazer live de lançamento. Confira esse corte com as dúvidas de quem está ansioso pelo GTA 6.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
-    "tags": [
-     "gameplayrj gta 6",
-     "gameplayrj",
-     "gameplayrj live",
-     "gta 6",
-     "gta 6 lançamento",
-     "gta 6 modo online",
-     "gta 6 dlc",
-     "gta 6 tamanho do jogo",
-     "gta 6 ps5",
-     "live de lançamento gta 6",
-     "dá tempo de zerar gta 6",
-     "cortes gta",
-     "gameplayrj gta rp",
-     "gta rp",
-     "cortes gta rp"
-    ],
-    "idioma": "pt",
-    "playlist": "Melhores Momentos de GTA 6",
-    "publicar_em": "2026-11-19T15:30:00Z",
-    "horario_fixo": false
-   },
-   "atualizado_em": "2026-11-19T05:50:25+00:00"
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-19T09:49:25+00:00",
+   "youtube_id": "F6ayUU5XTxo",
+   "publicar_em": "2026-11-20T13:00:00Z",
+   "postado_em": "2026-11-19T09:49:25+00:00"
   },
   "yt_lfqmnrTEu_4_0": {
    "id": "yt_lfqmnrTEu_4_0",
@@ -14655,11 +14634,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 600
+  "2026-11-19": 700
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 6
+  "2026-11-19": 7
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
