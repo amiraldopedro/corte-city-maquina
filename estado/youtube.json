@@ -1080,11 +1080,45 @@
   "w546blqOvVU": {
    "id": "w546blqOvVU",
    "link": "https://www.youtube.com/watch?v=w546blqOvVU",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T19:20:53+00:00"
+   "atualizado_em": "2026-11-19T20:02:52+00:00",
+   "longo": {
+    "asset_id": 769075556,
+    "inicio": 13800.0,
+    "fim": 14400.0,
+    "duracao": 600.0
+   },
+   "titulo": "GTA 6 GAMEPLAY ATÉ EU NÃO AGUENTAR MAIS",
+   "canal_nome": "Gameplayrj",
+   "canal_handle": "Gameplayrj",
+   "canal_id": "UCJAbkIY17zAmCTNQHH0bQoQ",
+   "duracao": 15036.0,
+   "segmentos": [
+    {
+     "asset_id": 768996672,
+     "inicio": 12898.0,
+     "fim": 12968.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 769021744,
+     "inicio": 13035.0,
+     "fim": 13105.0,
+     "duracao": 70.0,
+     "forca": 1.014
+    },
+    {
+     "asset_id": 769037506,
+     "inicio": 14269.0,
+     "fim": 14339.0,
+     "duracao": 70.0,
+     "forca": 1.014
+    }
+   ]
   },
   "czLjal_UA9Q": {
    "id": "czLjal_UA9Q",
