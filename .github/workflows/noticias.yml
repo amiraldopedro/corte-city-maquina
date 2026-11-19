@@ -18,8 +18,8 @@ concurrency:
 
 env:
   # vídeos ficam no repositório privado de arquivos (se configurado); o código continua público
-  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO }}
-  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN }}
+  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO || 'amiraldopedro/corte-city-arquivos' }}
+  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN || secrets.ARQUIVOS_REPO }}
 
 jobs:
   noticias:

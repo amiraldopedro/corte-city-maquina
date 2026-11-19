@@ -14,8 +14,8 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO }}
-  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN }}
+  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO || 'amiraldopedro/corte-city-arquivos' }}
+  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN || secrets.ARQUIVOS_REPO }}
 
 jobs:
   mudar:

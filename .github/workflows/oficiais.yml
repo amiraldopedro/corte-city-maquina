@@ -3,8 +3,8 @@ on: workflow_dispatch
 permissions: { contents: write }
 env:
   # vídeos ficam no repositório privado de arquivos (se configurado); o código continua público
-  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO }}
-  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN }}
+  ARQUIVOS_REPO: ${{ vars.ARQUIVOS_REPO || 'amiraldopedro/corte-city-arquivos' }}
+  ARQUIVOS_TOKEN: ${{ secrets.ARQUIVOS_TOKEN || secrets.ARQUIVOS_REPO }}
 
 jobs:
   oficiais:
@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - run: pip install -q playwright requests && python -m playwright install --with-deps chromium > /dev/null
-      - env: { GH_TOKEN: "${{ secrets.ARQUIVOS_TOKEN || github.token }}", GH_REPO: "${{ vars.ARQUIVOS_REPO || github.repository }}" }
+      - env: { GH_TOKEN: "${{ secrets.ARQUIVOS_TOKEN || secrets.ARQUIVOS_REPO || github.token }}", GH_REPO: "${{ (secrets.ARQUIVOS_TOKEN || secrets.ARQUIVOS_REPO) && (vars.ARQUIVOS_REPO || 'amiraldopedro/corte-city-arquivos') || github.repository }}" }
         run: |
           mkdir -p of && cd of
           python3 -u - <<'PY'
