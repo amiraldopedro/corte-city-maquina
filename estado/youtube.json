@@ -1254,11 +1254,45 @@
   "upFrh84fBhc": {
    "id": "upFrh84fBhc",
    "link": "https://www.youtube.com/watch?v=upFrh84fBhc",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T19:20:53+00:00"
+   "atualizado_em": "2026-11-19T22:36:06+00:00",
+   "longo": {
+    "asset_id": 769529589,
+    "inicio": 1290.0,
+    "fim": 1890.0,
+    "duracao": 600.0
+   },
+   "titulo": "CELLBIT JOGANDO O COMEÇO DE GTA 6",
+   "canal_nome": "Lives do Cellbit",
+   "canal_handle": "CellbitLives",
+   "canal_id": "UC2Dkdvw6-ladrHmWZNx2gRA",
+   "duracao": 26415.0,
+   "segmentos": [
+    {
+     "asset_id": 769492584,
+     "inicio": 783.0,
+     "fim": 853.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 769499701,
+     "inicio": 1597.0,
+     "fim": 1667.0,
+     "duracao": 70.0,
+     "forca": 1.041
+    },
+    {
+     "asset_id": 769506193,
+     "inicio": 1722.0,
+     "fim": 1792.0,
+     "duracao": 70.0,
+     "forca": 1.011
+    }
+   ]
   },
   "QhKWnCPIhiU": {
    "id": "QhKWnCPIhiU",
