@@ -11204,9 +11204,9 @@
   "mod_dLia73F52iQ": {
    "id": "mod_dLia73F52iQ",
    "canal": "br",
-   "status": "aguardando_cota",
+   "status": "postado",
    "criado_em": "2026-11-19T03:54:28+00:00",
-   "atualizado_em": "2026-11-19T03:54:28+00:00",
+   "atualizado_em": "2026-11-19T09:48:53+00:00",
    "tipo": "short",
    "jogo": "Grand Theft Auto VI",
    "titulo": "Novatos x veteranos no GTA 6: o que cada um faz primeiro",
@@ -11230,21 +11230,10 @@
    "video_asset": 766128063,
    "thumb_url": "https://github.com/amiraldopedro/corte-city-maquina/releases/download/prontos/mod_dLia73F52iQ.jpg",
    "thumb_asset": 766128144,
-   "envio_pendente": {
-    "titulo": "Novatos x veteranos no GTA 6: o que cada um faz primeiro",
-    "descricao": "Novatos x veteranos no GTA 6: o que cada um faz primeiro\n\nIdeia e gameplay: Diogo Matheus (https://www.youtube.com/watch?v=dLia73F52iQ)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
-    "tags": [
-     "gta 6",
-     "gta vi",
-     "gta 6 gameplay",
-     "shorts",
-     "cortes gta"
-    ],
-    "idioma": "pt",
-    "playlist": "Melhores Momentos de GTA 6",
-    "publicar_em": "2026-11-20T01:00:00Z",
-    "horario_fixo": false
-   }
+   "envio_pendente": null,
+   "youtube_id": "eesvu7OvA0o",
+   "publicar_em": "2026-11-20T10:00:00Z",
+   "postado_em": "2026-11-19T09:48:53+00:00"
   },
   "mod_uT_TlZgrJp8": {
    "id": "mod_uT_TlZgrJp8",
@@ -14698,11 +14687,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 300
+  "2026-11-19": 400
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 3
+  "2026-11-19": 4
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
