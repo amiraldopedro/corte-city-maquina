@@ -624,10 +624,14 @@ def _postar_longo(cfg: Config, canal: Canal, est: Estado, saida: Path, capa: Pat
     from maquina.entrega import entregar
     arquivos = entregar(saida, capa, cid)
     envio = {}
-    if canal.postar == "automatico":
+    if canal.postar == "automatico" and not canal.refresh_token:
+        log(f"  {canal.nome}: sem a chave do YouTube: o vídeo longo fica pronto no Studio")
+    elif canal.postar == "automatico":
         from maquina.youtube import YouTube, proximo_horario
         yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
-        ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+        # Short no mesmo horário não atrapalha: só outro vídeo longo ocupa o horário
+        ocupados = {x.get("publicar_em") for x in est.momentos.values()
+                    if x.get("publicar_em") and x.get("tipo") in ("dia", "longo", "top10", "serie", "narrado")}
         if tipo == "longo":
             horarios = canal.horarios_longos or [canal.horario_longo]
         else:
@@ -683,7 +687,10 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
             continue
         nomes = {s.login: s.nome for s in canal.streamers + canal.kick}
         nomes.update({m["streamer"]: m["nome"] for m in escolhidos if m.get("nome") and m["streamer"] not in nomes})
-        data = datetime.now(ZoneInfo(canal.fuso)).strftime("%d/%m" if canal.idioma == "pt" else "%b %d")
+        agora_local = datetime.now(ZoneInfo(canal.fuso))
+        if tipo == "dia" and agora_local.hour < 6:  # montou depois da meia-noite: os momentos são de ontem
+            agora_local -= timedelta(days=1)
+        data = agora_local.strftime("%d/%m" if canal.idioma == "pt" else "%b %d")
         saida = PASTA_PRONTOS / f"{tipo}_{canal.id}_{datetime.now().strftime('%Y%m%d')}.mp4"
         usados = compilado.montar(escolhidos, nomes, tipo, canal.cor_destaque, RAIZ / canal.marca, saida,
                                   maximo=qtd)
@@ -1353,6 +1360,19 @@ def acao_painel(cfg: Config, a):
         painel.adicionar_streamer(a.canal, a.login, a.nome)
     elif acao == "remover":
         painel.remover_streamer(a.canal, a.login)
+    elif acao == "corrigir":  # --id momento, --nome título novo (opcional), --quando horário ISO UTC (opcional)
+        canal = cfg.canal(a.canal)
+        est = Estado(canal.id)
+        m = est.momentos.get(a.id) or {}
+        if not m.get("youtube_id"):
+            raise SystemExit(f"{a.id}: não achei o vídeo no YouTube")
+        from maquina.youtube import YouTube
+        YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token).corrigir(
+            m["youtube_id"], a.nome or None, a.quando or None)
+        mud = {k: v for k, v in (("titulo", a.nome), ("publicar_em", a.quando)) if v}
+        est.atualizar(a.id, **mud)
+        est.salvar()
+        log(f"  corrigido {a.id}: {mud}")
     else:
         raise SystemExit(f"ação desconhecida: {acao}")
 

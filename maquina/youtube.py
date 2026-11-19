@@ -95,6 +95,27 @@ class YouTube:
                 print(f"  aviso: não entrou na playlist ({str(e)[:300]})")
                 return
 
+    def corrigir(self, video_id: str, titulo: str | None = None, publicar_em: str | None = None):
+        """Troca o título e/ou o horário de um vídeo agendado (mantém o resto como está)."""
+        v = self.yt.videos().list(part="snippet,status", id=video_id).execute()["items"][0]
+        partes = []
+        if titulo:
+            v["snippet"]["title"] = titulo
+            v["snippet"]["description"] = v["snippet"].get("description", "")
+            partes.append("snippet")
+        if publicar_em:
+            v["status"]["publishAt"] = publicar_em
+            v["status"]["privacyStatus"] = "private"
+            partes.append("status")
+        corpo = {"id": video_id, **{k: v[k] for k in partes}}
+        if "snippet" in corpo:
+            corpo["snippet"] = {k: corpo["snippet"][k] for k in ("title", "description", "tags", "categoryId",
+                                                                  "defaultLanguage", "defaultAudioLanguage") if k in corpo["snippet"]}
+        if "status" in corpo:
+            corpo["status"] = {k: corpo["status"][k] for k in ("privacyStatus", "publishAt", "selfDeclaredMadeForKids",
+                                                                "embeddable", "license", "publicStatsViewable") if k in corpo["status"]}
+        self.yt.videos().update(part=",".join(partes), body=corpo).execute()
+
     def apagar(self, video_id: str) -> bool:
         try:
             self.yt.videos().delete(id=video_id).execute()
