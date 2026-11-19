@@ -790,16 +790,48 @@
   "cxuF5siTUQw": {
    "id": "cxuF5siTUQw",
    "link": "https://www.youtube.com/watch?v=cxuF5siTUQw",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T00:15:17+00:00",
-   "atualizado_em": "2026-11-19T00:15:17+00:00",
+   "atualizado_em": "2026-11-19T05:32:20+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 O ÍNICIO! 🔴 Paulinho o LOKO",
    "canal_nome": "PAULINHO O LOKO",
-   "views_yt": 5747701
+   "views_yt": 5747701,
+   "longo": {
+    "asset_id": 766378898,
+    "inicio": 4740.0,
+    "fim": 5340.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "PaulinhoLOKOoficial",
+   "canal_id": "UCdlJx-w37viXFNq__qZ7ARQ",
+   "duracao": 26513.0,
+   "segmentos": [
+    {
+     "asset_id": 766336610,
+     "inicio": 7061.0,
+     "fim": 7131.0,
+     "duracao": 70.0,
+     "forca": 1.041
+    },
+    {
+     "asset_id": 766347983,
+     "inicio": 11515.0,
+     "fim": 11585.0,
+     "duracao": 70.0,
+     "forca": 1.037
+    },
+    {
+     "asset_id": 766353263,
+     "inicio": 15547.0,
+     "fim": 15617.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "lfqmnrTEu_4": {
    "id": "lfqmnrTEu_4",
