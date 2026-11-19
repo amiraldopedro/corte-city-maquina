@@ -588,15 +588,47 @@
   "W6DIv7ayZ64": {
    "id": "W6DIv7ayZ64",
    "link": "https://www.youtube.com/watch?v=W6DIv7ayZ64",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "pedido_em": "2026-11-18T16:24:14+00:00",
-   "atualizado_em": "2026-11-18T16:24:14+00:00",
+   "atualizado_em": "2026-11-19T03:58:28+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6: TESTANDO NO XBOX SERIES S! RODA BEM?",
    "canal_nome": "TecnoArt",
-   "views_yt": 246914
+   "views_yt": 246914,
+   "longo": {
+    "asset_id": 766135990,
+    "inicio": 4890.0,
+    "fim": 5490.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "tecnoart101",
+   "canal_id": "UCHUhlZy-CbS0-YvPQ5yBRIQ",
+   "duracao": 17900.0,
+   "segmentos": [
+    {
+     "asset_id": 766090176,
+     "inicio": 1001.0,
+     "fim": 1071.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 766097827,
+     "inicio": 16438.0,
+     "fim": 16508.0,
+     "duracao": 70.0,
+     "forca": 1.162
+    },
+    {
+     "asset_id": 766106240,
+     "inicio": 17539.0,
+     "fim": 17609.0,
+     "duracao": 70.0,
+     "forca": 1.126
+    }
+   ]
   },
   "SIDg1TNrqTk": {
    "id": "SIDg1TNrqTk",
