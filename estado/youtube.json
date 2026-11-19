@@ -767,14 +767,17 @@
    "id": "uT_TlZgrJp8",
    "link": "https://www.youtube.com/watch?v=uT_TlZgrJp8",
    "modo": "modelo",
-   "status": "modelo_pendente",
+   "status": "modelo_baixado",
    "titulo": "I bought GTA 6 on my PS5",
    "canal_nome": "wittySpace",
    "canal_id_yt": "UC19x8yVdc96ogGHQyb4gfwg",
    "views_yt": 4260733,
    "dur": 66,
    "pedido_em": "2026-11-19T00:35:25+00:00",
-   "atualizado_em": "2026-11-19T00:35:25+00:00"
+   "atualizado_em": "2026-11-19T02:55:23+00:00",
+   "asset_id": 765963923,
+   "idioma_falado": "hi",
+   "url_final": "https://www.youtube.com/watch?v=uT_TlZgrJp8"
   }
  },
  "clipes_vistos": [],
