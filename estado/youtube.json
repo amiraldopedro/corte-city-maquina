@@ -1330,11 +1330,11 @@
   "qSyo5d-dVzA": {
    "id": "qSyo5d-dVzA",
    "link": "https://www.youtube.com/watch?v=qSyo5d-dVzA",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T20:28:06+00:00",
-   "atualizado_em": "2026-11-20T00:02:00+00:00",
+   "atualizado_em": "2026-11-20T06:41:32+00:00",
    "auto": true,
    "origem": "gringo",
    "gringo": true,
@@ -1343,8 +1343,8 @@
    "canal_handle": "IShowSpeed",
    "views_yt": 63526276,
    "isolar_voz": false,
-   "tentativas": 2,
-   "erro": "ERROR: [youtube] qSyo5d-dVzA: This live event has ended."
+   "tentativas": 3,
+   "erro": "ERROR: [youtube] qSyo5d-dVzA: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U"
   },
   "jTm_A9M5yxk": {
    "id": "jTm_A9M5yxk",
