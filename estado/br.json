@@ -15311,11 +15311,51 @@
    "views": 1104,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T21:52:26+00:00",
-   "atualizado_em": "2026-11-19T21:52:26+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-20T07:32:43+00:00",
+   "isolar_voz": false,
+   "youtube_id": "1qcmEyvv_W8",
+   "publicar_em": "2026-11-22T10:00:00Z",
+   "postado_em": "2026-11-20T07:32:43+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "BisteconeLive voando de hidroavião em Vice City no GTA 6",
+   "gancho": "VICE CITY",
+   "descricao": "BisteconeLive voando de hidroavião em Vice City no GTA 6\nBisteconeLive pilota um hidroavião sobre o mar de Vice City no GTA 6 enquanto a rádio do controle de voo pergunta se está tudo certo. Corte da live com o visual do jogo, para quem busca momentos do GTA 6 e reação do streamer.\n\n🎮 Live original: https://www.youtube.com/@BisteconeLive\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "bisteconelive gta 6",
+    "bisteconelive",
+    "hidroavião gta 6",
+    "voo em vice city gta 6",
+    "vice city gta 6",
+    "gameplay gta 6",
+    "gta 6",
+    "gta vi",
+    "cortes gta 6",
+    "cortes gta",
+    "cortes de live",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-20T07:32:39+00:00",
+   "corte": [
+    10.96,
+    36.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 3,
+   "quadro": null,
+   "duracao": 25.5,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_0.mp4",
+   "video_asset": 770898883,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_0.jpg",
+   "thumb_asset": 770898953,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_0_kit.zip"
   },
   "yt_mdbipWhS74g_1": {
    "id": "yt_mdbipWhS74g_1",
@@ -20584,11 +20624,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 4412
+  "2026-11-19": 4512
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 23
+  "2026-11-19": 24
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
