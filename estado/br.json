@@ -16331,11 +16331,51 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-20T05:42:36+00:00",
-   "atualizado_em": "2026-11-20T05:42:36+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-20T05:54:25+00:00",
+   "isolar_voz": true,
+   "youtube_id": "jF7aCLNr-OI",
+   "publicar_em": "2026-11-21T17:00:00Z",
+   "postado_em": "2026-11-20T05:54:25+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gamer Bisonho explica por que não jogaria o GTA 6 agora",
+   "gancho": "GAMBIARRA",
+   "descricao": "Gamer Bisonho explica por que não jogaria o GTA 6 agora\nGamer Bisonho reage ao GTA 6 e explica por que, mesmo pagando, não jogaria agora: segundo ele, tem muita gambiarra pra fazer. Corte da live com a opinião dele sobre os bugs do jogo, em um momento de reação bem intenso.\n\n🎮 Live original: https://www.youtube.com/@GamerBisonho\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gamer bisonho gta 6",
+    "bisonho gta 6",
+    "gamer bisonho",
+    "gta 6 bugs",
+    "gta 6 gambiarra",
+    "reação gta 6",
+    "gta 6 gameplay",
+    "cortes gta 6",
+    "gta 6",
+    "cortes gta",
+    "momentos engraçados gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-20T05:54:18+00:00",
+   "corte": [
+    17.98,
+    34.0
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 16.0,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_2.mp4",
+   "video_asset": 770650547,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_2.jpg",
+   "thumb_asset": 770650598,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_2_kit.zip"
   },
   "yt_jTm_A9M5yxk_longo": {
    "id": "yt_jTm_A9M5yxk_longo",
@@ -20012,11 +20052,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 3512
+  "2026-11-19": 3612
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 18
+  "2026-11-19": 19
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
