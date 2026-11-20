@@ -1189,12 +1189,12 @@
   "6tnvowsIQ14": {
    "id": "6tnvowsIQ14",
    "link": "https://www.youtube.com/watch?v=6tnvowsIQ14",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T23:34:16+00:00",
-   "tentativas": 2,
+   "atualizado_em": "2026-11-20T00:27:49+00:00",
+   "tentativas": 3,
    "erro": "ERROR: [youtube] 6tnvowsIQ14: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "75zIZkt-TM8": {
