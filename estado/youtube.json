@@ -1395,16 +1395,48 @@
   "iyp26hwuQAU": {
    "id": "iyp26hwuQAU",
    "link": "https://www.youtube.com/watch?v=iyp26hwuQAU",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-20T02:14:32+00:00",
-   "atualizado_em": "2026-11-20T02:14:32+00:00",
+   "atualizado_em": "2026-11-20T05:57:05+00:00",
    "auto": true,
    "titulo": "RenanPlay Reage ao Novo Pc horrível do Davy Jones pro GTA 6 kk",
    "canal_nome": "REnanPLAY CORTES [OFICIAL]",
    "isolar_voz": true,
-   "views_yt": 106085
+   "views_yt": 106085,
+   "longo": {
+    "asset_id": 770657527,
+    "inicio": 30.0,
+    "fim": 630.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "renanplaycortes",
+   "canal_id": "UCjY8fB1txujTqDpX8x31PXQ",
+   "duracao": 950.0,
+   "segmentos": [
+    {
+     "asset_id": 770630884,
+     "inicio": 203.0,
+     "fim": 273.0,
+     "duracao": 70.0,
+     "forca": 1.275
+    },
+    {
+     "asset_id": 770636403,
+     "inicio": 423.0,
+     "fim": 493.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 770641722,
+     "inicio": 741.0,
+     "fim": 811.0,
+     "duracao": 70.0,
+     "forca": 1.205
+    }
+   ]
   },
   "Qm8hhyeMiW8": {
    "id": "Qm8hhyeMiW8",
