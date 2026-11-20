@@ -17533,11 +17533,52 @@
    "views": 1205,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-20T05:57:18+00:00",
-   "atualizado_em": "2026-11-20T05:57:18+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-20T06:25:29+00:00",
+   "isolar_voz": true,
+   "youtube_id": "jk_jg8ZZkLo",
+   "publicar_em": "2026-11-22T00:00:00Z",
+   "postado_em": "2026-11-20T06:25:29+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "RenanPlay zoando o PC do GTA 6: a bike é maior que a mulher",
+   "gancho": "ABSURDO",
+   "descricao": "RenanPlay zoando o PC do GTA 6: a bike é maior que a mulher\nRenanPlay mostra de perto o PC temático do GTA 6 do Davy Jones e zoa o tamanho da bike, maior que a mulher, e da placa de vídeo. Cortes com reação e momentos engraçados do RenanPlay falando do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@renanplaycortes\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "renanplay gta 6",
+    "renanplay pc gta 6",
+    "pc do davy jones gta 6",
+    "pc temático gta 6",
+    "renanplay reagindo",
+    "reação pc gta 6",
+    "gta 6",
+    "cortes gta 6",
+    "momentos engraçados gta",
+    "cortes gta",
+    "renanplay cortes",
+    "renanplay cortes [oficial]",
+    "renanplay cortes [oficial] gta 6",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-20T06:25:25+00:00",
+   "corte": [
+    20.32,
+    52.2
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 31.9,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_2.mp4",
+   "video_asset": 770727439,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_2.jpg",
+   "thumb_asset": 770727535,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_2_kit.zip"
   },
   "yt_iyp26hwuQAU_longo": {
    "id": "yt_iyp26hwuQAU_longo",
@@ -20338,11 +20379,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 4012
+  "2026-11-19": 4112
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 23
+  "2026-11-19": 24
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
