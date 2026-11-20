@@ -14589,11 +14589,51 @@
    "views": 1014,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T20:03:22+00:00",
-   "atualizado_em": "2026-11-19T20:03:22+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-20T10:16:01+00:00",
+   "isolar_voz": false,
+   "youtube_id": "XjLXAFYNecA",
+   "publicar_em": "2026-11-22T14:00:00Z",
+   "postado_em": "2026-11-20T10:16:01+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj foge da polícia a tiros no GTA 6 e rouba um carro",
+   "gancho": "SOCORRO",
+   "descricao": "Gameplayrj foge da polícia a tiros no GTA 6 e rouba um carro\nGameplayrj joga GTA 6 e a Lucia é cercada pela polícia com 5 estrelas de procurada, leva tiros e sai correndo. No fim ela tenta roubar um carro para escapar. Cortes e momentos de ação do GTA 6 na live.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gameplayrj gta 6",
+    "gameplayrj",
+    "gta 6 fuga da polícia",
+    "gta 6 perseguição policial",
+    "gta 6 gameplay",
+    "gta 6 lucia",
+    "gta 6",
+    "cortes gameplayrj",
+    "cortes gta 6",
+    "cortes gta",
+    "momentos engraçados gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-20T10:15:56+00:00",
+   "corte": [
+    35.88,
+    61.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 25.1,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_w546blqOvVU_1.mp4",
+   "video_asset": 771355605,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_w546blqOvVU_1.jpg",
+   "thumb_asset": 771355711,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_w546blqOvVU_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_w546blqOvVU_1_kit.zip"
   },
   "yt_w546blqOvVU_2": {
    "id": "yt_w546blqOvVU_2",
@@ -20766,12 +20806,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 300
+  "2026-11-20": 400
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 3
+  "2026-11-20": 4
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
