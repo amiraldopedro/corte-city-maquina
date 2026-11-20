@@ -16562,7 +16562,6 @@
     "buga",
     "livro 4000 ac",
     "uga",
-    "uga",
     "UGA BUGA"
    ],
    "views": 92,
@@ -16734,7 +16733,6 @@
     "OnerousCheerfulHumanChefFrank-gtAwAxgyA0GrpXOQ",
     "ZealousSlipperyAdminChefFrank-j7YOZv3wNw1yYQwj",
     "OptimisticGracefulPonyCharlietheUnicorn-mtJ1MPGAEAOkdj6Y",
-    "ThankfulSpikyCheeseTakeNRG-76sSDJQbm_oI7Coy",
     "ThankfulSpikyCheeseTakeNRG-76sSDJQbm_oI7Coy"
    ],
    "titulos_chat": [
@@ -16743,7 +16741,6 @@
     "…",
     "caught on 4K",
     "freaky",
-    "lol",
     "lol",
     "xd"
    ],
@@ -16975,14 +16972,12 @@
     "AntsySplendidDootRickroll-dw96PhuMH7Da_gsO",
     "BoldInterestingHumanItsBoshyTime-EUr23RFJLvx1mvtu",
     "LazyObservantAlligatorDatSheffy-WwWN9g_3YA757Deg",
-    "CorrectArbitraryPlumPeanutButterJellyTime-xeZbqlV15Hlhw2p8",
     "CorrectArbitraryPlumPeanutButterJellyTime-xeZbqlV15Hlhw2p8"
    ],
    "titulos_chat": [
     "lacy scarred for life 13 years for this",
     "LACY GETS CHEATED ON",
     "LACY DOWN BAD",
-    "u",
     "u",
     "lacy gets assaulted in gta6",
     "lacy",
@@ -17147,6 +17142,40 @@
    "youtube_id": "wFxXox_8D5M",
    "publicar_em": "2026-11-21T13:00:00Z",
    "postado_em": "2026-11-20T05:45:29+00:00",
+   "envio_pendente": null
+  },
+  "mod_uTD5J7n1UX4": {
+   "id": "mod_uTD5J7n1UX4",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-20T05:47:51+00:00",
+   "atualizado_em": "2026-11-20T05:47:55+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "FALTAM 2 DIAS PRO GTA 6! A reação da galera é impagável",
+   "gancho": "FALTAM SÓ 2 DIAS",
+   "descricao": "FALTAM 2 DIAS PRO GTA 6! A reação da galera é impagável\n\nIdeia e gameplay: Gasti Obeide (https://www.youtube.com/watch?v=uTD5J7n1UX4)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-20T05:47:51+00:00",
+   "nome": "Gasti Obeide",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 19.9,
+   "modelo_de": "https://www.youtube.com/watch?v=uTD5J7n1UX4",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_uTD5J7n1UX4.mp4",
+   "video_asset": 770636927,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_uTD5J7n1UX4.jpg",
+   "thumb_asset": 770636994,
+   "youtube_id": "reBkQ-UoUTM",
+   "publicar_em": "2026-11-21T14:00:00Z",
+   "postado_em": "2026-11-20T05:47:55+00:00",
    "envio_pendente": null
   }
  },
@@ -19855,11 +19884,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 3212
+  "2026-11-19": 3312
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 15
+  "2026-11-19": 16
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
