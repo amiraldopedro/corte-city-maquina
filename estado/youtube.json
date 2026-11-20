@@ -1178,12 +1178,12 @@
   "9EHBgZuE9gI": {
    "id": "9EHBgZuE9gI",
    "link": "https://www.youtube.com/watch?v=9EHBgZuE9gI",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T23:31:35+00:00",
-   "tentativas": 2,
+   "atualizado_em": "2026-11-20T00:22:51+00:00",
+   "tentativas": 3,
    "erro": "ERROR: [youtube] 9EHBgZuE9gI: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "6tnvowsIQ14": {
