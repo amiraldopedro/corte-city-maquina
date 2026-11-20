@@ -16197,11 +16197,50 @@
    "views": 1227,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-20T05:42:36+00:00",
-   "atualizado_em": "2026-11-20T05:42:36+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-20T05:50:24+00:00",
+   "isolar_voz": true,
+   "youtube_id": "-riED0M5nkw",
+   "publicar_em": "2026-11-21T15:00:00Z",
+   "postado_em": "2026-11-20T05:50:24+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gamer Bisonho no GTA 6 defende os bugs e cita Phantom Blade",
+   "gancho": "BUGS",
+   "descricao": "Gamer Bisonho no GTA 6 defende os bugs e cita Phantom Blade\nGamer Bisonho reage aos bugs do GTA 6 e compara com os bugs do Phantom Blade Zero, dizendo que eles não estragam a gameplay, mas são chatos. Cortes da live com a reação e a opinião dele sobre o assunto.\n\n🎮 Live original: https://www.youtube.com/@GamerBisonho\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gamer bisonho gta 6",
+    "gamer bisonho",
+    "bugs do gta 6",
+    "gta 6 bugs",
+    "phantom blade zero bugs",
+    "reagindo gta 6",
+    "gta 6",
+    "cortes gta 6",
+    "cortes gta",
+    "momentos engraçados gta",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-20T05:50:20+00:00",
+   "corte": [
+    20.0,
+    54.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 3,
+   "quadro": null,
+   "duracao": 34.0,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_0.mp4",
+   "video_asset": 770641320,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_0.jpg",
+   "thumb_asset": 770641366,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_jTm_A9M5yxk_0_kit.zip"
   },
   "yt_jTm_A9M5yxk_1": {
    "id": "yt_jTm_A9M5yxk_1",
@@ -19884,11 +19923,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 3312
+  "2026-11-19": 3412
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 16
+  "2026-11-19": 17
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
