@@ -1319,12 +1319,12 @@
   "V9JgeA64VYE": {
    "id": "V9JgeA64VYE",
    "link": "https://www.youtube.com/watch?v=V9JgeA64VYE",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:27:22+00:00",
-   "atualizado_em": "2026-11-19T23:59:54+00:00",
-   "tentativas": 2,
+   "atualizado_em": "2026-11-20T06:40:41+00:00",
+   "tentativas": 3,
    "erro": "ERROR: [youtube] V9JgeA64VYE: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "qSyo5d-dVzA": {
