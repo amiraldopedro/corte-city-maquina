@@ -1167,12 +1167,12 @@
   "Q9ZqVAdtASE": {
    "id": "Q9ZqVAdtASE",
    "link": "https://www.youtube.com/watch?v=Q9ZqVAdtASE",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T23:28:34+00:00",
-   "tentativas": 2,
+   "atualizado_em": "2026-11-20T00:19:02+00:00",
+   "tentativas": 3,
    "erro": "ERROR: [youtube] Q9ZqVAdtASE: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "9EHBgZuE9gI": {
