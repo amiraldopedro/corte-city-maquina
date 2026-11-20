@@ -1134,12 +1134,12 @@
   "X2rtbJJEvVE": {
    "id": "X2rtbJJEvVE",
    "link": "https://www.youtube.com/watch?v=X2rtbJJEvVE",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T23:21:32+00:00",
-   "tentativas": 2,
+   "atualizado_em": "2026-11-20T00:06:31+00:00",
+   "tentativas": 3,
    "erro": "ERROR: [youtube] X2rtbJJEvVE: No video formats found!; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U"
   },
   "hOOiQagTyTA": {
