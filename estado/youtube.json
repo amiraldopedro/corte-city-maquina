@@ -1200,13 +1200,13 @@
   "75zIZkt-TM8": {
    "id": "75zIZkt-TM8",
    "link": "https://www.youtube.com/watch?v=75zIZkt-TM8",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-19T19:20:53+00:00",
-   "atualizado_em": "2026-11-19T23:37:37+00:00",
-   "tentativas": 2,
-   "erro": "ERROR: [youtube] 75zIZkt-TM8: Requested format is not available. Use --list-formats for a list of available formats"
+   "atualizado_em": "2026-11-20T01:38:33+00:00",
+   "tentativas": 3,
+   "erro": "[Errno 54] Connection reset by peer"
   },
   "mdbipWhS74g": {
    "id": "mdbipWhS74g",
