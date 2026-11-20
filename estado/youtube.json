@@ -1349,16 +1349,48 @@
   "jTm_A9M5yxk": {
    "id": "jTm_A9M5yxk",
    "link": "https://www.youtube.com/watch?v=jTm_A9M5yxk",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-20T02:14:32+00:00",
-   "atualizado_em": "2026-11-20T02:14:32+00:00",
+   "atualizado_em": "2026-11-20T05:42:13+00:00",
    "auto": true,
    "titulo": "SUPER XANDÃO REAGINDO AO DAVY JONES JOGANDO GTA 6 e os BUGS DO JOGO!",
    "canal_nome": "Gamer Bisonho",
    "isolar_voz": true,
-   "views_yt": 108817
+   "views_yt": 108817,
+   "longo": {
+    "asset_id": 770622918,
+    "inicio": 420.0,
+    "fim": 1020.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "GamerBisonho",
+   "canal_id": "UCfgXcrb259iYPMBT5XRWYZg",
+   "duracao": 1072.0,
+   "segmentos": [
+    {
+     "asset_id": 770606024,
+     "inicio": 504.0,
+     "fim": 574.0,
+     "duracao": 70.0,
+     "forca": 1.227
+    },
+    {
+     "asset_id": 770608470,
+     "inicio": 737.0,
+     "fim": 807.0,
+     "duracao": 70.0,
+     "forca": 1.192
+    },
+    {
+     "asset_id": 770612062,
+     "inicio": 1020.0,
+     "fim": 1072.0,
+     "duracao": 52.0,
+     "forca": 1.0
+    }
+   ]
   },
   "iyp26hwuQAU": {
    "id": "iyp26hwuQAU",
