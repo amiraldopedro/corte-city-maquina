@@ -17399,11 +17399,52 @@
    "views": 1275,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-20T05:57:18+00:00",
-   "atualizado_em": "2026-11-20T05:57:18+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-20T06:20:22+00:00",
+   "isolar_voz": true,
+   "youtube_id": "nPeInoy6TiI",
+   "publicar_em": "2026-11-21T21:00:00Z",
+   "postado_em": "2026-11-20T06:20:22+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "RenanPlay se arrepende das piadas de PC ao ver o PC do GTA 6",
+   "gancho": "ARREPENDIDO",
+   "descricao": "RenanPlay se arrepende das piadas de PC ao ver o PC do GTA 6\nRenanPlay reage ao PC personalizado com a temática do GTA 6 e diz que se arrepende de cada piadinha de PC que já fez. Ele conta que nunca ganhou nada dos patrocinadores além de inscritos, nestes cortes de momentos engraçados da live.\n\n🎮 Live original: https://www.youtube.com/@renanplaycortes\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "renanplay gta 6",
+    "renanplay cortes",
+    "pc temático gta 6",
+    "pc gamer gta 6",
+    "reação pc gta 6",
+    "renanplay reagindo",
+    "gta 6",
+    "cortes gta 6",
+    "momentos engraçados gta",
+    "cortes de live",
+    "renanplay cortes [oficial]",
+    "renanplay cortes [oficial] gta 6",
+    "gta rp",
+    "cortes",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-20T06:20:14+00:00",
+   "corte": [
+    18.98,
+    46.7
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 27.7,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_0.mp4",
+   "video_asset": 770714727,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_0.jpg",
+   "thumb_asset": 770714809,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_iyp26hwuQAU_0_kit.zip"
   },
   "yt_iyp26hwuQAU_1": {
    "id": "yt_iyp26hwuQAU_1",
@@ -20256,11 +20297,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 3812
+  "2026-11-19": 3912
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 21
+  "2026-11-19": 22
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
