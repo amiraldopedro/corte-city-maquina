@@ -1568,6 +1568,20 @@
    "asset_id": 770601100,
    "idioma_falado": "en",
    "url_final": "https://www.youtube.com/watch?v=2BRL4ALMCyA"
+  },
+  "mQ4CfLekrFI": {
+   "id": "mQ4CfLekrFI",
+   "link": "https://www.youtube.com/watch?v=mQ4CfLekrFI",
+   "status": "esperando",
+   "modo": "cortes",
+   "plataforma": "youtube",
+   "pedido_em": "2026-11-20T11:23:10+00:00",
+   "atualizado_em": "2026-11-20T11:23:10+00:00",
+   "auto": true,
+   "origem": "live",
+   "titulo": "GTA VI: DIA 2 🔴 CORINGA AO VIVO",
+   "canal_nome": "LOUD Coringa",
+   "views_yt": 3417891
   }
  },
  "clipes_vistos": [],
