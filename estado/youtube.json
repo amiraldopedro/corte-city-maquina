@@ -1507,17 +1507,18 @@
    "id": "XtCzxJUrE_s",
    "link": "https://www.youtube.com/watch?v=XtCzxJUrE_s",
    "modo": "modelo",
-   "status": "modelo_baixado",
+   "status": "modelo_erro",
    "titulo": "Now I can play my game in peace!😂🫡 #gta #GTA6 #marriedlife #relatable #relationships",
    "canal_nome": "Bam and Bri Nation",
    "canal_id_yt": "UCNSDwPm_DMBEdDg7taw2_KA",
    "views_yt": 6859142,
    "dur": 23,
    "pedido_em": "2026-11-20T02:14:34+00:00",
-   "atualizado_em": "2026-11-20T05:30:17+00:00",
+   "atualizado_em": "2026-11-20T06:13:29+00:00",
    "asset_id": 770594005,
    "idioma_falado": "en-US",
-   "url_final": "https://www.youtube.com/watch?v=XtCzxJUrE_s"
+   "url_final": "https://www.youtube.com/watch?v=XtCzxJUrE_s",
+   "erro": "ffmpeg falhou: [Parsed_crop_4 @ 0x7a6264011b80] Invalid too big or non positive size for width '1620' or height '1920'\n[Parsed_crop_4 @ 0x7a6264011b80] Failed to configure input pad on Parsed_crop_4\n[fc#0 @ 0x569ee39a1080] Error reinitializing filters!\n[fc#0 @ 0x569ee39a1080] Task finished with erro"
   },
   "_UckhCj-KMI": {
    "id": "_UckhCj-KMI",
