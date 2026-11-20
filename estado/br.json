@@ -15449,11 +15449,51 @@
    "views": 1196,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T21:52:26+00:00",
-   "atualizado_em": "2026-11-19T21:52:26+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-20T10:12:17+00:00",
+   "isolar_voz": false,
+   "youtube_id": "CnMw2qwGLb8",
+   "publicar_em": "2026-11-22T12:00:00Z",
+   "postado_em": "2026-11-20T10:12:17+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "BisteconeLive no GTA 6 expulsando as ridículas da festa no iate",
+   "gancho": "RIDÍCULA!",
+   "descricao": "BisteconeLive no GTA 6 expulsando as ridículas da festa no iate\nBisteconeLive joga a festa no iate de Vice City no GTA 6 e começa a mandar as NPCs saírem do caminho, falando que está com o homem dele. Um dos momentos engraçados da live, com reação de rir no meio do gameplay, nos cortes do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@BisteconeLive\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "bisteconelive gta 6",
+    "bisteconelive",
+    "gta 6 iate",
+    "festa no iate gta 6",
+    "vice city gta 6",
+    "gta 6 gameplay",
+    "momentos engraçados gta 6",
+    "reação gta 6",
+    "gta 6",
+    "cortes gta",
+    "cortes gta 6",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-20T10:12:10+00:00",
+   "corte": [
+    36.57,
+    56.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 19.9,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_2.mp4",
+   "video_asset": 771344865,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_2.jpg",
+   "thumb_asset": 771344960,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mdbipWhS74g_2_kit.zip"
   },
   "yt_mdbipWhS74g_longo": {
    "id": "yt_mdbipWhS74g_longo",
@@ -20686,12 +20726,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 100
+  "2026-11-20": 200
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 1
+  "2026-11-20": 2
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
