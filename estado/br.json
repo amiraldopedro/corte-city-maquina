@@ -15834,11 +15834,52 @@
    "views": 1010,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T22:36:22+00:00",
-   "atualizado_em": "2026-11-19T22:36:22+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-20T07:30:42+00:00",
+   "isolar_voz": false,
+   "youtube_id": "sPPQ-U_FJ6w",
+   "publicar_em": "2026-11-22T03:00:00Z",
+   "postado_em": "2026-11-20T07:30:42+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Lives do Cellbit: Cellbit no GTA 6 apanhando do controle em plena troca de tiros",
+   "gancho": "SOCORRO",
+   "descricao": "Lives do Cellbit: Cellbit no GTA 6 apanhando do controle em plena troca de tiros\nCellbit joga GTA 6 e se agacha atrás de um reboque durante uma troca de tiros, gritando para o personagem voltar a cabeça. No fim ele admite que não está acostumado a jogar no controle. Cortes e momentos engraçados da live do Cellbit.\n\n🎮 Live original: https://www.youtube.com/@CellbitLives\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "cellbit gta 6",
+    "lives do cellbit gta 6",
+    "cellbit jogando gta 6",
+    "gameplay gta 6",
+    "tiroteio gta 6",
+    "cellbit controle gta 6",
+    "gta 6",
+    "cortes cellbit",
+    "cortes gta 6",
+    "momentos engraçados gta",
+    "reação gta 6",
+    "lives do cellbit",
+    "gta rp",
+    "cortes",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-20T07:30:37+00:00",
+   "corte": [
+    36.03,
+    67.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 31.5,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_upFrh84fBhc_2.mp4",
+   "video_asset": 770892296,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_upFrh84fBhc_2.jpg",
+   "thumb_asset": 770892424,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_upFrh84fBhc_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_upFrh84fBhc_2_kit.zip"
   },
   "yt_upFrh84fBhc_longo": {
    "id": "yt_upFrh84fBhc_longo",
@@ -20543,11 +20584,11 @@
   "2026-11-16": 8500,
   "2026-11-17": 8500,
   "2026-11-18": 5320,
-  "2026-11-19": 4312
+  "2026-11-19": 4412
  },
  "envios": {
   "2026-11-18": 40,
-  "2026-11-19": 22
+  "2026-11-19": 23
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
