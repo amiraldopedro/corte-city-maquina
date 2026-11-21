@@ -20037,11 +20037,51 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-21T04:39:51+00:00",
-   "atualizado_em": "2026-11-21T04:39:51+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-21T04:48:00+00:00",
+   "isolar_voz": false,
+   "youtube_id": "AmgHyaiv1N0",
+   "publicar_em": "2026-11-23T00:00:00Z",
+   "postado_em": "2026-11-21T04:48:00+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "LOUD Coringa: Coringa na live do GTA 6: presos rendem o policial no carro",
+   "gancho": "RENDIDO",
+   "descricao": "LOUD Coringa: Coringa na live do GTA 6: presos rendem o policial no carro\nNos cortes da live do LOUD Coringa sobre o GTA 6, ele aparece vestido de presidiário dentro de um carro com um policial. O papo começa com briga de trânsito e termina com uma arma apontada e a frase: agora você vai fazer o que a gente quer. Um dos momentos engraçados da reação da galera.\n\n🎮 Live original: https://www.youtube.com/@LOUDCoringa\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "loud coringa gta 6",
+    "coringa gta 6",
+    "coringa ao vivo",
+    "loud coringa",
+    "gta 6 live",
+    "policial rendido",
+    "presos no carro",
+    "momentos engraçados gta 6",
+    "cortes coringa",
+    "cortes gta",
+    "gta 6",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-21T04:47:54+00:00",
+   "corte": [
+    43.63,
+    70.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 26.4,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_1.mp4",
+   "video_asset": 774454050,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_1.jpg",
+   "thumb_asset": 774454166,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_1_kit.zip"
   },
   "yt_mQ4CfLekrFI_2": {
    "id": "yt_mQ4CfLekrFI_2",
@@ -23160,12 +23200,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 1816
+  "2026-11-20": 1916
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 7
+  "2026-11-20": 8
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
