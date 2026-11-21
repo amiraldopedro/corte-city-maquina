@@ -1641,7 +1641,7 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-20T19:59:50+00:00",
-   "atualizado_em": "2026-11-21T05:34:04+00:00",
+   "atualizado_em": "2026-11-21T06:17:25+00:00",
    "auto": true,
    "origem": "gringo",
    "gringo": true,
@@ -1650,7 +1650,7 @@
    "canal_handle": "IShowSpeed",
    "views_yt": 14296805,
    "isolar_voz": false,
-   "tentativas": 1,
+   "tentativas": 2,
    "erro": "ERROR: [youtube] OIeLbmyraRQ: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "739jvm-giQM": {
