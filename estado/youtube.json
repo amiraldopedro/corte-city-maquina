@@ -1692,12 +1692,14 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-21T02:06:54+00:00",
-   "atualizado_em": "2026-11-21T02:06:54+00:00",
+   "atualizado_em": "2026-11-21T05:40:40+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 É TUDO ISSO MESMO QUE TÃO FALANDO?",
    "canal_nome": "Gameplayrj",
-   "views_yt": 1528783
+   "views_yt": 1528783,
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] AmhtyV-LRaA: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "pcFGTiL593U": {
    "id": "pcFGTiL593U",
