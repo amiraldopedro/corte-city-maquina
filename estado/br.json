@@ -11913,11 +11913,52 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T04:26:49+00:00",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-21T03:25:55+00:00",
+   "isolar_voz": false,
+   "youtube_id": "qsbn1bBSoI0",
+   "publicar_em": "2026-11-22T19:00:00Z",
+   "postado_em": "2026-11-21T03:25:55+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "PEIXE usa código de GTA pra reviver participante no balão",
+   "gancho": "CHEAT",
+   "descricao": "PEIXE usa código de GTA pra reviver participante no balão\nNos cortes do PEIXE, um participante é eliminado do jogo do balão e o código de GTA aparece na tela pra ele voltar à disputa. Um dos momentos engraçados da live, com reação da galera e tema de GTA, enquanto o GTA 6 não chega.\n\n🎮 Live original: https://www.youtube.com/@Peixe\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "peixe gta",
+    "peixe gta 6",
+    "código de gta",
+    "cheat gta",
+    "jogo do balão",
+    "estoure o balão ou encontre seu amor",
+    "momentos engraçados gta",
+    "cortes peixe",
+    "gta 6",
+    "cortes gta",
+    "cortes de live",
+    "peixe",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-21T03:25:43+00:00",
+   "corte": [
+    10.4,
+    29.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 18.6,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_1.mp4",
+   "video_asset": 774277432,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_1.jpg",
+   "thumb_asset": 774277581,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_1_kit.zip"
   },
   "yt__95rcfBuaCo_2": {
    "id": "yt__95rcfBuaCo_2",
@@ -22820,12 +22861,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 1416
+  "2026-11-20": 1516
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 3
+  "2026-11-20": 4
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
