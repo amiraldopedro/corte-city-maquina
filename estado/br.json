@@ -20147,6 +20147,40 @@
    "publicar_em": "2026-11-22T20:00:00Z",
    "postado_em": "2026-11-21T04:42:35+00:00",
    "envio_pendente": null
+  },
+  "mod_FB1sJNFtim8": {
+   "id": "mod_FB1sJNFtim8",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-21T04:45:08+00:00",
+   "atualizado_em": "2026-11-21T04:45:15+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "O que acontece se você largar um carro roubado com GPS no GTA 6?",
+   "gancho": "CARRO COM GPS NO GTA 6",
+   "descricao": "O que acontece se você largar um carro roubado com GPS no GTA 6?\n\nIdeia e gameplay: gta2025 (https://www.youtube.com/watch?v=FB1sJNFtim8)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-21T04:45:08+00:00",
+   "nome": "gta2025",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 30.4,
+   "modelo_de": "https://www.youtube.com/watch?v=FB1sJNFtim8",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_FB1sJNFtim8.mp4",
+   "video_asset": 774448363,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_FB1sJNFtim8.jpg",
+   "thumb_asset": 774448529,
+   "youtube_id": "JkEkDblyHv4",
+   "publicar_em": "2026-11-22T21:00:00Z",
+   "postado_em": "2026-11-21T04:45:15+00:00",
+   "envio_pendente": null
   }
  },
  "clipes_vistos": [
@@ -23085,12 +23119,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 1616
+  "2026-11-20": 1716
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 5
+  "2026-11-20": 6
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
