@@ -1829,6 +1829,35 @@
    "asset_id": 774342643,
    "idioma_falado": "",
    "url_final": "https://www.youtube.com/watch?v=t-DvVOdCZUI"
+  },
+  "zVwjEMyTcDA": {
+   "id": "zVwjEMyTcDA",
+   "link": "https://www.youtube.com/watch?v=zVwjEMyTcDA",
+   "status": "esperando",
+   "modo": "cortes",
+   "plataforma": "youtube",
+   "pedido_em": "2026-11-21T10:53:14+00:00",
+   "atualizado_em": "2026-11-21T10:53:14+00:00",
+   "auto": true,
+   "titulo": "Testei os MAIORES MITOS do GTA 6",
+   "canal_nome": "Flakes Power",
+   "isolar_voz": false,
+   "views_yt": 317872,
+   "tema": "GTA 6 segredos"
+  },
+  "ivjSsjiHbZA": {
+   "id": "ivjSsjiHbZA",
+   "link": "https://www.youtube.com/watch?v=ivjSsjiHbZA",
+   "status": "esperando",
+   "modo": "cortes",
+   "plataforma": "youtube",
+   "pedido_em": "2026-11-21T10:53:15+00:00",
+   "atualizado_em": "2026-11-21T10:53:15+00:00",
+   "auto": true,
+   "origem": "live",
+   "titulo": "GTA 6 e 20 PS5 PRA VOCÊS HOJE! 🔴 Paulinho o LOKO #3",
+   "canal_nome": "PAULINHO O LOKO",
+   "views_yt": 3806894
   }
  },
  "clipes_vistos": [],
@@ -1849,5 +1878,8 @@
   "login": true,
   "versao": "2026-11-19a"
  },
- "arquivos_repo": "amiraldopedro/corte-city-arquivos"
+ "arquivos_repo": "amiraldopedro/corte-city-arquivos",
+ "rodizio": {
+  "youtube_auto": 3
+ }
 }
