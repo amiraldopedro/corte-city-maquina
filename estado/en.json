@@ -37088,6 +37088,34 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-21T14:47:05+00:00"
+  },
+  "2928102227_1583": {
+   "id": "2928102227_1583",
+   "streamer": "agent00",
+   "canal": "en",
+   "video_id": "2928102227",
+   "inicio": 1583.0,
+   "fim": 1629.0,
+   "clipe_url": "https://www.twitch.tv/agent00/clip/SavoryBloodyPigDBstyle-MVy0js7LYMaOVo22",
+   "clipe_ids": [
+    "SavoryBloodyPigDBstyle-MVy0js7LYMaOVo22"
+   ],
+   "titulos_chat": [
+    "EXPLORING MIAMI WITH LUCIA + REVIEWING GTA 6 BURGER SHOT & CLUCKIN RIGHT CHICKEN + MIAMI HEAT GAME"
+   ],
+   "views": 419,
+   "n_clipes": 1,
+   "clipadores": 1,
+   "clipado_em": "2026-11-14T00:44:49Z",
+   "score": 263.2457292184724,
+   "jogo": "Just Chatting",
+   "evento": "pré-carregamento do GTA 6",
+   "nome": "Agent00",
+   "quadro": "gta6",
+   "_priorizado": true,
+   "score_v": 2,
+   "status": "novo",
+   "criado_em": "2026-11-21T19:52:20+00:00"
   }
  },
  "clipes_vistos": [
@@ -40000,6 +40028,7 @@
   "SavageObeseOilWTRuck-jkSinFkxZzaMRdgO",
   "SavageSparklingYakAMPTropPunch-HDxnnyQUP2QT67FB",
   "SavoryBadFriesSeemsGood-GcQQz8x88QnWdGtd",
+  "SavoryBloodyPigDBstyle-MVy0js7LYMaOVo22",
   "SavoryConfidentEggYouWHY-fv7wy1IwDy0m1DiW",
   "SavoryCourageousCurlewPicoMause-pRsgTtVwgHZa4Re-",
   "SavoryGentleMinkTBCheesePull-i-tFltwQ3QTbrWAp",
