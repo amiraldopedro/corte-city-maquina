@@ -1572,16 +1572,48 @@
   "mQ4CfLekrFI": {
    "id": "mQ4CfLekrFI",
    "link": "https://www.youtube.com/watch?v=mQ4CfLekrFI",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-20T11:23:10+00:00",
-   "atualizado_em": "2026-11-20T11:23:10+00:00",
+   "atualizado_em": "2026-11-21T04:39:35+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA VI: DIA 2 🔴 CORINGA AO VIVO",
    "canal_nome": "LOUD Coringa",
-   "views_yt": 3417891
+   "views_yt": 3417891,
+   "longo": {
+    "asset_id": 774434525,
+    "inicio": 40290.0,
+    "fim": 40890.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "LOUDCoringa",
+   "canal_id": "UCnYjd7cPNluC7Hi9AZrBNMw",
+   "duracao": 42900.0,
+   "segmentos": [
+    {
+     "asset_id": 774401779,
+     "inicio": 37728.0,
+     "fim": 37798.0,
+     "duracao": 70.0,
+     "forca": 1.259
+    },
+    {
+     "asset_id": 774408001,
+     "inicio": 38172.0,
+     "fim": 38242.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 774413030,
+     "inicio": 38525.0,
+     "fim": 38595.0,
+     "duracao": 70.0,
+     "forca": 1.138
+    }
+   ]
   },
   "hwSg39yIBGU": {
    "id": "hwSg39yIBGU",
