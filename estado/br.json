@@ -12130,11 +12130,52 @@
    "views": 1032,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T04:41:46+00:00",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-21T03:24:09+00:00",
+   "isolar_voz": true,
+   "youtube_id": "xuIXCLmPkIc",
+   "publicar_em": "2026-11-22T17:00:00Z",
+   "postado_em": "2026-11-21T03:24:09+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj analisa o novo trailer do GTA 6 e os detalhes da marina",
+   "gancho": "NOVO TRAILER",
+   "descricao": "Gameplayrj analisa o novo trailer do GTA 6 e os detalhes da marina\nGameplayrj reage ao novo trailer do GTA 6 e comenta a cena da Lucia e do Jason dançando na boate. Depois ele aponta os detalhes da marina, com um cara de macacão de corrida, um tripé e vários iates ao fundo. Confira mais cortes e reações do GTA 6.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gameplayrj gta 6",
+    "gameplayrj trailer gta 6",
+    "novo trailer gta 6",
+    "trailer 2 gta 6",
+    "lucia e jason gta 6",
+    "boate gta 6",
+    "marina gta 6",
+    "reagindo ao trailer gta 6",
+    "gta 6",
+    "cortes gta 6",
+    "cortes gta",
+    "gta 6 brasil",
+    "gameplayrj",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-21T03:24:04+00:00",
+   "corte": [
+    26.4,
+    58.5
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 4,
+   "quadro": null,
+   "duracao": 32.1,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_2.mp4",
+   "video_asset": 774272447,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_2.jpg",
+   "thumb_asset": 774272583,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_2_kit.zip"
   },
   "yt_y6ofjcTl5x0_longo": {
    "id": "yt_y6ofjcTl5x0_longo",
@@ -22779,12 +22820,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 1316
+  "2026-11-20": 1416
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 2
+  "2026-11-20": 3
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
