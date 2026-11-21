@@ -85,12 +85,17 @@ def cacar(cfg) -> int:
     from .youtube import YouTube
     yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token).yt
     desde = (datetime.now(timezone.utc) - timedelta(days=int(conf.get("dias", 4)))).isoformat(timespec="seconds").replace("+00:00", "Z")
+    from .youtube_auto import rodizio
+    termos = rodizio(est_fila, "modelar", list(conf.get("termos", ["GTA 6", "GTA 6 gameplay"])),
+                     int(conf.get("termos_por_rodada", 3)))
+    est_fila.salvar()
+    print(f"  modelar: pesquisando temas: {', '.join(termos)}")
     ids = []
-    for termo in conf.get("termos", ["GTA 6", "GTA 6 gameplay"]):
+    for termo in termos:
         r = yt.search().list(q=termo, part="id", type="video", videoDuration="short", order="viewCount",
                              maxResults=25, publishedAfter=desde).execute()
         ids += [it["id"]["videoId"] for it in r.get("items", [])]
-    _gastar(est_canal, 100 * len(conf.get("termos", [1, 1])) + 2)
+    _gastar(est_canal, 100 * len(termos) + 2)
     est_canal.salvar()
     ids = [i for i in dict.fromkeys(ids) if i not in est_fila.momentos]
     videos = []
@@ -258,6 +263,10 @@ def montar(cfg, maximo: int = 4) -> int:
     if not canal:
         return 0
     est = Estado(canal.id)
+    from .youtube import agenda_cheia
+    if agenda_cheia(est, canal):
+        print("  modelar: a agenda dos próximos dias já está cheia, os modelos esperam na fila")
+        return 0
     yt = None
     if canal.postar == "automatico" and canal.refresh_token:
         from .youtube import YouTube

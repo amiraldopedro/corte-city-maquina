@@ -87,6 +87,8 @@ def processar(cfg) -> int:
             continue
         canal_yt = item.get("canal_nome") or "YouTube"
         login = item.get("canal_handle") or item.get("canal_id") or "youtube"
+        auto = bool(item.get("auto"))  # achado pela pesquisa automática (não foi você que mandou o link)
+        pistas = [item.get("titulo", "")] + ([f"tema da busca: {item['tema']}"] if item.get("tema") else [])
         for i, seg in enumerate(item.get("segmentos", [])):
             mid = f"yt_{vid}_{i}"
             if mid in est.momentos:
@@ -96,10 +98,13 @@ def processar(cfg) -> int:
                 "video_id": None, "inicio": 0.0, "fim": float(seg.get("duracao", 60)),
                 "clipe_url": None, "yt_asset": seg["asset_id"], "yt_video": vid,
                 "yt_link": f"https://www.youtube.com/watch?v={vid}&t={int(seg.get('inicio', 0))}s",
-                "titulos_chat": [item.get("titulo", "")], "jogo": "Grand Theft Auto VI" if re.search(
+                "titulos_chat": pistas, "jogo": "Grand Theft Auto VI" if re.search(
                     r"gta ?(6|vi)", item.get("titulo", ""), re.I) else "Grand Theft Auto V",
-                "views": int(seg.get("forca", 1) * 1000), "n_clipes": 1, "score": 10_000 - i,
-                "status": "novo", "prioridade": True, "criado_em": agora(), "atualizado_em": agora(),
+                "views": int(seg.get("forca", 1) * 1000), "n_clipes": 1,
+                # link que VOCÊ mandou fura a fila; o que a pesquisa achou disputa de igual com os clipes da Twitch
+                # (entra na fila pela força e passa pela nota mínima como qualquer outro)
+                "score": (1_500 - 100 * i) if auto else (10_000 - i), "prioridade": not auto,
+                "status": "novo", "criado_em": agora(), "atualizado_em": agora(),
                 "isolar_voz": bool(item.get("isolar_voz")),
             }
             if item.get("gringo"):  # live de gringo: áudio original + legenda em português, card estilo Twitter

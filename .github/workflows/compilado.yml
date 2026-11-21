@@ -2,7 +2,10 @@ name: Compilado (Melhores do Dia / Top 10)
 
 on:
   schedule:
-    - cron: "17 2 19-30 11 *"   # lançamento: todo dia 23:17 de Brasília -> Melhores do Dia (posta às 10h do dia seguinte)
+    # Melhores do Dia: todo dia 23:17 de Brasília (posta às 10h do dia seguinte). O GitHub às vezes atrasa horas
+    # o agendamento, então tem uma 2ª tentativa às 02:17: se a primeira já fez o vídeo, a segunda só confere e sai.
+    - cron: "17 2 * * *"
+    - cron: "17 5 * * *"
     - cron: "23 13 * * 0"   # domingo 10:23 de Brasília -> Top 10 da Semana
   workflow_dispatch:
     inputs:

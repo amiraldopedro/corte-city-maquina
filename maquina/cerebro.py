@@ -50,27 +50,28 @@ Responda só com JSON neste formato:
 (troque cada <...> pelo valor que VOCÊ decidiu para este vídeo; não existe valor padrão)"""
 
 SEO = {
-    "pt": """REGRAS DE SEO DO YOUTUBE (siga todas):
-- Título com 45 a 65 caracteres. A palavra que as pessoas buscam vem no começo: o nome do streamer e o jogo (ex.: "Coringa no GTA RP", "Alanzoka reagindo ao trailer do GTA 6").
-- Depois, uma curiosidade que só se resolve assistindo ("...até isso acontecer", "...e ninguém esperava"). Gera clique sem mentir.
-- Escreva como brasileiro fala: casual, direto. No máximo 1 emoji e só no fim. Nada de título todo em maiúsculas; no máximo 1 palavra em maiúsculas.
-- Proibido: hashtag no título, mentir, prometer o que não acontece, dizer que é GTA 6 quando o jogo é GTA 5/RP, palavras como "clickbait", "vídeo", "short".
-- O canal é sobre o GTA 6. Se o momento for de GTA 5/RP, você PODE ligar ao GTA 6 de forma verdadeira de vez em quando (ex.: "...enquanto o GTA 6 não chega", "treinando pro GTA 6"), mas sem repetir isso em todo título.
-- Termos que o público brasileiro busca: "GTA RP", "cortes", "cidade alta", "complexo", "GTA 6", "trailer do GTA 6", "reagindo", nome do streamer.
-- Tags: comece pelo nome do streamer + jogo, depois o jogo, depois o assunto do momento (ex.: "fuga da polícia gta rp"), por fim termos gerais ("cortes gta", "gta rp brasil").""",
-    "en": """YOUTUBE SEO RULES (follow all):
-- Title 45 to 65 characters. Searched words first: streamer name and game (e.g., "Kai Cenat in GTA RP").
-- Then a curiosity gap only solved by watching ("...then this happened"). Click without lying.
-- Casual tone. At most 1 emoji, at the end. Never all caps; at most 1 word in caps.
-- Forbidden: hashtags in title, lying, calling it GTA 6 when it's GTA 5/RP, the words "clickbait", "video", "short".
-- The channel is about GTA 6. For GTA 5/RP moments you MAY truthfully tie it to GTA 6 now and then ("...while we wait for GTA 6"), not in every title.
-- Terms people search: "GTA RP", "GTA 6", "GTA 6 trailer", "reacts", "funny moments", streamer name.
-- Tags: streamer + game first, then game, then the moment's topic, then general terms.""",
+    "pt": """REGRAS DE TÍTULO (Short de GTA 6 com o jogo já lançado; siga todas):
+- 40 a 60 caracteres. Comece pelo nome do streamer do jeito que o público chama (nunca o nome do canal de cortes) e diga logo O QUE aconteceu de específico: o objeto, lugar, personagem, número ou fala que só existe neste vídeo. Ex.: "Alanzoka achou um OVNI no pântano do GTA 6", "Davy Jones no GTA 6: esse carro é Lancer ou Skyline?", "Paulinho O Loko tomou 5 estrelas em 20 segundos no GTA 6".
+- Se o trecho mostra easter egg, segredo, missão secundária, bug, detalhe escondido, mistério, carro raro ou lugar secreto, use a palavra exata no título ("easter egg", "segredo", "missão secundária", "bug", "detalhe"): é o que as pessoas estão buscando agora.
+- Formatos que dão clique sem mentir: pergunta que o vídeo responde; número concreto; contraste ("quis X e ganhou Y"); fala marcante do streamer entre aspas simples.
+- A curiosidade vem de um detalhe concreto que falta, não de esconder o assunto. EVITE final vago e gasto: "deu nisso", "até isso acontecer", "e ninguém esperava", "olha o que aconteceu", "não esperava por isso", "deu tudo errado", "e olha o caos".
+- "GTA 6" aparece uma vez só. Escreva como brasileiro fala: casual, direto, sem palavrão. No máximo 1 emoji e só no fim. Nada de título todo em maiúsculas; no máximo 1 palavra em maiúsculas.
+- Proibido: hashtag no título, mentir, prometer o que não acontece, entregar spoiler da história principal (final de missão principal, morte ou traição de personagem), dizer que é GTA 6 quando o jogo é outro, palavras como "clickbait", "vídeo", "short".
+- Termos que o público brasileiro busca agora: "GTA 6", "easter egg GTA 6", "segredos GTA 6", "missão secundária", "bug GTA 6", "Vice City", "Leonida", "Jason", "Lucia", nome do streamer.
+- Tags: comece pelo nome do streamer + GTA 6, depois o assunto exato do momento (ex.: "easter egg gta 6", "fuga da polícia gta 6"), por fim termos gerais ("cortes gta 6", "gta 6 momentos engraçados").""",
+    "en": """TITLE RULES (GTA 6 Short, game is out; follow all):
+- 40 to 60 characters. Start with the streamer's name (never the clip channel's name) and say WHAT specifically happened: the object, place, character, number or line only this clip has (e.g., "xQc found a UFO in the GTA 6 swamp", "Kai Cenat got 5 stars in 20 seconds in GTA 6").
+- If the clip shows an easter egg, secret, side mission, glitch, hidden detail or mystery, use that exact word in the title: it is what people search now.
+- Formats that earn the click without lying: a question the clip answers; a concrete number; a contrast; a striking quote.
+- Curiosity comes from one concrete missing detail, not from hiding the topic. AVOID worn-out vague endings: "then this happened", "and nobody expected it", "wait for it".
+- "GTA 6" appears once. Casual tone, no profanity. At most 1 emoji, at the end. Never all caps; at most 1 word in caps.
+- Forbidden: hashtags in title, lying, main-story spoilers, calling it GTA 6 when it is another game, the words "clickbait", "video", "short".
+- Tags: streamer + GTA 6 first, then the exact topic of the moment, then general terms."""
 }
 
 EXEMPLOS = {
-    "pt": "O Coringa achou que tava sozinho no {jogo}... até isso acontecer",
-    "en": "Kai Cenat thought he was alone in {jogo}... then this happened",
+    "pt": "Alanzoka achou um easter egg do GTA 5 escondido no {jogo}",
+    "en": "xQc found a GTA 5 easter egg hidden in {jogo}",
 }
 APELIDOS = {"Grand Theft Auto VI": "GTA 6", "Grand Theft Auto V": "GTA RP", "Grand Theft Auto IV": "GTA 4",
             "Grand Theft Auto: San Andreas": "GTA San Andreas", "Red Dead Redemption 2": "Red Dead 2",

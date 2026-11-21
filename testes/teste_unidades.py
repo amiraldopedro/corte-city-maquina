@@ -44,3 +44,23 @@ class YT:
 assert publicar.publicar(Est(), "m", YT(), Path("x.mp4"), "t", "d", [], "pt", None, None, log=lambda *_: None) == "JA"
 
 print("OK: testes rápidos")
+
+
+# ---- nomes de canal viram nome de streamer; títulos sem palavrão e sem final vago na frente
+from maquina.config import limpar_nome
+assert limpar_nome("Cortes do Davy Jones [OFICIAL]") == "Davy Jones"
+assert limpar_nome("BisteconeLive") == "Bistecone" and limpar_nome("CellbitLives") == "Cellbit"
+assert limpar_nome("xQc") == "xQc" and limpar_nome("IShowSpeed") == "IShowSpeed" and limpar_nome("alanzoka") == "alanzoka"
+assert titulos.ruim("GTA 6: que porra foi essa que aconteceu com o Davy") == "palavrão"
+assert not titulos.ruim("GTA 6: o putt de golfe mais difícil de Vice City")  # 'putt' não é palavrão
+_t, _ = titulos.escolher("Calango no GTA 6 quis buzinar, pulou do carro e deu nisso",
+                         ["Calango no GTA 6 quis buzinar e pulou do carro andando"], "Calango", [])
+assert _t.endswith("andando"), _t
+assert titulos.limpar_cru("Kkkkkkkkkkkk que porra e ESSA?????????") in ("que e essa", "que e ESSA")
+assert "http" not in titulos.limpar_cru("olha o ovni no pântano do GTA 6 https://t.co/abc @fulano")
+from maquina.youtube_auto import rodizio
+class _F:  # fila de mentira
+    dados = {}
+_f = _F()
+assert rodizio(_f, "x", ["a", "b", "c", "d"], 3) == ["a", "b", "c"] and rodizio(_f, "x", ["a", "b", "c", "d"], 3) == ["d", "a", "b"]
+print("ok: nomes, palavrão, final vago e rodízio de temas")

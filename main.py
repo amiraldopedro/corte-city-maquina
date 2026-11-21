@@ -547,6 +547,10 @@ def produzir(cfg: Config):
             if limite <= 0:
                 log("  meta de Shorts de hoje já cumprida")
                 continue
+            from maquina.youtube import agenda_cheia
+            if not TESTE and canal.postar == "automatico" and agenda_cheia(est, canal):
+                log("  agenda cheia pelas próximas 30 h: não monto Short novo agora (ia ao ar velho)")
+                continue
             if not TESTE and canal.postar != "automatico" and esperando(est) >= MAX_ESPERANDO:
                 log(f"  já tem {esperando(est)} vídeos prontos esperando você postar — não vou fazer mais agora")
                 continue
@@ -681,12 +685,20 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
             escolhidos.append(m)
             if len(escolhidos) >= qtd + 4:  # sobra, caso algum trecho não baixe ou não isole a voz
                 break
+        if os.getenv("GITHUB_ACTIONS") and not canal.refresh_token and tipo in ("dia", "top10"):
+            log(f"== {canal.nome}: sem a chave do YouTube, não monto compilado (gastava horas e ninguém postava)")
+            continue
+        cid_dia = f"{tipo}_{datetime.now().strftime('%Y%m%d')}"
+        if tipo == "dia" and est.momentos.get(cid_dia, {}).get("status") in ("pronto", "postado", "aguardando_cota"):
+            log(f"== {canal.nome}: o Melhores do Dia de hoje já foi feito")
+            continue
         log(f"== {canal.nome}: compilado {tipo} com até {min(len(escolhidos), qtd)} momentos")
         if len(escolhidos) < 3:
             log("  poucos momentos, fica para a próxima")
             continue
         nomes = {s.login: s.nome for s in canal.streamers + canal.kick}
-        nomes.update({m["streamer"]: m["nome"] for m in escolhidos if m.get("nome") and m["streamer"] not in nomes})
+        nomes.update({m["streamer"]: cfg.nome_streamer(m["streamer"], m["nome"]) for m in escolhidos
+                      if m.get("nome") and m["streamer"] not in nomes})
         agora_local = datetime.now(ZoneInfo(canal.fuso))
         if tipo == "dia" and agora_local.hour < 6:  # montou depois da meia-noite: os momentos são de ontem
             agora_local -= timedelta(days=1)
@@ -781,7 +793,7 @@ def montar_dia_longo(cfg: Config, canal: Canal, est: Estado, pool: list[dict], n
     Tudo sem spoiler da história (a IA lê a fala de cada trecho e tira o que for missão/cutscene)."""
     from maquina import cerebro, compilado, editar
     from maquina.transcrever import transcrever
-    curtos = [m for m in pool if not m.get("_bloco")]
+    curtos = [m for m in pool if not m.get("_bloco") and not m.get("yt_longo")]  # trecho de 10 min é bloco, não recheio
     # blocos: momentos com a live gravada (Twitch VOD ou trecho grande do YouTube), um por streamer
     com_live = [m for m in pool if m.get("video_id") or m.get("yt_longo")]
     blocos, streamers_bloco = [], set()
@@ -847,6 +859,8 @@ def montar_dia_longo(cfg: Config, canal: Canal, est: Estado, pool: list[dict], n
                 por_bloco(b2)
         if any(x["id"] == m["id"] for x in blocos):
             continue  # é o próprio momento do bloco longo
+        if any(x.get("yt_video") and x.get("yt_video") == m.get("yt_video") for x in blocos):
+            continue  # Short do mesmo vídeo do YouTube que já entrou como bloco longo
         if b1 and any(x.get("video_id") == m.get("video_id") and m.get("video_id") and
                       x["_bloco_ini"] <= m["inicio"] - max(0.0, x["inicio"] - 360) <= x["_bloco_fim"] for x in blocos):
             continue  # esse momento já aparece dentro do bloco longo
@@ -1087,16 +1101,21 @@ def fazer_post_x(cfg: Config, canal: Canal, est: Estado, link: str):
         r = cerebro._perguntar_ollama(cfg.ia_endereco, cfg.noticias.get("modelo") or cfg.ia_modelo,
             f'Escreva um título de YouTube Shorts em português do Brasil, de 40 a 65 caracteres, para este post da comunidade '
             f'do GTA 6 no X, feito por {autor}. Pode ser meme, opinião, teoria ou novidade: o título acompanha o tom do post '
-            f'(se for meme, título engraçado). Comece com "GTA 6:". Não invente nada que não está no post. '
+            f'(se for meme, título engraçado). Comece com "GTA 6:" e diga o assunto concreto do post (quem, o quê, onde): '
+            f'o título tem que fazer sentido para quem NÃO viu o post. Proibido: palavrão, risada escrita ("kkkk"), gíria de chat, '
+            f'pontuação repetida ("???"), copiar o post ao pé da letra e frases vagas como "confira o post" ou "olha isso". '
+            f'Não invente nada que não está no post. '
             f'Post: "{post["texto"][:600]}". Responda só com JSON: {{"titulo": "..."}}')
         titulo = cerebro._limpar_titulo(str(r.get("titulo", "")))
     except Exception as e:
         log(f"  IA fora para o título, usando o padrão ({str(e)[:80]})")
     from maquina import titulos
     titulo = titulos.caixa_de_livro(titulo)
-    if titulos.ruim(titulo):
-        resumo = re.sub(r"\s+", " ", post["texto"])[:48].rstrip(" ,.;:") or "olha isso"
-        titulo = titulos.caixa_de_livro(f"GTA 6: {resumo}"[:90])
+    if titulos.ruim(titulo) or re.search(r"confira o post|circulando no x", titulo, re.I):
+        resumo = titulos.limpar_cru(post["texto"])[:52].rstrip(" ,.;:")
+        titulo = titulos.caixa_de_livro(f"GTA 6: {resumo}"[:90]) if len(resumo.split()) >= 4 else ""
+        if titulos.ruim(titulo):  # post só de risada/grito: o título fala de quem postou em vez de repetir o grito
+            titulo = f"GTA 6: o post de {autor[:24]} que a comunidade não para de repostar"
     import random
     oficial = post["perfil"].lower() in ("rockstargames", "rockstarsupport", "take2interactive")
     chamada = ((f"{autor[:18]} POSTOU" if oficial else random.choice(
@@ -1505,8 +1524,93 @@ def acao_painel(cfg: Config, a):
         est.atualizar(a.id, **mud)
         est.salvar()
         log(f"  corrigido {a.id}: {mud}")
+    elif acao == "reagendar":  # espalha os Shorts agendados na grade nova e conserta títulos com nome de canal
+        reagendar(cfg, cfg.canal(a.canal))
     else:
         raise SystemExit(f"ação desconhecida: {acao}")
+
+
+def reagendar(cfg: Config, canal: Canal):
+    """Depois de mudar a grade (ex.: 18 -> 10 Shorts por dia): reencaixa os Shorts já agendados nos horários novos,
+    na mesma ordem, sem apagar nada. De quebra troca o nome do canal de cortes pelo nome do streamer nos títulos."""
+    from maquina.publicar import _gastar
+    from maquina.youtube import YouTube
+    est = Estado(canal.id)
+    yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+    tz = ZoneInfo(canal.fuso)
+    agora_dt = datetime.now(timezone.utc)
+
+    def quando(m):
+        try:
+            return datetime.fromisoformat((m.get("publicar_em") or "").replace("Z", "+00:00"))
+        except ValueError:
+            return None
+    futuros = [m for m in est.momentos.values() if m.get("youtube_id") and m["status"] == "postado"
+               and quando(m) and quando(m) > agora_dt + timedelta(minutes=45)]
+    verticais = sorted([m for m in futuros if m.get("tipo", "short") in ("short", "noticia")], key=quando)
+    ocupados = {m["publicar_em"] for m in est.momentos.values() if m.get("publicar_em") and m not in verticais}
+    grade = sorted(canal.horarios)
+    vagas, dia = [], 0
+    while len(vagas) < len(verticais) and dia < 30:
+        data = (datetime.now(tz) + timedelta(days=dia)).date()
+        for h in grade:
+            hh, mm = map(int, h.split(":"))
+            dt = datetime(data.year, data.month, data.day, hh, mm, tzinfo=tz)
+            iso = dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            if dt.astimezone(timezone.utc) > agora_dt + timedelta(hours=1) and iso not in ocupados:
+                vagas.append(iso)
+        dia += 1
+    mudou = 0
+    for m, novo in zip(verticais, vagas):
+        titulo = _titulo_sem_canal(cfg, m)
+        mudancas = {}
+        if novo != m["publicar_em"]:
+            mudancas["publicar_em"] = novo
+        if titulo and titulo != m.get("titulo"):
+            mudancas["titulo"] = titulo
+        if not mudancas:
+            continue
+        try:
+            yt.corrigir(m["youtube_id"], mudancas.get("titulo"), mudancas.get("publicar_em"))
+            _gastar(est, 51)
+            est.atualizar(m["id"], **mudancas)
+            mudou += 1
+            log(f"  {m['id']}: {mudancas}")
+        except Exception as e:
+            log(f"  {m['id']}: não deu ({str(e)[:120]})")
+    # já publicados (ou longos) com o nome do canal de cortes no título: só o título
+    for m in est.momentos.values():
+        if m in verticais or not m.get("youtube_id") or m["status"] != "postado":
+            continue
+        titulo = _titulo_sem_canal(cfg, m)
+        if titulo and titulo != m.get("titulo"):
+            try:
+                yt.corrigir(m["youtube_id"], titulo, None)
+                _gastar(est, 51)
+                est.atualizar(m["id"], titulo=titulo)
+                mudou += 1
+                log(f"  {m['id']}: título -> {titulo}")
+            except Exception as e:
+                log(f"  {m['id']}: não deu ({str(e)[:120]})")
+    est.salvar()
+    ultimo = vagas[len(verticais) - 1] if verticais and len(vagas) >= len(verticais) else "?"
+    log(f"  reagendados/corrigidos: {mudou} de {len(verticais)} Shorts na fila; o último vai ao ar em {ultimo}")
+
+
+def _titulo_sem_canal(cfg: Config, m: dict) -> str:
+    """'Cortes do Davy Jones [OFICIAL]: Davy Jones no GTA 6...' -> 'Davy Jones no GTA 6...'."""
+    titulo, cru = m.get("titulo") or "", m.get("nome") or ""
+    if not titulo or not cru or m.get("streamer") in ("*", None):
+        return titulo
+    limpo = cfg.nome_streamer(m["streamer"], cru)
+    if limpo == cru or cru not in titulo:
+        return titulo
+    resto = titulo[len(cru):].lstrip(" :")
+    if titulo.startswith(cru) and limpo.split()[0].lower() in resto.lower():
+        novo = resto  # "Canal: Fulano fez X" -> "Fulano fez X"
+    else:
+        novo = titulo.replace(cru, limpo)
+    return novo[:1].upper() + novo[1:]
 
 
 def main():

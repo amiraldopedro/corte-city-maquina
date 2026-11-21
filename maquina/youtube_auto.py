@@ -25,15 +25,30 @@ def _segundos(iso: str) -> int:
     return d * 86400 + h * 3600 + mi * 60 + s
 
 
-def buscar(yt, conf: dict, ja: set[str]) -> list[dict]:
+def rodizio(est_fila, chave: str, termos: list[str], quantos: int) -> list[str]:
+    """Cada pesquisa custa 100 de cota: em vez de pesquisar todos os temas toda vez, roda `quantos` por vez, em fila."""
+    if not termos:
+        return []
+    quantos = max(1, min(int(quantos), len(termos)))
+    pos = est_fila.dados.setdefault("rodizio", {})
+    i = int(pos.get(chave, 0)) % len(termos)
+    pos[chave] = (i + quantos) % len(termos)
+    return [termos[(i + k) % len(termos)] for k in range(quantos)]
+
+
+def buscar(yt, conf: dict, ja: set[str], termos: list[str] | None = None) -> list[dict]:
     dias = int(conf.get("dias", 30))
     desde = (datetime.now(timezone.utc) - timedelta(days=dias)).isoformat(timespec="seconds").replace("+00:00", "Z")
-    ids = []
-    for termo in conf.get("termos", ["GTA 6 react", "reagindo trailer GTA 6"]):
+    ids, tema_de = [], {}
+    for termo in (termos if termos is not None else conf.get("termos", ["GTA 6 gameplay"])):
         r = yt.search().list(q=termo, part="id", type="video", order="viewCount", maxResults=25,
                              publishedAfter=desde, regionCode="BR", relevanceLanguage="pt",
                              videoDuration="any").execute()
-        ids += [it["id"]["videoId"] for it in r.get("items", []) if it["id"]["videoId"] not in ja]
+        for it in r.get("items", []):
+            vid = it["id"]["videoId"]
+            if vid not in ja:
+                ids.append(vid)
+                tema_de.setdefault(vid, termo)
     ids = list(dict.fromkeys(ids))
     videos = []
     for i in range(0, len(ids), 50):
@@ -51,10 +66,18 @@ def buscar(yt, conf: dict, ja: set[str]) -> list[dict]:
             continue
         if not re.search(r"gta|grand theft", s.get("title", ""), re.I):
             continue
+        dias_no_ar = max(0.5, (datetime.now(timezone.utc)
+                               - datetime.fromisoformat(s["publishedAt"].replace("Z", "+00:00"))).total_seconds() / 86400)
         bons.append({"id": v["id"], "titulo": s["title"], "canal": s["channelTitle"], "views": views, "duracao": dur,
+                     "tema": tema_de.get(v["id"], ""), "forca": views / dias_no_ar,
                      "react": bool(re.search(r"react|reag|trailer", s["title"], re.I))})
-    bons.sort(key=lambda x: -x["views"])
-    return bons
+    bons.sort(key=lambda x: -x["forca"])  # views por dia: o que está subindo agora, não o mais antigo
+    # um vídeo por tema primeiro (easter egg, missão secundária, bug...), depois o resto pela força
+    vistos, primeiro, resto = set(), [], []
+    for v in bons:
+        (resto if v["tema"] in vistos else primeiro).append(v)
+        vistos.add(v["tema"])
+    return primeiro + resto
 
 
 def buscar_lives(yt, conf: dict, ja: set[str]) -> list[dict]:
@@ -124,22 +147,38 @@ def rodar(cfg) -> int:
     if vagas <= 0:
         print("  reacts: o robô automático já pegou os de hoje")
     else:
-        bons = buscar(yt, conf, ja)
-        _gastar(est_canal, 100 * len(conf.get("termos", [1, 1])) + 2)
+        termos = rodizio(est_fila, "youtube_auto", list(conf.get("termos", ["GTA 6 gameplay"])),
+                         int(conf.get("termos_por_rodada", 3)))
+        est_fila.salvar()
+        print(f"  pesquisando temas: {', '.join(termos)}")
+        bons = buscar(yt, conf, ja, termos)
+        _gastar(est_canal, 100 * len(termos) + 2)
         est_canal.salvar()
-        escolhidos = bons[:vagas]
+        # variedade: no máximo N vídeos do mesmo canal por dia
+        por_canal = {}
+        for m in est_fila.momentos.values():
+            if m.get("auto") and (m.get("pedido_em") or "")[:10] == hoje and m.get("canal_nome"):
+                por_canal[m["canal_nome"]] = por_canal.get(m["canal_nome"], 0) + 1
+        escolhidos = []
+        for v in bons:
+            if len(escolhidos) >= vagas:
+                break
+            if por_canal.get(v["canal"], 0) >= int(conf.get("max_por_canal", 1)):
+                continue
+            por_canal[v["canal"]] = por_canal.get(v["canal"], 0) + 1
+            escolhidos.append(v)
         if escolhidos:
             pedir([f"https://www.youtube.com/watch?v={v['id']}" for v in escolhidos])
             est_fila = fila()
             for v in escolhidos:
                 if v["id"] in est_fila.momentos:
                     est_fila.momentos[v["id"]].update(auto=True, titulo=v["titulo"], canal_nome=v["canal"],
-                                                      isolar_voz=v["react"], views_yt=v["views"])
-                    print(f"  🤖 {v['titulo'][:70]} ({v['canal']}, {v['views']:,} views)")
+                                                      isolar_voz=v["react"], views_yt=v["views"], tema=v["tema"])
+                    print(f"  🤖 [{v['tema']}] {v['titulo'][:70]} ({v['canal']}, {v['views']:,} views)")
             est_fila.salvar()
             total += len(escolhidos)
         else:
-            print("  reacts: nenhum vídeo novo de GTA passou no filtro agora")
+            print("  nenhum vídeo novo desses temas passou no filtro agora (na próxima rodada tenta outros temas)")
 
     # ---- lives encerradas de GTA 6 (qualquer canal BR) ----
     lv = conf.get("lives") or {}

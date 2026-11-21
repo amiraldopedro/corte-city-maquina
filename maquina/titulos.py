@@ -15,6 +15,10 @@ ESPANHOL = re.compile(r"\b(venir|pero|muy|cuando|ahora|también|aquí|hay|qué|e
                       r"juego|todos los|mejor|increíble|tráiler)\b", re.I)
 QUEBRADO = re.compile(r"^\W|\.\.\.$|…$|\?\?|!!|\b(\w+) \1\b", re.I)
 GIRIA_DE_CHAT = re.compile(r"\b(msm|vc|vcs|tb|tbm|pq|mds|slk|kk+|kkk+|lol|lmao|0\.o|o\.o|xd)\b", re.I)
+PALAVRAO = re.compile(r"\b(porra|caralh\w*|krl|pqp|fdp|foda\w*|fud\w+|put[ao]s?|merda|bost\w*|bucet\w*|cuz\w+|"
+                      r"viad\w*|arrombad\w*|desgraç\w*|fuck\w*|shit\w*|bitch\w*|wtf)\b", re.I)
+VAGO = re.compile(r"deu nisso|até isso acontecer|ninguém esperava|olha o que aconteceu|não esperava por isso|"
+                  r"deu tudo errado|olha o caos|then this happened|nobody expected|wait for it", re.I)
 PROIBIDAS = re.compile(r"\b(clickbait|short|shorts|vídeo|video|inscreva|subscribe)\b|#", re.I)
 PALAVRAS_VAZIAS = set("""a o as os um uma de do da dos das no na nos nas em e é que com por pra para ao à se
 seu sua the of in to and is on at for with gta 6 vi rp live ele ela isso esse essa""".split())
@@ -80,6 +84,8 @@ def ruim(t: str, nome: str = "") -> str:
         return "palavra proibida"
     if GIRIA_DE_CHAT.search(t):
         return "parece título de chat"
+    if PALAVRAO.search(t):
+        return "palavrão"
     letras = [c for c in t if c.isalpha()]
     if letras and sum(c.isupper() for c in letras) > 0.5 * len(letras):
         return "caixa alta"
@@ -115,6 +121,7 @@ def escolher(principal: str, extras: list[str], nome: str, ja: list[str]) -> tup
     candidatos = [caixa_de_livro(t) for t in [principal, *extras] if t]
     bons = [t for t in candidatos if not ruim(t, nome)]
     novos = [t for t in bons if not repetido(t, ja)]
+    novos.sort(key=lambda t: bool(VAGO.search(t)))  # título que diz o assunto vem antes do final vago ("deu nisso")
     if novos:
         escolhido = novos[0]
     elif bons:
@@ -123,3 +130,16 @@ def escolher(principal: str, extras: list[str], nome: str, ja: list[str]) -> tup
         escolhido = ""
     resto = [t for t in bons if t != escolhido]
     return escolhido, resto
+
+
+def limpar_cru(texto: str) -> str:
+    """Texto de post (X) -> frase que serve de título: sem link, @, risada, palavrão, grito e pontuação repetida."""
+    t = re.sub(r"https?://\S+|[@#]\w+", " ", texto or "")
+    t = PALAVRAO.sub(" ", t)
+    t = re.sub(r"\b(?:k{3,}|(?:ha){2,}h?|(?:rs){2,}|a{4,}|mano|man|bro)\b", " ", t, flags=re.I)
+    t = re.sub(r"([!?.,])\1+", r"\1", t)
+    t = re.sub(r"\s+", " ", t).strip(" ,.;:!?-")
+    letras = [c for c in t if c.isalpha()]
+    if letras and sum(c.isupper() for c in letras) > 0.5 * len(letras):
+        t = t.lower()
+    return t

@@ -29,15 +29,30 @@ noticias:
 # e põe na fila do robô do Mac (que baixa só os melhores trechos). Você não precisa colar link.
 youtube_auto:
   ligado: true
-  por_dia: 2                     # vídeos novos por dia (cada um vira ~3 Shorts + 1 corte longo)
-  dias: 30                       # publicados nos últimos X dias
-  min_views: 50000
-  termos: ["GTA 6 react", "reagindo GTA 6"]
+  por_dia: 3                     # vídeos novos por dia (cada um vira ~3 Shorts + 1 corte longo)
+  dias: 3                        # só o que saiu depois do lançamento (nada de react de trailer velho)
+  min_views: 20000
+  max_por_canal: 1               # no máximo 1 vídeo do mesmo canal por dia (variedade)
+  termos_por_rodada: 3           # cada pesquisa custa cota: a máquina roda 3 temas por vez, em rodízio
+  # Temas do jogo lançado. A máquina pesquisa em rodízio e guarda o tema de cada vídeo (vai pro título).
+  termos:
+    - "GTA 6 easter egg"
+    - "GTA 6 segredos"
+    - "GTA 6 missão secundária"
+    - "GTA 6 mistério"
+    - "GTA 6 detalhes"
+    - "GTA 6 bugs engraçados"
+    - "GTA 6 momentos engraçados"
+    - "GTA 6 curiosidades"
+    - "GTA 6 dicas"
+    - "GTA 6 carros raros"
+    - "GTA 6 localização"
+    - "GTA 6 gameplay"
   # Lives de GTA 6 que TERMINARAM (de qualquer canal BR, não só os streamers da lista).
   # O robô do Mac acha os melhores trechos sozinho (mais repetidos + picos de volume).
   lives:
     ligado: true
-    por_dia: 3
+    por_dia: 2
     horas: 48          # lives encerradas nas últimas X horas
     min_views: 20000
     termos: ["GTA 6"]
@@ -46,11 +61,22 @@ youtube_auto:
 # tira a voz original, narra em português (adaptado, não literal) e credita o canal original.
 modelar:
   ligado: true
-  por_dia: 8
-  dias: 4              # viralizou nos últimos X dias
+  por_dia: 5
+  dias: 3              # viralizou nos últimos X dias
   min_views: 150000
-  max_seg: 75
-  termos: ["GTA 6", "GTA 6 gameplay"]
+  max_seg: 60
+  termos_por_rodada: 3   # rodízio de temas (cada pesquisa custa cota)
+  termos:
+    - "GTA 6"
+    - "GTA 6 easter egg"
+    - "GTA 6 secret"
+    - "GTA 6 details"
+    - "GTA 6 funny moments"
+    - "GTA 6 glitch"
+    - "GTA 6 side mission"
+    - "GTA 6 mystery"
+    - "GTA 6 segredo"
+    - "GTA 6 curiosidades"
   voz: "pt-BR-AntonioNeural"
   # TikToks estourados tambem viram modelo (o robô do Mac caça e baixa; Reels/X entram por link manual)
   tiktok:
@@ -99,7 +125,7 @@ lancamento:
   jogos: ["Grand Theft Auto VI"]   # no lançamento é só GTA 6
   canais:
     br:
-      horarios: ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00", "00:00"]   # 18 Shorts por dia na semana do lançamento
+      horarios: ["08:00", "10:00", "12:00", "14:00", "16:00", "17:30", "19:00", "20:30", "21:30", "23:00"]   # 10 Shorts por dia (18 por dia rendeu menos: metade nem era distribuída)
       descobrir_min_views: 300   # com muita gente jogando, só os clipes mais vistos
       descobrir_jogos: ["Grand Theft Auto VI"]
 
@@ -177,7 +203,7 @@ canais:
     # português, no estilo post do Twitter (texto em cima, vídeo embaixo). Twitch + lives do YouTube.
     gringos:
       ligado: true
-      por_dia: 4
+      por_dia: 2
       twitch:
         - { login: kaicenat,      nome: "Kai Cenat" }
         - { login: xqc,           nome: "xQc" }
@@ -224,6 +250,25 @@ canais:
       - { login: caseoh_,      nome: "CaseOh" }
       - { login: jynxzi,       nome: "Jynxzi" }
       - { login: summit1g,     nome: "summit1g" }
+
+# Nome bonito de quem aparece nos títulos (canal do YouTube/Twitch -> como o público chama).
+# Sem isso o título sai com o nome do canal de cortes ("Cortes do Davy Jones [OFICIAL]").
+apelidos:
+  CortesdoDavyJones: "Davy Jones"
+  DavyJonesGTA6: "Davy Jones"
+  davyjones: "Davy Jones"
+  PaulinhoLOKOoficial: "Paulinho O Loko"
+  LOUDCoringa: "Coringa"
+  BisteconeLive: "Bistecone"
+  bisteconee: "Bistecone"
+  CellbitLives: "Cellbit"
+  cellbit: "Cellbit"
+  CheezhOfficial: "Cheezh"
+  LipaoGamer: "Lipão Gamer"
+  renanplaycortes: "Renan Play"
+  FlowGamesPodcast: "Flow Games"
+  ricfazeres: "RicFazeres"
+  calango: "Calango"
 
 # Streamers bloqueados (reclamaram ou pediram remoção). Nunca mais são cortados.
 # Para bloquear, use o botão "Controle" no GitHub Actions (ele edita esta lista sozinho).

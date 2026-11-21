@@ -138,3 +138,14 @@ def proximo_horario(horarios: list[str], fuso: str, ocupados: set[str]) -> str:
             if quando > agora + timedelta(hours=1) and iso not in ocupados:
                 return iso
     raise RuntimeError("agenda cheia pelos próximos 14 dias")
+
+
+def agenda_cheia(est, canal, horas: int = 30) -> bool:
+    """True se o próximo horário livre da grade está a mais de `horas` daqui: fazer vídeo agora só empilha
+    conteúdo que vai ao ar velho (e passa do limite de Shorts por dia que o canal aguenta)."""
+    ocupados = {x.get("publicar_em") for x in est.momentos.values() if x.get("publicar_em")}
+    try:
+        livre = datetime.fromisoformat(proximo_horario(canal.horarios, canal.fuso, ocupados).replace("Z", "+00:00"))
+    except RuntimeError:
+        return True
+    return livre > datetime.now(ZoneInfo("UTC")) + timedelta(hours=horas)

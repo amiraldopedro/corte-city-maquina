@@ -74,6 +74,7 @@ class Config:
     noticias: dict = field(default_factory=dict)
     youtube_auto: dict = field(default_factory=dict)
     modelar: dict = field(default_factory=dict)
+    apelidos: dict = field(default_factory=dict)
     twitch_client_id: str = ""
     twitch_client_secret: str = ""
     yt_client_id: str = ""
@@ -96,7 +97,28 @@ class Config:
             for s in c.streamers + c.kick:
                 if s.login == login:
                     return s.nome
-        return padrao or login
+        for chave in (login, padrao):
+            if chave and chave.lower() in self.apelidos:
+                return self.apelidos[chave.lower()]
+        return limpar_nome(padrao or login)
+
+
+_SOBRAS = r"(?:oficial|official|lives?|cortes|clipes|clips|tv|gta\s?6|gta\s?vi|gameplays?)"
+
+
+def limpar_nome(nome: str) -> str:
+    """'Cortes do Davy Jones [OFICIAL]' -> 'Davy Jones'; 'BisteconeLive' -> 'Bistecone'."""
+    import re
+    original = (nome or "").strip()
+    t = re.sub(r"[\[(（【].*?[\])）】]", " ", original)                     # [OFICIAL], (Oficial)
+    t = re.sub(r"^\s*(?:cortes|canal|clipes|melhores momentos)\s+d[oae]s?\s+", "", t, flags=re.I)
+    t = re.sub(r"^\s*cortesd[oa](?=[A-Z])", "", t)                         # CortesdoDavyJones
+    t = re.sub(rf"\b{_SOBRAS}\b", " ", t, flags=re.I)                      # palavra solta
+    if " " not in t.strip():                                               # nome colado: BisteconeLive, DavyJonesGTA6
+        colado = re.sub(r"(?<=[A-Za-zà-ú]{4})(?:Lives?|Official|Oficial|oficial|official|GTA6|TV|Cortes)$", "", t.strip())
+        t = colado
+    t = re.sub(r"\s+", " ", t).strip(" -|:·")
+    return t if len(t) >= 3 else original
 
 
 def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
@@ -165,6 +187,7 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
         noticias=dict(bruto.get("noticias") or {}),
         youtube_auto=dict(bruto.get("youtube_auto") or {}),
         modelar=dict(bruto.get("modelar") or {}),
+        apelidos={str(k).lower(): str(v) for k, v in (bruto.get("apelidos") or {}).items()},
         minimo_clipes=int(mm.get("clipes", 2)), minimo_views=int(mm.get("views", 150)),
         um_clipe_views=int(mm.get("um_clipe_views", 3 * int(mm.get("views", 150)))), lancado=lancado,
         clipes_quentes=int(mm.get("quentes", 6)),
