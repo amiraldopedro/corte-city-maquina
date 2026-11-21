@@ -20743,6 +20743,40 @@
    "publicar_em": "2026-11-22T15:00:00Z",
    "postado_em": "2026-11-21T11:21:54+00:00",
    "envio_pendente": null
+  },
+  "mod_FpIaFxsQhII": {
+   "id": "mod_FpIaFxsQhII",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-21T11:23:27+00:00",
+   "atualizado_em": "2026-11-21T11:23:34+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "Ele tentou comprar o GTA 6 com o cartão do irmão que estava dormindo 😱",
+   "gancho": "COMPROU O GTA 6 ESCONDIDO",
+   "descricao": "Ele tentou comprar o GTA 6 com o cartão do irmão que estava dormindo 😱\n\nIdeia e gameplay: Nishu jeet aarya (https://www.youtube.com/watch?v=FpIaFxsQhII)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-21T11:23:27+00:00",
+   "nome": "Nishu jeet aarya",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 27.7,
+   "modelo_de": "https://www.youtube.com/watch?v=FpIaFxsQhII",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_FpIaFxsQhII.mp4",
+   "video_asset": 775343463,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_FpIaFxsQhII.jpg",
+   "thumb_asset": 775343562,
+   "youtube_id": "BwiSS2bCNfM",
+   "publicar_em": "2026-11-23T19:00:00Z",
+   "postado_em": "2026-11-21T11:23:34+00:00",
+   "envio_pendente": null
   }
  },
  "clipes_vistos": [
@@ -23688,13 +23722,13 @@
   "2026-11-18": 5320,
   "2026-11-19": 4512,
   "2026-11-20": 2016,
-  "2026-11-21": 4482
+  "2026-11-21": 4582
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
   "2026-11-20": 5,
-  "2026-11-21": 3
+  "2026-11-21": 4
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
