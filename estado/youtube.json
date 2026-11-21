@@ -1660,12 +1660,14 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-21T02:06:53+00:00",
-   "atualizado_em": "2026-11-21T02:06:53+00:00",
+   "atualizado_em": "2026-11-21T05:36:12+00:00",
    "auto": true,
    "titulo": "CHEGOU MEU GTA 6",
    "canal_nome": "Gameplayrj",
    "isolar_voz": false,
-   "views_yt": 644076
+   "views_yt": 644076,
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] 739jvm-giQM: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "mc90rRO3nME": {
    "id": "mc90rRO3nME",
