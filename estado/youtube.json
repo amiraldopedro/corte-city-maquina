@@ -1833,11 +1833,11 @@
   "zVwjEMyTcDA": {
    "id": "zVwjEMyTcDA",
    "link": "https://www.youtube.com/watch?v=zVwjEMyTcDA",
-   "status": "baixado",
+   "status": "na_fila",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-21T10:53:14+00:00",
-   "atualizado_em": "2026-11-21T11:16:05+00:00",
+   "atualizado_em": "2026-11-21T11:16:21+00:00",
    "auto": true,
    "titulo": "Testei os MAIORES MITOS do GTA 6",
    "canal_nome": "Flakes Power",
