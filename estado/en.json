@@ -34467,7 +34467,11 @@
    "_priorizado": true,
    "score_v": 2,
    "status": "novo",
-   "criado_em": "2026-11-21T11:16:46+00:00"
+   "criado_em": "2026-11-21T11:16:46+00:00",
+   "usado_em": [
+    "longo"
+   ],
+   "atualizado_em": "2026-11-21T11:37:50+00:00"
   },
   "2935283335_16388": {
    "id": "2935283335_16388",
@@ -35553,6 +35557,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-21T11:16:53+00:00"
+  },
+  "longo_2935283335_16244": {
+   "id": "longo_2935283335_16244",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "CaseOh finds Halifax in GTA 6 and the statue is missing 😳",
+   "descricao": "CaseOh finds Halifax in GTA 6 and the statue is missing 😳\nIn this CaseOh GTA 6 clip, CaseOh searches every room of the hotel for Benedict Halifax and finally finds him, but the meeting takes a wild turn. The crew asks to see what is in the bag, and CaseOh jokes that the YouTube editors will have a field day with the scene. It ends with the group demanding to know where their statue is and asking when he swiped those credit cards.\n\n🎮 Original stream: https://twitch.tv/caseoh_\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "caseoh",
+    "caseoh gta 6",
+    "gta 6",
+    "gta 6 halifax",
+    "gta 6 statue mission",
+    "gta 6 funny moments",
+    "caseoh funny moments",
+    "caseoh reaction",
+    "gta 6 hotel scene",
+    "gta 6 cutscene reaction",
+    "gta 6 gameplay",
+    "caseoh live highlights",
+    "caseoh gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-21T11:40:26+00:00",
+   "criado_em": "2026-11-21T11:40:26+00:00",
+   "itens": [
+    "2935283335_16244"
+   ],
+   "streamers": [
+    "caseoh_"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935283335_16244_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935283335_16244_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935283335_16244.mp4",
+   "video_asset": 775387430,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935283335_16244.jpg",
+   "thumb_asset": 775387653
   }
  },
  "clipes_vistos": [
