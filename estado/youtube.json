@@ -1672,17 +1672,17 @@
   "mc90rRO3nME": {
    "id": "mc90rRO3nME",
    "link": "https://www.youtube.com/watch?v=mc90rRO3nME",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-21T02:06:53+00:00",
-   "atualizado_em": "2026-11-21T06:21:42+00:00",
+   "atualizado_em": "2026-11-21T06:47:44+00:00",
    "auto": true,
    "titulo": "FALTA UMA SEMANA para o GTA 6",
    "canal_nome": "Gameplayrj",
    "isolar_voz": false,
    "views_yt": 246292,
-   "tentativas": 2,
+   "tentativas": 3,
    "erro": "ERROR: [youtube] mc90rRO3nME: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "AmhtyV-LRaA": {
