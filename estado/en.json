@@ -1987,7 +1987,10 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-18T22:21:25+00:00",
-   "atualizado_em": "2026-11-19T20:03:52+00:00"
+   "atualizado_em": "2026-11-21T04:59:52+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2932113307_17875": {
    "id": "2932113307_17875",
@@ -32814,6 +32817,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-21T04:40:21+00:00"
+  },
+  "longo_2932113307_17332": {
+   "id": "longo_2932113307_17332",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "xQc in GTA 6: First Police Chase Ends in Total Chaos 😂",
+   "descricao": "xQc in GTA 6: First Police Chase Ends in Total Chaos 😂\nxQc commits his first crime in GTA 6 and runs from the cops, leading to the first ever police chase in the game. He tries to explain his bad instincts, hijacks a big trucker and gets chased by cops everywhere. This GTA 6 funny moment ends with a stun gun, a failed escape and xQc begging the game to wait.\n\n🎮 Original stream: https://twitch.tv/xqc\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "xqc",
+    "xqc gta 6",
+    "gta 6",
+    "gta 6 police chase",
+    "gta 6 gameplay",
+    "xqc funny moments",
+    "xqc reacts",
+    "gta 6 first crime",
+    "gta 6 cops",
+    "gta 6 funny moments",
+    "xqc live",
+    "gta 6 stream",
+    "xqc gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-21T05:02:41+00:00",
+   "criado_em": "2026-11-21T05:02:41+00:00",
+   "itens": [
+    "2932113307_17332"
+   ],
+   "streamers": [
+    "xqc"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_17332_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_17332_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_17332.mp4",
+   "video_asset": 774484143,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2932113307_17332.jpg",
+   "thumb_asset": 774484407
   }
  },
  "clipes_vistos": [
