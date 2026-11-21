@@ -1622,7 +1622,7 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-20T19:59:50+00:00",
-   "atualizado_em": "2026-11-20T19:59:50+00:00",
+   "atualizado_em": "2026-11-21T05:31:56+00:00",
    "auto": true,
    "origem": "gringo",
    "gringo": true,
@@ -1630,7 +1630,9 @@
    "canal_nome": "IShowSpeed",
    "canal_handle": "IShowSpeed",
    "views_yt": 36078990,
-   "isolar_voz": false
+   "isolar_voz": false,
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] hwSg39yIBGU: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "OIeLbmyraRQ": {
    "id": "OIeLbmyraRQ",
