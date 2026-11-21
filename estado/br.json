@@ -19970,11 +19970,52 @@
    "views": 1259,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-21T04:39:51+00:00",
-   "atualizado_em": "2026-11-21T04:39:51+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-21T04:46:15+00:00",
+   "isolar_voz": false,
+   "youtube_id": "1IVaYsAk-ko",
+   "publicar_em": "2026-11-22T22:00:00Z",
+   "postado_em": "2026-11-21T04:46:15+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "LOUD Coringa: Coringa no GTA 6 virando cliente de salão de beleza",
+   "gancho": "SALÃO?!",
+   "descricao": "LOUD Coringa: Coringa no GTA 6 virando cliente de salão de beleza\nCoringa joga o GTA 6 ao vivo e entra num salão de beleza do jogo, onde confunde a manicure com a recepcionista. Ela lista as opções de esmalte e a cena vira um dos momentos mais engraçados e detalhados da live. Cortes do Coringa no GTA 6.\n\n🎮 Live original: https://www.youtube.com/@LOUDCoringa\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "coringa gta 6",
+    "loud coringa gta 6",
+    "coringa salão de beleza gta 6",
+    "salão de unhas gta 6",
+    "manicure gta 6",
+    "gta 6 gameplay",
+    "gta 6",
+    "gta 6 detalhes",
+    "cortes coringa",
+    "momentos engraçados gta 6",
+    "cortes gta",
+    "gta 6 live",
+    "loud coringa",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-21T04:46:10+00:00",
+   "corte": [
+    12.65,
+    28.0
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 3,
+   "quadro": null,
+   "duracao": 15.4,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_0.mp4",
+   "video_asset": 774450318,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_0.jpg",
+   "thumb_asset": 774450376,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_0_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_mQ4CfLekrFI_0_kit.zip"
   },
   "yt_mQ4CfLekrFI_1": {
    "id": "yt_mQ4CfLekrFI_1",
@@ -23119,12 +23160,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 1716
+  "2026-11-20": 1816
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 6
+  "2026-11-20": 7
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
