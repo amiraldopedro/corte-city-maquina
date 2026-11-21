@@ -20628,12 +20628,9 @@
     "SmallPerfectClipzPunchTrees-XMW2oU8Zf_RZ-tZ5",
     "FitFurryMacaroniCeilingCat-xbQE8oYpd-HQLe9Q",
     "PlacidPlayfulLouseBleedPurple-6jatURw_ijSrY-h_",
-    "ResoluteGrossApeSMOrc-O0B_McErgFhWz24C",
     "ResoluteGrossApeSMOrc-O0B_McErgFhWz24C"
    ],
    "titulos_chat": [
-    "VICE CITY BABYYYYYYYYYYY",
-    "VICE CITY BABYYYYYYYYYYY",
     "VICE CITY BABYYYYYYYYYYY",
     "cara...",
     "imoral",
@@ -20711,6 +20708,40 @@
    "youtube_id": "OHryqvuyEuI",
    "publicar_em": "2026-11-21T20:30:00Z",
    "postado_em": "2026-11-21T11:20:48+00:00",
+   "envio_pendente": null
+  },
+  "mod_NU3ubKiNftY": {
+   "id": "mod_NU3ubKiNftY",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-21T11:21:47+00:00",
+   "atualizado_em": "2026-11-21T11:21:54+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "NPCs do GTA 6 são completamente loucos e ninguém estava preparado",
+   "gancho": "ESSE NPC É LOUCO DEMAIS",
+   "descricao": "NPCs do GTA 6 são completamente loucos e ninguém estava preparado\n\nIdeia e gameplay: GAGA Gaming  (https://www.youtube.com/watch?v=NU3ubKiNftY)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-21T11:21:47+00:00",
+   "nome": "GAGA Gaming ",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 19.7,
+   "modelo_de": "https://www.youtube.com/watch?v=NU3ubKiNftY",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_NU3ubKiNftY.mp4",
+   "video_asset": 775339230,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_NU3ubKiNftY.jpg",
+   "thumb_asset": 775339286,
+   "youtube_id": "5lniqx8WJc4",
+   "publicar_em": "2026-11-22T15:00:00Z",
+   "postado_em": "2026-11-21T11:21:54+00:00",
    "envio_pendente": null
   }
  },
@@ -23657,13 +23688,13 @@
   "2026-11-18": 5320,
   "2026-11-19": 4512,
   "2026-11-20": 2016,
-  "2026-11-21": 4382
+  "2026-11-21": 4482
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
   "2026-11-20": 5,
-  "2026-11-21": 2
+  "2026-11-21": 3
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
