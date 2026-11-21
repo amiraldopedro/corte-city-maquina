@@ -1880,16 +1880,48 @@
   "ivjSsjiHbZA": {
    "id": "ivjSsjiHbZA",
    "link": "https://www.youtube.com/watch?v=ivjSsjiHbZA",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-21T10:53:15+00:00",
-   "atualizado_em": "2026-11-21T10:53:15+00:00",
+   "atualizado_em": "2026-11-21T11:45:04+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 e 20 PS5 PRA VOCÊS HOJE! 🔴 Paulinho o LOKO #3",
    "canal_nome": "PAULINHO O LOKO",
-   "views_yt": 3806894
+   "views_yt": 3806894,
+   "longo": {
+    "asset_id": 775397771,
+    "inicio": 6000.0,
+    "fim": 6600.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "PaulinhoLOKOoficial",
+   "canal_id": "UCdlJx-w37viXFNq__qZ7ARQ",
+   "duracao": 25429.0,
+   "segmentos": [
+    {
+     "asset_id": 775353197,
+     "inicio": 12975.0,
+     "fim": 13045.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 775359090,
+     "inicio": 17686.0,
+     "fim": 17756.0,
+     "duracao": 70.0,
+     "forca": 1.199
+    },
+    {
+     "asset_id": 775366119,
+     "inicio": 22543.0,
+     "fim": 22613.0,
+     "duracao": 70.0,
+     "forca": 1.223
+    }
+   ]
   }
  },
  "clipes_vistos": [],
