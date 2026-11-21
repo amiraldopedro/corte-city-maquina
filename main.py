@@ -700,7 +700,7 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         nomes.update({m["streamer"]: cfg.nome_streamer(m["streamer"], m["nome"]) for m in escolhidos
                       if m.get("nome") and m["streamer"] not in nomes})
         agora_local = datetime.now(ZoneInfo(canal.fuso))
-        if tipo == "dia" and agora_local.hour < 6:  # montou depois da meia-noite: os momentos são de ontem
+        if tipo == "dia" and agora_local.hour < 12:  # montou de madrugada/manhã (ou o GitHub atrasou): os momentos são de ontem
             agora_local -= timedelta(days=1)
         data = agora_local.strftime("%d/%m" if canal.idioma == "pt" else "%b %d")
         saida = PASTA_PRONTOS / f"{tipo}_{canal.id}_{datetime.now().strftime('%Y%m%d')}.mp4"
