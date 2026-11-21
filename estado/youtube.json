@@ -1833,17 +1833,49 @@
   "zVwjEMyTcDA": {
    "id": "zVwjEMyTcDA",
    "link": "https://www.youtube.com/watch?v=zVwjEMyTcDA",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-21T10:53:14+00:00",
-   "atualizado_em": "2026-11-21T10:53:14+00:00",
+   "atualizado_em": "2026-11-21T11:16:05+00:00",
    "auto": true,
    "titulo": "Testei os MAIORES MITOS do GTA 6",
    "canal_nome": "Flakes Power",
    "isolar_voz": false,
    "views_yt": 317872,
-   "tema": "GTA 6 segredos"
+   "tema": "GTA 6 segredos",
+   "longo": {
+    "asset_id": 775325089,
+    "inicio": 390.0,
+    "fim": 990.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "FlakesPower",
+   "canal_id": "UC0bC92gFO25qcJcECTQNN_A",
+   "duracao": 1261.0,
+   "segmentos": [
+    {
+     "asset_id": 775288201,
+     "inicio": 389.0,
+     "fim": 459.0,
+     "duracao": 70.0,
+     "forca": 1.113
+    },
+    {
+     "asset_id": 775293954,
+     "inicio": 534.0,
+     "fim": 604.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 775301231,
+     "inicio": 886.0,
+     "fim": 956.0,
+     "duracao": 70.0,
+     "forca": 1.174
+    }
+   ]
   },
   "ivjSsjiHbZA": {
    "id": "ivjSsjiHbZA",
