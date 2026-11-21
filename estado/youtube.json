@@ -1618,11 +1618,11 @@
   "hwSg39yIBGU": {
    "id": "hwSg39yIBGU",
    "link": "https://www.youtube.com/watch?v=hwSg39yIBGU",
-   "status": "esperando",
+   "status": "erro",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-20T19:59:50+00:00",
-   "atualizado_em": "2026-11-21T06:15:17+00:00",
+   "atualizado_em": "2026-11-21T06:41:03+00:00",
    "auto": true,
    "origem": "gringo",
    "gringo": true,
@@ -1631,7 +1631,7 @@
    "canal_handle": "IShowSpeed",
    "views_yt": 36078990,
    "isolar_voz": false,
-   "tentativas": 2,
+   "tentativas": 3,
    "erro": "ERROR: [youtube] hwSg39yIBGU: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "OIeLbmyraRQ": {
