@@ -12064,11 +12064,51 @@
    "views": 1022,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T04:41:46+00:00",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
-   "isolar_voz": true
+   "atualizado_em": "2026-11-21T03:21:49+00:00",
+   "isolar_voz": true,
+   "youtube_id": "-y94UOZ1Y0o",
+   "publicar_em": "2026-11-22T16:00:00Z",
+   "postado_em": "2026-11-21T03:21:49+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj lê doação na live e elogia o Picolé de Limão",
+   "gancho": "ELOGIO",
+   "descricao": "Gameplayrj lê doação na live e elogia o Picolé de Limão\nGameplayrj lê uma doação na live do GTA 6 e começa a elogiar o podcast Picolé de Limão, chamando a criadora de uma das melhores que temos. Depois explica por que não estava no Flow: foi o aniversário da Thais e ele ficou off o dia inteiro. Cortes da live com a reação dele.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gameplayrj gta 6",
+    "gameplayrj live",
+    "gameplayrj picolé de limão",
+    "gta 6 live",
+    "gta 6",
+    "reação gta 6",
+    "cortes gta 6",
+    "cortes gameplayrj",
+    "cortes gta",
+    "momentos da live gta 6",
+    "gameplayrj",
+    "gta rp",
+    "cortes",
+    "shorts"
+   ],
+   "feito_em": "2026-11-21T03:21:44+00:00",
+   "corte": [
+    40.3,
+    69.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 2,
+   "quadro": null,
+   "duracao": 28.7,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_1.mp4",
+   "video_asset": 774266292,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_1.jpg",
+   "thumb_asset": 774266374,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_y6ofjcTl5x0_1_kit.zip"
   },
   "yt_y6ofjcTl5x0_2": {
    "id": "yt_y6ofjcTl5x0_2",
@@ -19401,12 +19441,10 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/BlazingSavageUdonPicoMause-gmFe7-iHa_GnR9GE",
    "clipe_ids": [
     "BlazingSavageUdonPicoMause-gmFe7-iHa_GnR9GE",
-    "LightGlamorousSaladLitFam-4rsJKI467F4RoPw6",
     "LightGlamorousSaladLitFam-4rsJKI467F4RoPw6"
    ],
    "titulos_chat": [
     "alan roubando banco",
-    "alan2",
     "alan2"
    ],
    "views": 28,
@@ -19431,7 +19469,6 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/TalentedOpenGrasshopperANELE-tczYz2ulS-mpt_5v",
    "clipe_ids": [
     "TriumphantHorribleGrassHoneyBadger-vWqOBMHVMWDPlDcR",
-    "TriumphantHorribleGrassHoneyBadger-vWqOBMHVMWDPlDcR",
     "TalentedOpenGrasshopperANELE-tczYz2ulS-mpt_5v",
     "TsundereInquisitiveDelicataPRChase-XXEb9ileY1ZNtT7t",
     "GenerousResourcefulGrassPhilosoraptor-Sk2tQTvnsTMCAWTr"
@@ -19439,7 +19476,6 @@
    "titulos_chat": [
     "meu cowboy",
     "vem meu rendenção vermelha de sangue 2",
-    "lucia",
     "lucia",
     "alanzoka: momento 22:24"
    ],
@@ -19496,7 +19532,6 @@
    "clipe_ids": [
     "GloriousCuteWerewolfPoooound-4yf4e6mFdgb2YuF6",
     "ObliviousHelpfulPangolinSquadGoals-AGLhVX1yCEUeru7o",
-    "ClumsyFineGarlicPJSugar-l6ebwBh9FbW88r1V",
     "ClumsyFineGarlicPJSugar-l6ebwBh9FbW88r1V",
     "SucculentTransparentNightingaleTriHard-7BsjySPme6CInb6s",
     "QuaintCleverTitanCoolStoryBob-OJqLUPpjRPudjjD9",
@@ -19639,7 +19674,6 @@
     "xQc just wanted to put his coffee down",
     "AIKO Pog",
     "xQc coffee",
-    "xQc just wanted to put his coffee down",
     "damn"
    ],
    "views": 5903,
@@ -19669,13 +19703,10 @@
     "TriangularColdbloodedFriseeShadyLulu-hzqQLHz3lEn5I441",
     "JazzySwissPotTheRinger-guWhYLFc_i8GBMm8",
     "CarefulTardyOpossumTheTarFu-wbLydnfQpcwBo_6O",
-    "CarefulTardyOpossumTheTarFu-wbLydnfQpcwBo_6O",
     "InterestingWanderingSoymilkMcaT-be51DYlrCHqWEtbZ",
     "ClumsySquareChimpanzeePJSugar-j9GE_RCUeNPY2rxi",
     "ImportantBitterCurrySaltBae-fF9Cc36FfSQ7XdKH",
-    "ImportantBitterCurrySaltBae-fF9Cc36FfSQ7XdKH",
     "RepleteAverageTardigradeSaltBae-Pz_ycq-7zZy2DhLc",
-    "ImpossibleCrackyApplePMSTwin-1rIvdIXspB3_RXFq",
     "ImpossibleCrackyApplePMSTwin-1rIvdIXspB3_RXFq"
    ],
    "titulos_chat": [
@@ -19684,9 +19715,7 @@
     "gvghbv hg",
     "🥥60 FPS GTA 6🥥LIVE🥥FINISHING PLAYTHROUGH🥥NOW🥥LONG STREAM PROBABLY🥥VERY COOL🥥LOCK IT IN🥥",
     "holy",
-    "bricked up",
-    "bricked up",
-    "🥥60 FPS GTA 6🥥LIVE🥥FINISHING PLAYTHROUGH🥥NOW🥥LONG STREAM PROBABLY🥥VERY COOL🥥LOCK IT IN🥥"
+    "bricked up"
    ],
    "views": 163,
    "n_clipes": 11,
@@ -19768,9 +19797,7 @@
     "MEDIUM BUILD?!",
     "[GTA VI] Medium build LOL",
     "What do you mean Medium Build?",
-    "mid build",
-    "medium build",
-    "medium build"
+    "mid build"
    ],
    "views": 123,
    "n_clipes": 8,
@@ -19797,18 +19824,13 @@
    "clipe_url": "https://www.twitch.tv/xqc/clip/ArborealVictoriousSnailDatSheffy-LUDJxQAqZjCXFVjP",
    "clipe_ids": [
     "PleasantAgileKoupreyCoolCat-dPuyhH3R_Z4Cd7G0",
-    "PleasantAgileKoupreyCoolCat-dPuyhH3R_Z4Cd7G0",
     "ArborealVictoriousSnailDatSheffy-LUDJxQAqZjCXFVjP",
-    "TameWanderingFlyMrDestructoid-dTsVF9H8wm5rw2dk",
     "TameWanderingFlyMrDestructoid-dTsVF9H8wm5rw2dk",
     "ImpartialCreativeBubbleteaYee-JQ9vMpxBmaiPmKWv"
    ],
    "titulos_chat": [
     "xQc refuses to leave the club in GTA 6",
     "GOONING",
-    "xQc refuses to leave the club in GTA 6",
-    "xQc refuses to leave the club in GTA 6",
-    "kinda looks like dylan",
     "kinda looks like dylan"
    ],
    "views": 5972,
@@ -22757,12 +22779,12 @@
   "2026-11-17": 8500,
   "2026-11-18": 5320,
   "2026-11-19": 4512,
-  "2026-11-20": 1216
+  "2026-11-20": 1316
  },
  "envios": {
   "2026-11-18": 40,
   "2026-11-19": 24,
-  "2026-11-20": 1
+  "2026-11-20": 2
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
