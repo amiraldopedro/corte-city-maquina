@@ -1926,17 +1926,49 @@
   "EL_NPmxnJMM": {
    "id": "EL_NPmxnJMM",
    "link": "https://www.youtube.com/watch?v=EL_NPmxnJMM",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-22T01:09:52+00:00",
-   "atualizado_em": "2026-11-22T01:09:52+00:00",
+   "atualizado_em": "2026-11-22T18:15:35+00:00",
    "auto": true,
    "titulo": "LIGA MISTÉRIO JOGOU GTA 6 PELA PRIMEIRA VEZ *gostamos?",
    "canal_nome": "Xinglau",
    "isolar_voz": false,
    "views_yt": 930642,
-   "tema": "GTA 6 mistério"
+   "tema": "GTA 6 mistério",
+   "longo": {
+    "asset_id": 779992253,
+    "inicio": 0.0,
+    "fim": 600.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "Xinglauuu",
+   "canal_id": "UCQEUV7le_zYKNKGmUJOwvBw",
+   "duracao": 1386.0,
+   "segmentos": [
+    {
+     "asset_id": 779947681,
+     "inicio": 193.0,
+     "fim": 263.0,
+     "duracao": 70.0,
+     "forca": 1.016
+    },
+    {
+     "asset_id": 779954881,
+     "inicio": 853.0,
+     "fim": 923.0,
+     "duracao": 70.0,
+     "forca": 1.018
+    },
+    {
+     "asset_id": 779964702,
+     "inicio": 1246.0,
+     "fim": 1316.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "8Cr0dLi19FM": {
    "id": "8Cr0dLi19FM",
