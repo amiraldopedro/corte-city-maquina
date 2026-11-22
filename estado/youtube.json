@@ -2020,17 +2020,49 @@
   "5QLyCR3XTZs": {
    "id": "5QLyCR3XTZs",
    "link": "https://www.youtube.com/watch?v=5QLyCR3XTZs",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-22T01:09:52+00:00",
-   "atualizado_em": "2026-11-22T01:09:52+00:00",
+   "atualizado_em": "2026-11-22T19:54:37+00:00",
    "auto": true,
    "titulo": "GTA 6 #5 - Reencontro Emocionante!!! | Grand Theft Auto VI Gameplay em Português PT-BR no PS5 Pro",
    "canal_nome": "BRKsEDU",
    "isolar_voz": false,
    "views_yt": 322095,
-   "tema": "GTA 6 detalhes"
+   "tema": "GTA 6 detalhes",
+   "longo": {
+    "asset_id": 780270682,
+    "inicio": 0.0,
+    "fim": 600.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "BRKsEDU",
+   "canal_id": "UCWKtHaeXVzUscYGcm0hEunw",
+   "duracao": 5516.0,
+   "segmentos": [
+    {
+     "asset_id": 780160177,
+     "inicio": 93.0,
+     "fim": 163.0,
+     "duracao": 70.0,
+     "forca": 1.052
+    },
+    {
+     "asset_id": 780177673,
+     "inicio": 492.0,
+     "fim": 562.0,
+     "duracao": 70.0,
+     "forca": 1.072
+    },
+    {
+     "asset_id": 780195797,
+     "inicio": 2814.0,
+     "fim": 2884.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "nTJ5Z9gZsZU": {
    "id": "nTJ5Z9gZsZU",
