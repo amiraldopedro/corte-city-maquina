@@ -2038,7 +2038,9 @@
    "views_yt": 6394088,
    "dur": 17,
    "pedido_em": "2026-11-22T01:09:55+00:00",
-   "atualizado_em": "2026-11-22T01:09:55+00:00"
+   "atualizado_em": "2026-11-22T15:31:58+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] AIUSay0A79c: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "F5erDJqmxvE": {
    "id": "F5erDJqmxvE",
