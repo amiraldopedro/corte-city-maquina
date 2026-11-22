@@ -1973,17 +1973,49 @@
   "8Cr0dLi19FM": {
    "id": "8Cr0dLi19FM",
    "link": "https://www.youtube.com/watch?v=8Cr0dLi19FM",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-22T01:09:52+00:00",
-   "atualizado_em": "2026-11-22T01:09:52+00:00",
+   "atualizado_em": "2026-11-22T18:57:37+00:00",
    "auto": true,
    "titulo": "INVADINDO A BASE MILITAR DO GTA 6 - PAULINHO O LOKO",
    "canal_nome": "LOUD TNot",
    "isolar_voz": false,
    "views_yt": 582174,
-   "tema": "GTA 6 detalhes"
+   "tema": "GTA 6 detalhes",
+   "longo": {
+    "asset_id": 780112047,
+    "inicio": 90.0,
+    "fim": 690.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "LOUDTNot",
+   "canal_id": "UCzprdndsN3bQOrdymEFErwQ",
+   "duracao": 1463.0,
+   "segmentos": [
+    {
+     "asset_id": 780058599,
+     "inicio": 164.0,
+     "fim": 234.0,
+     "duracao": 70.0,
+     "forca": 1.03
+    },
+    {
+     "asset_id": 780067102,
+     "inicio": 343.0,
+     "fim": 413.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 780081184,
+     "inicio": 492.0,
+     "fim": 562.0,
+     "duracao": 70.0,
+     "forca": 1.142
+    }
+   ]
   },
   "5QLyCR3XTZs": {
    "id": "5QLyCR3XTZs",
