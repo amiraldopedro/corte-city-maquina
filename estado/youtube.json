@@ -2068,7 +2068,9 @@
    "views_yt": 5147097,
    "dur": 58,
    "pedido_em": "2026-11-22T01:09:55+00:00",
-   "atualizado_em": "2026-11-22T01:09:55+00:00"
+   "atualizado_em": "2026-11-22T17:17:40+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] uz-Iq7nCfnA: Requested format is not available. Use --list-formats for a list of available formats"
   }
  },
  "clipes_vistos": [],
