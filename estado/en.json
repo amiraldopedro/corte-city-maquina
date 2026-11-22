@@ -28213,7 +28213,10 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-20T16:59:17+00:00",
-   "atualizado_em": "2026-11-22T16:19:14+00:00"
+   "atualizado_em": "2026-11-22T19:19:25+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2934099165_5966": {
    "id": "2934099165_5966",
@@ -44311,8 +44314,7 @@
     "crazy driving",
     "Kai's Car is wild",
     "🗺️EXPLORING GTA 6🗺️",
-    "kai is mad funny xD wrong club",
-    "🗺️EXPLORING GTA 6🗺️"
+    "kai is mad funny xD wrong club"
    ],
    "views": 23,
    "n_clipes": 5,
@@ -44342,10 +44344,6 @@
     "EnchantingAnnoyingRedpandaSpicyBoy-rychY1yb5KvabvQ2"
    ],
    "titulos_chat": [
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
     "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂"
    ],
    "views": 7,
@@ -44380,12 +44378,6 @@
    ],
    "titulos_chat": [
     "qc bazo",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
     "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂"
    ],
    "views": 20,
@@ -44483,6 +44475,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-22T18:58:25+00:00"
+  },
+  "longo_2934099165_3990": {
+   "id": "longo_2934099165_3990",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "CaseOh GTA 6: he plays the throw stuff off the bridge game",
+   "descricao": "CaseOh GTA 6: he plays the throw stuff off the bridge game\nIn this CaseOh GTA 6 clip, CaseOh and chat decide to play the throw stuff off the bridge game and cause a huge pile up on the highway. A cop shows up and CaseOh jokes about not snitching and stepping away from the body. Watch this funny GTA 6 moment where CaseOh admits he caused the pile up and is an idiot.\n\n🎮 Original stream: https://twitch.tv/caseoh_\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "caseoh",
+    "gta 6",
+    "caseoh gta 6",
+    "caseoh gta 6 funny moments",
+    "gta 6 bridge game",
+    "gta 6 throw stuff off bridge",
+    "gta 6 pile up",
+    "gta 6 cops",
+    "gta 6 highway crash",
+    "caseoh live",
+    "caseoh highlights",
+    "gta 6 funny moments",
+    "caseoh gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-22T19:22:17+00:00",
+   "criado_em": "2026-11-22T19:22:17+00:00",
+   "itens": [
+    "2934099165_3990"
+   ],
+   "streamers": [
+    "caseoh_"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2934099165_3990_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2934099165_3990_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2934099165_3990.mp4",
+   "video_asset": 780181173,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2934099165_3990.jpg",
+   "thumb_asset": 780181575
   }
  },
  "clipes_vistos": [
