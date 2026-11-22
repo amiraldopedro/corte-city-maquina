@@ -38339,7 +38339,10 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-21T21:40:48+00:00",
-   "atualizado_em": "2026-11-22T16:19:14+00:00"
+   "atualizado_em": "2026-11-22T18:37:04+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2936160211_6370": {
    "id": "2936160211_6370",
@@ -44226,20 +44229,13 @@
     "ResilientBelovedDragonArsonNoSexy-71TELgVZOA2_XSjh",
     "SourExquisiteBobaNerfBlueBlaster-Q0wIq91nLVHuTB-a",
     "JollyLightTomatoBleedPurple-sWx8NGai-_f9HJpY",
-    "JollyLightTomatoBleedPurple-sWx8NGai-_f9HJpY",
     "IntelligentBombasticWolfCclamChamp-D9ks1x2uaD18rSh5",
     "FrozenPolishedClipzRaccAttack-Ad-8ulapam8q2fKS",
     "RudeStormySushiTooSpicy-hqE0YaxaSriUX0Ir"
    ],
    "titulos_chat": [
     "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "xQc - moment du live",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂",
-    "🫂DROPS🫂60 FPS🫂GTA 6🫂FINISHING GAME IN ONE GO🫂LOCK IT IN🫂YAY🫂THE BEST PLAYER🫂OF ALL TIME🫂IS HERE🫂"
+    "xQc - moment du live"
    ],
    "views": 12,
    "n_clipes": 12,
@@ -44252,6 +44248,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-22T18:16:09+00:00"
+  },
+  "longo_2936160211_5736": {
+   "id": "longo_2936160211_5736",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "JasonTheWeen's GTA 6 heist ends with a bridge jump?",
+   "descricao": "JasonTheWeen's GTA 6 heist ends with a bridge jump?\nJasonTheWeen is in a GTA 6 heist where only one partner can escape, and the choice is to swim for it or surrender. The two argue over the plan, then dive off the bridge into the water. Watch his live reaction when the plan goes wrong, in this GTA 6 gameplay moment.\n\n🎮 Original stream: https://twitch.tv/jasontheween\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "jasontheween",
+    "gta 6",
+    "jasontheween gta 6",
+    "jasontheween reaction",
+    "gta 6 heist",
+    "gta 6 bridge jump",
+    "gta 6 swim for it",
+    "gta 6 story mission",
+    "gta 6 funny moments",
+    "gta 6 live reaction",
+    "gta 6 gameplay",
+    "gta 6 streamer clips",
+    "jasontheween gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-22T18:40:10+00:00",
+   "criado_em": "2026-11-22T18:40:10+00:00",
+   "itens": [
+    "2936160211_5736"
+   ],
+   "streamers": [
+    "jasontheween"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_5736_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_5736_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_5736.mp4",
+   "video_asset": 780064227,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_5736.jpg",
+   "thumb_asset": 780064724
   }
  },
  "clipes_vistos": [
