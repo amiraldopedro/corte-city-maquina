@@ -2023,7 +2023,9 @@
    "views_yt": 16231743,
    "dur": 36,
    "pedido_em": "2026-11-22T01:09:55+00:00",
-   "atualizado_em": "2026-11-22T01:09:55+00:00"
+   "atualizado_em": "2026-11-22T15:04:09+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] ZFEJNsik7kQ: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "AIUSay0A79c": {
    "id": "AIUSay0A79c",
