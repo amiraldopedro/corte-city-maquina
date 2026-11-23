@@ -1524,6 +1524,23 @@ def acao_painel(cfg: Config, a):
         est.atualizar(a.id, **mud)
         est.salvar()
         log(f"  corrigido {a.id}: {mud}")
+    elif acao == "diagnostico":  # o que o YouTube diz dos últimos vídeos: bloqueio, restrição, idade, "pra criança"
+        from maquina.youtube import YouTube
+        canal = cfg.canal(a.canal)
+        est = Estado(canal.id)
+        yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token).yt
+        c = yt.channels().list(part="status,statistics,snippet", mine=True).execute()["items"][0]
+        log(f"CANAL {c['snippet']['title']}: {json.dumps(c.get('status'))} {json.dumps(c.get('statistics'))}")
+        ms = sorted([m for m in est.momentos.values() if m.get("youtube_id") and m["status"] == "postado"],
+                    key=lambda m: m.get("publicar_em") or m.get("postado_em") or "")[-45:]
+        r = yt.videos().list(part="status,contentDetails,statistics,snippet", id=",".join(m["youtube_id"] for m in ms)).execute()
+        for v in r.get("items", []):
+            st, cd = v["status"], v["contentDetails"]
+            log(f"VID {v['id']} {v['snippet'].get('publishedAt', '')[:16]} views={v['statistics'].get('viewCount')} "
+                f"{st.get('uploadStatus')}/{st.get('privacyStatus')} rej={st.get('rejectionReason')} "
+                f"kids={st.get('madeForKids')} lic={cd.get('licensedContent')} dur={cd.get('duration')} "
+                f"regiao={json.dumps(cd.get('regionRestriction'))} idade={json.dumps(cd.get('contentRating'))} "
+                f"cat={v['snippet'].get('categoryId')} tags={len(v['snippet'].get('tags', []))} | {v['snippet']['title'][:50]}")
     elif acao == "reagendar":  # espalha os Shorts agendados na grade nova e conserta títulos com nome de canal
         reagendar(cfg, cfg.canal(a.canal))
     else:
