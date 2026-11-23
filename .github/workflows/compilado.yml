@@ -52,6 +52,7 @@ jobs:
           path: |
             .cache/whisper
             .cache/torch
+            .cache/rembg
           key: modelos-longo-${{ hashFiles('config.yaml') }}
           restore-keys: |
             modelos-longo-

@@ -377,7 +377,7 @@ def produzir_um(cfg: Config, canal: Canal, est: Estado, m: dict, yt) -> bool:
     if volume_maximo(final) <= MUDO_DB:
         raise RuntimeError("o vídeo final ficou sem som — não vou entregar")
     capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), final.with_suffix(".jpg"), d["gancho"],
-                             canal.cor_destaque, info["webcam"])
+                             canal.cor_destaque, info["webcam"], video=bruto, pico=pico)
     from maquina.painel import guardar_thumb
     guardar_thumb(capa, m["id"])
 
@@ -723,7 +723,8 @@ def fazer_compilado(cfg: Config, tipo: str, evento: str = ""):
         etiqueta = f"TOP {len(usados)}" if tipo == "top10" else "REACTS" if tipo == "serie" else ("MELHORES DO DIA" if canal.idioma == "pt" else "BEST OF THE DAY")
         capa = thumb.gerar_thumb(editar.frame_em(bruto, pico), saida.with_suffix(".jpg"),
                                  melhor.get("gancho") or cerebro.GANCHOS[canal.idioma][0], canal.cor_destaque,
-                                 editar.achar_webcam(bruto, 0, editar.info_video(bruto)[2]), etiqueta)
+                                 editar.achar_webcam(bruto, 0, editar.info_video(bruto)[2]), etiqueta,
+                                 video=bruto, pico=pico)
         from maquina.painel import guardar_thumb
         cid = f"{tipo}_{datetime.now().strftime('%Y%m%d')}" + (f"_{re.sub(r'[^a-z0-9]', '', evento.lower())[:20]}" if evento else "")
         guardar_thumb(capa, cid)
@@ -930,7 +931,7 @@ def fazer_corte_longo(cfg: Config):
             pico = editar.momento_mais_alto(saida, 0, dur)
             capa = thumb.gerar_thumb(editar.frame_em(saida, pico), saida.with_suffix(".jpg"), t["gancho"],
                                      canal.cor_destaque, editar.achar_webcam(bruto, 0, dur), "CORTE COMPLETO"
-                                     if canal.idioma == "pt" else "FULL CLIP")
+                                     if canal.idioma == "pt" else "FULL CLIP", video=saida, pico=pico)
             from maquina.painel import guardar_thumb
             cid = f"longo_{m['id']}"
             guardar_thumb(capa, cid)

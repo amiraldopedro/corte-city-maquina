@@ -84,6 +84,7 @@ jobs:
           path: |
             .cache/whisper
             .cache/torch
+            .cache/rembg
           key: modelos-${{ hashFiles('config.yaml') }}
           restore-keys: modelos-
 
