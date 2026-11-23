@@ -1543,6 +1543,10 @@ def acao_painel(cfg: Config, a):
                 f"kids={st.get('madeForKids')} lic={cd.get('licensedContent')} dur={cd.get('duration')} "
                 f"regiao={json.dumps(cd.get('regionRestriction'))} idade={json.dumps(cd.get('contentRating'))} "
                 f"cat={v['snippet'].get('categoryId')} tags={len(v['snippet'].get('tags', []))} | {v['snippet']['title'][:50]}")
+    elif acao == "apagar_video":  # apaga do YouTube os vídeos pelo ID do momento (vários separados por vírgula)
+        apagar_videos(cfg, cfg.canal(a.canal), [x.strip() for x in a.id.split(",") if x.strip()])
+    elif acao == "desagendar":  # tira da programação (fica privado, nada é apagado) o que não é clipe da Twitch nem post do X
+        desagendar_reaproveitados(cfg, cfg.canal(a.canal))
     elif acao == "reagendar":  # espalha os Shorts agendados na grade nova e conserta títulos com nome de canal
         reagendar(cfg, cfg.canal(a.canal))
     else:
@@ -1614,6 +1618,51 @@ def reagendar(cfg: Config, canal: Canal):
     est.salvar()
     ultimo = vagas[len(verticais) - 1] if verticais and len(vagas) >= len(verticais) else "?"
     log(f"  reagendados/corrigidos: {mudou} de {len(verticais)} Shorts na fila; o último vai ao ar em {ultimo}")
+
+
+def apagar_videos(cfg: Config, canal: Canal, ids: list[str]):
+    from maquina.youtube import YouTube
+    est = Estado(canal.id)
+    yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+    for mid in ids:
+        m = est.momentos.get(mid)
+        if not m or not m.get("youtube_id"):
+            log(f"  {mid}: não achei esse vídeo")
+            continue
+        if yt.apagar(m["youtube_id"]):
+            est.atualizar(mid, status="removido", motivo="apagado a pedido (restrição de idade)")
+            log(f"  apagado {m['youtube_id']} ({(m.get('titulo') or '')[:60]})")
+    est.salvar()
+
+
+def reaproveitado(m: dict) -> bool:
+    """Vídeo feito a partir de algo que já está no YouTube (recorte, cópia de Short viral) ou contagem."""
+    return (m["id"].startswith(("yt_", "mod_", "longo_yt_", "contagem_")) or m.get("quadro") in ("modelado", "contagem")
+            or bool(m.get("yt_video")))
+
+
+def desagendar_reaproveitados(cfg: Config, canal: Canal):
+    from maquina.youtube import YouTube
+    est = Estado(canal.id)
+    yt = YouTube(cfg.yt_client_id, cfg.yt_client_secret, canal.refresh_token)
+    agora_dt = datetime.now(timezone.utc)
+    n = 0
+    for m in list(est.momentos.values()):
+        q = m.get("publicar_em") or ""
+        if m["status"] != "postado" or not m.get("youtube_id") or not q or not reaproveitado(m):
+            continue
+        if datetime.fromisoformat(q.replace("Z", "+00:00")) <= agora_dt + timedelta(minutes=20):
+            continue
+        try:
+            yt.desagendar(m["youtube_id"])
+            est.atualizar(m["id"], status="pausado", publicar_em=None, privacidade="private",
+                          motivo="tirado da programação na pausa de 23/11 (formato reaproveitado)")
+            n += 1
+            log(f"  desagendado {m['youtube_id']} ({(m.get('titulo') or '')[:60]})")
+        except Exception as e:
+            log(f"  {m['id']}: não deu ({str(e)[:120]})")
+    est.salvar()
+    log(f"  {n} vídeos tirados da programação (continuam no Studio como privados)")
 
 
 def _titulo_sem_canal(cfg: Config, m: dict) -> str:

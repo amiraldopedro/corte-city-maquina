@@ -116,6 +116,13 @@ class YouTube:
                                                                 "embeddable", "license", "publicStatsViewable") if k in corpo["status"]}
         self.yt.videos().update(part=",".join(partes), body=corpo).execute()
 
+    def desagendar(self, video_id: str):
+        """Tira da programação e deixa privado (nada é apagado; dá pra programar de novo no Studio)."""
+        v = self.yt.videos().list(part="status", id=video_id).execute()["items"][0]["status"]
+        corpo = {k: v[k] for k in ("selfDeclaredMadeForKids", "embeddable", "license", "publicStatsViewable") if k in v}
+        corpo["privacyStatus"] = "private"
+        self.yt.videos().update(part="status", body={"id": video_id, "status": corpo}).execute()
+
     def apagar(self, video_id: str) -> bool:
         try:
             self.yt.videos().delete(id=video_id).execute()
@@ -125,10 +132,29 @@ class YouTube:
             return False
 
 
-def proximo_horario(horarios: list[str], fuso: str, ocupados: set[str]) -> str:
-    """Próximo horário livre da grade (em UTC ISO), começando daqui a pelo menos 1 hora."""
+# Pausa do canal (config.yaml -> pausa_ate). Enquanto durar, nenhum vídeo é agendado antes dela:
+# tudo o que a máquina fizer vai pra fila e só entra na grade depois da pausa.
+PAUSA_ATE: str = ""
+
+
+def inicio_permitido(fuso: str) -> datetime:
     tz = ZoneInfo(fuso)
     agora = datetime.now(tz)
+    if PAUSA_ATE:
+        try:
+            fim = datetime.fromisoformat(PAUSA_ATE)
+            fim = fim if fim.tzinfo else fim.replace(tzinfo=ZoneInfo("America/Sao_Paulo"))
+            if fim - timedelta(minutes=61) > agora:
+                return fim - timedelta(minutes=61)  # o 1º horário da grade às HH:00 do fim da pausa já vale
+        except ValueError:
+            pass
+    return agora
+
+
+def proximo_horario(horarios: list[str], fuso: str, ocupados: set[str]) -> str:
+    """Próximo horário livre da grade (em UTC ISO), começando daqui a pelo menos 1 hora (e depois da pausa)."""
+    tz = ZoneInfo(fuso)
+    agora = inicio_permitido(fuso).astimezone(tz)
     for dia in range(0, 14):
         data = (agora + timedelta(days=dia)).date()
         for h in sorted(horarios):
@@ -148,4 +174,4 @@ def agenda_cheia(est, canal, horas: int = 30) -> bool:
         livre = datetime.fromisoformat(proximo_horario(canal.horarios, canal.fuso, ocupados).replace("Z", "+00:00"))
     except RuntimeError:
         return True
-    return livre > datetime.now(ZoneInfo("UTC")) + timedelta(hours=horas)
+    return livre > inicio_permitido(canal.fuso).astimezone(ZoneInfo("UTC")) + timedelta(hours=horas)

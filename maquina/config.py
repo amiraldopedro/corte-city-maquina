@@ -172,6 +172,9 @@ def carregar(caminho: str | Path = RAIZ / "config.yaml") -> Config:
             if extra.get("descobrir_min_views"):
                 canal.descobrir["min_views"] = int(extra["descobrir_min_views"])
 
+    from . import youtube as _yt
+    _yt.PAUSA_ATE = str(bruto.get("pausa_ate") or "")
+
     # canal sem a chave do YouTube (ex.: Clip City antes de autorizar): faz tudo, mas deixa pronto no Studio
     # em vez de tentar postar e quebrar a rodada inteira
     if os.getenv("GITHUB_ACTIONS"):
