@@ -11619,11 +11619,12 @@
    "views": 1000,
    "n_clipes": 1,
    "score": 10000,
-   "status": "novo",
+   "status": "descartado",
    "prioridade": true,
    "criado_em": "2026-11-19T03:58:43+00:00",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-24T01:52:12+00:00",
+   "isolar_voz": false,
+   "motivo": "A tela fica parada na página do GTA VI na loja do Xbox, sem gameplay, sem ação e sem reação marcante. A conversa sobre RTX 5060 Ti e lançamento no PC é morna e não fecha em um desfecho claro. Marquei "
   },
   "yt_W6DIv7ayZ64_1": {
    "id": "yt_W6DIv7ayZ64_1",
@@ -11645,11 +11646,52 @@
    "views": 1162,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T03:58:43+00:00",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-24T01:54:17+00:00",
+   "isolar_voz": false,
+   "youtube_id": "sm9COh9MDqk",
+   "publicar_em": "2026-11-27T00:00:00Z",
+   "postado_em": "2026-11-24T01:54:17+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "TecnoArt fugindo do jato da polícia com 4 estrelas no GTA 6",
+   "gancho": "SOCORRO",
+   "descricao": "TecnoArt fugindo do jato da polícia com 4 estrelas no GTA 6\nTecnoArt está pilotando um jato com 4 estrelas de procurado no GTA 6 e é perseguido por um jato da polícia. Ele grita que vão derrubá-lo, e o outro avião pega fogo. Reação e momentos engraçados da live, em cortes de GTA 6.\n\n🎮 Live original: https://www.youtube.com/@tecnoart101\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "tecnoart gta 6",
+    "tecnoart",
+    "jato da polícia gta 6",
+    "fuga da polícia gta 6",
+    "perseguição de avião gta 6",
+    "4 estrelas gta 6",
+    "procurado gta 6",
+    "reação gta 6",
+    "gta 6 momentos engraçados",
+    "cortes gta 6",
+    "gta 6",
+    "gta rp",
+    "cortes",
+    "cortes gta",
+    "shorts"
+   ],
+   "feito_em": "2026-11-24T01:54:12+00:00",
+   "corte": [
+    36.12,
+    58.0
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 21.9,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_W6DIv7ayZ64_1.mp4",
+   "video_asset": 785300031,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_W6DIv7ayZ64_1.jpg",
+   "thumb_asset": 785300088,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_W6DIv7ayZ64_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_W6DIv7ayZ64_1_kit.zip"
   },
   "yt_W6DIv7ayZ64_2": {
    "id": "yt_W6DIv7ayZ64_2",
@@ -28463,7 +28505,7 @@
   "2026-11-20": 2016,
   "2026-11-21": 5492,
   "2026-11-22": 1112,
-  "2026-11-23": 302
+  "2026-11-23": 402
  },
  "envios": {
   "2026-11-18": 40,
@@ -28471,7 +28513,7 @@
   "2026-11-20": 5,
   "2026-11-21": 3,
   "2026-11-22": 4,
-  "2026-11-23": 3
+  "2026-11-23": 4
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
