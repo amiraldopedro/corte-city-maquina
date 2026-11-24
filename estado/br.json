@@ -11321,11 +11321,52 @@
    "views": 1059,
    "n_clipes": 1,
    "score": 9999,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T03:28:13+00:00",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-24T12:43:47+00:00",
+   "isolar_voz": false,
+   "youtube_id": "3zB5In1wXfc",
+   "publicar_em": "2026-11-28T00:00:00Z",
+   "postado_em": "2026-11-24T12:43:47+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Gameplayrj: Davy Jones diz que só 70% da live joga o GTA 6 no lançamento",
+   "gancho": "PROMESSA",
+   "descricao": "Gameplayrj: Davy Jones diz que só 70% da live joga o GTA 6 no lançamento\nDavy Jones lê a mensagem de um espectador que não tem PS5 e pede a melhor live da história do GTA 6. Ele promete se esforçar e diz que 70% da live vai jogar no lançamento, e os outros 30% vão acompanhar as lives. Cortes do GTA 6 com reação do streamer.\n\n🎮 Live original: https://www.youtube.com/@Gameplayrj\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "davy jones gta 6",
+    "davy jones live",
+    "live gta 6 sem ps5",
+    "lançamento gta 6",
+    "gta 6 lançamento live",
+    "gta 6 ps5",
+    "cortes gta 6",
+    "gta 6 reação",
+    "gta 6 momentos",
+    "gta 6 notícias",
+    "gameplayrj",
+    "gameplayrj gta 6",
+    "gta 6",
+    "gta rp",
+    "cortes"
+   ],
+   "feito_em": "2026-11-24T12:43:37+00:00",
+   "corte": [
+    36.87,
+    64.0
+   ],
+   "layout": "webcam",
+   "cerebro": "ia",
+   "nota": 5,
+   "quadro": null,
+   "duracao": 27.1,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_WCHf8vHLef4_1.mp4",
+   "video_asset": 787160664,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_WCHf8vHLef4_1.jpg",
+   "thumb_asset": 787160775,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_WCHf8vHLef4_1_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt_WCHf8vHLef4_1_kit.zip"
   },
   "yt_WCHf8vHLef4_2": {
    "id": "yt_WCHf8vHLef4_2",
@@ -28947,7 +28988,7 @@
   "2026-11-21": 5492,
   "2026-11-22": 1112,
   "2026-11-23": 402,
-  "2026-11-24": 200
+  "2026-11-24": 300
  },
  "envios": {
   "2026-11-18": 40,
@@ -28956,7 +28997,7 @@
   "2026-11-21": 3,
   "2026-11-22": 4,
   "2026-11-23": 4,
-  "2026-11-24": 2
+  "2026-11-24": 3
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
