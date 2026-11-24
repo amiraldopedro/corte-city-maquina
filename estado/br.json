@@ -12003,11 +12003,52 @@
    "views": 1040,
    "n_clipes": 1,
    "score": 9998,
-   "status": "novo",
-   "prioridade": true,
+   "status": "postado",
+   "prioridade": false,
    "criado_em": "2026-11-19T04:26:49+00:00",
-   "atualizado_em": "2026-11-19T19:22:52+00:00",
-   "isolar_voz": false
+   "atualizado_em": "2026-11-24T01:51:35+00:00",
+   "isolar_voz": false,
+   "youtube_id": "9fczo9JkPRk",
+   "publicar_em": "2026-11-26T21:00:00Z",
+   "postado_em": "2026-11-24T01:51:35+00:00",
+   "envio_pendente": null,
+   "tipo": "short",
+   "titulo": "Peixe viu o apresentador de polícia fazer propaganda do GTA 6",
+   "gancho": "PROPAGANDA",
+   "descricao": "Peixe viu o apresentador de polícia fazer propaganda do GTA 6\nPeixe assiste ao programa Estoure o Balão, e o apresentador vestido de policial diz que o GTA 6 já está disponível e brinca que é publicidade de graça para a Rockstar. Cortes do GTA 6 com momentos engraçados e a reação da galera ao final, quando começa a repescagem com confete.\n\n🎮 Live original: https://www.youtube.com/@Peixe\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "peixe gta 6",
+    "estoure o balão gta 6",
+    "propaganda gta 6",
+    "rockstar gta 6",
+    "gta 6 já disponível",
+    "peixe cortes",
+    "cortes gta 6",
+    "gta 6 momentos engraçados",
+    "gta 6 reação",
+    "gta 6",
+    "peixe",
+    "gta rp",
+    "cortes",
+    "cortes gta",
+    "shorts"
+   ],
+   "feito_em": "2026-11-24T01:51:31+00:00",
+   "corte": [
+    29.5,
+    52.5
+   ],
+   "layout": "fundo",
+   "cerebro": "ia",
+   "nota": 6,
+   "quadro": null,
+   "duracao": 23.0,
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_2.mp4",
+   "video_asset": 785293781,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_2.jpg",
+   "thumb_asset": 785293849,
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_2_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/yt__95rcfBuaCo_2_kit.zip"
   },
   "yt__95rcfBuaCo_longo": {
    "id": "yt__95rcfBuaCo_longo",
@@ -23905,13 +23946,11 @@
    "clipe_ids": [
     "TolerantFrailWitchWholeWheat-TzEa0G-qik4LKlBt",
     "EphemeralLuckyOtterTheTarFu-z15p3-lL7fACswvW",
-    "EphemeralLuckyOtterTheTarFu-z15p3-lL7fACswvW",
     "ObliviousJollyLapwingYee-UDGslLONZEQ05bff"
    ],
    "titulos_chat": [
     "Red Dead Redemption 2",
     "GTA VI e RD2",
-    "RED",
     "RED"
    ],
    "views": 30,
@@ -24095,8 +24134,7 @@
     "Carro anda sozinho??",
     "Sem bater!!",
     "gta 6 vivendo a vida curtindo adoidado é",
-    "gameplay mudou",
-    "gta 6 vivendo a vida curtindo adoidado é"
+    "gameplay mudou"
    ],
    "views": 61,
    "n_clipes": 6,
@@ -24123,7 +24161,6 @@
     "ModernOutstandingKiwiStinkyCheese-i8TjsyEWC-63pvMU",
     "RelatedCredulousPanCoolCat-qq5ZXzuKI6U4grg2",
     "BlushingPerfectClipsdadRickroll-4tI82NDS8b4S230i",
-    "PiercingMiniatureGaurWoofer-2wmOPC6C9phlGT6V",
     "PiercingMiniatureGaurWoofer-2wmOPC6C9phlGT6V"
    ],
    "titulos_chat": [
@@ -24131,7 +24168,6 @@
     "o cara só foi",
     "alanzoka matando motoqueiro",
     "k",
-    "E quiser explosão",
     "E quiser explosão"
    ],
    "views": 159,
@@ -24220,12 +24256,10 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/BeautifulDignifiedFriesDancingBanana-TbdECxcRCZnghVuD",
    "clipe_ids": [
     "BeautifulDignifiedFriesDancingBanana-TbdECxcRCZnghVuD",
-    "SpineyBenevolentPartridgeChefFrank-0dx9kEVVDHi5O9fX",
     "SpineyBenevolentPartridgeChefFrank-0dx9kEVVDHi5O9fX"
    ],
    "titulos_chat": [
     "alan tropeçando no cervo",
-    "que isso?",
     "que isso?"
    ],
    "views": 39,
@@ -24255,7 +24289,6 @@
    ],
    "titulos_chat": [
     "virou um sapo",
-    "gta 6 vivendo a vida curtindo adoidado é",
     "gta 6 vivendo a vida curtindo adoidado é"
    ],
    "views": 37,
@@ -24280,12 +24313,10 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/AntsyShinyDragonflyRitzMitz-Df83f_KzRX7SmDfn",
    "clipe_ids": [
     "AthleticOptimisticClamChocolateRain-8FHaodHaZOU_fLkj",
-    "AthleticOptimisticClamChocolateRain-8FHaodHaZOU_fLkj",
     "AntsyShinyDragonflyRitzMitz-Df83f_KzRX7SmDfn"
    ],
    "titulos_chat": [
     "bzzz",
-    "gta 6 vivendo a vida curtindo adoidado é",
     "gta 6 vivendo a vida curtindo adoidado é"
    ],
    "views": 30,
@@ -24313,7 +24344,6 @@
     "AltruisticStylishRadishUnSane-SyZ6HJj_aQdx3hv1",
     "BlazingClearOstrichKAPOW-MeAj0sAXK4bF7W9u",
     "AlluringInquisitiveCarrotTakeNRG-FjQ2Ee_emjWiOeIq",
-    "AlluringInquisitiveCarrotTakeNRG-FjQ2Ee_emjWiOeIq",
     "DullBraveBisonYee-M_WxWu7cVD1Rjg0-"
    ],
    "titulos_chat": [
@@ -24321,7 +24351,6 @@
     "Super caranguejo",
     "seu siringueijo",
     "?????",
-    "caranking",
     "caranking"
    ],
    "views": 70,
@@ -24711,13 +24740,11 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/DrabStrangeTurnipLitFam-wuSsaMNgRpjSyoe5",
    "clipe_ids": [
     "ProudFairApeBabyRage-t6clh3s3YjaV2uOV",
-    "ProudFairApeBabyRage-t6clh3s3YjaV2uOV",
     "CarefulSquarePancakeThisIsSparta-0ZZpfp857vSKBHb3",
     "DrabStrangeTurnipLitFam-wuSsaMNgRpjSyoe5"
    ],
    "titulos_chat": [
     "Que Barbaridade",
-    "foi um acidentchi",
     "foi um acidentchi",
     "explodiu"
    ],
@@ -24762,7 +24789,6 @@
     "01",
     "hahahahahaha",
     "gg cor",
-    "🤣🤣",
     "🤣🤣",
     "MIL CAÍRÃO A MINHA DIREITA",
     "NAO VAI BATER SIM"
@@ -24820,14 +24846,12 @@
     "NeighborlyPhilanthropicShrewStinkyCheese-dUxemlHhSBJo8f-j",
     "FlirtyCorrectBunnyBabyRage-aQeK9-8DIXAH1tHg",
     "RoughBenevolentSparrowPMSTwin-bm7kUKT5qe-KzKNT",
-    "TawdrySpicyTapirVoteYea-1HbS0MyQIMnBmwcc",
     "TawdrySpicyTapirVoteYea-1HbS0MyQIMnBmwcc"
    ],
    "titulos_chat": [
     "Meu Deus",
     "So ele consegue",
     "a",
-    "aqui fritz",
     "aqui fritz"
    ],
    "views": 36,
@@ -24868,7 +24892,6 @@
     "eai nao iago",
     "kkkkk",
     "kkkkkkkkkkkkkk",
-    "YAGO",
     "porrayago"
    ],
    "views": 120,
@@ -28440,7 +28463,7 @@
   "2026-11-20": 2016,
   "2026-11-21": 5492,
   "2026-11-22": 1112,
-  "2026-11-23": 202
+  "2026-11-23": 302
  },
  "envios": {
   "2026-11-18": 40,
@@ -28448,7 +28471,7 @@
   "2026-11-20": 5,
   "2026-11-21": 3,
   "2026-11-22": 4,
-  "2026-11-23": 2
+  "2026-11-23": 3
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
