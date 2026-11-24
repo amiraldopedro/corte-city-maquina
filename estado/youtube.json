@@ -2284,7 +2284,9 @@
    "views_yt": 5801638,
    "dur": 32,
    "pedido_em": "2026-11-23T01:34:13+00:00",
-   "atualizado_em": "2026-11-23T01:34:13+00:00"
+   "atualizado_em": "2026-11-24T22:59:22+00:00",
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] hItEPio97RQ: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "ARwPnlAEQD8": {
    "id": "ARwPnlAEQD8",
