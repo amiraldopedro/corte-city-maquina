@@ -2346,16 +2346,48 @@
   "TOzpXB2Jomk": {
    "id": "TOzpXB2Jomk",
    "link": "https://www.youtube.com/watch?v=TOzpXB2Jomk",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:11+00:00",
-   "atualizado_em": "2026-11-23T01:34:11+00:00",
+   "atualizado_em": "2026-11-25T05:40:20+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA VI: DIA 4 ZERANDO HOJE ????? 🔴 CORINGA AO VIVO",
    "canal_nome": "LOUD Coringa",
-   "views_yt": 2490863
+   "views_yt": 2490863,
+   "longo": {
+    "asset_id": 790230242,
+    "inicio": 210.0,
+    "fim": 810.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "LOUDCoringa",
+   "canal_id": "UCnYjd7cPNluC7Hi9AZrBNMw",
+   "duracao": 42128.0,
+   "segmentos": [
+    {
+     "asset_id": 790200412,
+     "inicio": 204.0,
+     "fim": 274.0,
+     "duracao": 70.0,
+     "forca": 1.114
+    },
+    {
+     "asset_id": 790205807,
+     "inicio": 344.0,
+     "fim": 414.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 790212312,
+     "inicio": 461.0,
+     "fim": 531.0,
+     "duracao": 70.0,
+     "forca": 1.111
+    }
+   ]
   },
   "L5vMU26MPSQ": {
    "id": "L5vMU26MPSQ",
