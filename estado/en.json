@@ -33320,7 +33320,10 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-21T11:16:44+00:00",
-   "atualizado_em": "2026-11-25T03:42:52+00:00"
+   "atualizado_em": "2026-11-25T04:38:25+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2858049515_2629": {
    "id": "2858049515_2629",
@@ -53466,7 +53469,6 @@
     "jason as a girl",
     "Jason as a girl",
     "dub and t bank reacts to jason girl",
-    "🦃FRIENDSGIVING🦃DUB X TBANKS X JASON X JAYCINCO🦃EPICNESS🦃LETS GO🦃WOOOOO🦃",
     "🦃FRIENDSGIVING🦃DUB X TBANKS X JASON X JAYCINCO🦃EPICNESS🦃LETS GO🦃WOOOOO🦃"
    ],
    "views": 11,
@@ -53494,7 +53496,6 @@
     "SquareWittyMetalTheRinger-r_nZgIV3dp-VT7lB",
     "LazyFastWoodpeckerRuleFive-BK-oOsvYqxDMrbrY",
     "AlluringEphemeralTroutPeoplesChamp-az0rToACXcEhiQLV",
-    "AlluringEphemeralTroutPeoplesChamp-az0rToACXcEhiQLV",
     "KindEphemeralFoxFUNgineer-_rdgEAIyRxclhSQL",
     "YummyCrunchySheepCoolCat-8IuWAzwy-dayVfpT",
     "RelatedHandsomePrariedogShazBotstix-m0yDWoIaI9r1s_3H"
@@ -53503,10 +53504,7 @@
     "Jynxi causes a car accident",
     "Jinxy causing car crash",
     "[685/730] 🔴 FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "[685/730] 🔴 FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "[685/730] 🔴 FIRST TIME PLAYING GTA 6 DAY 5 🔴",
     "Bing Bong!",
-    "[685/730] 🔴 FIRST TIME PLAYING GTA 6 DAY 5 🔴",
     "jynxzi - Highlight 59c1a9 Part 02"
    ],
    "views": 9,
@@ -53520,6 +53518,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-25T04:15:38+00:00"
+  },
+  "longo_2935613960_25109": {
+   "id": "longo_2935613960_25109",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "Kai Cenat's reaction to the final swim scene in GTA 6 😭",
+   "descricao": "Kai Cenat's reaction to the final swim scene in GTA 6 😭\nKai Cenat plays the last mission of GTA 6 live and swims for the sandbar with his partner. The moment gets tense when he hears \"it's just you and me\", and chat reacts right along with him. Watch Kai's full reaction to the GTA 6 final scene and ending.\n\n🎮 Original stream: https://twitch.tv/kaicenat\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "kai cenat",
+    "gta 6",
+    "kai cenat gta 6",
+    "gta 6 ending",
+    "gta 6 final scene",
+    "gta 6 final mission",
+    "kai cenat reaction",
+    "kai cenat gta vi",
+    "gta 6 ending reaction",
+    "gta 6 sandbar scene",
+    "kai cenat live stream",
+    "gta 6 gameplay",
+    "kai cenat gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-25T04:40:59+00:00",
+   "criado_em": "2026-11-25T04:40:59+00:00",
+   "itens": [
+    "2935613960_25109"
+   ],
+   "streamers": [
+    "kaicenat"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935613960_25109_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935613960_25109_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935613960_25109.mp4",
+   "video_asset": 790073680,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2935613960_25109.jpg",
+   "thumb_asset": 790074009
   }
  },
  "clipes_vistos": [
