@@ -26254,13 +26254,11 @@
    "clipe_ids": [
     "UninterestedTransparentKaleBudBlast-4LkBoj99WnZ8O7UR",
     "UninterestedUnusualSoymilkPRChase-1LAj7FA3sisYarAA",
-    "KawaiiFreezingFishSoBayed-gTpWSTVT8LCvKlxo",
     "KawaiiFreezingFishSoBayed-gTpWSTVT8LCvKlxo"
    ],
    "titulos_chat": [
     "toma choque?",
     "primeira chuva",
-    "alan invadindo lugar proibido",
     "alan invadindo lugar proibido"
    ],
    "views": 25,
@@ -26477,7 +26475,6 @@
     "BumblingBrainyOpossumJonCarnage-W-IDBtFu--uuElof",
     "DullAffluentWhalePeteZarollTie-H7_0p7iIg6-a5lrB",
     "BadSnappyConsolePipeHype-K3zlPLXvaZm6V3B7",
-    "BadSnappyConsolePipeHype-K3zlPLXvaZm6V3B7",
     "ZanyCoyPoultrySquadGoals--WeD-vUaZD0axbhj",
     "BashfulGiantMushroomKippa-Ad82RJky02YT8_XK",
     "ShakingCogentChowderTheThing-P49m6RilyetWQnu8",
@@ -26486,8 +26483,6 @@
    "titulos_chat": [
     "baaaaaaaah",
     "1",
-    "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴",
     "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴",
     "case",
     "krillkon jynxzi",
@@ -26553,6 +26548,109 @@
    "postado_em": "2026-11-25T03:55:17+00:00",
    "envio_pendente": null,
    "atualizado_em": "2026-11-25T03:55:17+00:00"
+  },
+  "yt_-isRxm6m2c8_0": {
+   "id": "yt_-isRxm6m2c8_0",
+   "plataforma": "youtube",
+   "streamer": "Gameplayrj",
+   "nome": "Gameplayrj",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 789970183,
+   "yt_video": "-isRxm6m2c8",
+   "yt_link": "https://www.youtube.com/watch?v=-isRxm6m2c8&t=19630s",
+   "titulos_chat": [
+    "GTA 6 É O MAIOR JOGO DE TODOS OS TEMPOS VAMOS JOGAR INFINITO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1006,
+   "n_clipes": 1,
+   "score": 1500,
+   "prioridade": false,
+   "status": "novo",
+   "criado_em": "2026-11-25T04:15:08+00:00",
+   "atualizado_em": "2026-11-25T04:15:08+00:00",
+   "isolar_voz": false
+  },
+  "yt_-isRxm6m2c8_1": {
+   "id": "yt_-isRxm6m2c8_1",
+   "plataforma": "youtube",
+   "streamer": "Gameplayrj",
+   "nome": "Gameplayrj",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 789977237,
+   "yt_video": "-isRxm6m2c8",
+   "yt_link": "https://www.youtube.com/watch?v=-isRxm6m2c8&t=31726s",
+   "titulos_chat": [
+    "GTA 6 É O MAIOR JOGO DE TODOS OS TEMPOS VAMOS JOGAR INFINITO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1016,
+   "n_clipes": 1,
+   "score": 1400,
+   "prioridade": false,
+   "status": "novo",
+   "criado_em": "2026-11-25T04:15:08+00:00",
+   "atualizado_em": "2026-11-25T04:15:08+00:00",
+   "isolar_voz": false
+  },
+  "yt_-isRxm6m2c8_2": {
+   "id": "yt_-isRxm6m2c8_2",
+   "plataforma": "youtube",
+   "streamer": "Gameplayrj",
+   "nome": "Gameplayrj",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 789984503,
+   "yt_video": "-isRxm6m2c8",
+   "yt_link": "https://www.youtube.com/watch?v=-isRxm6m2c8&t=31827s",
+   "titulos_chat": [
+    "GTA 6 É O MAIOR JOGO DE TODOS OS TEMPOS VAMOS JOGAR INFINITO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1000,
+   "n_clipes": 1,
+   "score": 1300,
+   "prioridade": false,
+   "status": "novo",
+   "criado_em": "2026-11-25T04:15:08+00:00",
+   "atualizado_em": "2026-11-25T04:15:08+00:00",
+   "isolar_voz": false
+  },
+  "yt_-isRxm6m2c8_longo": {
+   "id": "yt_-isRxm6m2c8_longo",
+   "plataforma": "youtube",
+   "streamer": "Gameplayrj",
+   "nome": "Gameplayrj",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 600.0,
+   "clipe_url": null,
+   "yt_asset": 790009156,
+   "yt_longo": true,
+   "yt_video": "-isRxm6m2c8",
+   "yt_link": "https://www.youtube.com/watch?v=-isRxm6m2c8&t=31560s",
+   "titulos_chat": [
+    "GTA 6 É O MAIOR JOGO DE TODOS OS TEMPOS VAMOS JOGAR INFINITO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 0,
+   "n_clipes": 1,
+   "score": 20000,
+   "status": "novo",
+   "criado_em": "2026-11-25T04:15:08+00:00",
+   "atualizado_em": "2026-11-25T04:15:08+00:00"
   }
  },
  "clipes_vistos": [
