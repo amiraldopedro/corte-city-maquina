@@ -2392,16 +2392,48 @@
   "L5vMU26MPSQ": {
    "id": "L5vMU26MPSQ",
    "link": "https://www.youtube.com/watch?v=L5vMU26MPSQ",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:11+00:00",
-   "atualizado_em": "2026-11-23T01:34:11+00:00",
+   "atualizado_em": "2026-11-25T06:26:20+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 A 60 FPS É LINDO DEMAIS , VAMOS JOGAR O DIA TODO",
    "canal_nome": "Gameplayrj",
-   "views_yt": 2254805
+   "views_yt": 2254805,
+   "longo": {
+    "asset_id": 790355613,
+    "inicio": 29130.0,
+    "fim": 29730.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "Gameplayrj",
+   "canal_id": "UCJAbkIY17zAmCTNQHH0bQoQ",
+   "duracao": 36691.0,
+   "segmentos": [
+    {
+     "asset_id": 790315193,
+     "inicio": 334.0,
+     "fim": 404.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 790322371,
+     "inicio": 31662.0,
+     "fim": 31732.0,
+     "duracao": 70.0,
+     "forca": 1.064
+    },
+    {
+     "asset_id": 790328120,
+     "inicio": 31789.0,
+     "fim": 31859.0,
+     "duracao": 70.0,
+     "forca": 1.059
+    }
+   ]
   },
   "izXcd-bU72k": {
    "id": "izXcd-bU72k",
