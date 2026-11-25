@@ -26022,14 +26022,12 @@
     "RamshackleAbstemiousMoonBIRB-fBloC6UnHHKvgYRf",
     "GiantBumblingKimchiPanicVis-X_n1SZSV2LAknVYn",
     "ScaryPluckyDunlinTwitchRaid-bms0ih6m2QKy53DR",
-    "ScaryPluckyDunlinTwitchRaid-bms0ih6m2QKy53DR",
     "CorrectSassyLegOptimizePrime-5k7ldwxHHFfbdJFJ",
     "NiceRelatedSandpiperPunchTrees-2Nf8Zu9oW_1YW1wr"
    ],
    "titulos_chat": [
     "Do Davy Jones choveu",
     "davy jones",
-    "KKKKKKKKKKKKKKKKK",
     "KKKKKKKKKKKKKKKKK",
     "no do Davy Jones choveu",
     "gta 6 vivendo a vida curtindo adoidado é"
@@ -26091,7 +26089,6 @@
    "titulos_chat": [
     "dorme bem neném",
     "HISTÓRIA DE NINAR PRO FARELO",
-    "gta 6 vivendo a vida curtindo adoidado é",
     "gta 6 vivendo a vida curtindo adoidado é"
    ],
    "views": 50,
@@ -26105,6 +26102,109 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-25T00:47:56+00:00"
+  },
+  "yt_nTJ5Z9gZsZU_0": {
+   "id": "yt_nTJ5Z9gZsZU_0",
+   "plataforma": "youtube",
+   "streamer": "LOUDCoringa",
+   "nome": "LOUD Coringa",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 789880908,
+   "yt_video": "nTJ5Z9gZsZU",
+   "yt_link": "https://www.youtube.com/watch?v=nTJ5Z9gZsZU&t=14750s",
+   "titulos_chat": [
+    "GTA VI: DIA 3 ZERANDO  🔴 CORINGA AO VIVO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1014,
+   "n_clipes": 1,
+   "score": 1500,
+   "prioridade": false,
+   "status": "novo",
+   "criado_em": "2026-11-25T03:42:22+00:00",
+   "atualizado_em": "2026-11-25T03:42:22+00:00",
+   "isolar_voz": false
+  },
+  "yt_nTJ5Z9gZsZU_1": {
+   "id": "yt_nTJ5Z9gZsZU_1",
+   "plataforma": "youtube",
+   "streamer": "LOUDCoringa",
+   "nome": "LOUD Coringa",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 789888094,
+   "yt_video": "nTJ5Z9gZsZU",
+   "yt_link": "https://www.youtube.com/watch?v=nTJ5Z9gZsZU&t=25286s",
+   "titulos_chat": [
+    "GTA VI: DIA 3 ZERANDO  🔴 CORINGA AO VIVO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1000,
+   "n_clipes": 1,
+   "score": 1400,
+   "prioridade": false,
+   "status": "novo",
+   "criado_em": "2026-11-25T03:42:22+00:00",
+   "atualizado_em": "2026-11-25T03:42:22+00:00",
+   "isolar_voz": false
+  },
+  "yt_nTJ5Z9gZsZU_2": {
+   "id": "yt_nTJ5Z9gZsZU_2",
+   "plataforma": "youtube",
+   "streamer": "LOUDCoringa",
+   "nome": "LOUD Coringa",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 70.0,
+   "clipe_url": null,
+   "yt_asset": 789896935,
+   "yt_video": "nTJ5Z9gZsZU",
+   "yt_link": "https://www.youtube.com/watch?v=nTJ5Z9gZsZU&t=29750s",
+   "titulos_chat": [
+    "GTA VI: DIA 3 ZERANDO  🔴 CORINGA AO VIVO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 1025,
+   "n_clipes": 1,
+   "score": 1300,
+   "prioridade": false,
+   "status": "novo",
+   "criado_em": "2026-11-25T03:42:22+00:00",
+   "atualizado_em": "2026-11-25T03:42:22+00:00",
+   "isolar_voz": false
+  },
+  "yt_nTJ5Z9gZsZU_longo": {
+   "id": "yt_nTJ5Z9gZsZU_longo",
+   "plataforma": "youtube",
+   "streamer": "LOUDCoringa",
+   "nome": "LOUD Coringa",
+   "canal": "br",
+   "video_id": null,
+   "inicio": 0.0,
+   "fim": 600.0,
+   "clipe_url": null,
+   "yt_asset": 789923978,
+   "yt_longo": true,
+   "yt_video": "nTJ5Z9gZsZU",
+   "yt_link": "https://www.youtube.com/watch?v=nTJ5Z9gZsZU&t=810s",
+   "titulos_chat": [
+    "GTA VI: DIA 3 ZERANDO  🔴 CORINGA AO VIVO"
+   ],
+   "jogo": "Grand Theft Auto VI",
+   "views": 0,
+   "n_clipes": 1,
+   "score": 20000,
+   "status": "novo",
+   "criado_em": "2026-11-25T03:42:22+00:00",
+   "atualizado_em": "2026-11-25T03:42:22+00:00"
   }
  },
  "clipes_vistos": [
