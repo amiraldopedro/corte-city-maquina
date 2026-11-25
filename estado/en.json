@@ -40288,7 +40288,10 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-22T06:55:16+00:00",
-   "atualizado_em": "2026-11-24T14:54:53+00:00"
+   "atualizado_em": "2026-11-25T05:30:03+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2936683310_7495": {
    "id": "2936683310_7495",
@@ -53682,9 +53685,7 @@
    "titulos_chat": [
     "AGAGAGAGAGAG",
     "[685/730] 🔴 FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "destruction",
-    "[685/730] 🔴 FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "[685/730] 🔴 FIRST TIME PLAYING GTA 6 DAY 5 🔴"
+    "destruction"
    ],
    "views": 6,
    "n_clipes": 5,
@@ -53697,6 +53698,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-25T05:14:01+00:00"
+  },
+  "longo_2936683310_7249": {
+   "id": "longo_2936683310_7249",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "Kai Cenat got caught in a GTA 6 strip club easter egg hunt",
+   "descricao": "Kai Cenat got caught in a GTA 6 strip club easter egg hunt\nKai Cenat explores a strip club in GTA 6 and gets a private VIP dance while he says he's hunting easter eggs and doing side missions. Then his friends walk in on the live stream, call him out for skipping the invite, and the whole room loses it. This is a funny GTA 6 gameplay moment from Kai Cenat's live stream, with the strip club exploration and the reactions.\n\n🎮 Original stream: https://twitch.tv/kaicenat\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "kai cenat",
+    "gta 6",
+    "kai cenat gta 6",
+    "gta 6 strip club",
+    "gta 6 easter egg",
+    "gta 6 easter eggs",
+    "gta 6 side missions",
+    "gta 6 vip dance",
+    "kai cenat stream",
+    "kai cenat funny moments",
+    "kai cenat live",
+    "gta 6 gameplay",
+    "kai cenat gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-25T05:33:00+00:00",
+   "criado_em": "2026-11-25T05:33:00+00:00",
+   "itens": [
+    "2936683310_7249"
+   ],
+   "streamers": [
+    "kaicenat"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7249_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7249_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7249.mp4",
+   "video_asset": 790211830,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7249.jpg",
+   "thumb_asset": 790212176
   }
  },
  "clipes_vistos": [
