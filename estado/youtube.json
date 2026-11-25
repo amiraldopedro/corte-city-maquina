@@ -2113,16 +2113,48 @@
   "-isRxm6m2c8": {
    "id": "-isRxm6m2c8",
    "link": "https://www.youtube.com/watch?v=-isRxm6m2c8",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-22T01:09:53+00:00",
-   "atualizado_em": "2026-11-22T01:09:53+00:00",
+   "atualizado_em": "2026-11-25T04:14:55+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 É O MAIOR JOGO DE TODOS OS TEMPOS VAMOS JOGAR INFINITO",
    "canal_nome": "Gameplayrj",
-   "views_yt": 2261792
+   "views_yt": 2261792,
+   "longo": {
+    "asset_id": 790009156,
+    "inicio": 31560.0,
+    "fim": 32160.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "Gameplayrj",
+   "canal_id": "UCJAbkIY17zAmCTNQHH0bQoQ",
+   "duracao": 37636.0,
+   "segmentos": [
+    {
+     "asset_id": 789970183,
+     "inicio": 19630.0,
+     "fim": 19700.0,
+     "duracao": 70.0,
+     "forca": 1.007
+    },
+    {
+     "asset_id": 789977237,
+     "inicio": 31726.0,
+     "fim": 31796.0,
+     "duracao": 70.0,
+     "forca": 1.016
+    },
+    {
+     "asset_id": 789984503,
+     "inicio": 31827.0,
+     "fim": 31897.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "XUTsngATFUk": {
    "id": "XUTsngATFUk",
