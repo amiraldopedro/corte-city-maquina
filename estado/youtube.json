@@ -2324,14 +2324,17 @@
    "id": "9fUU_Z1z5MA",
    "link": "https://www.youtube.com/watch?v=9fUU_Z1z5MA",
    "modo": "modelo",
-   "status": "modelo_pendente",
+   "status": "modelo_baixado",
    "titulo": "GTA 6 Deleted The Internet From Your Phone",
    "canal_nome": "ByteTalkYT",
    "canal_id_yt": "UCQGAh-9MRS1QEANyk5aHIgQ",
    "views_yt": 1117224,
    "dur": 22,
    "pedido_em": "2026-11-23T01:34:13+00:00",
-   "atualizado_em": "2026-11-23T01:34:13+00:00"
+   "atualizado_em": "2026-11-25T03:04:19+00:00",
+   "asset_id": 789829398,
+   "idioma_falado": "en",
+   "url_final": "https://www.youtube.com/watch?v=9fUU_Z1z5MA"
   }
  },
  "clipes_vistos": [],
