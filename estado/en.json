@@ -40342,7 +40342,10 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-22T06:55:16+00:00",
-   "atualizado_em": "2026-11-24T01:44:14+00:00"
+   "atualizado_em": "2026-11-25T07:35:24+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2936683310_14465": {
    "id": "2936683310_14465",
@@ -54409,6 +54412,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-25T07:36:42+00:00"
+  },
+  "longo_2936683310_7495": {
+   "id": "longo_2936683310_7495",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "Kai Cenat handed out cash in GTA 6 to pay rent and tuition",
+   "descricao": "Kai Cenat handed out cash in GTA 6 to pay rent and tuition\nIn this Kai Cenat GTA 6 clip, Kai hands out in-game cash and jokes that it's for rent, kids' tuition and more. He keeps saying he needs to get more cash while a song plays in the background. It's a funny, chaotic stream moment from the GTA 6 open world.\n\n🎮 Original stream: https://twitch.tv/kaicenat\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "kai cenat",
+    "gta 6",
+    "kai cenat gta 6",
+    "kai cenat stream",
+    "kai cenat gta 6 funny moments",
+    "gta 6 giving away money",
+    "gta 6 cash",
+    "gta 6 funny moments",
+    "gta 6 live stream",
+    "gta 6 exploring",
+    "kai cenat highlights",
+    "kai cenat clips",
+    "kai cenat gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-25T07:38:05+00:00",
+   "criado_em": "2026-11-25T07:38:05+00:00",
+   "itens": [
+    "2936683310_7495"
+   ],
+   "streamers": [
+    "kaicenat"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7495_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7495_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7495.mp4",
+   "video_asset": 790565126,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936683310_7495.jpg",
+   "thumb_asset": 790565618
   }
  },
  "clipes_vistos": [
