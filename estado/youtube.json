@@ -2299,17 +2299,49 @@
   "2MLOZQESC-A": {
    "id": "2MLOZQESC-A",
    "link": "https://www.youtube.com/watch?v=2MLOZQESC-A",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:10+00:00",
-   "atualizado_em": "2026-11-23T01:34:10+00:00",
+   "atualizado_em": "2026-11-25T05:13:19+00:00",
    "auto": true,
    "titulo": "os primeiros dias de GTA 6 já renderam isso kkkkk",
    "canal_nome": "Sim Sou Silva",
    "isolar_voz": false,
    "views_yt": 225512,
-   "tema": "GTA 6 momentos engraçados"
+   "tema": "GTA 6 momentos engraçados",
+   "longo": {
+    "asset_id": 790161420,
+    "inicio": 0.0,
+    "fim": 600.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "simsousilva",
+   "canal_id": "UCvUESgfOfpPyQfL7CKoVjbA",
+   "duracao": 1445.0,
+   "segmentos": [
+    {
+     "asset_id": 790136581,
+     "inicio": 210.0,
+     "fim": 280.0,
+     "duracao": 70.0,
+     "forca": 1.014
+    },
+    {
+     "asset_id": 790140981,
+     "inicio": 773.0,
+     "fim": 843.0,
+     "duracao": 70.0,
+     "forca": 1.063
+    },
+    {
+     "asset_id": 790145570,
+     "inicio": 878.0,
+     "fim": 948.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "TOzpXB2Jomk": {
    "id": "TOzpXB2Jomk",
