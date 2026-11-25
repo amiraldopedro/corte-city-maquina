@@ -2392,11 +2392,11 @@
   "L5vMU26MPSQ": {
    "id": "L5vMU26MPSQ",
    "link": "https://www.youtube.com/watch?v=L5vMU26MPSQ",
-   "status": "baixado",
+   "status": "na_fila",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:11+00:00",
-   "atualizado_em": "2026-11-25T06:26:20+00:00",
+   "atualizado_em": "2026-11-25T06:26:35+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA 6 A 60 FPS É LINDO DEMAIS , VAMOS JOGAR O DIA TODO",
