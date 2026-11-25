@@ -2212,16 +2212,19 @@
    "id": "F5erDJqmxvE",
    "link": "https://www.youtube.com/watch?v=F5erDJqmxvE",
    "modo": "modelo",
-   "status": "modelo_pendente",
+   "status": "modelo_baixado",
    "titulo": "\"Gta 6 already has the funniest npcs😂\" #gta6 #rockstargames",
    "canal_nome": "SSG",
    "canal_id_yt": "UCp2bSfH6eXXp3i9Cw9BlMlQ",
    "views_yt": 12784924,
    "dur": 17,
    "pedido_em": "2026-11-22T01:09:55+00:00",
-   "atualizado_em": "2026-11-25T06:41:39+00:00",
+   "atualizado_em": "2026-11-25T07:38:53+00:00",
    "tentativas": 2,
-   "erro": "ERROR: [youtube] F5erDJqmxvE: Requested format is not available. Use --list-formats for a list of available formats"
+   "erro": "ERROR: [youtube] F5erDJqmxvE: Requested format is not available. Use --list-formats for a list of available formats",
+   "asset_id": 790567874,
+   "idioma_falado": "en-US",
+   "url_final": "https://www.youtube.com/watch?v=F5erDJqmxvE"
   },
   "uz-Iq7nCfnA": {
    "id": "uz-Iq7nCfnA",
