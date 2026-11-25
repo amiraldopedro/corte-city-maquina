@@ -2470,11 +2470,11 @@
   "izXcd-bU72k": {
    "id": "izXcd-bU72k",
    "link": "https://www.youtube.com/watch?v=izXcd-bU72k",
-   "status": "baixado",
+   "status": "na_fila",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:11+00:00",
-   "atualizado_em": "2026-11-25T07:36:04+00:00",
+   "atualizado_em": "2026-11-25T07:36:17+00:00",
    "auto": true,
    "origem": "gringo",
    "gringo": true,
