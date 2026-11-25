@@ -2235,11 +2235,11 @@
   "-Q4yqks16BQ": {
    "id": "-Q4yqks16BQ",
    "link": "https://www.youtube.com/watch?v=-Q4yqks16BQ",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:10+00:00",
-   "atualizado_em": "2026-11-25T04:37:49+00:00",
+   "atualizado_em": "2026-11-25T07:12:27+00:00",
    "auto": true,
    "titulo": "PASSO A PASSO COMO RODAR GTA 6 A 60 FPS NO CONSOLE",
    "canal_nome": "Davy Jones GTA 6",
@@ -2247,7 +2247,39 @@
    "views_yt": 277308,
    "tema": "GTA 6 momentos engraçados",
    "tentativas": 1,
-   "erro": "upload falhou (408): {'erro': '{\"message\":\"Upload body timed out due to inactivity\",\"request_id\":\"F83C:6A70E:7CE68:B7015:6B0665CC\"}'}"
+   "erro": "upload falhou (408): {'erro': '{\"message\":\"Upload body timed out due to inactivity\",\"request_id\":\"F83C:6A70E:7CE68:B7015:6B0665CC\"}'}",
+   "longo": {
+    "asset_id": 790488659,
+    "inicio": 120.0,
+    "fim": 720.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "DavyJonesGTA6",
+   "canal_id": "UCK4vuzS4fX8qxWi5Ik7XQYA",
+   "duracao": 740.0,
+   "segmentos": [
+    {
+     "asset_id": 790461932,
+     "inicio": 177.0,
+     "fim": 247.0,
+     "duracao": 70.0,
+     "forca": 1.031
+    },
+    {
+     "asset_id": 790465374,
+     "inicio": 328.0,
+     "fim": 398.0,
+     "duracao": 70.0,
+     "forca": 1.033
+    },
+    {
+     "asset_id": 790469550,
+     "inicio": 464.0,
+     "fim": 534.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "gC5FwS596gY": {
    "id": "gC5FwS596gY",
