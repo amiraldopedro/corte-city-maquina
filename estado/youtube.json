@@ -2442,7 +2442,7 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:11+00:00",
-   "atualizado_em": "2026-11-23T01:34:11+00:00",
+   "atualizado_em": "2026-11-25T06:35:55+00:00",
    "auto": true,
    "origem": "gringo",
    "gringo": true,
@@ -2450,7 +2450,9 @@
    "canal_nome": "IShowSpeed",
    "canal_handle": "IShowSpeed",
    "views_yt": 9274550,
-   "isolar_voz": false
+   "isolar_voz": false,
+   "tentativas": 1,
+   "erro": "ERROR: [youtube] izXcd-bU72k: Requested format is not available. Use --list-formats for a list of available formats"
   },
   "-IqexSaW8ek": {
    "id": "-IqexSaW8ek",
