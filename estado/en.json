@@ -43472,7 +43472,11 @@
    "_priorizado": true,
    "score_v": 2,
    "status": "novo",
-   "criado_em": "2026-11-22T16:19:14+00:00"
+   "criado_em": "2026-11-22T16:19:14+00:00",
+   "usado_em": [
+    "longo"
+   ],
+   "atualizado_em": "2026-11-25T06:45:04+00:00"
   },
   "2936160211_9832": {
    "id": "2936160211_9832",
@@ -54015,7 +54019,6 @@
    "clipe_ids": [
     "TardyExcitedTrianglePipeHype-0wje1juhEjjQiIAL",
     "ScaryThirstyGalagoTebowing-acKEBnpc5-iNEmP7",
-    "ScaryThirstyGalagoTebowing-acKEBnpc5-iNEmP7",
     "SmoggyBluePeafowlAMPEnergy-rK6JXywMGGSEMTIQ",
     "EndearingSolidPigeonWow-zCSsB7zsLzlnHgUq",
     "BitterCreativeEmuResidentSleeper-K9YTPBkbJ6o1UHAX",
@@ -54024,11 +54027,7 @@
    "titulos_chat": [
     "GTA TIME 🔥",
     "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "Jynxzi GTA 6 moment",
-    "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴",
-    "[685/730] 🔴 CLIPS -> FIRST TIME PLAYING GTA 6 DAY 5 🔴"
+    "Jynxzi GTA 6 moment"
    ],
    "views": 7,
    "n_clipes": 7,
@@ -54041,6 +54040,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-25T06:26:59+00:00"
+  },
+  "longo_2936160211_8605": {
+   "id": "longo_2936160211_8605",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "JasonTheWeen watches Marlon finish GTA 6 at 100% 🎮",
+   "descricao": "JasonTheWeen watches Marlon finish GTA 6 at 100% 🎮\nJasonTheWeen watches Marlon take on the GTA 6 finale during the live stream, and chat gets emotional as the 100% completion run comes to an end. Jason and the crew try to keep rolling, and they even talk about flying inside the game. A long GTA 6 live stream highlight with the funniest and most emotional reactions from the final moments.\n\n🎮 Original stream: https://twitch.tv/jasontheween\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "jasontheween",
+    "gta 6",
+    "jasontheween gta 6",
+    "gta 6 100% completion",
+    "gta 6 finale",
+    "gta 6 ending reaction",
+    "jason watching marlon",
+    "marlon gta 6",
+    "gta 6 live stream highlights",
+    "gta 6 funny moments",
+    "gta vi finale",
+    "jasontheween stream clips",
+    "jasontheween gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-25T06:47:45+00:00",
+   "criado_em": "2026-11-25T06:47:45+00:00",
+   "itens": [
+    "2936160211_8605"
+   ],
+   "streamers": [
+    "jasontheween"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_8605_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_8605_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_8605.mp4",
+   "video_asset": 790417435,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2936160211_8605.jpg",
+   "thumb_asset": 790417763
   }
  },
  "clipes_vistos": [
