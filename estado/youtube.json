@@ -2067,16 +2067,48 @@
   "nTJ5Z9gZsZU": {
    "id": "nTJ5Z9gZsZU",
    "link": "https://www.youtube.com/watch?v=nTJ5Z9gZsZU",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-22T01:09:53+00:00",
-   "atualizado_em": "2026-11-22T01:09:53+00:00",
+   "atualizado_em": "2026-11-25T03:42:01+00:00",
    "auto": true,
    "origem": "live",
    "titulo": "GTA VI: DIA 3 ZERANDO  🔴 CORINGA AO VIVO",
    "canal_nome": "LOUD Coringa",
-   "views_yt": 3265033
+   "views_yt": 3265033,
+   "longo": {
+    "asset_id": 789923978,
+    "inicio": 810.0,
+    "fim": 1410.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "LOUDCoringa",
+   "canal_id": "UCnYjd7cPNluC7Hi9AZrBNMw",
+   "duracao": 42900.0,
+   "segmentos": [
+    {
+     "asset_id": 789880908,
+     "inicio": 14750.0,
+     "fim": 14820.0,
+     "duracao": 70.0,
+     "forca": 1.015
+    },
+    {
+     "asset_id": 789888094,
+     "inicio": 25286.0,
+     "fim": 25356.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 789896935,
+     "inicio": 29750.0,
+     "fim": 29820.0,
+     "duracao": 70.0,
+     "forca": 1.025
+    }
+   ]
   },
   "-isRxm6m2c8": {
    "id": "-isRxm6m2c8",
