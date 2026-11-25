@@ -2252,17 +2252,49 @@
   "gC5FwS596gY": {
    "id": "gC5FwS596gY",
    "link": "https://www.youtube.com/watch?v=gC5FwS596gY",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:10+00:00",
-   "atualizado_em": "2026-11-23T01:34:10+00:00",
+   "atualizado_em": "2026-11-25T05:01:27+00:00",
    "auto": true,
    "titulo": "GTA 6 - O GRANDE ASSALTO ao BANCO com a LUCIA!",
    "canal_nome": "LipaoGamer",
    "isolar_voz": false,
    "views_yt": 321452,
-   "tema": "GTA 6 dicas"
+   "tema": "GTA 6 dicas",
+   "longo": {
+    "asset_id": 790123184,
+    "inicio": 0.0,
+    "fim": 600.0,
+    "duracao": 600.0
+   },
+   "canal_handle": "LipaoGamer",
+   "canal_id": "UCHuZmQ0lSW8TG81dVZZh5rw",
+   "duracao": 1049.0,
+   "segmentos": [
+    {
+     "asset_id": 790077197,
+     "inicio": 219.0,
+     "fim": 289.0,
+     "duracao": 70.0,
+     "forca": 1.231
+    },
+    {
+     "asset_id": 790086231,
+     "inicio": 602.0,
+     "fim": 672.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    },
+    {
+     "asset_id": 790095106,
+     "inicio": 931.0,
+     "fim": 1001.0,
+     "duracao": 70.0,
+     "forca": 1.145
+    }
+   ]
   },
   "2MLOZQESC-A": {
    "id": "2MLOZQESC-A",
