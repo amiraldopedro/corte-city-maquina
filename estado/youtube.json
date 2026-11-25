@@ -2239,13 +2239,15 @@
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:10+00:00",
-   "atualizado_em": "2026-11-23T01:34:10+00:00",
+   "atualizado_em": "2026-11-25T04:37:49+00:00",
    "auto": true,
    "titulo": "PASSO A PASSO COMO RODAR GTA 6 A 60 FPS NO CONSOLE",
    "canal_nome": "Davy Jones GTA 6",
    "isolar_voz": false,
    "views_yt": 277308,
-   "tema": "GTA 6 momentos engraçados"
+   "tema": "GTA 6 momentos engraçados",
+   "tentativas": 1,
+   "erro": "upload falhou (408): {'erro': '{\"message\":\"Upload body timed out due to inactivity\",\"request_id\":\"F83C:6A70E:7CE68:B7015:6B0665CC\"}'}"
   },
   "gC5FwS596gY": {
    "id": "gC5FwS596gY",
