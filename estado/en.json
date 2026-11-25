@@ -50767,7 +50767,10 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-24T12:37:29+00:00",
-   "atualizado_em": "2026-11-25T03:42:55+00:00"
+   "atualizado_em": "2026-11-25T06:25:20+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "2938655753_35454": {
    "id": "2938655753_35454",
@@ -53902,6 +53905,47 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-25T05:41:12+00:00"
+  },
+  "longo_2938655753_31459": {
+   "id": "longo_2938655753_31459",
+   "streamer": "*",
+   "canal": "en",
+   "tipo": "longo",
+   "status": "pronto",
+   "titulo": "CaseOh GTA 6: Jason jumped out, and chat can't stop laughing",
+   "descricao": "CaseOh GTA 6: Jason jumped out, and chat can't stop laughing\nCaseOh plays GTA 6 and watches the crew tell the DOJ everything about their drug trafficking days, from the Kingfishers gang to Donnie and the bodies. After the big confession, they wonder if they just screwed themselves and how they'll make money without running drugs. Chat clicked this GTA 6 story moment because of Jason's wild jump and the funny CaseOh reactions.\n\n🎮 Original stream: https://twitch.tv/caseoh_\n\nFan channel, not affiliated with Rockstar Games or the streamers. All rights belong to their original creators. If something is yours and you want it removed, tell us in the comments.\n\n#gtarp #cortes",
+   "tags": [
+    "caseoh",
+    "gta 6",
+    "caseoh gta 6",
+    "caseoh gta 6 funny moments",
+    "jason jumped gta 6",
+    "gta 6 jason",
+    "gta 6 doj confession",
+    "gta 6 story mission",
+    "gta 6 lucia and jason",
+    "caseoh live highlights",
+    "caseoh reacts",
+    "gta 6 funny clips",
+    "caseoh gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Best GTA 6 Moments",
+   "feito_em": "2026-11-25T06:27:32+00:00",
+   "criado_em": "2026-11-25T06:27:32+00:00",
+   "itens": [
+    "2938655753_31459"
+   ],
+   "streamers": [
+    "caseoh_"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2938655753_31459_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2938655753_31459_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2938655753_31459.mp4",
+   "video_asset": 790360303,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_2938655753_31459.jpg",
+   "thumb_asset": 790360546
   }
  },
  "clipes_vistos": [
