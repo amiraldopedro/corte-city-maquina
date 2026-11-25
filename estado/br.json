@@ -21360,7 +21360,10 @@
    "score": 20000,
    "status": "novo",
    "criado_em": "2026-11-21T11:45:20+00:00",
-   "atualizado_em": "2026-11-21T11:45:20+00:00"
+   "atualizado_em": "2026-11-25T04:26:54+00:00",
+   "usado_em": [
+    "longo"
+   ]
   },
   "longo_yt_upFrh84fBhc_longo": {
    "id": "longo_yt_upFrh84fBhc_longo",
@@ -26750,6 +26753,52 @@
    "score_v": 2,
    "status": "novo",
    "criado_em": "2026-11-25T04:15:30+00:00"
+  },
+  "longo_yt_ivjSsjiHbZA_longo": {
+   "id": "longo_yt_ivjSsjiHbZA_longo",
+   "streamer": "*",
+   "canal": "br",
+   "tipo": "longo",
+   "status": "postado",
+   "titulo": "Paulinho O Loko no GTA 6: base militar longe e o ET misterioso",
+   "descricao": "Paulinho O Loko no GTA 6: base militar longe e o ET misterioso\nPaulinho O Loko anda pelo mapa do GTA 6 rumo à base militar, dizendo que dá para pular com o civicão lá dentro. Ele também fala do tal ET que ainda não sabe como funciona e explica como concorrer mais de uma vez no sorteio da live. Corte longo com Paulinho O Loko, dicas de sorteio e a viagem até a base militar.\n\n🎮 Live original: https://www.youtube.com/@PaulinhoLOKOoficial\n\nCanal de fãs, sem vínculo oficial com a Rockstar Games nem com os streamers. Todos os direitos pertencem aos seus criadores. Se algo for seu e você quiser a remoção, avise nos comentários.\n\n#gtarp #cortes",
+   "tags": [
+    "paulinho o loko gta 6",
+    "paulinho o loko",
+    "gta 6 base militar",
+    "base militar gta 6",
+    "et gta 6",
+    "easter egg gta 6",
+    "segredos gta 6",
+    "gta 6 live",
+    "sorteio ps5 gta 6",
+    "live gta 6",
+    "cortes gta 6",
+    "gta 6 momentos engraçados",
+    "paulinho o loko gta rp",
+    "gta rp",
+    "cortes gta rp"
+   ],
+   "playlist": "Melhores Momentos de GTA 6",
+   "feito_em": "2026-11-25T04:28:20+00:00",
+   "criado_em": "2026-11-25T04:28:20+00:00",
+   "itens": [
+    "yt_ivjSsjiHbZA_longo"
+   ],
+   "streamers": [
+    "PaulinhoLOKOoficial"
+   ],
+   "kit_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_yt_ivjSsjiHbZA_longo_kit.pdf",
+   "kit_zip_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_yt_ivjSsjiHbZA_longo_kit.zip",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_yt_ivjSsjiHbZA_longo.mp4",
+   "video_asset": 790044867,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/longo_yt_ivjSsjiHbZA_longo.jpg",
+   "thumb_asset": 790045176,
+   "youtube_id": "ibknJrMSbQs",
+   "publicar_em": "2026-12-02T18:00:00Z",
+   "postado_em": "2026-11-25T04:28:35+00:00",
+   "envio_pendente": null,
+   "atualizado_em": "2026-11-25T04:28:35+00:00"
   }
  },
  "clipes_vistos": [
@@ -30434,7 +30483,7 @@
   "2026-11-21": 5492,
   "2026-11-22": 1112,
   "2026-11-23": 402,
-  "2026-11-24": 400
+  "2026-11-24": 500
  },
  "envios": {
   "2026-11-18": 40,
@@ -30443,7 +30492,7 @@
   "2026-11-21": 3,
   "2026-11-22": 4,
   "2026-11-23": 4,
-  "2026-11-24": 1
+  "2026-11-24": 2
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
