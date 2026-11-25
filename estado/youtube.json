@@ -2470,11 +2470,11 @@
   "izXcd-bU72k": {
    "id": "izXcd-bU72k",
    "link": "https://www.youtube.com/watch?v=izXcd-bU72k",
-   "status": "esperando",
+   "status": "baixado",
    "modo": "cortes",
    "plataforma": "youtube",
    "pedido_em": "2026-11-23T01:34:11+00:00",
-   "atualizado_em": "2026-11-25T06:35:55+00:00",
+   "atualizado_em": "2026-11-25T07:36:04+00:00",
    "auto": true,
    "origem": "gringo",
    "gringo": true,
@@ -2484,7 +2484,38 @@
    "views_yt": 9274550,
    "isolar_voz": false,
    "tentativas": 1,
-   "erro": "ERROR: [youtube] izXcd-bU72k: Requested format is not available. Use --list-formats for a list of available formats"
+   "erro": "ERROR: [youtube] izXcd-bU72k: Requested format is not available. Use --list-formats for a list of available formats",
+   "longo": {
+    "asset_id": 790557701,
+    "inicio": 20100.0,
+    "fim": 20700.0,
+    "duracao": 600.0
+   },
+   "canal_id": "UCWsDFcIhY2DBi3GB5uykGXA",
+   "duracao": 20702.0,
+   "segmentos": [
+    {
+     "asset_id": 790514517,
+     "inicio": 20372.0,
+     "fim": 20442.0,
+     "duracao": 70.0,
+     "forca": 1.42
+    },
+    {
+     "asset_id": 790524221,
+     "inicio": 20471.0,
+     "fim": 20541.0,
+     "duracao": 70.0,
+     "forca": 1.226
+    },
+    {
+     "asset_id": 790532599,
+     "inicio": 20570.0,
+     "fim": 20640.0,
+     "duracao": 70.0,
+     "forca": 1.0
+    }
+   ]
   },
   "-IqexSaW8ek": {
    "id": "-IqexSaW8ek",
