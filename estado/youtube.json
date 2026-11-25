@@ -2533,16 +2533,19 @@
    "id": "-IqexSaW8ek",
    "link": "https://www.youtube.com/watch?v=-IqexSaW8ek",
    "modo": "modelo",
-   "status": "modelo_pendente",
+   "status": "modelo_baixado",
    "titulo": "GTA6 ya Glitch Machine 😭",
    "canal_nome": "JayKay Games",
    "canal_id_yt": "UC9cv6T5Jrxz70TZkIfWOuqw",
    "views_yt": 14967918,
    "dur": 33,
    "pedido_em": "2026-11-23T01:34:13+00:00",
-   "atualizado_em": "2026-11-25T06:45:36+00:00",
+   "atualizado_em": "2026-11-25T07:41:17+00:00",
    "tentativas": 2,
-   "erro": "ERROR: [youtube] -IqexSaW8ek: Requested format is not available. Use --list-formats for a list of available formats"
+   "erro": "ERROR: [youtube] -IqexSaW8ek: Requested format is not available. Use --list-formats for a list of available formats",
+   "asset_id": 790574717,
+   "idioma_falado": "hi",
+   "url_final": "https://www.youtube.com/watch?v=-IqexSaW8ek"
   },
   "hItEPio97RQ": {
    "id": "hItEPio97RQ",
