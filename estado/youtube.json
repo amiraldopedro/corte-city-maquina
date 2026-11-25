@@ -2473,16 +2473,19 @@
    "id": "hItEPio97RQ",
    "link": "https://www.youtube.com/watch?v=hItEPio97RQ",
    "modo": "modelo",
-   "status": "modelo_pendente",
+   "status": "modelo_baixado",
    "titulo": "Pria Ini Berhasil Main GTA 6 Lebih Awal!",
    "canal_nome": "Makhluk MARS",
    "canal_id_yt": "UCCA75D5xkb_3C1KYmAA-sVQ",
    "views_yt": 5801638,
    "dur": 32,
    "pedido_em": "2026-11-23T01:34:13+00:00",
-   "atualizado_em": "2026-11-24T22:59:22+00:00",
+   "atualizado_em": "2026-11-25T07:01:35+00:00",
    "tentativas": 1,
-   "erro": "ERROR: [youtube] hItEPio97RQ: Requested format is not available. Use --list-formats for a list of available formats"
+   "erro": "ERROR: [youtube] hItEPio97RQ: Requested format is not available. Use --list-formats for a list of available formats",
+   "asset_id": 790456078,
+   "idioma_falado": "id",
+   "url_final": "https://www.youtube.com/watch?v=hItEPio97RQ"
   },
   "ARwPnlAEQD8": {
    "id": "ARwPnlAEQD8",
