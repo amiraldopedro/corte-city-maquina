@@ -30756,6 +30756,40 @@
    "publicar_em": "2026-11-28T21:00:00Z",
    "postado_em": "2026-11-27T11:04:25+00:00",
    "envio_pendente": null
+  },
+  "mod_F5erDJqmxvE": {
+   "id": "mod_F5erDJqmxvE",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-27T11:05:27+00:00",
+   "atualizado_em": "2026-11-27T11:05:31+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "Os NPCs do GTA 6 são hilários e você precisa ver isso",
+   "gancho": "OS NPCs DO GTA 6 SÃO UMA PIADA",
+   "descricao": "Os NPCs do GTA 6 são hilários e você precisa ver isso\n\nIdeia e gameplay: SSG (https://www.youtube.com/watch?v=F5erDJqmxvE)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-27T11:05:27+00:00",
+   "nome": "SSG",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 14.8,
+   "modelo_de": "https://www.youtube.com/watch?v=F5erDJqmxvE",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_F5erDJqmxvE.mp4",
+   "video_asset": 800151268,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_F5erDJqmxvE.jpg",
+   "thumb_asset": 800151434,
+   "youtube_id": "Xa5C6zg_prs",
+   "publicar_em": "2026-11-29T00:00:00Z",
+   "postado_em": "2026-11-27T11:05:31+00:00",
+   "envio_pendente": null
   }
  },
  "clipes_vistos": [
@@ -34932,7 +34966,7 @@
   "2026-11-24": 900,
   "2026-11-25": 100,
   "2026-11-26": 100,
-  "2026-11-27": 200
+  "2026-11-27": 300
  },
  "envios": {
   "2026-11-18": 40,
@@ -34944,7 +34978,7 @@
   "2026-11-24": 6,
   "2026-11-25": 1,
   "2026-11-26": 1,
-  "2026-11-27": 2
+  "2026-11-27": 3
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
