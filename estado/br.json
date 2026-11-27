@@ -30790,6 +30790,40 @@
    "publicar_em": "2026-11-29T00:00:00Z",
    "postado_em": "2026-11-27T11:05:31+00:00",
    "envio_pendente": null
+  },
+  "mod_uz-Iq7nCfnA": {
+   "id": "mod_uz-Iq7nCfnA",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-27T11:07:30+00:00",
+   "atualizado_em": "2026-11-27T11:07:35+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "Como deixar o Jason muito mais forte no GTA 6 (treino secreto)",
+   "gancho": "TREINO SECRETO DO JASON",
+   "descricao": "Como deixar o Jason muito mais forte no GTA 6 (treino secreto)\n\nIdeia e gameplay: Viceprint (https://www.youtube.com/watch?v=uz-Iq7nCfnA)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-27T11:07:30+00:00",
+   "nome": "Viceprint",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 46.4,
+   "modelo_de": "https://www.youtube.com/watch?v=uz-Iq7nCfnA",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_uz-Iq7nCfnA.mp4",
+   "video_asset": 800158185,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_uz-Iq7nCfnA.jpg",
+   "thumb_asset": 800158309,
+   "youtube_id": "vdf1e5YD0X8",
+   "publicar_em": "2026-11-29T15:00:00Z",
+   "postado_em": "2026-11-27T11:07:35+00:00",
+   "envio_pendente": null
   }
  },
  "clipes_vistos": [
@@ -34966,7 +35000,7 @@
   "2026-11-24": 900,
   "2026-11-25": 100,
   "2026-11-26": 100,
-  "2026-11-27": 300
+  "2026-11-27": 400
  },
  "envios": {
   "2026-11-18": 40,
@@ -34978,7 +35012,7 @@
   "2026-11-24": 6,
   "2026-11-25": 1,
   "2026-11-26": 1,
-  "2026-11-27": 3
+  "2026-11-27": 4
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
