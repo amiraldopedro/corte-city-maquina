@@ -30564,7 +30564,6 @@
     "UM ALIENÍGENA",
     "\\",
     "gta 6 vivendo a vida curtindo adoidado é - !progresso",
-    "alien",
     "alien"
    ],
    "views": 8,
@@ -30589,7 +30588,6 @@
    "clipe_url": "https://www.twitch.tv/alanzoka/clip/CourteousObeseDragonflyTooSpicy-9CoEh1hp2f6JjMAi",
    "clipe_ids": [
     "SassyChillyTildeTBTacoRight-d0F5Ec-n9Sk6iUdS",
-    "SassyChillyTildeTBTacoRight-d0F5Ec-n9Sk6iUdS",
     "BlueSaltyLEDTwitchRPG-SrPoRLvhOKDt68jP",
     "BigPluckyMushroomWoofer-AU7iLqj_5kMbjV4n",
     "RoughNurturingHerbsUnSane-8soj79YwQQPJOCm_",
@@ -30602,7 +30600,6 @@
     "ET, ME LEVAA!!!!!",
     "ME LEVA",
     "aligenigenas",
-    "alan salva alien",
     "alan salva alien",
     "ALLIEN ALLAN PART 2",
     "k3",
@@ -30724,6 +30721,40 @@
    "youtube_id": "cA8ZEsG7KFg",
    "publicar_em": "2026-11-28T15:00:00Z",
    "postado_em": "2026-11-27T11:03:19+00:00",
+   "envio_pendente": null
+  },
+  "mod_AIUSay0A79c": {
+   "id": "mod_AIUSay0A79c",
+   "canal": "br",
+   "status": "postado",
+   "criado_em": "2026-11-27T11:04:19+00:00",
+   "atualizado_em": "2026-11-27T11:04:25+00:00",
+   "tipo": "short",
+   "jogo": "Grand Theft Auto VI",
+   "titulo": "Ele surtou porque o GTA 6 era digital e não tinha disco",
+   "gancho": "SURTOU COM O GTA 6",
+   "descricao": "Ele surtou porque o GTA 6 era digital e não tinha disco\n\nIdeia e gameplay: Rossi (https://www.youtube.com/watch?v=AIUSay0A79c)\nVersão em português: Corte City.\n\n#gta6 #gtavi #shorts",
+   "tags": [
+    "gta 6",
+    "gta vi",
+    "gta 6 gameplay",
+    "shorts",
+    "cortes gta"
+   ],
+   "feito_em": "2026-11-27T11:04:19+00:00",
+   "nome": "Rossi",
+   "streamer": "corte-city",
+   "plataforma": "youtube",
+   "quadro": "modelado",
+   "duracao": 13.9,
+   "modelo_de": "https://www.youtube.com/watch?v=AIUSay0A79c",
+   "video_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_AIUSay0A79c.mp4",
+   "video_asset": 800147215,
+   "thumb_url": "https://github.com/amiraldopedro/corte-city-arquivos/releases/download/prontos/mod_AIUSay0A79c.jpg",
+   "thumb_asset": 800147343,
+   "youtube_id": "POhOGN6rwuE",
+   "publicar_em": "2026-11-28T21:00:00Z",
+   "postado_em": "2026-11-27T11:04:25+00:00",
    "envio_pendente": null
   }
  },
@@ -34901,7 +34932,7 @@
   "2026-11-24": 900,
   "2026-11-25": 100,
   "2026-11-26": 100,
-  "2026-11-27": 100
+  "2026-11-27": 200
  },
  "envios": {
   "2026-11-18": 40,
@@ -34913,7 +34944,7 @@
   "2026-11-24": 6,
   "2026-11-25": 1,
   "2026-11-26": 1,
-  "2026-11-27": 1
+  "2026-11-27": 2
  },
  "canais_yt": {
   "@IShowSpeed": "UCWsDFcIhY2DBi3GB5uykGXA"
